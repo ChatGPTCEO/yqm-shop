@@ -5,6 +5,8 @@ spring:
     name: yqm-site-admin
   profiles:
     active: dev
+  session:
+    store-type: jdbc
   jackson:
     time-zone: GMT+8
   datasource:

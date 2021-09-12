@@ -9,3 +9,15 @@ spring:
       url: jdbc:mysql://localhost:3306/dynamic-site?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
       username: root
       password: 123456
+  session:
+    store-type: none
+yqm:
+  security:
+    browse:
+      login-url: /authentication/login
+      login-page: /authentication/require
+    code:
+      width: 67
+      height: 23
+      length: 4
+      expireIn: 60
