@@ -2,6 +2,7 @@ package com.yqm.common.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yqm.common.entity.TpHonorClassify;
+import org.springframework.stereotype.Repository;
 
 /**
 * <p>
@@ -11,6 +12,7 @@ import com.yqm.common.entity.TpHonorClassify;
 * @author weiximei
 * @since 2021-09-11
 */
+    @Repository
     public interface TpHonorClassifyMapper extends BaseMapper<TpHonorClassify> {
 
     }

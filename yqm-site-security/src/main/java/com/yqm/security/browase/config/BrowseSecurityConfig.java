@@ -29,10 +29,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 /**
  *
@@ -70,6 +74,7 @@ public class BrowseSecurityConfig extends WebSecurityConfigurerAdapter {
         // 也可以自定义加密的规则，只需要自定义的类实现 PasswordEncoder 接口就可以了
         return new BCryptPasswordEncoder();
     }
+
 
     /**
      * 配置 Http请求安全策略
