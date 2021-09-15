@@ -38,6 +38,6 @@ public class BrowseProperties {
 
     private String loginPage = "/authentication/require";
 
-    private String loginType = "JSON";
+    private String loginType = "json";
 
 }

@@ -44,7 +44,7 @@ public enum LoginType {
     /**
      * json 格式
      */
-    JSON("JSON", "json"),
+    JSON("json", "json"),
     ;
 
     private String desc;
