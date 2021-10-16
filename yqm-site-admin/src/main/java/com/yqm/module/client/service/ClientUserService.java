@@ -23,9 +23,13 @@
 package com.yqm.module.client.service;
 
 
+import com.yqm.common.SpringContextHelper;
+import com.yqm.common.dto.TpUserDTO;
 import com.yqm.common.entity.TpUser;
 import com.yqm.common.mapper.TpUserMapper;
+import com.yqm.common.request.TpUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -43,7 +47,12 @@ public class ClientUserService {
     @Autowired
     private TpUserMapper tpUserMapper;
 
-    public TpUser registered() {
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    public TpUser registered(TpUserRequest request) {
+
+        SpringContextHelper.getApplicationContext().publishEvent(new ClientUserService());
         return null;
     }
 
