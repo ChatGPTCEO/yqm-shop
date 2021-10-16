@@ -27,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 
 /**
+ * 监听登录失败
  * @Author: weiximei
  * @Date: 2021/10/16 22:05
  * @微信: wxm907147608
