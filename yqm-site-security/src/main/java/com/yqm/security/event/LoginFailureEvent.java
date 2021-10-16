@@ -20,28 +20,22 @@
  * limitations under the License.
  */
 
-package com.yqm.admin.config;
+package com.yqm.security.event;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
-import org.springframework.transaction.PlatformTransactionManager;
-
-import javax.sql.DataSource;
+import org.springframework.context.ApplicationEvent;
 
 /**
+ * 登录失败事件
+ *
  * @Author: weiximei
- * @Date: 2021/9/12 15:58
+ * @Date: 2021/10/16 22:00
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@EnableJdbcHttpSession
-public class SessionConfig {
+public class LoginFailureEvent extends ApplicationEvent {
 
-    @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
+    public LoginFailureEvent(Object source) {
+        super(source);
     }
-
 }

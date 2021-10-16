@@ -22,39 +22,79 @@ import java.time.LocalDateTime;
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 公司名称
+     */
     private String company;
 
+    /**
+     * LOGO
+     */
     private String logo;
 
+    /**
+     * 公司法人
+     */
     private String legalRepresentative;
 
+    /**
+     * 法人电话
+     */
     private String legalRepresentativePhone;
 
+    /**
+     * 成立时间
+     */
     private String establishedTime;
 
+    /**
+     * 地址
+     */
     private String address;
 
-        @TableField("POSTAL_CODE")
+    /**
+     * 邮编
+     */
     private String postalCode;
 
+    /**
+     * 传真
+     */
     private String fax;
 
+    /**
+     * 用户id
+     */
     private String userId;
 
+    /**
+     * 企业执照
+     */
     private String businessLicense;
 
+    /**
+     * 简介
+     */
     private String introduce;
 
-        @TableField("CREATED_BY")
+    /**
+     * 创建人
+     */
     private String createdBy;
 
-        @TableField("CREATED_TIME")
+    /**
+     * 创建时间
+     */
     private LocalDateTime createdTime;
 
-        @TableField("UPDATED_BY")
+    /**
+     * 更新人
+     */
     private String updatedBy;
 
-        @TableField("UPDATED_TIME")
+    /**
+     * 更新时间
+     */
     private LocalDateTime updatedTime;
 
 

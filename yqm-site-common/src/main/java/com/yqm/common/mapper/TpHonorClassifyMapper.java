@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 * @author weiximei
 * @since 2021-09-11
 */
-    @Repository
     public interface TpHonorClassifyMapper extends BaseMapper<TpHonorClassify> {
 
     }

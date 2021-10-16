@@ -22,20 +22,34 @@ import java.time.LocalDateTime;
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 分类名称
+     */
     private String honorClassifyName;
 
+    /**
+     * 公司id
+     */
     private String companyId;
 
-        @TableField("CREATED_BY")
+    /**
+     * 创建人
+     */
     private String createdBy;
 
-        @TableField("CREATED_TIME")
+    /**
+     * 创建时间
+     */
     private LocalDateTime createdTime;
 
-        @TableField("UPDATED_BY")
+    /**
+     * 更新人
+     */
     private String updatedBy;
 
-        @TableField("UPDATED_TIME")
+    /**
+     * 更新时间
+     */
     private LocalDateTime updatedTime;
 
 

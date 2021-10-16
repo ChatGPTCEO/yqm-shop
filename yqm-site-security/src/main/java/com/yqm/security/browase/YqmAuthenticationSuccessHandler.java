@@ -26,13 +26,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yqm.common.define.Http;
 import com.yqm.security.core.properties.LoginType;
 import com.yqm.security.core.properties.SecurityProperties;
+import com.yqm.security.event.LoginSuccessEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -49,7 +54,10 @@ import java.io.IOException;
  */
 @Slf4j
 @Component("yqmAuthenticationSuccessHandler")
-public class YqmAuthenticationSuccessHandler extends ExceptionMappingAuthenticationFailureHandler {
+public class YqmAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler  {
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     /**
      * JACKSON
@@ -61,22 +69,23 @@ public class YqmAuthenticationSuccessHandler extends ExceptionMappingAuthenticat
     private SecurityProperties securityProperties;
 
     @Override
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-                                        AuthenticationException exception) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
         log.info("登陆失败");
 
         if(LoginType.JSON.getValue().equals(securityProperties.getBrowse().getLoginType())) {
-            // 返回状态码改成 500
-            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            response.setContentType(Http.ContentType.APPLICATION_JSON.getValue());
-            // AuthenticationException 包含了登陆失败的所有信息
-            // 登陆失败后，把失败的信息返回成JSON给前台
-            response.getWriter().write(objectMapper.writeValueAsString(exception));
-        }else {
 
-            // 使用父类的处理方式
-            super.onAuthenticationFailure(request, response, exception);
+            response.setContentType(Http.ContentType.APPLICATION_JSON.getValue());
+
+            // Authentication 接口默认把登陆成功后信息给包装起来了
+            // 把 Authentication 包装好的登陆信息返回成JSON给前台
+            response.getWriter().write(objectMapper.writeValueAsString(authentication));
+        }else {
+            // 调用父类的方法，进行页面跳转
+            super.onAuthenticationSuccess(request, response, authentication);
         }
+
+        // 发送登录的成功事件
+        applicationContext.publishEvent(new LoginSuccessEvent(authentication.getCredentials()));
 
     }
 }
