@@ -25,6 +25,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -60,5 +62,16 @@ public class YqmSiteAdminApplication {
         config.addAllowedMethod("PATCH");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
+    }
+
+    /**
+     * 加密类
+     * @return
+     */
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // 这里使用的是Spring Security默认的实现。
+        // 也可以自定义加密的规则，只需要自定义的类实现 PasswordEncoder 接口就可以了
+        return new BCryptPasswordEncoder();
     }
 }

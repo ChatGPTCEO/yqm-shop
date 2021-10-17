@@ -19,11 +19,11 @@
  *
  * limitations under the License.
  */
-
-package com.yqm.security.browase;
+package com.yqm.security;
 
 import com.yqm.common.entity.TpUser;
 import com.yqm.common.mapper.TpUserMapper;
+import com.yqm.security.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

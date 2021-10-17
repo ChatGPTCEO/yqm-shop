@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 
-package com.yqm.security.browase;
+package com.yqm.security;
 
 import com.yqm.common.entity.TpUser;
 import lombok.Data;

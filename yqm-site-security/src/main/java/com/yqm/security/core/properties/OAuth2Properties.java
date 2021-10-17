@@ -23,27 +23,17 @@
 package com.yqm.security.core.properties;
 
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
- * 安全配置属性
- *
  * @Author: weiximei
- * @Date: 2021/9/12 10:44
+ * @Date: 2021/10/17 20:42
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
-@Component
-@ConfigurationProperties(prefix = "yqm.security")
-public class SecurityProperties {
+public class OAuth2Properties {
 
-    private BrowseProperties browse = new BrowseProperties();
-
-    private ValidateCodeProperties code = new ValidateCodeProperties();
-
-    private OAuth2Properties oauth2 = new OAuth2Properties();
+    private OAuth2Client client = new OAuth2Client();
 
 }

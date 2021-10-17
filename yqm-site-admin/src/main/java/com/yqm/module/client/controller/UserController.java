@@ -22,6 +22,9 @@
 
 package com.yqm.module.client.controller;
 
+import com.yqm.common.response.ResponseBean;
+import com.yqm.security.UserInfoService;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +42,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 
+    @PostMapping("/hello")
+    public String a() {
+        return "你好";
+    }
 
+    @PostMapping("/userInfo")
+    public ResponseBean userInfo() {
+
+        return ResponseBean.success(UserInfoService.getUser());
+    }
 
 }

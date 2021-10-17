@@ -22,7 +22,6 @@
 
 package com.yqm.security;
 
-import com.yqm.security.browase.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 

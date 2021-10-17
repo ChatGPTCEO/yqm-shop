@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 
-package com.yqm.security.browase.controller;
+package com.yqm.security;
 
 import com.yqm.security.core.img.ImageCodeGenerator;
 import com.yqm.security.core.properties.SecurityProperties;
