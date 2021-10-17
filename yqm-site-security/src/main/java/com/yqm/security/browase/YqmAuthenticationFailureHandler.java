@@ -24,6 +24,7 @@ package com.yqm.security.browase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yqm.common.define.Http;
+import com.yqm.common.response.ResponseBean;
 import com.yqm.security.core.properties.LoginType;
 import com.yqm.security.core.properties.SecurityProperties;
 import com.yqm.security.event.LoginFailureEvent;
@@ -72,7 +73,9 @@ public class YqmAuthenticationFailureHandler extends ExceptionMappingAuthenticat
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                         AuthenticationException exception) throws IOException, ServletException {
-        log.info("登陆成功");
+        log.info("登陆失败");
+        // 发送登录的成功事件
+        applicationContext.publishEvent(new LoginFailureEvent(exception));
 
         if(LoginType.JSON.getValue().equals(securityProperties.getBrowse().getLoginType())) {
             // 返回状态码改成 500
@@ -80,16 +83,13 @@ public class YqmAuthenticationFailureHandler extends ExceptionMappingAuthenticat
             response.setContentType(Http.ContentType.APPLICATION_JSON.getValue());
             // AuthenticationException 包含了登陆失败的所有信息
             // 登陆失败后，把失败的信息返回成JSON给前台
-            response.getWriter().write(objectMapper.writeValueAsString(exception));
+            log.info("错误:{}", ResponseBean.error(exception.getMessage()));
+            response.getWriter().write(objectMapper.writeValueAsString(ResponseBean.error(exception.getMessage())));
         }else {
 
             // 使用父类的处理方式
             super.onAuthenticationFailure(request, response, exception);
         }
-
-
-        // 发送登录的成功事件
-        applicationContext.publishEvent(new LoginFailureEvent(exception));
 
     }
 }

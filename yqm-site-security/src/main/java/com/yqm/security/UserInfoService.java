@@ -20,50 +20,39 @@
  * limitations under the License.
  */
 
-package com.yqm.security.core.properties;
+package com.yqm.security;
 
-import lombok.Data;
+import com.yqm.security.browase.User;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import java.util.List;
 
 /**
  * @Author: weiximei
- * @Date: 2021/9/12 10:39
+ * @Date: 2021/10/17 11:36
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@Data
-public class BrowseProperties {
+public class UserInfoService {
 
     /**
-     * 登录入口
+     * 当前用户信息
+     * @return
      */
-    private String loginUrl = "/authentication/login";
+    public static User getUser() {
+       User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+       user.setPassword(null);
+        return  user;
+    }
 
     /**
-     * 当需要身份认证的时候，跳转到这里
+     * 当前用户权限
+     * @return
      */
-    private String loginPage = "/authentication/require";
-
-    /**
-     * 登录成功跳转路径
-     */
-    private String loginSuccess = "/login/success";
-
-    /**
-     * 数据类型
-     */
-    private String loginType = "json";
-
-    /**
-     * 登录提交表单的 账号 参数名
-     */
-    private String usernameParameter = "username";
-
-    /**
-     * 登录提交表单的 密码 参数名
-     */
-    private String passwordParameter = "password";
-
-
+    public static List<GrantedAuthority> getAuthorities() {
+       return (List<GrantedAuthority>) getUser().getAuthorities();
+    }
 
 }

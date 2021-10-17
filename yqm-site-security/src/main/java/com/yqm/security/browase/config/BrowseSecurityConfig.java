@@ -22,6 +22,8 @@
 
 package com.yqm.security.browase.config;
 
+import com.yqm.security.browase.YqmAuthenticationSuccessHandler;
+import com.yqm.security.browase.filter.YqmAuthenticationFilter;
 import com.yqm.security.core.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import javax.sql.DataSource;
@@ -57,12 +60,12 @@ public class BrowseSecurityConfig extends WebSecurityConfigurerAdapter {
     private SecurityProperties securityProperties;
 
     @Autowired
-//    @Qualifier("yqmAuthenticationSuccessHandler")
+    @Qualifier("yqmAuthenticationSuccessHandler")
     private AuthenticationSuccessHandler authenticationSuccessHandler;
 
 
     @Autowired
-//    @Qualifier("yqmAuthenticationFailureHandler")
+    @Qualifier("yqmAuthenticationFailureHandler")
     private AuthenticationFailureHandler authenticationFailureHandler;
 
     /**
@@ -83,11 +86,16 @@ public class BrowseSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+
+
         http.formLogin() //表单登陆
+                .usernameParameter(securityProperties.getBrowse().getUsernameParameter())
+                .passwordParameter(securityProperties.getBrowse().getPasswordParameter())
                 .loginPage(securityProperties.getBrowse().getLoginPage())
                 .loginProcessingUrl(securityProperties.getBrowse().getLoginUrl()) // 表示表单提交登陆的地址
-                .successHandler(authenticationSuccessHandler) // 使用我们自定义的登陆成功后的处理方式
+                //.successHandler(authenticationSuccessHandler) // 使用我们自定义的登陆成功后的处理方式, 这里配置无效果(后面在仔细研究)
                 .failureHandler(authenticationFailureHandler) // 使用我们自定义的登陆失败后的处理方式
+                .defaultSuccessUrl(securityProperties.getBrowse().getLoginSuccess()) // 登录成功后跳转地址
                 .and()
                 .authorizeRequests() // 对请求做一个授权，意思就是下面的请求都要一个授权
                 .antMatchers(
@@ -98,7 +106,7 @@ public class BrowseSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest() //任何请求，意思就是所有的请求
                 .authenticated()  // 需要身份认证，意思就是请求都要一个身份认证
                 .and()
-                .csrf().disable(); // 把CSRF跨站攻击安全，关闭
+                .csrf().disable(); // 把CSRF跨站攻击安全，关闭;
 
     }
 

@@ -70,7 +70,7 @@ public class YqmAuthenticationSuccessHandler extends SavedRequestAwareAuthentica
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
-        log.info("登陆失败");
+        log.info("登陆成功");
 
         if(LoginType.JSON.getValue().equals(securityProperties.getBrowse().getLoginType())) {
 
