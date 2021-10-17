@@ -79,7 +79,7 @@ public class YqmAuthenticationFailureHandler extends ExceptionMappingAuthenticat
 
         if(LoginType.JSON.getValue().equals(securityProperties.getBrowse().getLoginType())) {
             // 返回状态码改成 500
-            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+//            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType(Http.ContentType.APPLICATION_JSON.getValue());
             // AuthenticationException 包含了登陆失败的所有信息
             // 登陆失败后，把失败的信息返回成JSON给前台
