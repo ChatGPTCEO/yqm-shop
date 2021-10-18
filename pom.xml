@@ -153,6 +153,12 @@
             <version>2.3.8.RELEASE</version>
         </dependency>
 
+        <!-- Api docs -->
+        <dependency>
+            <groupId>io.github.yedaxia</groupId>
+            <artifactId>japidocs</artifactId>
+            <version>1.4.4</version>
+        </dependency>
 
     </dependencies>
 

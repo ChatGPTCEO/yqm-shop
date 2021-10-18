@@ -20,27 +20,38 @@
  * limitations under the License.
  */
 
-package com.yqm.security.app;
+package com.yqm.module.admin.service;
 
+import com.yqm.common.SpringContextHelper;
+import com.yqm.common.conversion.TpUserToDTO;
+import com.yqm.common.dto.TpUserDTO;
+import com.yqm.common.entity.TpUser;
+import com.yqm.security.User;
+import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.oauth2.provider.ClientDetails;
-import org.springframework.security.oauth2.provider.ClientDetailsService;
-import org.springframework.security.oauth2.provider.ClientRegistrationException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
+ * 管理端用户
+ *
  * @Author: weiximei
- * @Date: 2021/10/17 20:58
+ * @Date: 2021/10/18 19:33
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Slf4j
-//@Component
-public class YqmAppClientDetailsService implements ClientDetailsService {
+@Service
+public class AdminUserService {
 
-    @Override
-    public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
-        return null;
+
+    /**
+     * 获取用户信息
+     * @return
+     */
+    public TpUserDTO getUserInfo() {
+        User user = UserInfoService.getUser();
+        return TpUserToDTO.toTpUserDTO(user);
     }
+
 }

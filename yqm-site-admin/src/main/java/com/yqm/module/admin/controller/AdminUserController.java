@@ -20,37 +20,40 @@
  * limitations under the License.
  */
 
-package com.yqm.module.client.controller;
+package com.yqm.module.admin.controller;
 
 import com.yqm.common.response.ResponseBean;
-import com.yqm.security.UserInfoService;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.yqm.module.admin.service.AdminUserService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 客户端用户
- *
+ * 管理端用户
  * @Author: weiximei
- * @Date: 2021/10/16 22:07
+ * @Date: 2021/10/18 21:30
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client")
+
+@Slf4j
+@RequestMapping("/admin/user")
 @RestController
-public class UserController {
+public class AdminUserController {
 
+    @Autowired
+    private AdminUserService adminUserService;
 
-    @PostMapping("/hello")
-    public String a() {
-        return "你好";
-    }
-
-    @PostMapping("/userInfo")
-    public ResponseBean userInfo() {
-
-        return ResponseBean.success(UserInfoService.getUser());
+    /**
+     * 获取用户信息
+     * @return
+     */
+    @GetMapping("/getUserInfo")
+    public ResponseBean getUserInfo() {
+        return ResponseBean.success(adminUserService.getUserInfo());
     }
 
 }
