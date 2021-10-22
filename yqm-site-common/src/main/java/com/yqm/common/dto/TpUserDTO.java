@@ -26,6 +26,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: weiximei
@@ -50,4 +52,12 @@ public class TpUserDTO implements Serializable {
     private String areaId;
     private Integer enterpriseCertification;
     private String status;
+    /**
+     * 头像
+     */
+    private String avatar;
+
+    private List<String> permissions = new ArrayList<>();
+
+    private List<String> roles = new ArrayList<>();
 }

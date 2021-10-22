@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>yqm-docsAPI Documentation</title>
+    <title>客户端用户</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
@@ -52,7 +52,7 @@
                  aria-expanded="true" data-target="#collapse1" aria-controls="collapse1">
                 <i class="glyphicon glyphicon-align-justify"></i> 客户端用户
             </div>
-            <div id="collapse1" class="collapse " aria-labelledby="heading1">
+            <div id="collapse1" class="collapse in " aria-labelledby="heading1">
                     <a class="catalog-item" href="com_yqm_module_client_controller_ClientUserController.html#userInfo">
                         获取用户信息-客户端
                     </a>
@@ -64,18 +64,33 @@
             <div class="book-header">
                 <div class="d-flex justify-content-between">
                     <a class="header-menu toggle-catalog" href="javascript:void(0)"><i
-                                class="glyphicon glyphicon-align-justify"></i> 目录</a>
+                            class="glyphicon glyphicon-align-justify"></i> 目录</a>
                 </div>
             </div>
             <div class="page-wrapper">
                 <div class="page-inner">
-                    <div class="main-content">
-                        <img src="http://static.nowait.xin/pic/japidocs-logo.png" width="200" height="200">
-                        <h4 style="margin: 20px">本文档由JApiDocs生成</h4>
-                        <div class="list-group" style="min-width: 200px">
-                                <a href="com_yqm_module_admin_controller_AdminUserController.html" class="list-group-item">AdminUserController</a>
-                                <a href="com_yqm_module_client_controller_ClientUserController.html" class="list-group-item">客户端用户</a>
+                    <div class="action-list">
+                        <div class="action-item">
+<h2 id="userInfo"><a href="#">获取用户信息-客户端 </a></h2>
+<p><strong>请求URL</strong></p>
+<p>
+    <code>/client/userInfo</code>
+        <span class="label label-default">POST</span>
+</p>
+    <p><strong>返回结果</strong></p>
+    <pre class="prettyprint lang-json">{
+	"code":"int",
+	"message":"string"
+}</pre>
+        <div class="form-group">
+            <a type="button" class="btn btn-sm btn-default" href="javaCodes/com_yqm_module_client_controller_ClientUserController_userInfo_com.yqm.common.response.ResponseBean.html"><i
+                        class="fa fa-android" aria-hidden="true"></i> Android Model</a>
+            <a type="button" class="btn btn-sm btn-default" href="iosCodes/com_yqm_module_client_controller_ClientUserController_userInfo_com.yqm.common.response.ResponseBean.html"><i class="fa fa-apple"
+                                                                                                 aria-hidden="true"></i>
+                iOS Model</a>
+        </div>
                         </div>
+                        <hr>
                     </div>
                 </div>
             </div>
@@ -89,9 +104,10 @@
 <script>
 
     var search_source_data = [
-        {name: 'AdminUserController.获取用户信息', url: 'com_yqm_module_admin_controller_AdminUserController.html#getUserInfo'},
-        {name: '客户端用户.获取用户信息-客户端', url: 'com_yqm_module_client_controller_ClientUserController.html#userInfo'},
+            {name: 'AdminUserController.获取用户信息', url: 'com_yqm_module_admin_controller_AdminUserController.html#getUserInfo'},
+            {name: '客户端用户.获取用户信息-客户端', url: 'com_yqm_module_client_controller_ClientUserController.html#userInfo'},
     ];
+
 
 
     $('.toggle-catalog').click(function () {

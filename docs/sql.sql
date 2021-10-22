@@ -103,6 +103,7 @@ CREATE TABLE tp_user(
                         created_time DATETIME NOT NULL  DEFAULT now() COMMENT '创建时间' ,
                         updated_by VARCHAR(32) NOT NULL   COMMENT '更新人' ,
                         updated_time DATETIME NOT NULL  DEFAULT now() COMMENT '更新时间' ,
+                        `avatar` varchar(1024) DEFAULT NULL COMMENT '头像',
                         PRIMARY KEY (id)
 )  COMMENT = '用户表';
 

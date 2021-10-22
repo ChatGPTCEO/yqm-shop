@@ -74,4 +74,5 @@ public class YqmSiteAdminApplication {
         // 也可以自定义加密的规则，只需要自定义的类实现 PasswordEncoder 接口就可以了
         return new BCryptPasswordEncoder();
     }
+
 }

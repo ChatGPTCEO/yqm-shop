@@ -30,6 +30,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 /**
  * 管理端用户
  * @Author: weiximei
@@ -55,5 +57,15 @@ public class AdminUserController {
     public ResponseBean getUserInfo() {
         return ResponseBean.success(adminUserService.getUserInfo());
     }
+
+    /**
+     * 获取用户路由信息
+     * @return
+     */
+    @GetMapping("/routes")
+    public ResponseBean routes() {
+        return ResponseBean.success(new ArrayList<>());
+    }
+
 
 }

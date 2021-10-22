@@ -107,7 +107,10 @@ import java.time.LocalDateTime;
      */
     private LocalDateTime updatedTime;
 
-
+    /**
+     * 头像
+     */
+    private String avatar;
 
 
 }
