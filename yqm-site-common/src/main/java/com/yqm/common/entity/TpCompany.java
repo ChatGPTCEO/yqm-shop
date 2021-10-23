@@ -97,5 +97,31 @@ import java.time.LocalDateTime;
      */
     private LocalDateTime updatedTime;
 
+    /**
+     * 业务人员名称
+     */
+    private String businessPersonnelName;
+
+    /**
+     * 业务人员手机
+     */
+    private String businessPersonnelPhone;
+
+    /**
+     * 业务人员邮件
+     */
+    private String businessPersonnelEmail;
+
+    /**
+     * 业务人员性别
+     */
+    private String businessPersonnelSex;
+
+    /**
+     * 业务人员职务
+     */
+    private String businessPersonnelPost;
+
+
 
 }

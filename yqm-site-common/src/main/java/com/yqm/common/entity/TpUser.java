@@ -1,6 +1,5 @@
 package com.yqm.common.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -111,6 +110,7 @@ import java.time.LocalDateTime;
      * 头像
      */
     private String avatar;
+
 
 
 }

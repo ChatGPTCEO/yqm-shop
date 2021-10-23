@@ -24,48 +24,45 @@ package com.yqm.module.admin.controller;
 
 import com.yqm.common.response.ResponseBean;
 import com.yqm.common.upload.UploadImg;
-import com.yqm.module.admin.service.AdminUserService;
-import lombok.extern.slf4j.Slf4j;
+import com.yqm.module.admin.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 /**
- * 管理端用户
+ * 上传
+ *
  * @Author: weiximei
- * @Date: 2021/10/18 21:30
+ * @Date: 2021/10/23 22:37
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-
-@Slf4j
-@RequestMapping("/admin/user")
 @RestController
-public class AdminUserController {
+@RequestMapping("/admin/upload")
+public class UploadController {
 
     @Autowired
-    private AdminUserService adminUserService;
-
-
-    /**
-     * 获取用户信息
-     * @return
-     */
-    @GetMapping("/getUserInfo")
-    public ResponseBean getUserInfo() {
-        return ResponseBean.success(adminUserService.getUserInfo());
-    }
+    private UploadService uploadService;
 
     /**
-     * 获取用户路由信息
+     * 图片上传
+     * @param file
      * @return
      */
-    @GetMapping("/routes")
-    public ResponseBean routes() {
-        return ResponseBean.success(new ArrayList<>());
+    @PostMapping("/img")
+    public ResponseBean uploadImg(@RequestParam("file") MultipartFile file) {
+        try {
+            return ResponseBean.success(uploadService.uploadImg(file.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseBean.error("上传失败");
     }
 
 }

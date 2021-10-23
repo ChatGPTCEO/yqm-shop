@@ -121,10 +121,16 @@ CREATE TABLE tp_company(
                            user_id VARCHAR(255)    COMMENT '用户id' ,
                            business_license VARCHAR(1024)    COMMENT '企业执照' ,
                            introduce text    COMMENT '简介' ,
+                           phone VARCHAR(255)    COMMENT '公司联系电话' ,
                            created_by VARCHAR(32) NOT NULL   COMMENT '创建人' ,
                            created_time DATETIME NOT NULL  DEFAULT now() COMMENT '创建时间' ,
                            updated_by VARCHAR(32) NOT NULL   COMMENT '更新人' ,
                            updated_time DATETIME NOT NULL  DEFAULT now() COMMENT '更新时间' ,
+                           business_personnel_name VARCHAR(255)    COMMENT '业务人员名称' ,
+                           business_personnel_phone VARCHAR(255)    COMMENT '业务人员手机' ,
+                           business_personnel_email VARCHAR(255)    COMMENT '业务人员邮件' ,
+                           business_personnel_sex VARCHAR(255)    COMMENT '性别' ,
+                           business_personnel_post VARCHAR(255)    COMMENT '职务' ,
                            PRIMARY KEY (id)
 )  COMMENT = '公司';
 
@@ -233,3 +239,14 @@ CREATE TABLE tp_team(
 )  COMMENT = '团队';
 
 
+DROP TABLE IF EXISTS sys_config;
+CREATE TABLE sys_config(
+                           id VARCHAR(255) NOT NULL   COMMENT '编号' ,
+                           config_name VARCHAR(255)    COMMENT '名称' ,
+                           config_value text    COMMENT '配置值' ,
+                           create_by VARCHAR(32)    COMMENT '创建人' ,
+                           create_time DATETIME    COMMENT '创建时间' ,
+                           updated_by VARCHAR(32)    COMMENT '更新人' ,
+                           updated_time DATETIME    COMMENT '更新时间' ,
+                           PRIMARY KEY (id)
+)  COMMENT = '站点配置';
