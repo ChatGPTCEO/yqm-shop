@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 
-package com.yqm.common.request;
+package com.yqm.common.dto;
 
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
@@ -29,36 +29,41 @@ import java.time.LocalDateTime;
 
 /**
  * @Author: weiximei
- * @Date: 2021/10/16 23:42
+ * @Date: 2021/10/24 19:19
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpUserRequest  extends BaseEntity {
+public class TpCompanyDTO extends BaseEntity {
 
     /**
-     * 用户姓名
+     * 公司名称
      */
-    private String userName;
+    private String company;
 
     /**
-     * 性别;0 未知 1 男 2 女
+     * LOGO
      */
-    private Integer sex;
+    private String logo;
 
     /**
-     * 手机
+     * 公司法人
      */
-    private String phone;
+    private String legalRepresentative;
 
     /**
-     * 邮箱
+     * 法人电话
      */
-    private String email;
+    private String legalRepresentativePhone;
 
     /**
-     * 地址;详细地址
+     * 成立时间
+     */
+    private String establishedTime;
+
+    /**
+     * 地址
      */
     private String address;
 
@@ -68,39 +73,24 @@ public class TpUserRequest  extends BaseEntity {
     private String postalCode;
 
     /**
-     * 账号
+     * 传真
      */
-    private String account;
+    private String fax;
 
     /**
-     * 密码
+     * 用户id
      */
-    private String password;
+    private String userId;
 
     /**
-     * 省
+     * 企业执照
      */
-    private String provinceId;
+    private String businessLicense;
 
     /**
-     * 市
+     * 简介
      */
-    private String cityId;
-
-    /**
-     * 区
-     */
-    private String areaId;
-
-    /**
-     * 企业认证;0未认证 1 认证 2 认证审核中
-     */
-    private Integer enterpriseCertification;
-
-    /**
-     * 状态;effective 有效 failure 失效 delete 删除
-     */
-    private String status;
+    private String introduce;
 
     /**
      * 创建人
@@ -121,5 +111,30 @@ public class TpUserRequest  extends BaseEntity {
      * 更新时间
      */
     private LocalDateTime updatedTime;
+
+    /**
+     * 业务人员名称
+     */
+    private String businessPersonnelName;
+
+    /**
+     * 业务人员手机
+     */
+    private String businessPersonnelPhone;
+
+    /**
+     * 业务人员邮件
+     */
+    private String businessPersonnelEmail;
+
+    /**
+     * 业务人员性别
+     */
+    private String businessPersonnelSex;
+
+    /**
+     * 业务人员职务
+     */
+    private String businessPersonnelPost;
 
 }

@@ -20,58 +20,35 @@
  * limitations under the License.
  */
 
-package com.yqm.common.request;
+package com.yqm.common.conversion;
 
-import com.yqm.common.base.BaseEntity;
-import lombok.Data;
-
-import java.time.LocalDateTime;
+import cn.hutool.core.bean.BeanUtil;
+import com.yqm.common.dto.TpCompanyDTO;
+import com.yqm.common.dto.TpUserDTO;
+import com.yqm.common.entity.TpCompany;
+import com.yqm.common.entity.TpUser;
+import com.yqm.common.request.TpCompanyRequest;
 
 /**
  * @Author: weiximei
- * @Date: 2021/10/23 21:24
+ * @Date: 2021/10/24 19:24
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@Data
-public class SysConfigRequest  extends BaseEntity {
+public class TpCompanyToDTO {
 
-    private String id;
+    public static TpCompanyDTO toTpCompanyDTO(TpCompany entity) {
+        TpCompanyDTO dto = new TpCompanyDTO();
+        BeanUtil.copyProperties(entity, dto);
+        return dto;
+    }
 
-    /**
-     * 名称
-     */
-    private String configName;
+    public static TpCompany toTpCompany(TpCompanyRequest request) {
+        TpCompany entity = new TpCompany();
+        BeanUtil.copyProperties(request, entity);
+        return entity;
+    }
 
-    /**
-     * 配置值
-     */
-    private String configValue;
-
-    /**
-     * 描述
-     */
-    private String configDesc;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    private String updatedBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updatedTime;
 
 }

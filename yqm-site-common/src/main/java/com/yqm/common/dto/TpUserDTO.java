@@ -23,6 +23,7 @@
 package com.yqm.common.dto;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -37,7 +38,7 @@ import java.util.List;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpUserDTO implements Serializable {
+public class TpUserDTO extends BaseEntity implements Serializable {
 
     private String userName;
     private Integer sex;
