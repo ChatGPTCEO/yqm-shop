@@ -20,35 +20,33 @@
  * limitations under the License.
  */
 
-package com.yqm.security.core.properties;
+package com.yqm.common;
 
+import com.yqm.security.core.properties.BrowseProperties;
+import com.yqm.security.core.properties.OAuth2Properties;
+import com.yqm.security.core.properties.ValidateCodeProperties;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
- * 安全配置属性
+ * 配置文件
  *
  * @Author: weiximei
- * @Date: 2021/9/12 10:44
+ * @Date: 2021/10/24 18:47
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "yqm.security")
-public class SecurityProperties {
+@ConfigurationProperties(prefix = "yqm")
+public class YqmDefine {
 
-    /**
-     * # 忽略请求，不做拦截
-     */
-    private String[] ignoreUrl;
 
-    private BrowseProperties browse = new BrowseProperties();
 
-    private ValidateCodeProperties code = new ValidateCodeProperties();
-
-    private OAuth2Properties oauth2 = new OAuth2Properties();
 
 }

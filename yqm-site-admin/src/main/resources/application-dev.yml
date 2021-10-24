@@ -13,7 +13,9 @@ spring:
     store-type: none
 
 yqm:
+
   security:
+    ignore-url: '' # 忽略请求，不做拦截
     browse:
       login-url: /authentication/login # 登录入口
       login-page: /authentication/require # 当需要身份认证的时候，跳转到这里

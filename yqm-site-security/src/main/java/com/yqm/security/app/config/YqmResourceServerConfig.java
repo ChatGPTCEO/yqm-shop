@@ -23,6 +23,8 @@
 package com.yqm.security.app.config;
 
 import com.yqm.security.core.properties.SecurityProperties;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -65,6 +67,18 @@ public class YqmResourceServerConfig  extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
+        String [] ig = new String[]{
+                securityProperties.getBrowse().getLoginPage()
+                ,"/oauth/token"
+                ,"/favicon.ico"
+                ,"/code/image",
+                "/session/invalid",
+
+        };
+
+        String [] igUrl = ArrayUtils.addAll(ig, securityProperties.getIgnoreUrl());
+
+
         http
                 //.apply(mySocicalSecurityConfig) // 添加 Configurer 的配置
                 //.and()
@@ -78,12 +92,8 @@ public class YqmResourceServerConfig  extends ResourceServerConfigurerAdapter {
                 .failureHandler(authenticationFailureHandler) // 使用我们自定义的登陆失败后的处理方式
                 .and()
                 .authorizeRequests() // 对请求做一个授权，意思就是下面的请求都要一个授权
-                .antMatchers(
-                        securityProperties.getBrowse().getLoginPage()
-                        ,"/oauth/token"
-                        ,"/favicon.ico"
-                        ,"/code/image","/session/invalid"
-                ).permitAll() // 表示对请求，不做认证拦截
+                .antMatchers(igUrl)
+                .permitAll() // 表示对请求，不做认证拦截
                 .anyRequest() //任何请求，意思就是所有的请求
                 .authenticated()  // 需要身份认证，意思就是请求都要一个身份认证
                 .and()
