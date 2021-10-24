@@ -1,5 +1,8 @@
 package com.yqm.module.admin;
 
+import com.yqm.common.entity.TpRegion;
+import com.yqm.common.request.TpRegionRequest;
+import com.yqm.common.service.ITpRegionService;
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -8,12 +11,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.List;
+
 @Slf4j
 @SpringBootTest
 class YqmSiteAdminApplicationTests {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private ITpRegionService iTpRegionService;
 
     @Test
     void contextLoads() {
@@ -36,5 +44,37 @@ class YqmSiteAdminApplicationTests {
         Docs.buildHtmlDocs(config); // 执行生成文档
     }
 
+
+    @Test
+    public void region() {
+        // 所有省
+        List<TpRegion> list1 = iTpRegionService.getProvinces(0);
+        for (TpRegion entity1 : list1) {
+            entity1.setLevel(1);
+            iTpRegionService.updateById(entity1);
+
+            TpRegionRequest request = new TpRegionRequest();
+            request.setPCode(entity1.getCode());
+            // 所有市
+            List<TpRegion> list2= iTpRegionService.list(iTpRegionService.queryWrapper(request));
+
+            for (TpRegion entity2 : list2) {
+                TpRegionRequest request2 = new TpRegionRequest();
+                request2.setPCode(entity2.getCode());
+
+                entity2.setLevel(2);
+                iTpRegionService.updateById(entity2);
+
+                // 所有区
+                List<TpRegion> list3= iTpRegionService.list(iTpRegionService.queryWrapper(request2));
+
+                for (TpRegion entity3 : list3) {
+                    entity3.setLevel(3);
+                    iTpRegionService.updateById(entity3);
+
+                }
+            }
+        }
+    }
 
 }
