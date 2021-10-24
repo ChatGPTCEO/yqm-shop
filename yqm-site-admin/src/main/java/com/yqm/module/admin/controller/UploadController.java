@@ -26,10 +26,7 @@ import com.yqm.common.response.ResponseBean;
 import com.yqm.common.upload.UploadImg;
 import com.yqm.module.admin.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -43,6 +40,7 @@ import java.io.IOException;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/admin/upload")
 public class UploadController {

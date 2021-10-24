@@ -69,6 +69,8 @@ public class YqmResourceServerConfig  extends ResourceServerConfigurerAdapter {
                 //.apply(mySocicalSecurityConfig) // 添加 Configurer 的配置
                 //.and()
                 //.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class) // 把自定义的拦截器放在 UsernamePasswordAuthenticationFilter 的前面执行
+                .cors()
+                .and()
                 .formLogin() //表单登陆
                 .loginPage(securityProperties.getBrowse().getLoginPage()) // 指定用户登陆的页面
                 .loginProcessingUrl(securityProperties.getBrowse().getLoginUrl()) // 表示表单提交登陆的地址
