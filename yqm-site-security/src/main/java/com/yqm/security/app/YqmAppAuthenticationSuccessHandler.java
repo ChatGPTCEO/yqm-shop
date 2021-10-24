@@ -27,10 +27,13 @@ import cn.hutool.core.map.MapUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.security.core.properties.SecurityProperties;
+import com.yqm.security.event.LoginFailureEvent;
+import com.yqm.security.event.LoginSuccessEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -59,6 +62,9 @@ import java.io.IOException;
 @Component("yqmAppAuthenticationSuccessHandler")
 public class YqmAppAuthenticationSuccessHandler  extends SavedRequestAwareAuthenticationSuccessHandler {
 
+    @Autowired
+    private ApplicationContext applicationContext;
+
     /**
      * spring boot 默认使用的 JACKJSON
      */
@@ -84,6 +90,7 @@ public class YqmAppAuthenticationSuccessHandler  extends SavedRequestAwareAuthen
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
         log.info("登陆成功");
+
 
         // 获取头部 Authorization
         String header = request.getHeader("Authorization");
@@ -135,6 +142,9 @@ public class YqmAppAuthenticationSuccessHandler  extends SavedRequestAwareAuthen
         // Authentication 接口默认把登陆成功后信息给包装起来了
         // 把 Authentication 包装好的登陆信息返回成JSON给前台
         response.getWriter().write(objectMapper.writeValueAsString(ResponseBean.success(token)));
+
+        // 发送登录的成功事件
+        applicationContext.publishEvent(new LoginSuccessEvent(token));
     }
 
     /**

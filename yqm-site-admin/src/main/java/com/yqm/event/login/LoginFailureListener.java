@@ -25,6 +25,7 @@ package com.yqm.event.login;
 import com.yqm.security.event.LoginFailureEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
 /**
  * 监听登录失败
@@ -35,6 +36,7 @@ import org.springframework.context.ApplicationListener;
  * @Email: 907147608@qq.com
  */
 @Slf4j
+@Component
 public class LoginFailureListener implements ApplicationListener<LoginFailureEvent> {
 
     @Override

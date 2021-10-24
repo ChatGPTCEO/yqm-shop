@@ -69,7 +69,7 @@ public class YqmAppAuthenticationFailureHandler extends ExceptionMappingAuthenti
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
                                         AuthenticationException exception) throws IOException, ServletException {
         log.info("登陆失败");
-        // 发送登录的成功事件
+        // 发送登录的失败事件
         applicationContext.publishEvent(new LoginFailureEvent(exception));
 
         if(LoginType.JSON.getValue().equals(securityProperties.getBrowse().getLoginType())) {

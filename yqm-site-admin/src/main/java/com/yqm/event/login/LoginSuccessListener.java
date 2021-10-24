@@ -26,6 +26,7 @@ import com.yqm.security.event.LoginSuccessEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
 /**
  * 监听登录成功事件
@@ -37,6 +38,7 @@ import org.springframework.context.ApplicationListener;
  * @Email: 907147608@qq.com
  */
 @Slf4j
+@Component
 public class LoginSuccessListener implements ApplicationListener<LoginSuccessEvent> {
 
     @Override
