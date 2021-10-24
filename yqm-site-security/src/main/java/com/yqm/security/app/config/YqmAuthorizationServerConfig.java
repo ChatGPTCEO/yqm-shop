@@ -65,9 +65,14 @@ public class YqmAuthorizationServerConfig extends AuthorizationServerConfigurerA
     @Autowired
     private SecurityProperties securityProperties;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Bean
     public JdbcClientDetailsService jdbcClientDetailsService() {
-        return new JdbcClientDetailsService(dataSource);
+        JdbcClientDetailsService jdbcClientDetailsService = new JdbcClientDetailsService(dataSource);
+        jdbcClientDetailsService.setPasswordEncoder(passwordEncoder);
+        return jdbcClientDetailsService;
 
     }
 

@@ -64,15 +64,6 @@ public class YqmSiteAdminApplication {
         return new CorsFilter(source);
     }
 
-    /**
-     * 加密类
-     * @return
-     */
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        // 这里使用的是Spring Security默认的实现。
-        // 也可以自定义加密的规则，只需要自定义的类实现 PasswordEncoder 接口就可以了
-        return new BCryptPasswordEncoder();
-    }
+
 
 }
