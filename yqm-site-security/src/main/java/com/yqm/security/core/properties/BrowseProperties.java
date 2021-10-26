@@ -37,7 +37,7 @@ public class BrowseProperties {
     /**
      * 登录入口
      */
-    private String loginUrl = "/oauth/token";
+    private String loginUrl = "/authentication/login";
 
     /**
      * 当需要身份认证的时候，跳转到这里

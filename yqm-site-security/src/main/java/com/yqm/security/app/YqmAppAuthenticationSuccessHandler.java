@@ -36,6 +36,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException;
 import org.springframework.security.oauth2.provider.*;
@@ -64,6 +65,9 @@ public class YqmAppAuthenticationSuccessHandler  extends SavedRequestAwareAuthen
 
     @Autowired
     private ApplicationContext applicationContext;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * spring boot 默认使用的 JACKJSON
@@ -114,10 +118,12 @@ public class YqmAppAuthenticationSuccessHandler  extends SavedRequestAwareAuthen
         // 根据 clientId 读取 本地库里面的用户信息
         ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
 
+        String encodePass = passwordEncoder.encode(clientSecret);
+
         // 校验 clientDetails
         if(null == clientDetails) {
             throw new UnapprovedClientAuthenticationException("clientId对应的配置信息不存在："+clientId);
-        }else if (!StringUtils.equals(clientDetails.getClientSecret(), clientSecret)) {
+        }else if (!passwordEncoder.matches(clientSecret, clientDetails.getClientSecret())) {
             throw new UnapprovedClientAuthenticationException("clientSecret不匹配, clientId值为："+clientId);
         }
 
