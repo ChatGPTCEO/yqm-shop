@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -42,6 +43,7 @@ import org.springframework.security.oauth2.provider.approval.JdbcApprovalStore;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
@@ -58,6 +60,9 @@ import javax.sql.DataSource;
 @Configuration
 @EnableAuthorizationServer // 开启授权服务。会启动自带的4种授权模式
 public class YqmAuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -92,17 +97,30 @@ public class YqmAuthorizationServerConfig extends AuthorizationServerConfigurerA
         return new JdbcAuthorizationCodeServices(dataSource);
     }
 
+    @Primary
+    @Bean
+    public DefaultTokenServices defaultTokenServices() {
+        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
+        defaultTokenServices.setTokenStore(tokenStore());
+        defaultTokenServices.setSupportRefreshToken(true);
+        defaultTokenServices.setAccessTokenValiditySeconds(securityProperties.getTokenSeconds());
+        defaultTokenServices.setRefreshTokenValiditySeconds(securityProperties.getTokenSeconds());
+        return defaultTokenServices;
+    }
+
     @Autowired
     private DataSource dataSource;
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
-                //.authenticationManager(authenticationManager) // 开启密码验证，来源于 WebSecurityConfigurerAdapter
+                .authenticationManager(authenticationManager) // 开启密码验证，来源于 WebSecurityConfigurerAdapter
                 .userDetailsService(userDetailsService) // 设置查询用户数据
                 .tokenStore(tokenStore()) // token存储方式
-                .approvalStore(approvalStore())
-                .authorizationCodeServices(authorizationCodeServices());
+                .approvalStore(approvalStore()) // 在何处批准 Token，也就是生成在何处
+                .tokenServices(defaultTokenServices()) // 定义 token 服务
+                .authorizationCodeServices(authorizationCodeServices()) // 开启授权码模式
+        ;
     }
 
     @Override

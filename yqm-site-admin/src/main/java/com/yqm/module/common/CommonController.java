@@ -27,19 +27,19 @@ import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpRegion;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.common.service.ITpRegionService;
+import com.yqm.module.common.service.UploadService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 省市区 控制器
+ * 公共 控制器
  *
  * @Author: weiximei
  * @Date: 2021/10/24 21:38
@@ -50,6 +50,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/common")
 public class CommonController {
+
+
+    @Autowired
+    private UploadService uploadService;
 
     @Autowired
     private ITpRegionService iTpRegionService;
@@ -67,6 +71,22 @@ public class CommonController {
             regionDTOList = list.stream().map(e -> TpRegionToDTO.toTpCompanyDTO(e)).collect(Collectors.toList());
         }
         return ResponseBean.success(regionDTOList);
+    }
+
+
+    /**
+     * 图片上传
+     * @param file
+     * @return
+     */
+    @PostMapping("/upload/img")
+    public ResponseBean uploadImg(@RequestParam("file") MultipartFile file) {
+        try {
+            return ResponseBean.success(uploadService.uploadImg(file.getBytes()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseBean.error("上传失败");
     }
 
 }

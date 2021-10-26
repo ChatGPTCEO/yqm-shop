@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 
-package com.yqm.module.admin.service;
+package com.yqm.module.common.service;
 
 import com.yqm.common.define.SysConfigDefine;
 import com.yqm.common.entity.SysConfig;

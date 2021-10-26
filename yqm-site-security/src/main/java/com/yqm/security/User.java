@@ -44,6 +44,7 @@ public class User extends TpUser implements UserDetails {
     private List<GrantedAuthority> authorities;
 
 
+
     /**
      * 用户权限
      * @return

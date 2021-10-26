@@ -80,6 +80,15 @@ public class CompanyService {
     }
 
     /**
+     * 获取用户绑定的公司
+     * @return
+     */
+    public TpCompanyDTO getUserBingCompany() {
+        TpCompany company = iTpCompanyService.getByUserId(UserInfoService.getUser().getId());
+        return TpCompanyToDTO.toTpCompanyDTO(company);
+    }
+
+    /**
      * 添加公司
      * @param request
      * @return

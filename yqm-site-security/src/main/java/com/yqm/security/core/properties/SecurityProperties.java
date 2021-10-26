@@ -45,6 +45,11 @@ public class SecurityProperties {
      */
     private String[] ignoreUrl;
 
+    /**
+     * Token 有效期
+     */
+    private int tokenSeconds = 7200;
+
     private BrowseProperties browse = new BrowseProperties();
 
     private ValidateCodeProperties code = new ValidateCodeProperties();

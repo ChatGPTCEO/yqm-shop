@@ -69,7 +69,7 @@ public class YqmResourceServerConfig  extends ResourceServerConfigurerAdapter {
 
         String [] ig = new String[]{
                 securityProperties.getBrowse().getLoginPage()
-                ,"/oauth/token"
+//                ,"/oauth/token"
                 ,"/favicon.ico"
                 ,"/code/image",
                 "/session/invalid",

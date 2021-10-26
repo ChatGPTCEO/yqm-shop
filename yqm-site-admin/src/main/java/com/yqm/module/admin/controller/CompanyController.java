@@ -26,10 +26,7 @@ import com.yqm.common.request.TpCompanyRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端-公司
@@ -53,7 +50,7 @@ public class CompanyController {
      * @return
      */
     @PostMapping("")
-    public ResponseBean addCompany(TpCompanyRequest request) {
+    public ResponseBean addCompany(@RequestBody TpCompanyRequest request) {
        return ResponseBean.success(companyService.addCompany(request));
     }
 
@@ -63,8 +60,19 @@ public class CompanyController {
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateCompany(TpCompanyRequest request) {
+    public ResponseBean updateCompany(@RequestBody TpCompanyRequest request) {
         return ResponseBean.success(companyService.updateCompany(request));
     }
+
+    /**
+     * 获取用户绑定的公司
+     * @return
+     */
+    @GetMapping("/getUserBingCompany")
+    public ResponseBean getUserBingCompany() {
+        return ResponseBean.success(companyService.getUserBingCompany());
+    }
+
+
 
 }

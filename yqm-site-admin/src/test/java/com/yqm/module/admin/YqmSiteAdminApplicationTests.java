@@ -29,6 +29,13 @@ class YqmSiteAdminApplicationTests {
     }
 
     @Test
+    void encodeSecret() {
+        log.info("生成密匙:{}", passwordEncoder.encode("29f5446f-b867-4417-9be4-5cae62ee3fc1"));
+    }
+
+
+
+    @Test
     void genDocs() {
         String rootSrc = System.getProperty("user.dir");
         log.info(rootSrc);

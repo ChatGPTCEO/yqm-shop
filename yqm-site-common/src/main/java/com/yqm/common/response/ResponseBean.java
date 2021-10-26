@@ -51,7 +51,7 @@ public class ResponseBean<T> implements Serializable {
     }
 
     private ResponseBean(T data) {
-        this(1, "成功", data);
+        this(1, "操作成功", data);
     }
 
     private ResponseBean(String message) {
