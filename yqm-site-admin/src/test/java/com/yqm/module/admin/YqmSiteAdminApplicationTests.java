@@ -54,34 +54,7 @@ class YqmSiteAdminApplicationTests {
 
     @Test
     public void region() {
-        // 所有省
-        List<TpRegion> list1 = iTpRegionService.getProvinces(0);
-        for (TpRegion entity1 : list1) {
-            entity1.setLevel(1);
-            iTpRegionService.updateById(entity1);
 
-            TpRegionRequest request = new TpRegionRequest();
-            request.setPCode(entity1.getCode());
-            // 所有市
-            List<TpRegion> list2= iTpRegionService.list(iTpRegionService.queryWrapper(request));
-
-            for (TpRegion entity2 : list2) {
-                TpRegionRequest request2 = new TpRegionRequest();
-                request2.setPCode(entity2.getCode());
-
-                entity2.setLevel(2);
-                iTpRegionService.updateById(entity2);
-
-                // 所有区
-                List<TpRegion> list3= iTpRegionService.list(iTpRegionService.queryWrapper(request2));
-
-                for (TpRegion entity3 : list3) {
-                    entity3.setLevel(3);
-                    iTpRegionService.updateById(entity3);
-
-                }
-            }
-        }
     }
 
 }

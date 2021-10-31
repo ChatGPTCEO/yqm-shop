@@ -55,7 +55,7 @@ public class CompanyController {
     }
 
     /**
-     * 添加操作
+     * 修改操作
      * @param request
      * @return
      */

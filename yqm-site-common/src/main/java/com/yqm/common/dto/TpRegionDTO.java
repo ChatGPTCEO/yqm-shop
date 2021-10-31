@@ -22,7 +22,11 @@
 
 package com.yqm.common.dto;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @Author: weiximei
@@ -32,17 +36,9 @@ import lombok.Data;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpRegionDTO {
+public class TpRegionDTO extends BaseEntity {
 
-    /**
-     * 地区代码
-     */
-    private Integer code;
-
-    /**
-     * 上级地区代码
-     */
-    private Integer pCode;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 区域名称
@@ -50,7 +46,53 @@ public class TpRegionDTO {
     private String name;
 
     /**
-     * 等级 1 省 2 市 3 区
+     * 区域上级标识
+     */
+    private String pid;
+
+    /**
+     * 地名简称
+     */
+    private String sname;
+
+    /**
+     * 区域等级
      */
     private Integer level;
+
+    /**
+     * 区域编码
+     */
+    private String citycode;
+
+    /**
+     * 邮政编码
+     */
+    private String yzcode;
+
+    /**
+     * 组合名称
+     */
+    private String mername;
+
+    /**
+     *
+     */
+    private Float lng;
+
+    /**
+     *
+     */
+    private Float lat;
+
+    /**
+     *
+     */
+    private String pinyin;
+
+
+    /**
+     * 子集
+     */
+    private List<TpRegionDTO> children;
 }

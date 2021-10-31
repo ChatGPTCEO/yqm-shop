@@ -35,17 +35,52 @@ import lombok.Data;
 public class TpRegionRequest {
 
     /**
-     * 地区代码
-     */
-    private Integer code;
-
-    /**
-     * 上级地区代码
-     */
-    private Integer pCode;
-
-    /**
      * 区域名称
      */
     private String name;
+
+    /**
+     * 区域上级标识
+     */
+    private String pid;
+
+    /**
+     * 地名简称
+     */
+    private String sname;
+
+    /**
+     * 区域等级
+     */
+    private Integer level;
+
+    /**
+     * 区域编码
+     */
+    private String citycode;
+
+    /**
+     * 邮政编码
+     */
+    private String yzcode;
+
+    /**
+     * 组合名称
+     */
+    private String mername;
+
+    /**
+     *
+     */
+    private Float lng;
+
+    /**
+     *
+     */
+    private Float lat;
+
+    /**
+     *
+     */
+    private String pinyin;
 }

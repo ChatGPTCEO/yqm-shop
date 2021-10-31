@@ -93,6 +93,11 @@ public class TpCompanyRequest extends BaseEntity {
     private String introduce;
 
     /**
+     * 联系电话
+     */
+    private String phone;
+
+    /**
      * 创建人
      */
     private String createdBy;
@@ -136,5 +141,21 @@ public class TpCompanyRequest extends BaseEntity {
      * 业务人员职务
      */
     private String businessPersonnelPost;
+
+    /**
+     * 省
+     */
+    private String provinceId;
+
+    /**
+     * 市
+     */
+    private String cityId;
+
+    /**
+     * 区
+     */
+    private String areaId;
+
 
 }

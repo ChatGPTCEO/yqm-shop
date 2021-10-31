@@ -78,6 +78,11 @@ import java.time.LocalDateTime;
     private String introduce;
 
     /**
+     * 联系电话
+     */
+    private String phone;
+
+    /**
      * 创建人
      */
     private String createdBy;
@@ -122,6 +127,19 @@ import java.time.LocalDateTime;
      */
     private String businessPersonnelPost;
 
+    /**
+     * 省
+     */
+    private String provinceId;
 
+    /**
+     * 市
+     */
+    private String cityId;
+
+    /**
+     * 区
+     */
+    private String areaId;
 
 }

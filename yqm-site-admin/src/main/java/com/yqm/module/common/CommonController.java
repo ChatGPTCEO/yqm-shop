@@ -59,18 +59,28 @@ public class CommonController {
     private ITpRegionService iTpRegionService;
 
     /**
-     * 获取省市区
-     * @param pCode
+     * 根据 pid 获取省市区
+     * @param pid
      * @return
      */
     @GetMapping("/provinces")
-    public ResponseBean provinces(@RequestParam("pCode") Integer pCode) {
-        List<TpRegion> list = iTpRegionService.getProvinces(pCode);
+    public ResponseBean provinces(@RequestParam("pid") String pid) {
+        List<TpRegion> list = iTpRegionService.getProvinces(pid);
         List<TpRegionDTO> regionDTOList = new ArrayList<>();
         if (CollectionUtils.isNotEmpty(list)) {
             regionDTOList = list.stream().map(e -> TpRegionToDTO.toTpCompanyDTO(e)).collect(Collectors.toList());
         }
         return ResponseBean.success(regionDTOList);
+    }
+
+    /**
+     * 获取省市区 所有
+     * @return
+     */
+    @GetMapping("/provinces/all")
+    public ResponseBean provincesAll() {
+        List<TpRegionDTO> list = iTpRegionService.getProvinces();
+        return ResponseBean.success(list);
     }
 
 

@@ -1,7 +1,9 @@
 package com.yqm.common.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,20 +19,9 @@ import java.io.Serializable;
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
-    public class TpRegion implements Serializable {
+    public class TpRegion extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    /**
-     * 地区代码
-     */
-    @TableId(type = IdType.NONE)
-    private Integer code;
-
-    /**
-     * 上级地区代码
-     */
-    private Integer pCode;
 
     /**
      * 区域名称
@@ -38,8 +29,51 @@ import java.io.Serializable;
     private String name;
 
     /**
-     * 等级 1 省 2 市 3 区
+     * 区域上级标识
+     */
+    private Integer pid;
+
+    /**
+     * 地名简称
+     */
+    private String sname;
+
+    /**
+     * 区域等级
      */
     private Integer level;
+
+    /**
+     * 区域编码
+     */
+    private String citycode;
+
+    /**
+     * 邮政编码
+     */
+    private String yzcode;
+
+    /**
+     * 组合名称
+     */
+    private String mername;
+
+    /**
+     *
+     */
+    @TableField("Lng")
+    private Float lng;
+
+    /**
+     *
+     */
+    @TableField("Lat")
+    private Float lat;
+
+    /**
+     *
+     */
+    private String pinyin;
+
 
 }

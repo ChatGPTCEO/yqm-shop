@@ -2,6 +2,7 @@ package com.yqm.common.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpRegion;
 import com.yqm.common.request.TpRegionRequest;
 
@@ -24,6 +25,12 @@ public interface ITpRegionService extends IService<TpRegion> {
      * @param pCode
      * @return
      */
-    List<TpRegion> getProvinces(Integer pCode);
+    List<TpRegion> getProvinces(String pCode);
+
+    /**
+     * 查询省市区 所有
+     * @return
+     */
+    List<TpRegionDTO> getProvinces();
 
 }

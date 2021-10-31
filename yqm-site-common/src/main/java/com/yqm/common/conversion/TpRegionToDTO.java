@@ -27,6 +27,10 @@ import com.yqm.common.dto.TpCompanyDTO;
 import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpCompany;
 import com.yqm.common.entity.TpRegion;
+import org.apache.commons.collections4.CollectionUtils;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author: weiximei
@@ -41,5 +45,11 @@ public class TpRegionToDTO {
         TpRegionDTO dto = new TpRegionDTO();
         BeanUtil.copyProperties(entity, dto);
         return dto;
+    }
+
+    public static List<TpRegionDTO> toTpCompanyDTOList(List<TpRegion> entityList) {
+        if  (CollectionUtils.isEmpty(entityList)) return null;
+        List<TpRegionDTO> dtoList = entityList.stream().map(e -> TpRegionToDTO.toTpCompanyDTO(e)).collect(Collectors.toList());
+        return dtoList;
     }
 }
