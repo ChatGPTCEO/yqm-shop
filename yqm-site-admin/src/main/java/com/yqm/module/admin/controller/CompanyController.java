@@ -74,5 +74,14 @@ public class CompanyController {
     }
 
 
+    /**
+     * 修改操作
+     * @param request
+     * @return
+     */
+    @PutMapping("/introduce")
+    public ResponseBean updateIntroduce(@RequestBody TpCompanyRequest request) {
+        return ResponseBean.success(companyService.updateIntroduce(request));
+    }
 
 }

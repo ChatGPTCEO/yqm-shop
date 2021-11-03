@@ -143,4 +143,25 @@ public class CompanyService {
         return TpCompanyToDTO.toTpCompanyDTO(oldCompany);
     }
 
+    /**
+     * 修改公司简介(目前小程序专用)
+     * @param request
+     * @return
+     */
+    public TpCompanyDTO updateIntroduce(TpCompanyRequest request) {
+        User currentUser = UserInfoService.getUser();
+        if (!this.checkUserByCompany(request.getId())) {
+            log.error("异常 -> 修改公司简介-公司不在这个用户名下![companyId={}, userId={}]", request.getId(), currentUser.getId());
+            throw new YqmException("数据异常!");
+        }
+
+        TpCompany company = iTpCompanyService.getById(request.getId());
+        company.setIntroduce(request.getIntroduce());
+        if (!iTpCompanyService.updateById(company)) {
+            throw new YqmException("操作失败!");
+        }
+
+        return TpCompanyToDTO.toTpCompanyDTO(company);
+    }
+
 }
