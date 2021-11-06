@@ -35,7 +35,7 @@ import java.time.LocalDateTime;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpUserRequest  extends BaseEntity {
+public class TpUserRequest  extends BaseRequest {
 
     /**
      * 用户姓名

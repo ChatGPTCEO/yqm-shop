@@ -32,7 +32,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @SpringBootApplication
-@MapperScan("com.yqm.**.mapper")
 public class YqmSiteAdminApplication {
 
     public static void main(String[] args) {

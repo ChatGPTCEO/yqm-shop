@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -45,7 +46,7 @@ import java.time.LocalDateTime;
     /**
      * 成立时间
      */
-    private String establishedTime;
+    private LocalDate establishedTime;
 
     /**
      * 地址

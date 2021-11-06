@@ -29,40 +29,73 @@ import java.time.LocalDateTime;
 
 /**
  * @Author: weiximei
- * @Date: 2021/10/23 21:24
+ * @Date: 2021/11/6 15:30
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
-public class SysConfigRequest  extends BaseRequest {
-
-    private String id;
+public class TpRecruitmentRequest extends BaseRequest {
 
     /**
-     * 名称
+     * 标题
      */
-    private String configName;
+    private String title;
 
     /**
-     * 配置值
+     * 职务
      */
-    private String configValue;
+    private String position;
 
     /**
-     * 描述
+     * 招聘人数
      */
-    private String configDesc;
+    private String recNum;
+
+    /**
+     * 状态;状态: effective 有效 failure 失效 delete 删除
+     */
+    private String status;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
+
+    /**
+     * 职责
+     */
+    private String responsibility;
+
+    /**
+     * 要求
+     */
+    private String requirements;
+
+    /**
+     * 公司id
+     */
+    private String companyId;
+
+    /**
+     * 联系方式
+     */
+    private String phone;
+
+    /**
+     * 联系人
+     */
+    private String userName;
 
     /**
      * 创建人
      */
-    private String createBy;
+    private String createdBy;
 
     /**
      * 创建时间
      */
-    private LocalDateTime createTime;
+    private LocalDateTime createdTime;
 
     /**
      * 更新人
@@ -74,4 +107,8 @@ public class SysConfigRequest  extends BaseRequest {
      */
     private LocalDateTime updatedTime;
 
+    /**
+     * 排序
+     */
+    private boolean orderSort = true;
 }

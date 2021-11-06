@@ -25,6 +25,7 @@ package com.yqm.common.dto;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -60,7 +61,7 @@ public class TpCompanyDTO extends BaseEntity {
     /**
      * 成立时间
      */
-    private String establishedTime;
+    private LocalDate establishedTime;
 
     /**
      * 地址

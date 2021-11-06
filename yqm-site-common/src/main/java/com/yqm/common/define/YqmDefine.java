@@ -20,67 +20,52 @@
  * limitations under the License.
  */
 
-package com.yqm.common.request;
+package com.yqm.common.define;
 
 import lombok.Data;
 
 /**
  * @Author: weiximei
- * @Date: 2021/10/24 21:47
+ * @Date: 2021/11/6 15:39
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@Data
-public class TpRegionRequest extends  BaseRequest {
+public class YqmDefine {
 
     /**
-     * 区域名称
+     * 状态类型
      */
-    private String name;
+    public enum StatusType {
+        effective("有效", "effective"),
+        failure("失效", "failure"),
+        delete("删除", "delete")
 
-    /**
-     * 区域上级标识
-     */
-    private String pid;
+        ;
 
-    /**
-     * 地名简称
-     */
-    private String sname;
+        private String desc;
+        private String value;
 
-    /**
-     * 区域等级
-     */
-    private Integer level;
+        StatusType(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
 
-    /**
-     * 区域编码
-     */
-    private String citycode;
+        public String getDesc() {
+            return desc;
+        }
 
-    /**
-     * 邮政编码
-     */
-    private String yzcode;
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
 
-    /**
-     * 组合名称
-     */
-    private String mername;
+        public String getValue() {
+            return value;
+        }
 
-    /**
-     *
-     */
-    private Float lng;
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
 
-    /**
-     *
-     */
-    private Float lat;
-
-    /**
-     *
-     */
-    private String pinyin;
 }

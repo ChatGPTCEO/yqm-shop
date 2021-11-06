@@ -63,6 +63,13 @@ import java.time.LocalDateTime;
     private String companyId;
 
     /**
+     * 用户id
+     */
+    private String userId;
+
+
+
+    /**
      * 联系方式
      */
     private String phone;

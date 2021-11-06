@@ -9,6 +9,7 @@ spring:
     store-type: jdbc
   jackson:
     time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
     serialization: { WRITE_DATES_AS_TIMESTAMPS: true }
   datasource:
     druid:

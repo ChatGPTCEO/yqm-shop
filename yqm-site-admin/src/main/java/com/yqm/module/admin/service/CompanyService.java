@@ -31,6 +31,7 @@ import com.yqm.common.entity.TpCompany;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.TpCompanyRequest;
 import com.yqm.common.service.ITpCompanyService;
+import com.yqm.module.service.CommonService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -54,38 +55,13 @@ import java.util.Objects;
 @Service
 public class CompanyService {
 
-    @Autowired
-    private ITpCompanyService iTpCompanyService;
+    private final ITpCompanyService iTpCompanyService;
+    private final CommonService commonService;
 
-    /**
-     * 检查是否存在 公司
-     * @return
-     */
-    private boolean checkUserBindingCompany() {
-        TpCompany company = iTpCompanyService.getByUserId(UserInfoService.getUser().getId());
-        return Objects.nonNull(company);
-    }
-
-    /**
-     * 检查公司 是否 在自己名下
-     * @return
-     */
-    private boolean checkUserByCompany(String companyId) {
-        String currentUserId = UserInfoService.getUser().getId();
-        TpCompany company = iTpCompanyService.getById(companyId);
-        if (null != company && StringUtils.equals(currentUserId, company.getUserId())) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 获取用户绑定的公司
-     * @return
-     */
-    public TpCompanyDTO getUserBingCompany() {
-        TpCompany company = iTpCompanyService.getByUserId(UserInfoService.getUser().getId());
-        return TpCompanyToDTO.toTpCompanyDTO(company);
+    public CompanyService(ITpCompanyService iTpCompanyService,
+                          CommonService commonService) {
+        this.iTpCompanyService = iTpCompanyService;
+        this.commonService = commonService;
     }
 
     /**
@@ -96,7 +72,7 @@ public class CompanyService {
     public TpCompanyDTO addCompany(TpCompanyRequest request) {
         User currentUser = UserInfoService.getUser();
 
-        if (this.checkUserBindingCompany()) {
+        if (commonService.checkUserBindingCompany()) {
             log.error("异常 -> 用户添加公司操作-用户已存在公司，无法添加![userId={}]", currentUser.getId());
             throw new YqmException("数据异常!");
         }
@@ -123,7 +99,7 @@ public class CompanyService {
     public TpCompanyDTO updateCompany(TpCompanyRequest request) {
 
         User currentUser = UserInfoService.getUser();
-        if (!this.checkUserByCompany(request.getId())) {
+        if (!commonService.checkUserByCompany(request.getId())) {
             log.error("异常 -> 用户修改公司操作-公司不在这个用户名下![companyId={}, userId={}]", request.getId(), currentUser.getId());
             throw new YqmException("数据异常!");
         }
@@ -150,12 +126,17 @@ public class CompanyService {
      */
     public TpCompanyDTO updateIntroduce(TpCompanyRequest request) {
         User currentUser = UserInfoService.getUser();
-        if (!this.checkUserByCompany(request.getId())) {
+        if (!commonService.checkUserByCompany(request.getId())) {
             log.error("异常 -> 修改公司简介-公司不在这个用户名下![companyId={}, userId={}]", request.getId(), currentUser.getId());
             throw new YqmException("数据异常!");
         }
 
         TpCompany company = iTpCompanyService.getById(request.getId());
+        if (Objects.isNull(company)) {
+            throw new YqmException("请先完善公司基本资料!");
+        }
+
+
         company.setIntroduce(request.getIntroduce());
         if (!iTpCompanyService.updateById(company)) {
             throw new YqmException("操作失败!");

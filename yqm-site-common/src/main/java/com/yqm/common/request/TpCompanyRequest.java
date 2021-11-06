@@ -22,9 +22,11 @@
 
 package com.yqm.common.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -35,7 +37,7 @@ import java.time.LocalDateTime;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpCompanyRequest extends BaseEntity {
+public class TpCompanyRequest extends BaseRequest {
 
     /**
      * 公司名称
@@ -60,7 +62,8 @@ public class TpCompanyRequest extends BaseEntity {
     /**
      * 成立时间
      */
-    private String establishedTime;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private LocalDate establishedTime;
 
     /**
      * 地址

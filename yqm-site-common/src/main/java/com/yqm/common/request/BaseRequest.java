@@ -22,56 +22,22 @@
 
 package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 /**
  * @Author: weiximei
- * @Date: 2021/10/23 21:24
+ * @Date: 2021/11/6 16:04
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
-public class SysConfigRequest  extends BaseRequest {
+public class BaseRequest {
+
+    private Long current = 1L;
+
+    private Long pageSize = 10L;
 
     private String id;
-
-    /**
-     * 名称
-     */
-    private String configName;
-
-    /**
-     * 配置值
-     */
-    private String configValue;
-
-    /**
-     * 描述
-     */
-    private String configDesc;
-
-    /**
-     * 创建人
-     */
-    private String createBy;
-
-    /**
-     * 创建时间
-     */
-    private LocalDateTime createTime;
-
-    /**
-     * 更新人
-     */
-    private String updatedBy;
-
-    /**
-     * 更新时间
-     */
-    private LocalDateTime updatedTime;
 
 }

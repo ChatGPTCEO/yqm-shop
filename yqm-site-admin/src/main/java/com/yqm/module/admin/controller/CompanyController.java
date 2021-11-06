@@ -25,6 +25,7 @@ package com.yqm.module.admin.controller;
 import com.yqm.common.request.TpCompanyRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.CompanyService;
+import com.yqm.module.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,8 +42,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class CompanyController {
 
-    @Autowired
-    private CompanyService companyService;
+    private final CompanyService companyService;
+    private final CommonService commonService;
+
+    public CompanyController(CompanyService companyService, CommonService commonService) {
+        this.companyService = companyService;
+        this.commonService = commonService;
+    }
 
     /**
      * 添加操作
@@ -70,12 +76,12 @@ public class CompanyController {
      */
     @GetMapping("/getUserBingCompany")
     public ResponseBean getUserBingCompany() {
-        return ResponseBean.success(companyService.getUserBingCompany());
+        return ResponseBean.success(commonService.getUserBingCompany());
     }
 
 
     /**
-     * 修改操作
+     * 修改公司简介操作
      * @param request
      * @return
      */
@@ -83,5 +89,7 @@ public class CompanyController {
     public ResponseBean updateIntroduce(@RequestBody TpCompanyRequest request) {
         return ResponseBean.success(companyService.updateIntroduce(request));
     }
+
+
 
 }

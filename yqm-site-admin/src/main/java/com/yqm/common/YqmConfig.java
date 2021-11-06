@@ -44,7 +44,7 @@ import java.util.List;
 @Data
 @Component
 @ConfigurationProperties(prefix = "yqm")
-public class YqmDefine {
+public class YqmConfig {
 
 
 

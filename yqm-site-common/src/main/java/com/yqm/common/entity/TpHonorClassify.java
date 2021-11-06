@@ -33,6 +33,12 @@ import java.time.LocalDateTime;
     private String companyId;
 
     /**
+     * 用户id
+     */
+    private String userId;
+
+
+    /**
      * 创建人
      */
     private String createdBy;

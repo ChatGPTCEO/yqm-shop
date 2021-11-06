@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-10-23 18:17:04",
+  "updatedTime": "2021-11-6 19:30:59",
   "dbConns": [],
   "profile": {
     "default": {
@@ -789,8 +789,8 @@
           "defKey": "established_time",
           "defName": "成立时间",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
+          "type": "DATETIME",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -798,7 +798,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DateTime"
         },
         {
           "defKey": "address",
@@ -1035,6 +1035,51 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "province_id",
+          "defName": "省",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "city_id",
+          "defName": "市",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "area_id",
+          "defName": "区",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         }
       ],
       "correlations": [],
@@ -1209,7 +1254,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
@@ -1252,12 +1297,27 @@
           "len": 255,
           "scale": "",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
         },
         {
           "defKey": "phone",
@@ -1503,7 +1563,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
@@ -1526,6 +1586,21 @@
         {
           "defKey": "company_id",
           "defName": "公司id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
           "comment": "",
           "type": "VARCHAR",
           "len": 32,
@@ -1715,6 +1790,21 @@
         {
           "defKey": "company_id",
           "defName": "公司id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
           "comment": "",
           "type": "VARCHAR",
           "len": 32,
@@ -1926,7 +2016,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
@@ -1934,6 +2024,21 @@
         {
           "defKey": "company_id",
           "defName": "公司id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
           "comment": "",
           "type": "VARCHAR",
           "len": 32,
@@ -2128,12 +2233,27 @@
           "len": 32,
           "scale": "",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "IdOrKey"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         },
         {
           "defKey": "created_by",
@@ -2364,7 +2484,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
@@ -2372,6 +2492,21 @@
         {
           "defKey": "company_id",
           "defName": "公司id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
           "comment": "",
           "type": "VARCHAR",
           "len": 32,
@@ -2583,7 +2718,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
@@ -2602,6 +2737,21 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
         },
         {
           "defKey": "created_by",
@@ -2862,6 +3012,21 @@
           "autoIncrement": false,
           "defaultValue": "now()",
           "hideInGraph": true
+        },
+        {
+          "defKey": "",
+          "defName": "",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         }
       ],
       "correlations": [],
