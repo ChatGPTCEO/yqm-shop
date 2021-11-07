@@ -161,7 +161,7 @@ public class RecruitmentService {
           return request.getId();
       }
       if (YqmDefine.StatusType.delete.getValue().equals(recruitment.getStatus())) {
-          log.error("操作异常->停用/启用招聘错误->该招聘信息已经被删除！[id={}]", request.getId());
+          log.error("操作异常->停用/启用招聘错误->该信息已经被删除！[id={}]", request.getId());
           return request.getId();
       }
 
@@ -173,5 +173,16 @@ public class RecruitmentService {
 
       return request.getId();
 
+    }
+
+    /**
+     * 置顶
+     * @param id
+     * @return
+     */
+    public String top(String id) {
+        User user = UserInfoService.getUser();
+        recruitmentService.top(id, user.getId());
+        return id;
     }
 }

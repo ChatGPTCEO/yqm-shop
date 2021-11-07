@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-6 19:31:03",
+  "updatedTime": "2021-11-7 18:57:08",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1237,9 +1237,9 @@
           "len": 255,
           "scale": "",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "effective",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -1614,6 +1614,21 @@
           "domain": "IdOrKey"
         },
         {
+          "defKey": "status",
+          "defName": "状态",
+          "comment": "状态: effective 有效 failure 失效 delete 删除",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "effective",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
           "defKey": "created_by",
           "defName": "创建人",
           "comment": "",
@@ -1816,6 +1831,21 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "IdOrKey"
+        },
+        {
+          "defKey": "status",
+          "defName": "状态",
+          "comment": "状态: effective 有效 failure 失效 delete 删除",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "effective",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         },
         {
           "defKey": "created_by",

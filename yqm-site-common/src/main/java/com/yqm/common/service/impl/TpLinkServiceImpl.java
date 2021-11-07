@@ -1,11 +1,18 @@
 package com.yqm.common.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yqm.common.entity.TpLink;
+import com.yqm.common.entity.TpLinkClassify;
 import com.yqm.common.mapper.TpLinkMapper;
+import com.yqm.common.mapper.TpRecruitmentMapper;
+import com.yqm.common.request.TpLinkRequest;
 import com.yqm.common.service.ITpLinkService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
 
 /**
 * <p>
@@ -16,6 +23,44 @@ import org.springframework.stereotype.Service;
 * @since 2021-10-16
 */
 @Service
-    public class TpLinkServiceImpl extends ServiceImpl<TpLinkMapper, TpLink> implements ITpLinkService {
+public class TpLinkServiceImpl extends ServiceImpl<TpLinkMapper, TpLink> implements ITpLinkService {
 
+    private TpLinkMapper tpLinkMapper;
+
+    public TpLinkServiceImpl(TpLinkMapper tpLinkMapper) {
+        this.tpLinkMapper = tpLinkMapper;
     }
+
+    @Override
+    public QueryWrapper<TpLink> queryWrapper(TpLinkRequest request) {
+
+        QueryWrapper<TpLink> queryWrapper = new QueryWrapper();
+        if (request.isOrderSort()) {
+            queryWrapper.orderByAsc("sort");
+            queryWrapper.orderByDesc("updated_time");
+
+        } else {
+            queryWrapper.orderByDesc(Arrays.asList("sort", "updated_time"));
+        }
+
+        if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
+            queryWrapper.in("status", request.getIncludeStatus());
+        }
+        return queryWrapper;
+    }
+
+    @Override
+    public int updateAllSortGal(Integer currentSort, String userId) {
+        return tpLinkMapper.updateAllSortGal(currentSort, userId);
+    }
+
+    @Override
+    public int top(String id, String userId) {
+        return tpLinkMapper.top(id, userId);
+    }
+
+    @Override
+    public int getMaxSort(String userId) {
+        return tpLinkMapper.getMaxSort(userId);
+    }
+}

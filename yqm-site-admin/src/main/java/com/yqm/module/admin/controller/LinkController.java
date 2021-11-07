@@ -23,111 +23,108 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yqm.common.dto.TpRecruitmentDTO;
+import com.yqm.common.dto.TpLinkDTO;
+import com.yqm.common.request.TpLinkRequest;
 import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.common.service.ITpRecruitmentService;
-import com.yqm.module.admin.service.RecruitmentService;
+import com.yqm.module.admin.service.LinkService;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端-招聘
+ * 管理端-友情链接
  * @Author: weiximei
- * @Date: 2021/11/6 14:19
+ * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/recruitment")
+@RequestMapping("/admin/link")
 @RestController
-public class RecruitmentController {
+public class LinkController {
 
-    private final RecruitmentService recruitmentService;
+    private final LinkService linkClassifyService;
 
-    public RecruitmentController(RecruitmentService recruitmentService) {
-        this.recruitmentService = recruitmentService;
+    public LinkController(LinkService linkClassifyService) {
+        this.linkClassifyService = linkClassifyService;
     }
 
     /**
-     * 添加招聘
+     * 添加友情链接分类
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpRecruitmentRequest request) {
-       TpRecruitmentDTO dto = recruitmentService.saveRecruitment(request);
-       return ResponseBean.success(dto);
-    }
-
-    /**
-     * 修改招聘
-     * @param request
-     * @return
-     */
-    @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpRecruitmentRequest request) {
-        TpRecruitmentDTO dto = recruitmentService.saveRecruitment(request);
+    public ResponseBean addRecruitment(@RequestBody TpLinkRequest request) {
+        TpLinkDTO dto = linkClassifyService.saveLink(request);
         return ResponseBean.success(dto);
     }
 
     /**
-     * 删除招聘
+     * 修改友情链接分类
+     * @param request
+     * @return
+     */
+    @PutMapping("")
+    public ResponseBean updateRecruitment(@RequestBody TpLinkRequest request) {
+        TpLinkDTO dto = linkClassifyService.saveLink(request);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 删除友情链接分类
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean deleteRecruitment(@PathVariable("id") String  id) {
-        String removeId = recruitmentService.removeRecruitment(id);
+    public ResponseBean removeLink(@PathVariable("id") String  id) {
+        String removeId = linkClassifyService.removeLink(id);
         return ResponseBean.success(removeId);
     }
 
     /**
-     * 根据id查询招聘
+     * 根据id查询友情链接分类
      * @param id
      * @return
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable("id") String  id) {
-        TpRecruitmentDTO dto = recruitmentService.getById(id);
+        TpLinkDTO dto = linkClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
 
     /**
-     * 分页查询招聘
+     * 分页查询友情链接分类
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpRecruitmentRequest request) {
-        IPage<TpRecruitmentDTO> page = recruitmentService.pageRecruitment(request);
+    public ResponseBean pageRecruitment(TpLinkRequest request) {
+        IPage<TpLinkDTO> page = linkClassifyService.pageLink(request);
         return ResponseBean.success(page);
     }
 
     /**
-     * 停用/启用 招聘
+     * 停用/启用 友情链接分类
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpRecruitmentRequest request) {
-        String enableId = recruitmentService.enableRecruitment(request);
+    public ResponseBean enableRecruitment(@RequestBody TpLinkRequest request) {
+        String enableId = linkClassifyService.enableLink(request);
         return ResponseBean.success(enableId);
     }
 
     /**
-     * 置顶 招聘
+     * 置顶 友情链接
      * @param request
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpRecruitmentRequest request) {
-        String enableId = recruitmentService.top(request.getId());
+    public ResponseBean top(@RequestBody TpLinkRequest request) {
+        String enableId = linkClassifyService.top(request.getId());
         return ResponseBean.success(enableId);
     }
-
-
-
 
 
 }

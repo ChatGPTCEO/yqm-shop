@@ -38,6 +38,11 @@ import java.time.LocalDateTime;
     private String userId;
 
     /**
+     * 状态;状态: effective 有效 failure 失效 delete 删除
+     */
+    private String status;
+
+    /**
      * 创建人
      */
     private String createdBy;
