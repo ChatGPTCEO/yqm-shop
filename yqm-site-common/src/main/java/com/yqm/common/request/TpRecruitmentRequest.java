@@ -26,6 +26,7 @@ import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @Author: weiximei
@@ -111,4 +112,9 @@ public class TpRecruitmentRequest extends BaseRequest {
      * 排序
      */
     private boolean orderSort = true;
+
+    /**
+     * 包含的状态
+     */
+    private List<String> includeStatus;
 }

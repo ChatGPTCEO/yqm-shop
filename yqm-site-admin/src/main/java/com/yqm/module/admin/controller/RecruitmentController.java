@@ -60,7 +60,7 @@ public class RecruitmentController {
     }
 
     /**
-     * 添加招聘
+     * 修改招聘
      * @param request
      * @return
      */
@@ -71,7 +71,18 @@ public class RecruitmentController {
     }
 
     /**
-     * 添加招聘
+     * 删除招聘
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public ResponseBean deleteRecruitment(@PathVariable("id") String  id) {
+        String removeId = recruitmentService.removeRecruitment(id);
+        return ResponseBean.success(removeId);
+    }
+
+    /**
+     * 根据id查询招聘
      * @param id
      * @return
      */
@@ -92,6 +103,19 @@ public class RecruitmentController {
         IPage<TpRecruitmentDTO> page = recruitmentService.pageRecruitment(request);
         return ResponseBean.success(page);
     }
+
+    /**
+     * 停用/启用 招聘
+     * @param request
+     * @return
+     */
+    @PutMapping("/enable")
+    public ResponseBean enableRecruitment(@RequestBody TpRecruitmentRequest request) {
+        String enableId = recruitmentService.enableRecruitment(request);
+        return ResponseBean.success(enableId);
+    }
+
+
 
 
 

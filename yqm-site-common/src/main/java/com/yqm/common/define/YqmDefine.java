@@ -23,6 +23,11 @@
 package com.yqm.common.define;
 
 import lombok.Data;
+import org.apache.commons.collections4.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Author: weiximei
@@ -32,6 +37,9 @@ import lombok.Data;
  * @Email: 907147608@qq.com
  */
 public class YqmDefine {
+
+    // 有效
+   public final static List<String> includeStatus = Arrays.asList(StatusType.failure.getValue(), StatusType.effective.getValue());
 
     /**
      * 状态类型

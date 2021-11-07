@@ -11,7 +11,7 @@
     </update>
 
     <select id="getMaxSort" resultType="int">
-        select IFNULL(max(sort), 1)  from tp_recruitment and user_id = #{userId}
+        select IFNULL(max(sort), 1)  from tp_recruitment where user_id = #{userId} and `status` in ('effective','failure')
     </select>
 
 </mapper>

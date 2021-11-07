@@ -15,7 +15,7 @@ import com.yqm.common.request.TpRecruitmentRequest;
 */
 public interface ITpRecruitmentService extends IService<TpRecruitment> {
 
-        QueryWrapper<TpRecruitment> queryWrapper(TpRecruitmentRequest request);
+    QueryWrapper<TpRecruitment> queryWrapper(TpRecruitmentRequest request);
 
     /**
      * 所有排序加一

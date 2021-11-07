@@ -7,6 +7,7 @@ import com.yqm.common.entity.TpRecruitment;
 import com.yqm.common.mapper.TpRecruitmentMapper;
 import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.service.ITpRecruitmentService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,10 @@ public class TpRecruitmentServiceImpl extends ServiceImpl<TpRecruitmentMapper, T
 
         } else {
             queryWrapper.orderByDesc(Arrays.asList("sort", "updated_time"));
+        }
+
+        if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
+            queryWrapper.in("status", request.getIncludeStatus());
         }
         return queryWrapper;
     }
