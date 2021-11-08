@@ -1,26 +1,41 @@
-package com.yqm.common.entity;
+/*
+ * Copyright 2021 Wei xi mei
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ * you may not use this file except in compliance with the License.
+ *
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ *
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ *
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *
+ * See the License for the specific language governing permissions and
+ *
+ * limitations under the License.
+ */
 
-import com.baomidou.mybatisplus.annotation.TableField;
+package com.yqm.common.dto;
+
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 荣誉证书
-    * </p>
-*
-* @author weiximei
-* @since 2021-09-11
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class TpHonor extends BaseEntity implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+ * @Author: weiximei
+ * @Date: 2021/11/8 19:45
+ * @微信: wxm907147608
+ * @QQ: 907147608
+ * @Email: 907147608@qq.com
+ */
+@Data
+public class TpHonorDTO extends BaseEntity {
 
     /**
      * 证书名称
@@ -57,6 +72,7 @@ import java.time.LocalDateTime;
      */
     private String status;
 
+
     /**
      * 创建人
      */
@@ -76,6 +92,4 @@ import java.time.LocalDateTime;
      * 更新时间
      */
     private LocalDateTime updatedTime;
-
-
 }

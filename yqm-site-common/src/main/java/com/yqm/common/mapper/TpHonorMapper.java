@@ -12,6 +12,26 @@ import org.springframework.stereotype.Repository;
 * @author weiximei
 * @since 2021-09-11
 */
-    public interface TpHonorMapper extends BaseMapper<TpHonor> {
+public interface TpHonorMapper extends BaseMapper<TpHonor> {
 
-    }
+    /**
+     * 所有 Sort 加 1
+     * @param currentSort
+     * @return
+     */
+    int updateAllSortGal(Integer currentSort, String userId);
+
+    /**
+     * 置顶
+     * @param id
+     * @return
+     */
+    int top(String id, String userId);
+
+    /**
+     * 获取最大的 Sort
+     * @return
+     */
+    int getMaxSort(String userId);
+
+}
