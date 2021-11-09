@@ -1,6 +1,5 @@
 package com.yqm.common.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,42 +9,22 @@ import java.time.LocalDateTime;
 
 /**
 * <p>
-    * 合作伙伴
+    * 团队分类
     * </p>
 *
 * @author weiximei
-* @since 2021-09-11
+* @since 2021-11-09
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
-    public class TpPartners extends BaseEntity implements Serializable {
+    public class TpTeamClassify extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 合作伙伴名称
+     * 名称
      */
-    private String partnersName;
-
-    /**
-     * 合作伙伴分类
-     */
-    private String partnersClassifyId;
-
-    /**
-     * 合作伙伴地址
-     */
-    private String partnersAddress;
-
-    /**
-     * 合作伙伴图片
-     */
-    private String partnersImg;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
+    private String teamClassifyName;
 
     /**
      * 公司id
@@ -65,12 +44,12 @@ import java.time.LocalDateTime;
     /**
      * 创建人
      */
-    private String createdBy;
+    private String createBy;
 
     /**
      * 创建时间
      */
-    private LocalDateTime createdTime;
+    private LocalDateTime createTime;
 
     /**
      * 更新人
@@ -81,5 +60,6 @@ import java.time.LocalDateTime;
      * 更新时间
      */
     private LocalDateTime updatedTime;
+
 
 }

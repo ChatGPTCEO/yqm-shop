@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
     /**
      * 团队图片
      */
-    private String img;
+    private String teamImg;
 
     /**
      * 团队分类
