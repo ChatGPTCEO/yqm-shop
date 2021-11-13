@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-9 21:33:32",
+  "updatedTime": "2021-11-13 19:37:25",
   "dbConns": [],
   "profile": {
     "default": {
@@ -2988,7 +2988,22 @@
           "domain": "IdOrKey"
         },
         {
-          "defKey": "img",
+          "defKey": "team_name",
+          "defName": "名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "team_img",
           "defName": "团队图片",
           "comment": "",
           "type": "VARCHAR",
@@ -3073,6 +3088,21 @@
           "notNull": true,
           "autoIncrement": false,
           "defaultValue": "'effective'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "address",
+          "defName": "地址",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"

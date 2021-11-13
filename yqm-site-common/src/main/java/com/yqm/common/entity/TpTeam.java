@@ -48,6 +48,21 @@ import java.time.LocalDateTime;
     private String userId;
 
     /**
+     * 状态;状态: effective 有效 failure 失效 delete 删除
+     */
+    private String status;
+
+    /**
+     * 地址
+     */
+    private String address;
+
+    /**
+     * 名称
+     */
+    private String teamName;
+
+    /**
      * 创建人
      */
     private String createdBy;

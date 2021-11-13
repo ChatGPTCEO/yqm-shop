@@ -191,11 +191,13 @@ CREATE TABLE tp_link_classify(
 DROP TABLE IF EXISTS tp_honor;
 CREATE TABLE tp_honor(
                          id VARCHAR(32) NOT NULL   COMMENT '编号' ,
-                         img VARCHAR(1024)    COMMENT '证书图片' ,
+                         honor_name VARCHAR(255)    COMMENT '证书名称' ,
+                         honor_img VARCHAR(1024)    COMMENT '证书图片' ,
                          honor_classify_id VARCHAR(32)    COMMENT '证书分类id' ,
                          sort INT   DEFAULT 1 COMMENT '排序' ,
                          company_id VARCHAR(32)    COMMENT '公司id' ,
                          user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                         status VARCHAR(255) NOT NULL  DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
                          created_by VARCHAR(32) NOT NULL   COMMENT '创建人' ,
                          created_time DATETIME NOT NULL   COMMENT '创建时间' ,
                          updated_by VARCHAR(32) NOT NULL   COMMENT '更新人' ,
@@ -209,6 +211,7 @@ CREATE TABLE tp_honor_classify(
                                   honor_classify_name VARCHAR(255)    COMMENT '分类名称' ,
                                   company_id VARCHAR(32)    COMMENT '公司id' ,
                                   user_id VARCHAR(255) NOT NULL   COMMENT '用户id' ,
+                                  `status` varchar(255) NOT NULL DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除',
                                   created_by VARCHAR(32) NOT NULL   COMMENT '创建人' ,
                                   created_time DATETIME NOT NULL  DEFAULT now() COMMENT '创建时间' ,
                                   updated_by VARCHAR(32) NOT NULL   COMMENT '更新人' ,
@@ -222,10 +225,11 @@ CREATE TABLE tp_partners(
                             partners_name VARCHAR(255)    COMMENT '合作伙伴名称' ,
                             partners_classify_id VARCHAR(32)    COMMENT '合作伙伴分类' ,
                             partners_address VARCHAR(1024)    COMMENT '合作伙伴地址' ,
-                            img VARCHAR(1024)    COMMENT '合作伙伴图片' ,
+                            partners_img VARCHAR(1024)    COMMENT '合作伙伴图片' ,
                             sort INT   DEFAULT 1 COMMENT '排序' ,
                             company_id VARCHAR(32)    COMMENT '公司id' ,
                             user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                            status VARCHAR(255)   DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
                             created_by VARCHAR(32) NOT NULL   COMMENT '创建人' ,
                             created_time DATETIME NOT NULL  DEFAULT now() COMMENT '创建时间' ,
                             updated_by VARCHAR(32) NOT NULL   COMMENT '更新人' ,
@@ -233,21 +237,51 @@ CREATE TABLE tp_partners(
                             PRIMARY KEY (id)
 )  COMMENT = '合作伙伴';
 
+DROP TABLE IF EXISTS tp_partners_classify;
+CREATE TABLE tp_partners_classify(
+                                     id VARCHAR(32) NOT NULL   COMMENT '编号' ,
+                                     company_id VARCHAR(32)    COMMENT '公司id' ,
+                                     user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                                     status VARCHAR(255)   DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                                     create_by VARCHAR(32)    COMMENT '创建人' ,
+                                     create_time DATETIME    COMMENT '创建时间' ,
+                                     updated_by VARCHAR(32)    COMMENT '更新人' ,
+                                     updated_time DATETIME    COMMENT '更新时间' ,
+                                     partners_classify_name VARCHAR(255)    COMMENT '分类名称' ,
+                                     PRIMARY KEY (id)
+)  COMMENT = '合作伙伴分类';
 
 DROP TABLE IF EXISTS tp_team;
 CREATE TABLE tp_team(
                         id VARCHAR(32) NOT NULL   COMMENT '编号' ,
-                        img VARCHAR(255)    COMMENT '团队图片' ,
+                        team_name VARCHAR(255)    COMMENT '名称' ,
+                        team_img VARCHAR(255)    COMMENT '团队图片' ,
                         team_classify_id VARCHAR(255)    COMMENT '团队分类' ,
                         sort INT   DEFAULT 1 COMMENT '排序' ,
                         company_id VARCHAR(255)    COMMENT '公司id' ,
                         user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                        status VARCHAR(255) NOT NULL  DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                        address VARCHAR(255)    COMMENT '地址' ,
                         created_by VARCHAR(32) NOT NULL   COMMENT '创建人' ,
                         created_time DATETIME NOT NULL  DEFAULT now() COMMENT '创建时间' ,
                         updated_by VARCHAR(32) NOT NULL   COMMENT '更新人' ,
                         updated_time DATETIME NOT NULL  DEFAULT now() COMMENT '更新时间' ,
                         PRIMARY KEY (id)
 )  COMMENT = '团队';
+
+DROP TABLE IF EXISTS tp_team_classify;
+CREATE TABLE tp_team_classify(
+                                 id VARCHAR(32) NOT NULL   COMMENT '编号' ,
+                                 team_classify_name VARCHAR(255)    COMMENT '名称' ,
+                                 company_id VARCHAR(32)    COMMENT '公司id' ,
+                                 user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                                 status VARCHAR(255)   DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                                 create_by VARCHAR(32)    COMMENT '创建人' ,
+                                 create_time DATETIME    COMMENT '创建时间' ,
+                                 updated_by VARCHAR(32)    COMMENT '更新人' ,
+                                 updated_time DATETIME    COMMENT '更新时间' ,
+                                 PRIMARY KEY (id)
+)  COMMENT = '团队分类';
 
 DROP TABLE IF EXISTS sys_config;
 CREATE TABLE sys_config(
