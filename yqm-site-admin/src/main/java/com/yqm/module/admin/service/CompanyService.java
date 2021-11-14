@@ -110,6 +110,7 @@ public class CompanyService {
 
         BeanUtil.copyProperties(newCompany, oldCompany);
 
+        oldCompany.setUserId(currentUser.getId());
         oldCompany.setUpdatedTime(LocalDateTime.now());
         oldCompany.setUpdatedBy(currentUser.getId());
         if (!iTpCompanyService.updateById(oldCompany)) {

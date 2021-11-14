@@ -151,10 +151,12 @@ public class HonorClassifyService {
      * @return
      */
     public IPage<TpHonorClassifyDTO> pageHonorClassify(TpHonorClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpHonorClassify> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpHonorClassifyService.page(page, iTpHonorClassifyService.queryWrapper(request));
 
@@ -171,8 +173,10 @@ public class HonorClassifyService {
      * @return
      */
     public List<TpHonorClassifyDTO> listHonorClassify(TpHonorClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         List<TpHonorClassifyDTO> honorClassifyDTOS = new ArrayList<>();
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpHonorClassify> classifyList = iTpHonorClassifyService.list(iTpHonorClassifyService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {

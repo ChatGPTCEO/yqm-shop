@@ -10,6 +10,7 @@ import com.yqm.common.mapper.TpPartnersMapper;
 import com.yqm.common.request.TpPartnersRequest;
 import com.yqm.common.service.ITpPartnersService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -45,6 +46,9 @@ public class TpPartnersServiceImpl extends ServiceImpl<TpPartnersMapper, TpPartn
 
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

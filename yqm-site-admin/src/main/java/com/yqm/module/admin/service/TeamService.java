@@ -154,10 +154,12 @@ public class TeamService {
      * @return
      */
     public IPage<TpTeamDTO> pageTeam(TpTeamRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpTeam> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpTeamService.page(page, iTpTeamService.queryWrapper(request));
 

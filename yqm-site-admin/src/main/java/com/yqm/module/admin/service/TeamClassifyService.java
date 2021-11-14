@@ -150,10 +150,12 @@ public class TeamClassifyService {
      * @return
      */
     public IPage<TpTeamClassifyDTO> pageTeamClassify(TpTeamClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpTeamClassify> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpTeamClassifyService.page(page, iTpTeamClassifyService.queryWrapper(request));
 
@@ -170,8 +172,10 @@ public class TeamClassifyService {
      * @return
      */
     public List<TpTeamClassifyDTO> listTeamClassify(TpTeamClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         List<TpTeamClassifyDTO> teamClassifyDTOS = new ArrayList<>();
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpTeamClassify> classifyList = iTpTeamClassifyService.list(iTpTeamClassifyService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {

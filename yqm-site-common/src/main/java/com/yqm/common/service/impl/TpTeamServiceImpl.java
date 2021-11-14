@@ -9,6 +9,7 @@ import com.yqm.common.mapper.TpTeamMapper;
 import com.yqm.common.request.TpTeamRequest;
 import com.yqm.common.service.ITpTeamService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -44,6 +45,9 @@ public class TpTeamServiceImpl extends ServiceImpl<TpTeamMapper, TpTeam> impleme
 
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

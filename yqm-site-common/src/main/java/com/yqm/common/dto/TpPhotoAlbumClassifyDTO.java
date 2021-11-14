@@ -20,7 +20,7 @@
  * limitations under the License.
  */
 
-package com.yqm.common.request;
+package com.yqm.common.dto;
 
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
@@ -30,53 +30,29 @@ import java.util.List;
 
 /**
  * @Author: weiximei
- * @Date: 2021/11/6 15:30
+ * @Date: 2021/11/14 17:07
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpRecruitmentRequest extends BaseRequest {
+public class TpPhotoAlbumClassifyDTO   extends BaseEntity {
+
 
     /**
-     * 标题
+     * 名称
      */
-    private String title;
+    private String photoAlbumClassifyName;
 
     /**
-     * 职务
+     * 父编号
      */
-    private String position;
+    private String pid;
 
     /**
-     * 招聘人数
+     * 父编号集合
      */
-    private String recNum;
-
-    /**
-     * 状态;状态: effective 有效 failure 失效 delete 删除
-     */
-    private String status;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
-
-    /**
-     * 职责
-     */
-    private String responsibility;
-
-    /**
-     * 要求
-     */
-    private String requirements;
-
-    /**
-     * 公司id
-     */
-    private String companyId;
+    private String pids;
 
     /**
      * 用户id
@@ -84,24 +60,24 @@ public class TpRecruitmentRequest extends BaseRequest {
     private String userId;
 
     /**
-     * 联系方式
+     * 公司id
      */
-    private String phone;
+    private String companyId;
 
     /**
-     * 联系人
+     * 状态;状态: effective 有效 failure 失效 delete 删除
      */
-    private String userName;
+    private String status;
 
     /**
      * 创建人
      */
-    private String createdBy;
+    private String createBy;
 
     /**
      * 创建时间
      */
-    private LocalDateTime createdTime;
+    private LocalDateTime createTime;
 
     /**
      * 更新人
@@ -114,12 +90,8 @@ public class TpRecruitmentRequest extends BaseRequest {
     private LocalDateTime updatedTime;
 
     /**
-     * 排序
+     * 子集
      */
-    private boolean orderSort = true;
+    private List<TpPhotoAlbumClassifyDTO> children;
 
-    /**
-     * 包含的状态
-     */
-    private List<String> includeStatus;
 }

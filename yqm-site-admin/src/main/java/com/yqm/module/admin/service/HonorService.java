@@ -154,10 +154,12 @@ public class HonorService {
      * @return
      */
     public IPage<TpHonorDTO> pageHonor(TpHonorRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpHonor> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpHonorService.page(page, iTpHonorService.queryWrapper(request));
 

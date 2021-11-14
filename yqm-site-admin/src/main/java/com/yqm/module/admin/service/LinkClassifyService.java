@@ -150,10 +150,12 @@ public class LinkClassifyService {
      * @return
      */
     public IPage<TpLinkClassifyDTO> pageLinkClassify(TpLinkClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpLinkClassify> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpLinkClassifyService.page(page, iTpLinkClassifyService.queryWrapper(request));
 
@@ -170,8 +172,10 @@ public class LinkClassifyService {
      * @return
      */
     public List<TpLinkClassifyDTO> listLinkClassify(TpLinkClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         List<TpLinkClassifyDTO> linkClassifyDTOS = new ArrayList<>();
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpLinkClassify> classifyList = iTpLinkClassifyService.list(iTpLinkClassifyService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {

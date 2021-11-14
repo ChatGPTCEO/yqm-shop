@@ -31,6 +31,7 @@ public class TpRegionServiceImpl extends ServiceImpl<TpRegionMapper, TpRegion> i
         if (null != request.getPid()) {
             queryWrapper.eq("pid", request.getPid());
         }
+
         return queryWrapper;
     }
 

@@ -9,6 +9,7 @@ import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.service.ITpRecruitmentService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -43,6 +44,9 @@ public class TpRecruitmentServiceImpl extends ServiceImpl<TpRecruitmentMapper, T
 
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

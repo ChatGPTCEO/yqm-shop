@@ -296,3 +296,27 @@ CREATE TABLE sys_config(
                            PRIMARY KEY (id)
 )  COMMENT = '站点配置';
 
+
+
+DROP TABLE IF EXISTS tp_photo_album_classify;
+CREATE TABLE tp_photo_album_classify(
+                                        id VARCHAR(32) NOT NULL   COMMENT '编号' ,
+                                        photo_album_classify_name VARCHAR(900) NOT NULL   COMMENT '名称' ,
+                                        pid VARCHAR(255) NOT NULL  DEFAULT 0 COMMENT '父编号' ,
+                                        pids VARCHAR(255) NOT NULL   COMMENT '父编号集合' ,
+                                        user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                                        company_id VARCHAR(32)    COMMENT '公司id' ,
+                                        create_by VARCHAR(32)    COMMENT '创建人' ,
+                                        create_time DATETIME    COMMENT '创建时间' ,
+                                        updated_by VARCHAR(32)    COMMENT '更新人' ,
+                                        updated_time DATETIME    COMMENT '更新时间' ,
+                                        PRIMARY KEY (id)
+)  COMMENT = '相册分类';
+
+INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('0', '全部图片', '-1', '-1', '-1', NULL, '-1', '2021-11-14 17:57:52', '-1', '2021-11-14 17:57:56', 'effective');
+INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('1', '默认相册', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
+INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('2', '荣誉证书', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
+INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('3', '团队介绍', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
+INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('4', '合作伙伴', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
+INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('5', '友情链接', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
+

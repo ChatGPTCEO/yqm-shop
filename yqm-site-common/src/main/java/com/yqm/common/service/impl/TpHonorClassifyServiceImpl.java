@@ -9,6 +9,7 @@ import com.yqm.common.mapper.TpHonorClassifyMapper;
 import com.yqm.common.request.TpHonorClassifyRequest;
 import com.yqm.common.service.ITpHonorClassifyService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,6 +29,9 @@ public class TpHonorClassifyServiceImpl extends ServiceImpl<TpHonorClassifyMappe
         queryWrapper.orderByDesc("updated_time");
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

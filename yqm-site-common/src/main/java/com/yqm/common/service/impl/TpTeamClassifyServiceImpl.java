@@ -8,6 +8,7 @@ import com.yqm.common.mapper.TpTeamClassifyMapper;
 import com.yqm.common.request.TpTeamClassifyRequest;
 import com.yqm.common.service.ITpTeamClassifyService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,6 +27,9 @@ public class TpTeamClassifyServiceImpl extends ServiceImpl<TpTeamClassifyMapper,
         queryWrapper.orderByDesc("updated_time");
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

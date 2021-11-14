@@ -10,6 +10,7 @@ import com.yqm.common.mapper.TpRecruitmentMapper;
 import com.yqm.common.request.TpLinkRequest;
 import com.yqm.common.service.ITpLinkService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -45,6 +46,9 @@ public class TpLinkServiceImpl extends ServiceImpl<TpLinkMapper, TpLink> impleme
 
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

@@ -154,10 +154,12 @@ public class PartnersService {
      * @return
      */
     public IPage<TpPartnersDTO> pagePartners(TpPartnersRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpPartners> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpPartnersService.page(page, iTpPartnersService.queryWrapper(request));
 

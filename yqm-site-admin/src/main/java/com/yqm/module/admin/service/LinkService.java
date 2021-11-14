@@ -154,10 +154,12 @@ public class LinkService {
      * @return
      */
     public IPage<TpLinkDTO> pageLink(TpLinkRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpLink> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpLinkService.page(page, iTpLinkService.queryWrapper(request));
 

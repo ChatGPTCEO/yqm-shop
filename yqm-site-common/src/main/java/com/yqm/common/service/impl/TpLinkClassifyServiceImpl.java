@@ -10,6 +10,7 @@ import com.yqm.common.request.TpLinkClassifyRequest;
 import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.service.ITpLinkClassifyService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -31,6 +32,9 @@ public class TpLinkClassifyServiceImpl extends ServiceImpl<TpLinkClassifyMapper,
         queryWrapper.orderByDesc("updated_time");
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }

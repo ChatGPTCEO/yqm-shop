@@ -150,10 +150,12 @@ public class PartnersClassifyService {
      * @return
      */
     public IPage<TpPartnersClassifyDTO> pagePartnersClassify(TpPartnersClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         Page<TpPartnersClassify> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpPartnersClassifyService.page(page, iTpPartnersClassifyService.queryWrapper(request));
 
@@ -170,8 +172,10 @@ public class PartnersClassifyService {
      * @return
      */
     public List<TpPartnersClassifyDTO> listPartnersClassify(TpPartnersClassifyRequest request) {
+        User currentUser = UserInfoService.getUser();
         List<TpPartnersClassifyDTO> partnersClassifyDTOS = new ArrayList<>();
 
+        request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpPartnersClassify> classifyList = iTpPartnersClassifyService.list(iTpPartnersClassifyService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {

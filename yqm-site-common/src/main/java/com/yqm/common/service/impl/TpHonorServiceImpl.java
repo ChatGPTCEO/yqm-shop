@@ -7,6 +7,7 @@ import com.yqm.common.mapper.TpHonorMapper;
 import com.yqm.common.request.TpHonorRequest;
 import com.yqm.common.service.ITpHonorService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -41,6 +42,9 @@ public class TpHonorServiceImpl extends ServiceImpl<TpHonorMapper, TpHonor> impl
 
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
+        }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
         }
         return queryWrapper;
     }
