@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-14 17:12:01",
+  "updatedTime": "2021-11-20 18:52:17",
   "dbConns": [],
   "profile": {
     "default": {
@@ -4473,6 +4473,21 @@
           "domain": "IdOrKey"
         },
         {
+          "defKey": "photo_album_name",
+          "defName": "名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 1024,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": ""
+        },
+        {
           "defKey": "url",
           "defName": "图片地址",
           "comment": "",
@@ -4531,6 +4546,21 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "IdOrKey"
+        },
+        {
+          "defKey": "status",
+          "defName": "状态",
+          "comment": "状态: effective 有效 failure 失效 delete 删除",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "'effective'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         },
         {
           "defKey": "create_by",

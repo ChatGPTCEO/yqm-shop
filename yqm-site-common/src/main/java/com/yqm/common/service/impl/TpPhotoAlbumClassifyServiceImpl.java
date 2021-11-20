@@ -36,4 +36,13 @@ public class TpPhotoAlbumClassifyServiceImpl extends ServiceImpl<TpPhotoAlbumCla
         }
         return queryWrapper;
     }
+
+    @Override
+    public TpPhotoAlbumClassify getAllPictures(String userId) {
+        TpPhotoAlbumClassifyRequest request = new TpPhotoAlbumClassifyRequest();
+        request.setPid("-1");
+        request.setUserId(userId);
+        request.setPhotoAlbumClassifyName("全部图片");
+        return this.getOne(this.queryWrapper(request));
+    }
 }

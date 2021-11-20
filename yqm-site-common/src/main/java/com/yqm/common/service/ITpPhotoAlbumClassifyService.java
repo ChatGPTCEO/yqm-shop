@@ -18,4 +18,10 @@ public interface ITpPhotoAlbumClassifyService extends IService<TpPhotoAlbumClass
 
     QueryWrapper<TpPhotoAlbumClassify> queryWrapper(TpPhotoAlbumClassifyRequest request);
 
+    /**
+     * 查询 全部图片这个分类
+     * @return
+     */
+    TpPhotoAlbumClassify getAllPictures(String userId);
+
 }
