@@ -4,13 +4,28 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-20 22:21:40",
+  "updatedTime": "2021-11-21 12:16:30",
   "dbConns": [],
   "profile": {
     "default": {
       "db": "MYSQL",
       "dbConn": "",
       "entityInitFields": [
+        {
+          "defKey": "sort",
+          "defName": "排序",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
         {
           "defKey": "user_id",
           "defName": "用户id",
@@ -4134,6 +4149,36 @@
           "domain": "DefaultString"
         },
         {
+          "defKey": "user_id",
+          "defName": "用户id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "company_id",
+          "defName": "公司id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
           "defKey": "pid",
           "defName": "父编号",
           "comment": "",
@@ -4209,19 +4254,19 @@
           "domain": "Int"
         },
         {
-          "defKey": "show",
+          "defKey": "`show`",
           "defName": "是否显示",
-          "comment": "",
+          "comment": "0 不显示 1显示",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "1",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "YesNo"
         },
         {
           "defKey": "seo_title",
