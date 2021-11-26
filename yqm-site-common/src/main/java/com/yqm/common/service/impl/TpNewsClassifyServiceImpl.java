@@ -45,6 +45,9 @@ public class TpNewsClassifyServiceImpl extends ServiceImpl<TpNewsClassifyMapper,
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
         }
+        if (StringUtils.isNotBlank(request.getPid())) {
+            queryWrapper.eq("pid", request.getPid());
+        }
         if (StringUtils.isNotBlank(request.getUserId())) {
             queryWrapper.eq("user_id", request.getUserId());
         }

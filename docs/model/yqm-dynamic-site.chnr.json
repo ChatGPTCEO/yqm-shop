@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-21 12:16:30",
+  "updatedTime": "2021-11-26 23:00:46",
   "dbConns": [],
   "profile": {
     "default": {
@@ -4188,7 +4188,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "0",
+          "defaultValue": "-1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -4227,8 +4227,8 @@
           "defKey": "content",
           "defName": "描述",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
+          "type": "text",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -4236,7 +4236,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": ""
         },
         {
           "defKey": "sort",

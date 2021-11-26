@@ -1,5 +1,6 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -49,6 +50,7 @@ import java.time.LocalDateTime;
     /**
      * 是否显示;0 不显示 1显示
      */
+    @TableField("`show`")
     private String show;
 
     /**

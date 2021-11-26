@@ -29,6 +29,8 @@ import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.NewsClassifyService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 管理端-新闻分类
  * @Author: weiximei
@@ -102,6 +104,17 @@ public class NewsClassifyController {
         IPage<TpNewsClassifyDTO> page = newsClassifyClassifyService.pageNewsClassify(request);
         return ResponseBean.success(page);
     }
+    /**
+     * 分页查询新闻分类
+     * @param request
+     * @return
+     */
+    @GetMapping("/list")
+    public ResponseBean listRecruitment(TpNewsClassifyRequest request) {
+        List<TpNewsClassifyDTO> list = newsClassifyClassifyService.getNewsClassify();
+        return ResponseBean.success(list);
+    }
+
 
     /**
      * 停用/启用 新闻分类

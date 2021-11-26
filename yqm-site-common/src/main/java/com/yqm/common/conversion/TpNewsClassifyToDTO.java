@@ -26,6 +26,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.yqm.common.dto.TpNewsClassifyDTO;
 import com.yqm.common.entity.TpNewsClassify;
 import com.yqm.common.request.TpNewsClassifyRequest;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -58,11 +59,17 @@ public class TpNewsClassifyToDTO {
     }
 
     public static List<TpNewsClassifyDTO> toTpNewsClassifyDTOList(List<TpNewsClassify> entityList) {
+        if (CollectionUtils.isEmpty(entityList)) {
+            return null;
+        }
         List<TpNewsClassifyDTO> dtoList = entityList.stream().map(e -> TpNewsClassifyToDTO.toTpNewsClassifyDTO(e)).collect(Collectors.toList());
         return dtoList;
     }
 
     public static List<TpNewsClassify> toTpNewsClassifyList(List<TpNewsClassifyDTO> dtoList) {
+        if (CollectionUtils.isEmpty(dtoList)) {
+            return null;
+        }
         List<TpNewsClassify> entityList = dtoList.stream().map(e -> TpNewsClassifyToDTO.toTpNewsClassify(e)).collect(Collectors.toList());
         return entityList;
     }

@@ -75,6 +75,10 @@ public class NewsClassifyService {
         if (StringUtils.isEmpty(request.getId())) {
             newsClassify.setCreateBy(user.getId());
             newsClassify.setCreateTime(LocalDateTime.now());
+
+            int maxSort = iTpNewsClassifyService.getMaxSort(user.getId());
+            iTpNewsClassifyService.updateAllSortGal(maxSort,user.getId());
+            newsClassify.setSort(1);
         }
     
         TpNewsClassify tpNewsClassify = iTpNewsClassifyService.getById(request.getPid());
@@ -228,11 +232,14 @@ public class NewsClassifyService {
     }
 
     /**
-     * 查询 新闻分类
+     * 查询 新闻分类 梯形
      * @return
      */
     public List<TpNewsClassifyDTO> getNewsClassify() {
         List<TpNewsClassifyDTO> dtoList = this.listNewsClassify("-1");
+        if (CollectionUtils.isEmpty(dtoList)) {
+            return new ArrayList<>();
+        }
         for (TpNewsClassifyDTO dto : dtoList) {
             List<TpNewsClassifyDTO> DtoList2 = this.listNewsClassify(dto.getId());
             dto.setChildren(DtoList2);
