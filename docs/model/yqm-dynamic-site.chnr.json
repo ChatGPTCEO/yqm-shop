@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-26 23:00:46",
+  "updatedTime": "2021-11-28 16:33:16",
   "dbConns": [],
   "profile": {
     "default": {
@@ -3705,6 +3705,36 @@
           "domain": "IdOrKey"
         },
         {
+          "defKey": "user_id",
+          "defName": "用户id",
+          "comment": "用户id",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "company_id",
+          "defName": "公司id",
+          "comment": "公司id",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
           "defKey": "news_title",
           "defName": "新闻标题",
           "comment": "",
@@ -3828,8 +3858,8 @@
           "defKey": "sort",
           "defName": "排序",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
+          "type": "INT",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": true,
@@ -3837,7 +3867,7 @@
           "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "Int"
         },
         {
           "defKey": "news_img",
@@ -4192,6 +4222,36 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "pids",
+          "defName": "父id集合",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "level",
+          "defName": "层级",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "Int"
         },
         {
           "defKey": "news_classify_name",
@@ -4810,6 +4870,21 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "level",
+          "defName": "层级",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "Int"
         },
         {
           "defKey": "user_id",
