@@ -82,7 +82,7 @@ public class TpNewsRequest  extends BaseRequest {
     /**
      * 发布时间
      */
-    private String releaseTime;
+    private LocalDateTime releaseTime;
 
     /**
      * 来源
@@ -103,6 +103,11 @@ public class TpNewsRequest  extends BaseRequest {
      * 封面
      */
     private String newsImg;
+
+    /**
+     * 是否置顶;0 否 1 是
+     */
+    private String isTop;
 
     /**
      * 是否显示封面;0 否 1 是

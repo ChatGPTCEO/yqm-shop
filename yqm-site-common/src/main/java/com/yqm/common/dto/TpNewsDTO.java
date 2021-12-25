@@ -82,7 +82,7 @@ public class TpNewsDTO  extends BaseEntity {
     /**
      * 发布时间
      */
-    private String releaseTime;
+    private LocalDateTime releaseTime;
 
     /**
      * 来源
@@ -98,6 +98,11 @@ public class TpNewsDTO  extends BaseEntity {
      * 排序
      */
     private Integer sort;
+
+    /**
+     * 是否置顶;0 否 1 是
+     */
+    private String isTop;
 
     /**
      * 封面

@@ -49,6 +49,9 @@ public class TpNewsServiceImpl extends ServiceImpl<TpNewsMapper, TpNews> impleme
         if (StringUtils.isNotBlank(request.getUserId())) {
             queryWrapper.eq("user_id", request.getUserId());
         }
+        if (StringUtils.isNotBlank(request.getNewsTitle())) {
+            queryWrapper.like("news_title", request.getNewsTitle());
+        }
         return queryWrapper;
     }
 

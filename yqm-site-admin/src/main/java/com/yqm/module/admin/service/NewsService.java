@@ -73,9 +73,10 @@ public class NewsService {
 
         TpNews news = TpNewsToDTO.toTpNews(request);
         if (StringUtils.isEmpty(request.getId())) {
+            LocalDateTime nowDate = LocalDateTime.now();
             news.setCreateBy(user.getId());
-            news.setCreateTime(LocalDateTime.now());
-
+            news.setCreateTime(nowDate);
+            news.setReleaseTime(nowDate);
             int maxSort = iTpNewsService.getMaxSort(user.getId());
             iTpNewsService.updateAllSortGal(maxSort,user.getId());
             news.setSort(1);

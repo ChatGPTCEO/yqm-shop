@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-11-28 16:16:01",
+  "updatedTime": "2021-12-25 19:50:17",
   "dbConns": [],
   "profile": {
     "default": {
@@ -3858,8 +3858,8 @@
           "defKey": "sort",
           "defName": "排序",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
+          "type": "INT",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": true,
@@ -3867,7 +3867,7 @@
           "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "Int"
         },
         {
           "defKey": "news_img",
@@ -4074,6 +4074,21 @@
           "autoIncrement": false,
           "defaultValue": "now()",
           "hideInGraph": true
+        },
+        {
+          "defKey": "is_top",
+          "defName": "是否置顶",
+          "comment": "0 否 1 是",
+          "type": "VARCHAR",
+          "len": 1,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "0",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": ""
         }
       ],
       "correlations": [],
