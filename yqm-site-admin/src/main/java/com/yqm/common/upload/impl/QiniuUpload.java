@@ -31,15 +31,12 @@ import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 import com.yqm.common.define.SysConfigDefine;
-import com.yqm.common.entity.SysConfig;
 import com.yqm.common.exception.YqmException;
-import com.yqm.common.request.SysConfigRequest;
-import com.yqm.common.service.ISysConfigService;
 import com.yqm.common.upload.IUpload;
-import com.yqm.common.upload.UploadConfig;
 import com.yqm.common.upload.UploadAbstractImg;
+import com.yqm.common.upload.UploadConfig;
+import com.yqm.module.common.service.SysConfigService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -55,17 +52,18 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class QiniuUpload extends UploadAbstractImg implements IUpload {
 
+    private final SysConfigService sysConfigService;
 
-    @Autowired
-    private ISysConfigService iSysConfigService;
+    public QiniuUpload(SysConfigService sysConfigService) {
+        this.sysConfigService = sysConfigService;
+    }
 
     @Override
     public Object upload(byte[] bytes) {
 
-        SysConfigRequest request = new SysConfigRequest();
-        request.setConfigName(SysConfigDefine.QI_NIU_UPLOAD);
-        SysConfig sysConfig = iSysConfigService.getOne(iSysConfigService.queryWrapper(request));
-        UploadConfig config = JSONObject.parseObject(sysConfig.getConfigValue(), UploadConfig.class);
+        String uploadConfigValue = sysConfigService.getCacheValue(SysConfigDefine.UPLOAD);
+        String configValue = sysConfigService.getCacheValue(uploadConfigValue);
+        UploadConfig config = JSONObject.parseObject(configValue, UploadConfig.class);
 
         //构造一个带指定 Region 对象的配置类
         Configuration cfg = new Configuration(Region.region0());
@@ -79,9 +77,9 @@ public class QiniuUpload extends UploadAbstractImg implements IUpload {
         try {
             Response response = uploadManager.put(bytes, null, upToken);
             //解析上传成功的结果
-            DefaultPutRet putRet = JSONObject.parseObject(response.bodyString(),DefaultPutRet.class);
+            DefaultPutRet putRet = JSONObject.parseObject(response.bodyString(), DefaultPutRet.class);
             log.info("上传文件响应：{}, {}", putRet.key, putRet.hash);
-            return config.getHost() + "/" +putRet.key;
+            return config.getHost() + "/" + putRet.key;
         } catch (QiniuException ex) {
             Response r = ex.response;
             log.error("上传文件Error: {}", r.toString());

@@ -22,10 +22,6 @@
 
 package com.yqm.common.define;
 
-import lombok.Data;
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,7 +35,7 @@ import java.util.List;
 public class YqmDefine {
 
     // 有效
-   public final static List<String> includeStatus = Arrays.asList(StatusType.failure.getValue(), StatusType.effective.getValue());
+    public final static List<String> includeStatus = Arrays.asList(StatusType.failure.getValue(), StatusType.effective.getValue());
 
     /**
      * 状态类型
@@ -47,14 +43,44 @@ public class YqmDefine {
     public enum StatusType {
         effective("有效", "effective"),
         failure("失效", "failure"),
-        delete("删除", "delete")
-
-        ;
+        delete("删除", "delete");
 
         private String desc;
         private String value;
 
         StatusType(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
+    /**
+     * 缓存key类型
+     */
+    public enum CacheKeyType {
+        system("系统", "system_"),
+        user("用户", "user_");
+
+        private String desc;
+        private String value;
+
+        CacheKeyType(String desc, String value) {
             this.desc = desc;
             this.value = value;
         }

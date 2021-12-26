@@ -23,12 +23,9 @@
 package com.yqm.module.common.service;
 
 import com.yqm.common.define.SysConfigDefine;
-import com.yqm.common.entity.SysConfig;
-import com.yqm.common.request.SysConfigRequest;
 import com.yqm.common.service.ISysConfigService;
 import com.yqm.common.upload.UploadAbstractImg;
 import com.yqm.common.upload.UploadImg;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -43,24 +40,27 @@ import org.springframework.stereotype.Service;
 @Service
 public class UploadService {
 
-    @Autowired
-    private UploadImg uploadImg;
+    private final UploadImg uploadImg;
 
-    @Autowired
-    private ISysConfigService iSysConfigService;
+    private final ISysConfigService iSysConfigService;
+
+    private final SysConfigService sysConfigService;
+
+    public UploadService(UploadImg uploadImg, ISysConfigService iSysConfigService, SysConfigService sysConfigService) {
+        this.uploadImg = uploadImg;
+        this.iSysConfigService = iSysConfigService;
+        this.sysConfigService = sysConfigService;
+    }
 
     /**
      * 上传图片
+     *
      * @param bytes
      * @return
      */
-    public String uploadImg(byte []bytes) {
-
-        SysConfigRequest request = new SysConfigRequest();
-        request.setConfigName(SysConfigDefine.UPLOAD);
-        SysConfig sysConfig = iSysConfigService.getOne(iSysConfigService.queryWrapper(request));
-
-        UploadAbstractImg baseUpload = uploadImg.getUploadImg(sysConfig.getConfigValue());
+    public String uploadImg(byte[] bytes) {
+        String configValue = sysConfigService.getCacheValue(SysConfigDefine.UPLOAD);
+        UploadAbstractImg baseUpload = uploadImg.getUploadImg(configValue);
         return baseUpload.run(bytes);
     }
 

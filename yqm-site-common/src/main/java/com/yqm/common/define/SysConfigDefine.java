@@ -41,4 +41,10 @@ public class SysConfigDefine {
      */
     public static final String UPLOAD = "upload";
 
+
+    /**
+     * 域名
+     */
+    public static final String DOMAIN = "domain";
+
 }

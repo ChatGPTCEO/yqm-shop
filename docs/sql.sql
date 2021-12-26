@@ -304,8 +304,10 @@ CREATE TABLE tp_photo_album_classify(
                                         photo_album_classify_name VARCHAR(900) NOT NULL   COMMENT '名称' ,
                                         pid VARCHAR(255) NOT NULL  DEFAULT 0 COMMENT '父编号' ,
                                         pids VARCHAR(255) NOT NULL   COMMENT '父编号集合' ,
+                                        level INT    COMMENT '层级' ,
                                         user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
                                         company_id VARCHAR(32)    COMMENT '公司id' ,
+                                        status VARCHAR(255)   DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
                                         create_by VARCHAR(32)    COMMENT '创建人' ,
                                         create_time DATETIME    COMMENT '创建时间' ,
                                         updated_by VARCHAR(32)    COMMENT '更新人' ,
@@ -319,4 +321,117 @@ INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`,
 INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('3', '团队介绍', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
 INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('4', '合作伙伴', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
 INSERT INTO `tp_photo_album_classify` (`id`, `photo_album_classify_name`, `pid`, `pids`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`,`status`) VALUES ('5', '友情链接', '0', '0', '-1', NULL, '-1', '2021-11-14 18:00:05', '-1', '2021-11-14 18:00:09', 'effective');
+
+
+
+DROP TABLE IF EXISTS tp_photo_album;
+CREATE TABLE tp_photo_album(
+                               id VARCHAR(32) NOT NULL   COMMENT '编号' ,
+                               photo_album_name text    COMMENT '名称' ,
+                               url VARCHAR(900) NOT NULL   COMMENT '图片地址' ,
+                               user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                               company_id VARCHAR(255)    COMMENT '公司id' ,
+                               photo_album_classify_id VARCHAR(32) NOT NULL   COMMENT '相册分类id' ,
+                               status VARCHAR(255) NOT NULL  DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                               create_by VARCHAR(32)    COMMENT '创建人' ,
+                               create_time DATETIME   DEFAULT now() COMMENT '创建时间' ,
+                               updated_by VARCHAR(32)    COMMENT '更新人' ,
+                               updated_time DATETIME   DEFAULT now() COMMENT '更新时间' ,
+                               PRIMARY KEY (id)
+)  COMMENT = '相册';
+
+DROP TABLE IF EXISTS tp_news_classify;
+CREATE TABLE tp_news_classify(
+                                 id VARCHAR(255) NOT NULL   COMMENT '编号' ,
+                                 user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                                 company_id VARCHAR(255)    COMMENT '公司id' ,
+                                 pid VARCHAR(255)   DEFAULT -1 COMMENT '父编号' ,
+                                 pids VARCHAR(900)    COMMENT '父id集合' ,
+                                 level INT    COMMENT '层级' ,
+                                 news_classify_name VARCHAR(255)    COMMENT '名称' ,
+                                 news_classify_img VARCHAR(255)    COMMENT '图片' ,
+                                 content text    COMMENT '描述' ,
+                                 sort INT   DEFAULT 1 COMMENT '排序' ,
+                                 `show` VARCHAR(1)   DEFAULT 1 COMMENT '是否显示;0 不显示 1显示' ,
+                                 seo_title VARCHAR(255)    COMMENT 'SEO标题' ,
+                                 seo_keyword VARCHAR(255)    COMMENT 'SEO关键字' ,
+                                 seo_content VARCHAR(255)    COMMENT 'SEO描述' ,
+                                 plug_code VARCHAR(255)    COMMENT '插件代码' ,
+                                 plug_location VARCHAR(255)    COMMENT '插件代码位置' ,
+                                 status VARCHAR(255)   DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                                 create_by VARCHAR(32)    COMMENT '创建人' ,
+                                 create_time DATETIME   DEFAULT now() COMMENT '创建时间' ,
+                                 updated_by VARCHAR(32)    COMMENT '更新人' ,
+                                 updated_time DATETIME   DEFAULT now() COMMENT '更新时间' ,
+                                 PRIMARY KEY (id)
+)  COMMENT = '新闻分类';
+
+
+
+DROP TABLE IF EXISTS tp_news;
+CREATE TABLE tp_news(
+                        id VARCHAR(32) NOT NULL   COMMENT '编号' ,
+                        user_id VARCHAR(32) NOT NULL   COMMENT '用户id;用户id' ,
+                        company_id VARCHAR(32)    COMMENT '公司id;公司id' ,
+                        news_title VARCHAR(1024)    COMMENT '新闻标题' ,
+                        short_title VARCHAR(1024)    COMMENT '短标题' ,
+                        subtitle VARCHAR(255)    COMMENT '副标题' ,
+                        abstract VARCHAR(1024)    COMMENT '摘要' ,
+                        news_classify_id VARCHAR(255)    COMMENT '分类' ,
+                        release_time DATETIME    COMMENT '发布时间' ,
+                        source VARCHAR(255)    COMMENT '来源' ,
+                        author VARCHAR(255)    COMMENT '作者' ,
+                        sort INT NOT NULL  DEFAULT 1 COMMENT '排序' ,
+                        news_img VARCHAR(900)    COMMENT '封面' ,
+                        show_news_img VARCHAR(1)   DEFAULT 1 COMMENT '是否显示封面;0 否 1 是' ,
+                        url VARCHAR(900)    COMMENT '外链地址' ,
+                        english_id VARCHAR(900)    COMMENT '英文标识' ,
+                        content text    COMMENT '内容' ,
+                        tags VARCHAR(900)    COMMENT '标签' ,
+                        seo_title VARCHAR(255)    COMMENT 'SEO标题' ,
+                        seo_keyword VARCHAR(255)    COMMENT 'SEO关键字' ,
+                        seo_content VARCHAR(255)    COMMENT 'SEO描述' ,
+                        status VARCHAR(255)   DEFAULT 'effective' COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                        create_by VARCHAR(32)    COMMENT '创建人' ,
+                        create_time DATETIME   DEFAULT now() COMMENT '创建时间' ,
+                        updated_by VARCHAR(32)    COMMENT '更新人' ,
+                        updated_time DATETIME   DEFAULT now() COMMENT '更新时间' ,
+                        is_top VARCHAR(1)   DEFAULT 0 COMMENT '是否置顶;0 否 1 是' ,
+                        PRIMARY KEY (id)
+)  COMMENT = '新闻';
+
+
+DROP TABLE IF EXISTS customer_sys_config;
+CREATE TABLE customer_sys_config(
+                                    id VARCHAR(32) NOT NULL   COMMENT '编号' ,
+                                    config_name VARCHAR(255)    COMMENT '配置名称' ,
+                                    config_value text    COMMENT '配置值' ,
+                                    config_desc VARCHAR(255)    COMMENT '描述' ,
+                                    sort VARCHAR(255)   DEFAULT 1 COMMENT '排序' ,
+                                    user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                                    company_id VARCHAR(32)    COMMENT '公司id' ,
+                                    create_by VARCHAR(32)    COMMENT '创建人' ,
+                                    create_time DATETIME   DEFAULT now() COMMENT '创建时间' ,
+                                    updated_by VARCHAR(32)    COMMENT '更新人' ,
+                                    updated_time DATETIME   DEFAULT now() COMMENT '更新时间' ,
+                                    PRIMARY KEY (id)
+)  COMMENT = '用户站点配置';
+
+
+DROP TABLE IF EXISTS tp_site;
+CREATE TABLE tp_site(
+                        id bigint(11) NOT NULL AUTO_INCREMENT  COMMENT '编号' ,
+                        language VARCHAR(255) NOT NULL  DEFAULT zh_cn COMMENT '语言版本;zh_cn 中文 us_en 英文' ,
+                        system_version VARCHAR(255)    COMMENT '系统版本' ,
+                        due_time VARCHAR(255) NOT NULL   COMMENT '到期时间' ,
+                        status VARCHAR(255) NOT NULL  DEFAULT effective COMMENT '状态;状态: effective 有效 failure 失效 delete 删除' ,
+                        sort VARCHAR(255)   DEFAULT 1 COMMENT '排序' ,
+                        user_id VARCHAR(32) NOT NULL   COMMENT '用户id' ,
+                        company_id VARCHAR(32)    COMMENT '公司id' ,
+                        create_by VARCHAR(32)    COMMENT '创建人' ,
+                        create_time DATETIME   DEFAULT now() COMMENT '创建时间' ,
+                        updated_by VARCHAR(32)    COMMENT '更新人' ,
+                        updated_time DATETIME   DEFAULT now() COMMENT '更新时间' ,
+                        PRIMARY KEY (id)
+)  COMMENT = '站点';
 

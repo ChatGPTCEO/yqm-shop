@@ -22,10 +22,8 @@
 
 package com.yqm.module.admin.service;
 
-import com.yqm.common.SpringContextHelper;
 import com.yqm.common.conversion.TpUserToDTO;
 import com.yqm.common.dto.TpUserDTO;
-import com.yqm.common.entity.TpUser;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +45,7 @@ public class AdminUserService {
 
     /**
      * 获取用户信息
+     *
      * @return
      */
     public TpUserDTO getUserInfo() {
