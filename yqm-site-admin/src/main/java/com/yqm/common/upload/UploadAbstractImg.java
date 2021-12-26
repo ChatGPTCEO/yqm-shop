@@ -22,10 +22,7 @@
 
 package com.yqm.common.upload;
 
-import com.yqm.common.SpringContextHelper;
 import com.yqm.common.exception.YqmException;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * 图片文件上传
@@ -40,9 +37,7 @@ public abstract class UploadAbstractImg {
 
     private String value;
 
-    public String getValue() {
-        return "qiniu-upload";
-    }
+    public abstract String getValue();
 
     /**
      * 上传前
@@ -52,9 +47,9 @@ public abstract class UploadAbstractImg {
     /**
      * 上传后
      */
-    protected  abstract void afterUpload() throws YqmException;
+    protected abstract void afterUpload() throws YqmException;
 
-    public String run(byte []bytes) throws YqmException {
+    public String run(byte[] bytes) throws YqmException {
         beforeUpload();
         String url = (String) upload(bytes);
         afterUpload();
@@ -63,8 +58,9 @@ public abstract class UploadAbstractImg {
 
     /**
      * 执行
+     *
      * @param bytes
      * @return
      */
-    protected abstract Object upload(byte []bytes);
+    protected abstract Object upload(byte[] bytes);
 }
