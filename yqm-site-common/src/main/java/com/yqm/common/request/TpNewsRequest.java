@@ -174,6 +174,10 @@ public class TpNewsRequest  extends BaseRequest {
      */
     private LocalDateTime updatedTime;
 
+
+    /** 额外 **/
+
+
     /**
      * 排序
      */
@@ -184,5 +188,10 @@ public class TpNewsRequest  extends BaseRequest {
      * 包含的状态
      */
     private List<String> includeStatus;
+
+    /**
+     * 查询延时
+     */
+    private Boolean delay;
 
 }

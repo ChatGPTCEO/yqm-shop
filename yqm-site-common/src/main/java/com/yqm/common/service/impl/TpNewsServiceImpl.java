@@ -7,12 +7,15 @@ import com.yqm.common.entity.TpNewsClassify;
 import com.yqm.common.mapper.TpNewsMapper;
 import com.yqm.common.request.TpNewsRequest;
 import com.yqm.common.service.ITpNewsService;
+import com.yqm.common.utils.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
 * <p>
@@ -51,6 +54,14 @@ public class TpNewsServiceImpl extends ServiceImpl<TpNewsMapper, TpNews> impleme
         }
         if (StringUtils.isNotBlank(request.getNewsTitle())) {
             queryWrapper.like("news_title", request.getNewsTitle());
+        }
+        if (Objects.nonNull(request.getDelay())) {
+            if (request.getDelay().booleanValue()) {
+                queryWrapper.gt("release_time", LocalDateTime.now());
+            } else {
+                queryWrapper.le("release_time", LocalDateTime.now());
+            }
+
         }
         return queryWrapper;
     }
