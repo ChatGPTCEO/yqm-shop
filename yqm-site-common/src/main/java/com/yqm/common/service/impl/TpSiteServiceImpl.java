@@ -35,6 +35,7 @@ public class TpSiteServiceImpl extends ServiceImpl<TpSiteMapper, TpSite> impleme
     public QueryWrapper<TpSite> queryWrapper(TpSiteRequest request) {
 
         QueryWrapper<TpSite> queryWrapper = new QueryWrapper();
+        queryWrapper.orderByDesc("due_time");
         if (request.isOrderSort()) {
             queryWrapper.orderByAsc("sort");
             queryWrapper.orderByDesc("updated_time");
@@ -42,7 +43,7 @@ public class TpSiteServiceImpl extends ServiceImpl<TpSiteMapper, TpSite> impleme
         } else {
             queryWrapper.orderByDesc(Arrays.asList("sort", "updated_time"));
         }
-        queryWrapper.orderByDesc("due_time");
+
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
         }
