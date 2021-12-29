@@ -55,8 +55,8 @@ public class SysConfigService {
         this.cacheLocal = cacheLocal;
     }
 
-    public String getCacheValue(String key) {
-        String keyPrefix = YqmDefine.CacheKeyType.system.getValue() + key;
+    public String getCacheValue(String key, String type) {
+        String keyPrefix = type + key;
         String value = cacheLocal.getIfPresent(keyPrefix);
         if (StringUtils.isNotBlank(value)) {
             return value;
@@ -66,6 +66,14 @@ public class SysConfigService {
             cacheLocal.put(keyPrefix, dbValue);
         }
         return dbValue;
+    }
+
+    public String getSysCacheValue(String key) {
+        return getCacheValue(key, YqmDefine.CacheKeyType.system.getValue());
+    }
+
+    public String getUserCacheValue(String key) {
+        return getCacheValue(key, YqmDefine.CacheKeyType.user.getValue());
     }
 
     public String getValue(String key) {

@@ -38,11 +38,26 @@ import java.time.LocalDateTime;
  */
 @Data
 public class TpSiteDTO extends BaseEntity implements Serializable {
- 
+
     /**
      * 语言版本:zh_cn 中文 us_en 英文
      */
     private String language;
+
+    /**
+     * 站点名称
+     */
+    private String siteName;
+
+    /**
+     * 用户域名
+     */
+    private String domain;
+
+    /**
+     * 系统域名
+     */
+    private String systemDomain;
 
     /**
      * 系统版本
@@ -52,7 +67,7 @@ public class TpSiteDTO extends BaseEntity implements Serializable {
     /**
      * 到期时间
      */
-    private String dueTime;
+    private LocalDateTime dueTime;
 
     /**
      * 状态;状态: effective 有效 failure 失效 delete 删除
@@ -70,9 +85,19 @@ public class TpSiteDTO extends BaseEntity implements Serializable {
     private String userId;
 
     /**
+     * 机房 china 中国  hong_kong 香港
+     */
+    private String computerRoom;
+
+    /**
      * 公司id
      */
     private String companyId;
+
+    /**
+     * 模板
+     */
+    private String customizeTemplate;
 
     /**
      * 创建人
@@ -94,5 +119,12 @@ public class TpSiteDTO extends BaseEntity implements Serializable {
      */
     private LocalDateTime updatedTime;
 
+    /**
+     * 额外字段
+     **/
 
+    /**
+     * 联系方式
+     */
+    private String sysPhone;
 }

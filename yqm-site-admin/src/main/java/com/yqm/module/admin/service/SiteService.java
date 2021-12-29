@@ -31,6 +31,7 @@ import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.entity.TpSite;
 import com.yqm.common.request.TpSiteRequest;
 import com.yqm.common.service.ITpSiteService;
+import com.yqm.module.common.service.SysConfigService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -58,9 +59,11 @@ import java.util.Objects;
 public class SiteService {
 
     private ITpSiteService iTpSiteService;
+    private SysConfigService sysConfigService;
 
-    public SiteService(ITpSiteService iTpSiteService) {
+    public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService) {
         this.iTpSiteService = iTpSiteService;
+        this.sysConfigService = sysConfigService;
     }
 
     /**
@@ -171,7 +174,16 @@ public class SiteService {
 
         List list = pageList.getRecords();
         if (CollectionUtils.isNotEmpty(list)) {
+            String sysDomain = sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.domain.getValue());
+            String sysPhone = sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.sys_phone.getValue());
             List<TpSiteDTO> dtoList = TpSiteToDTO.toTpSiteDTOList(list);
+            if (CollectionUtils.isNotEmpty(dtoList)) {
+                dtoList.forEach(e -> {
+                    // 系统域名
+                    e.setSystemDomain(sysDomain + e.getId() + "/index");
+                    e.setSysPhone(sysPhone);
+                });
+            }
             pageList.setRecords(dtoList);
         }
         return pageList;

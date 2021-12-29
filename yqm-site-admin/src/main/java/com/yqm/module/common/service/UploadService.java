@@ -22,7 +22,7 @@
 
 package com.yqm.module.common.service;
 
-import com.yqm.common.define.SysConfigDefine;
+import com.yqm.common.define.YqmDefine;
 import com.yqm.common.service.ISysConfigService;
 import com.yqm.common.upload.UploadAbstractImg;
 import com.yqm.common.upload.UploadImg;
@@ -59,7 +59,7 @@ public class UploadService {
      * @return
      */
     public String uploadImg(byte[] bytes) {
-        String configValue = sysConfigService.getCacheValue(SysConfigDefine.UPLOAD);
+        String configValue = sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.upload.getValue());
         UploadAbstractImg baseUpload = uploadImg.getUploadImg(configValue);
         return baseUpload.run(bytes);
     }

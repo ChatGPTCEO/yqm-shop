@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-12-26 17:44:21",
+  "updatedTime": "2021-12-29 22:15:22",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5167,8 +5167,8 @@
           "defKey": "sort",
           "defName": "排序",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
+          "type": "INT",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -5176,7 +5176,7 @@
           "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "Int"
         },
         {
           "defKey": "user_id",
@@ -5366,6 +5366,21 @@
           "domain": ""
         },
         {
+          "defKey": "site_name",
+          "defName": "站点名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
           "defKey": "`language`",
           "defName": "语言版本",
           "comment": "zh_cn 中文 us_en 英文",
@@ -5375,7 +5390,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "`zh_cn`",
+          "defaultValue": "'zh_cn'",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -5399,8 +5414,8 @@
           "defKey": "due_time",
           "defName": "到期时间",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
+          "type": "DATETIME",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": true,
@@ -5408,7 +5423,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DateTime"
         },
         {
           "defKey": "status",
@@ -5420,7 +5435,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "`effective`",
+          "defaultValue": "'effective'",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -5467,6 +5482,51 @@
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": true
+        },
+        {
+          "defKey": "domain",
+          "defName": "用户域名",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "system_domain",
+          "defName": "系统域名",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "computer_room",
+          "defName": "机房",
+          "comment": "china 中国  hong_kong 香港",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'china'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         },
         {
           "defKey": "create_by",
@@ -5523,6 +5583,21 @@
           "autoIncrement": false,
           "defaultValue": "now()",
           "hideInGraph": true
+        },
+        {
+          "defKey": "customize_template",
+          "defName": "模板",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
         }
       ],
       "correlations": [],

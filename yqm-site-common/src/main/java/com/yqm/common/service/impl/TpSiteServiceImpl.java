@@ -42,7 +42,7 @@ public class TpSiteServiceImpl extends ServiceImpl<TpSiteMapper, TpSite> impleme
         } else {
             queryWrapper.orderByDesc(Arrays.asList("sort", "updated_time"));
         }
-
+        queryWrapper.orderByDesc("due_time");
         if (CollectionUtils.isNotEmpty(request.getIncludeStatus())) {
             queryWrapper.in("status", request.getIncludeStatus());
         }

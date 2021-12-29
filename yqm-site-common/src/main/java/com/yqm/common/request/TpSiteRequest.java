@@ -44,6 +44,21 @@ public class TpSiteRequest extends BaseRequest {
     private String language;
 
     /**
+     * 站点名称
+     */
+    private String siteName;
+
+    /**
+     * 用户域名
+     */
+    private String domain;
+
+    /**
+     * 系统域名
+     */
+    private String systemDomain;
+
+    /**
      * 系统版本
      */
     private String systemVersion;
@@ -51,7 +66,7 @@ public class TpSiteRequest extends BaseRequest {
     /**
      * 到期时间
      */
-    private String dueTime;
+    private LocalDateTime dueTime;
 
     /**
      * 状态;状态: effective 有效 failure 失效 delete 删除
@@ -72,6 +87,16 @@ public class TpSiteRequest extends BaseRequest {
      * 公司id
      */
     private String companyId;
+
+    /**
+     * 机房 china 中国  hong_kong 香港
+     */
+    private String computerRoom;
+
+    /**
+     * 模板
+     */
+    private String customizeTemplate;
 
     /**
      * 创建人

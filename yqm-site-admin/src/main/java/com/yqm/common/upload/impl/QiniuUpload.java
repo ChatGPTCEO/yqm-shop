@@ -30,7 +30,7 @@ import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
-import com.yqm.common.define.SysConfigDefine;
+import com.yqm.common.define.YqmDefine;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.upload.IUpload;
 import com.yqm.common.upload.UploadAbstractImg;
@@ -61,8 +61,8 @@ public class QiniuUpload extends UploadAbstractImg implements IUpload {
     @Override
     public Object upload(byte[] bytes) {
 
-        String uploadConfigValue = sysConfigService.getCacheValue(SysConfigDefine.UPLOAD);
-        String configValue = sysConfigService.getCacheValue(uploadConfigValue);
+        String uploadConfigValue = sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.upload.getValue());
+        String configValue = sysConfigService.getSysCacheValue(uploadConfigValue);
         UploadConfig config = JSONObject.parseObject(configValue, UploadConfig.class);
 
         //构造一个带指定 Region 对象的配置类

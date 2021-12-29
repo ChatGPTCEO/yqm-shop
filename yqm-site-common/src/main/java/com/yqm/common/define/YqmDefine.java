@@ -102,4 +102,38 @@ public class YqmDefine {
         }
     }
 
+    /**
+     * 系统配置
+     */
+    public enum SysConfigType {
+        upload("使用上传配置", "upload"),
+        qiniu_upload("七牛云上传配置", "qiniu-upload"),
+        domain("域名", "domain"),
+        sys_phone("联系方式", "sys_phone");
+
+        private String desc;
+        private String value;
+
+        SysConfigType(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
 }
