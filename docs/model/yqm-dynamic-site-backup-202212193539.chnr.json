@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2021-12-29 22:15:22",
+  "updatedTime": "2022-1-2 19:35:30",
   "dbConns": [],
   "profile": {
     "default": {
@@ -3979,7 +3979,7 @@
           "defName": "SEO标题",
           "comment": "",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "900",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -3987,14 +3987,14 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DescText"
         },
         {
           "defKey": "seo_keyword",
           "defName": "SEO关键字",
           "comment": "",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "900",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -4002,12 +4002,42 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DescText"
         },
         {
           "defKey": "seo_content",
           "defName": "SEO描述",
           "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "plug_code",
+          "defName": "插件代码",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "plug_location",
+          "defName": "插件代码位置",
+          "comment": "head 在head结束标签前 body 在body结束标签前",
           "type": "VARCHAR",
           "len": 255,
           "scale": "",
@@ -4363,7 +4393,7 @@
           "defName": "SEO标题",
           "comment": "",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "900",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -4371,14 +4401,14 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DescText"
         },
         {
           "defKey": "seo_keyword",
           "defName": "SEO关键字",
           "comment": "",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "900",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -4386,14 +4416,14 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DescText"
         },
         {
           "defKey": "seo_content",
           "defName": "SEO描述",
           "comment": "",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "900",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -4401,14 +4431,14 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DescText"
         },
         {
           "defKey": "plug_code",
           "defName": "插件代码",
           "comment": "",
           "type": "VARCHAR",
-          "len": 255,
+          "len": "900",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -4416,7 +4446,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DefaultString"
+          "domain": "DescText"
         },
         {
           "defKey": "plug_location",
@@ -4428,7 +4458,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "head 在head结束标签前 body 在body结束标签前",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -5529,6 +5559,388 @@
           "domain": "DefaultString"
         },
         {
+          "defKey": "customize_template",
+          "defName": "模板",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "create_by",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "create_time",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "updated_by",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
+          "defKey": "updated_time",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "DateTime",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "defKey": "tp_pages",
+      "defName": "页面",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "id",
+          "defName": "编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "site_id",
+          "defName": "站点id",
+          "comment": "",
+          "type": "bigint",
+          "len": 11,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": ""
+        },
+        {
+          "defKey": "page_url",
+          "defName": "页面路径",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "page_name",
+          "defName": "页面名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "page_type",
+          "defName": "页面类型",
+          "comment": "system 系统 user 用户",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "'user'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "seo_title",
+          "defName": "SEO标题",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "seo_keyword",
+          "defName": "SEO关键字",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "seo_content",
+          "defName": "SEO描述",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "plug_code",
+          "defName": "插件代码",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": "900",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DescText"
+        },
+        {
+          "defKey": "plug_location",
+          "defName": "插件代码位置",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "head 在head结束标签前 body 在body结束标签前",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "pid",
+          "defName": "父id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "'-1'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "pids",
+          "defName": "父id集合",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "'-1'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "sort",
+          "defName": "排序",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "Int"
+        },
+        {
+          "defKey": "user_id",
+          "defName": "用户id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "company_id",
+          "defName": "公司id",
+          "comment": "",
+          "domain": "IdOrKey",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true
+        },
+        {
           "defKey": "create_by",
           "defName": "创建人",
           "comment": "",
@@ -5585,16 +5997,16 @@
           "hideInGraph": true
         },
         {
-          "defKey": "customize_template",
-          "defName": "模板",
-          "comment": "",
+          "defKey": "status",
+          "defName": "状态",
+          "comment": "状态: effective 有效 failure 失效 delete 删除状态: effective 有效 failure 失效 delete 删除",
           "type": "VARCHAR",
           "len": 255,
           "scale": "",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "'effective'",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"

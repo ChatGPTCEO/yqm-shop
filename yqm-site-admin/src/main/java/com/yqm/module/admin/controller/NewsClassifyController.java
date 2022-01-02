@@ -25,6 +25,7 @@ package com.yqm.module.admin.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpNewsClassifyDTO;
 import com.yqm.common.request.TpNewsClassifyRequest;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.NewsClassifyService;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,7 @@ import java.util.List;
 
 /**
  * 管理端-新闻分类
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -51,6 +53,7 @@ public class NewsClassifyController {
 
     /**
      * 添加新闻分类
+     *
      * @param request
      * @return
      */
@@ -62,6 +65,7 @@ public class NewsClassifyController {
 
     /**
      * 修改新闻分类
+     *
      * @param request
      * @return
      */
@@ -73,22 +77,24 @@ public class NewsClassifyController {
 
     /**
      * 删除新闻分类
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeNewsClassify(@PathVariable("id") String  id) {
+    public ResponseBean removeNewsClassify(@PathVariable("id") String id) {
         String removeId = newsClassifyClassifyService.removeNewsClassify(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询新闻分类
+     *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean getById(@PathVariable("id") String id) {
         TpNewsClassifyDTO dto = newsClassifyClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
@@ -96,6 +102,7 @@ public class NewsClassifyController {
 
     /**
      * 分页查询新闻分类
+     *
      * @param request
      * @return
      */
@@ -104,8 +111,24 @@ public class NewsClassifyController {
         IPage<TpNewsClassifyDTO> page = newsClassifyClassifyService.pageNewsClassify(request);
         return ResponseBean.success(page);
     }
+
     /**
      * 分页查询新闻分类
+     * 直接列表形式
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/page/list")
+    public ResponseBean pageNewsClassifyList(TpNewsClassifyRequest request) {
+        IPage<TpNewsClassifyDTO> page = newsClassifyClassifyService.pageNewsClassifyList(request);
+        return ResponseBean.success(page);
+    }
+
+
+    /**
+     * 分页查询新闻分类
+     *
      * @param request
      * @return
      */
@@ -118,6 +141,7 @@ public class NewsClassifyController {
 
     /**
      * 停用/启用 新闻分类
+     *
      * @param request
      * @return
      */
@@ -129,6 +153,7 @@ public class NewsClassifyController {
 
     /**
      * 置顶 新闻分类
+     *
      * @param request
      * @return
      */
@@ -138,5 +163,16 @@ public class NewsClassifyController {
         return ResponseBean.success(enableId);
     }
 
+    /**
+     * 修改 SEO
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/seo")
+    public ResponseBean seo(@RequestBody TpPagesRequest request) {
+        String enableId = newsClassifyClassifyService.updateSEO(request);
+        return ResponseBean.success(enableId);
+    }
 
 }

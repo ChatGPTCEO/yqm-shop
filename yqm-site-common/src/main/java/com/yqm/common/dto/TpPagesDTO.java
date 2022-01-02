@@ -20,70 +20,88 @@
  * limitations under the License.
  */
 
-package com.yqm.common.request;
+package com.yqm.common.dto;
 
-
+import com.yqm.common.base.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @Author: weiximei
- * @Date: 2021/12/26 16:42
+ * @Date: 2022/1/2 18:06
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpSiteRequest {
-
-
-    private Long current = 1L;
-
-    private Long pageSize = 10L;
-
-    private Long id;
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class TpPagesDTO extends BaseEntity {
 
     /**
-     * 语言版本:zh_cn 中文 us_en 英文
+     * 站点编号
      */
-    private String language;
+    private Long siteId;
 
     /**
-     * 站点名称
+     * 页面路径
      */
-    private String siteName;
+    private String pageUrl;
 
     /**
-     * 用户域名
+     * 页面名称
      */
-    private String domain;
+    private String pageName;
 
     /**
-     * 系统域名
+     * 页面类型;system 系统 user 用户
      */
-    private String systemDomain;
+    private String pageType;
 
     /**
-     * 系统版本
+     * SEO标题
      */
-    private String systemVersion;
+    private String seoTitle;
 
     /**
-     * 到期时间
+     * SEO关键字
      */
-    private LocalDateTime dueTime;
+    private String seoKeyword;
 
     /**
-     * 状态;状态: effective 有效 failure 失效 delete 删除
+     * SEO描述
      */
-    private String status;
+    private String seoContent;
+
+    /**
+     * 插件代码
+     */
+    private String plugCode;
+
+    /**
+     * 插件代码位置;head 在head结束标签前 body 在body结束标签前
+     */
+    private String plugLocation;
+
+    /**
+     * 父id
+     */
+    private String pid;
+
+    /**
+     * 父id集合
+     */
+    private String pids;
 
     /**
      * 排序
      */
-    private String sort;
+    private Integer sort;
 
     /**
      * 用户id
@@ -94,16 +112,6 @@ public class TpSiteRequest {
      * 公司id
      */
     private String companyId;
-
-    /**
-     * 机房 china 中国  hong_kong 香港
-     */
-    private String computerRoom;
-
-    /**
-     * 模板
-     */
-    private String customizeTemplate;
 
     /**
      * 创建人
@@ -125,17 +133,9 @@ public class TpSiteRequest {
      */
     private LocalDateTime updatedTime;
 
-
     /**
-     * 排序
+     * 状态;状态: effective 有效 failure 失效 delete 删除状态: effective 有效 failure 失效 delete 删除
      */
-    private boolean orderSort = true;
-
-
-    /**
-     * 包含的状态
-     */
-    private List<String> includeStatus;
-
+    private String status;
 
 }

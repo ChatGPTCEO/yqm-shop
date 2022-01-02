@@ -32,7 +32,7 @@ import java.util.List;
 
 /**
  * @Author: weiximei
- * @Date: 2021/11/28 16:23
+ * @Date: 2022/1/2 18:06
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
@@ -41,97 +41,27 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TpNewsRequest extends BaseRequest {
+public class TpPagesRequest extends BaseRequest {
 
     /**
-     * 用户id;用户id
+     * 站点编号
      */
-    private String userId;
+    private Long siteId;
 
     /**
-     * 公司id;公司id
+     * 页面路径
      */
-    private String companyId;
+    private String pageUrl;
 
     /**
-     * 新闻标题
+     * 页面名称
      */
-    private String newsTitle;
+    private String pageName;
 
     /**
-     * 短标题
+     * 页面类型;system 系统 user 用户
      */
-    private String shortTitle;
-
-    /**
-     * 副标题
-     */
-    private String subtitle;
-
-    /**
-     * 摘要
-     */
-    private String abstractText;
-
-    /**
-     * 分类
-     */
-    private String newsClassifyId;
-
-    /**
-     * 发布时间
-     */
-    private LocalDateTime releaseTime;
-
-    /**
-     * 来源
-     */
-    private String source;
-
-    /**
-     * 作者
-     */
-    private String author;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
-
-    /**
-     * 封面
-     */
-    private String newsImg;
-
-    /**
-     * 是否置顶;0 否 1 是
-     */
-    private String isTop;
-
-    /**
-     * 是否显示封面;0 否 1 是
-     */
-    private String showNewsImg;
-
-    /**
-     * 外链地址
-     */
-    private String url;
-
-    /**
-     * 英文标识
-     */
-    private String englishId;
-
-    /**
-     * 内容
-     */
-    private String content;
-
-    /**
-     * 标签
-     */
-    private String tags;
+    private String pageType;
 
     /**
      * SEO标题
@@ -159,9 +89,29 @@ public class TpNewsRequest extends BaseRequest {
     private String plugLocation;
 
     /**
-     * 状态;状态: effective 有效 failure 失效 delete 删除
+     * 父id
      */
-    private String status;
+    private String pid;
+
+    /**
+     * 父id集合
+     */
+    private String pids;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
+
+    /**
+     * 用户id
+     */
+    private String userId;
+
+    /**
+     * 公司id
+     */
+    private String companyId;
 
     /**
      * 创建人
@@ -182,6 +132,11 @@ public class TpNewsRequest extends BaseRequest {
      * 更新时间
      */
     private LocalDateTime updatedTime;
+
+    /**
+     * 状态;状态: effective 有效 failure 失效 delete 删除状态: effective 有效 failure 失效 delete 删除
+     */
+    private String status;
 
 
     /** 额外 **/

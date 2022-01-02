@@ -1,18 +1,17 @@
 package com.yqm.common.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yqm.common.entity.TpSite;
+import com.yqm.common.entity.TpPages;
 
 /**
  * <p>
- * 站点 Mapper 接口
+ * 页面 Mapper 接口
  * </p>
  *
  * @author weiximei
- * @since 2021-12-26
+ * @since 2022-01-02
  */
-public interface TpSiteMapper extends BaseMapper<TpSite> {
-
+public interface TpPagesMapper extends BaseMapper<TpPages> {
 
     /**
      * 所有 Sort 加 1
@@ -28,7 +27,7 @@ public interface TpSiteMapper extends BaseMapper<TpSite> {
      * @param id
      * @return
      */
-    int top(Long id, String userId);
+    int top(String id, String userId);
 
     /**
      * 获取最大的 Sort

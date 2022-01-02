@@ -9,16 +9,16 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 新闻
-    * </p>
-*
-* @author weiximei
-* @since 2021-11-28
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class TpNews   extends BaseEntity implements Serializable {
+ * <p>
+ * 新闻
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-11-28
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpNews extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -127,6 +127,16 @@ import java.time.LocalDateTime;
      * SEO描述
      */
     private String seoContent;
+
+    /**
+     * 插件代码
+     */
+    private String plugCode;
+
+    /**
+     * 插件代码位置;head 在head结束标签前 body 在body结束标签前
+     */
+    private String plugLocation;
 
     /**
      * 状态;状态: effective 有效 failure 失效 delete 删除

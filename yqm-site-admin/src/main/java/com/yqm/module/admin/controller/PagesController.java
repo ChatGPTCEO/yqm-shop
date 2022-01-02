@@ -23,14 +23,14 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yqm.common.dto.TpSiteDTO;
-import com.yqm.common.request.TpSiteRequest;
+import com.yqm.common.dto.TpPagesDTO;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.SiteService;
+import com.yqm.module.admin.service.PagesService;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端-站点
+ * 管理端-页面
  *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
@@ -38,98 +38,110 @@ import org.springframework.web.bind.annotation.*;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/site")
+@RequestMapping("/admin/pages")
 @RestController
-public class SiteController {
+public class PagesController {
 
-    private final SiteService siteService;
+    private final PagesService pagesService;
 
-    public SiteController(SiteService siteService) {
-        this.siteService = siteService;
+    public PagesController(PagesService pagesService) {
+        this.pagesService = pagesService;
     }
 
     /**
-     * 添加站点
+     * 添加页面
      *
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpSiteRequest request) {
-        TpSiteDTO dto = siteService.saveSite(request);
+    public ResponseBean addRecruitment(@RequestBody TpPagesRequest request) {
+        TpPagesDTO dto = pagesService.savePages(request);
         return ResponseBean.success(dto);
     }
 
     /**
-     * 修改站点
+     * 修改页面
      *
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpSiteRequest request) {
-        TpSiteDTO dto = siteService.saveSite(request);
+    public ResponseBean updateRecruitment(@RequestBody TpPagesRequest request) {
+        TpPagesDTO dto = pagesService.savePages(request);
         return ResponseBean.success(dto);
     }
 
     /**
-     * 删除站点
+     * 删除页面
      *
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeSite(@PathVariable("id") String id) {
-        String removeId = siteService.removeSite(id);
+    public ResponseBean removePages(@PathVariable("id") String id) {
+        String removeId = pagesService.removePages(id);
         return ResponseBean.success(removeId);
     }
 
     /**
-     * 根据id查询站点
+     * 根据id查询页面
      *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable("id") String id) {
-        TpSiteDTO dto = siteService.getById(id);
+        TpPagesDTO dto = pagesService.getById(id);
         return ResponseBean.success(dto);
     }
 
 
     /**
-     * 分页查询站点
+     * 分页查询页面
      *
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpSiteRequest request) {
-        IPage<TpSiteDTO> page = siteService.pageSite(request);
+    public ResponseBean pageRecruitment(TpPagesRequest request) {
+        IPage<TpPagesDTO> page = pagesService.pagePages(request);
         return ResponseBean.success(page);
     }
 
     /**
-     * 停用/启用 站点
+     * 停用/启用 页面
      *
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpSiteRequest request) {
-        Long enableId = siteService.enableSite(request);
+    public ResponseBean enableRecruitment(@RequestBody TpPagesRequest request) {
+        String enableId = pagesService.enablePages(request);
         return ResponseBean.success(enableId);
     }
 
     /**
-     * 置顶 站点
+     * 置顶 页面
      *
      * @param request
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpSiteRequest request) {
-        Long enableId = siteService.top(request.getId());
+    public ResponseBean top(@RequestBody TpPagesRequest request) {
+        String enableId = pagesService.top(request.getId());
+        return ResponseBean.success(enableId);
+    }
+
+    /**
+     * 修改 页面 SEO
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/seo")
+    public ResponseBean seo(@RequestBody TpPagesRequest request) {
+        String enableId = pagesService.updateSEO(request);
         return ResponseBean.success(enableId);
     }
 

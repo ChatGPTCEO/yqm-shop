@@ -28,9 +28,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.TpNewsClassifyToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.TpNewsClassifyDTO;
-import com.yqm.common.entity.TpLink;
 import com.yqm.common.entity.TpNewsClassify;
 import com.yqm.common.request.TpNewsClassifyRequest;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.service.ITpNewsClassifyService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
@@ -47,6 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-新闻分类
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 17:30
  * @微信: wxm907147608
@@ -65,6 +66,7 @@ public class NewsClassifyService {
 
     /**
      * 保存/修改 新闻分类
+     *
      * @param request
      * @return
      */
@@ -77,10 +79,10 @@ public class NewsClassifyService {
             newsClassify.setCreateTime(LocalDateTime.now());
 
             int maxSort = iTpNewsClassifyService.getMaxSort(user.getId());
-            iTpNewsClassifyService.updateAllSortGal(maxSort,user.getId());
+            iTpNewsClassifyService.updateAllSortGal(maxSort, user.getId());
             newsClassify.setSort(1);
         }
-    
+
         TpNewsClassify tpNewsClassify = iTpNewsClassifyService.getById(request.getPid());
         if (Objects.isNull(tpNewsClassify)) {
             newsClassify.setPid("-1");
@@ -97,6 +99,7 @@ public class NewsClassifyService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -107,6 +110,7 @@ public class NewsClassifyService {
 
     /**
      * 删除新闻分类
+     *
      * @param id
      * @return
      */
@@ -124,6 +128,7 @@ public class NewsClassifyService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enableNewsClassify(TpNewsClassifyRequest request) {
@@ -156,10 +161,38 @@ public class NewsClassifyService {
 
     /**
      * 分页查询 新闻分类
+     *
      * @param request
      * @return
      */
     public IPage<TpNewsClassifyDTO> pageNewsClassify(TpNewsClassifyRequest request) {
+        User user = UserInfoService.getUser();
+        Page<TpNewsClassify> page = new Page<>();
+        page.setCurrent(request.getCurrent());
+        page.setSize(request.getPageSize());
+
+        request.setPid("-1");
+        request.setUserId(user.getId());
+        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        IPage pageList = iTpNewsClassifyService.page(page, iTpNewsClassifyService.queryWrapper(request));
+
+        List list = pageList.getRecords();
+        if (CollectionUtils.isNotEmpty(list)) {
+            List<TpNewsClassifyDTO> dtoList = TpNewsClassifyToDTO.toTpNewsClassifyDTOList(list);
+            pageList.setRecords(this.getNewsClassify(dtoList));
+
+        }
+        return pageList;
+    }
+
+    /**
+     * 分页查询 新闻分类
+     * 直接列表形式
+     *
+     * @param request
+     * @return
+     */
+    public IPage<TpNewsClassifyDTO> pageNewsClassifyList(TpNewsClassifyRequest request) {
         User user = UserInfoService.getUser();
         Page<TpNewsClassify> page = new Page<>();
         page.setCurrent(request.getCurrent());
@@ -172,13 +205,14 @@ public class NewsClassifyService {
         List list = pageList.getRecords();
         if (CollectionUtils.isNotEmpty(list)) {
             List<TpNewsClassifyDTO> dtoList = TpNewsClassifyToDTO.toTpNewsClassifyDTOList(list);
-            pageList.setRecords(this.getNewsClassify(dtoList));
+            pageList.setRecords(dtoList);
         }
         return pageList;
     }
 
     /**
      * 查询 新闻分类
+     *
      * @param request
      * @return
      */
@@ -197,6 +231,7 @@ public class NewsClassifyService {
 
     /**
      * 根据pid查询 新闻分类
+     *
      * @param pid
      * @return
      */
@@ -210,6 +245,7 @@ public class NewsClassifyService {
 
     /**
      * 查询 新闻分类
+     *
      * @return
      */
     public List<TpNewsClassifyDTO> getNewsClassify(List<TpNewsClassifyDTO> dtoList) {
@@ -233,6 +269,7 @@ public class NewsClassifyService {
 
     /**
      * 查询 新闻分类 梯形
+     *
      * @return
      */
     public List<TpNewsClassifyDTO> getNewsClassify() {
@@ -257,6 +294,7 @@ public class NewsClassifyService {
 
     /**
      * 置顶
+     *
      * @param id
      * @return
      */
@@ -270,6 +308,25 @@ public class NewsClassifyService {
         }
 
         return id;
+    }
+
+    /**
+     * 更新 seo
+     *
+     * @param request
+     * @return
+     */
+    public String updateSEO(TpPagesRequest request) {
+        UpdateWrapper<TpNewsClassify> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id", request.getId());
+        updateWrapper.set("seo_title", request.getSeoTitle());
+        updateWrapper.set("seo_keyword", request.getSeoKeyword());
+        updateWrapper.set("seo_content", request.getSeoContent());
+        updateWrapper.set("plug_code", request.getPlugCode());
+        updateWrapper.set("plug_location", request.getPlugLocation());
+        iTpNewsClassifyService.update(updateWrapper);
+
+        return request.getId();
     }
 
 }

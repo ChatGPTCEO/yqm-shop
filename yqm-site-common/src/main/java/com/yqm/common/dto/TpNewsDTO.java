@@ -22,7 +22,6 @@
 
 package com.yqm.common.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,7 +41,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TpNewsDTO  extends BaseEntity {
+public class TpNewsDTO extends BaseEntity {
 
     /**
      * 用户id;用户id
@@ -148,6 +147,16 @@ public class TpNewsDTO  extends BaseEntity {
      * SEO描述
      */
     private String seoContent;
+
+    /**
+     * 插件代码
+     */
+    private String plugCode;
+
+    /**
+     * 插件代码位置;head 在head结束标签前 body 在body结束标签前
+     */
+    private String plugLocation;
 
     /**
      * 状态;状态: effective 有效 failure 失效 delete 删除

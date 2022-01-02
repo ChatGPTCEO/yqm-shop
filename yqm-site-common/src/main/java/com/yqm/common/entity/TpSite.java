@@ -1,7 +1,8 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.yqm.common.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,9 +19,12 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TpSite extends BaseEntity implements Serializable {
+public class TpSite implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @TableId(type = IdType.AUTO)
+    private Long id;
 
     /**
      * 语言版本:zh_cn 中文 us_en 英文

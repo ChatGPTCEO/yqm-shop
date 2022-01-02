@@ -36,7 +36,6 @@ import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -76,7 +75,7 @@ public class SiteService {
         User user = UserInfoService.getUser();
 
         TpSite site = TpSiteToDTO.toTpSite(request);
-        if (StringUtils.isEmpty(request.getId())) {
+        if (Objects.isNull(request.getId())) {
             LocalDateTime nowDate = LocalDateTime.now();
             site.setCreateBy(user.getId());
             site.setCreateTime(nowDate);
@@ -128,7 +127,7 @@ public class SiteService {
      *
      * @return
      */
-    public String enableSite(TpSiteRequest request) {
+    public Long enableSite(TpSiteRequest request) {
         User user = UserInfoService.getUser();
 
         if (!YqmDefine.includeStatus.contains(request.getStatus())) {
@@ -214,7 +213,7 @@ public class SiteService {
      * @param id
      * @return
      */
-    public String top(String id) {
+    public Long top(Long id) {
         User user = UserInfoService.getUser();
 
         TpSite tpSite = iTpSiteService.getById(id);
