@@ -23,11 +23,14 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.request.TpSiteRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.SiteService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 管理端-站点
@@ -110,6 +113,19 @@ public class SiteController {
     }
 
     /**
+     * 查询站点 所有
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/list")
+    public ResponseBean listSiteSelect(TpSiteRequest request) {
+        List<TpSiteBingDomainDTO> list = siteService.listSiteSelect(request);
+        return ResponseBean.success(list);
+    }
+
+
+    /**
      * 停用/启用 站点
      *
      * @param request
@@ -117,7 +133,7 @@ public class SiteController {
      */
     @PutMapping("/enable")
     public ResponseBean enableRecruitment(@RequestBody TpSiteRequest request) {
-        Long enableId = siteService.enableSite(request);
+        String enableId = siteService.enableSite(request);
         return ResponseBean.success(enableId);
     }
 
@@ -129,9 +145,43 @@ public class SiteController {
      */
     @PutMapping("/top")
     public ResponseBean top(@RequestBody TpSiteRequest request) {
-        Long enableId = siteService.top(request.getId());
+        String enableId = siteService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 
+    /**
+     * 分页 绑定域名
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/page/user/domain")
+    public ResponseBean getBingDomainSite(TpSiteRequest request) {
+        IPage<TpSiteBingDomainDTO> page = siteService.getBingDomainSite(request);
+        return ResponseBean.success(page);
+    }
 
+    /**
+     * 绑定域名
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping("/ding/domain")
+    public ResponseBean bingDomainSite(@RequestBody TpSiteRequest request) {
+        String id = siteService.bingDomainSite(request);
+        return ResponseBean.success(id);
+    }
+
+    /**
+     * 删除域名
+     *
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/ding/domain/{id}")
+    public ResponseBean removeBingDomainSite(@PathVariable("id") String id) {
+        String removeId = siteService.removeBingDomainSite(id);
+        return ResponseBean.success(removeId);
+    }
 }

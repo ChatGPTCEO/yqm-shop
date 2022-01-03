@@ -221,8 +221,11 @@ public class PagesService {
      * @return
      */
     public String updateSEO(TpPagesRequest request) {
+        User user = UserInfoService.getUser();
+        
         UpdateWrapper<TpPages> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id", request.getId());
+        updateWrapper.eq("user_id", user.getId());
         updateWrapper.set("seo_title", request.getSeoTitle());
         updateWrapper.set("seo_keyword", request.getSeoKeyword());
         updateWrapper.set("seo_content", request.getSeoContent());

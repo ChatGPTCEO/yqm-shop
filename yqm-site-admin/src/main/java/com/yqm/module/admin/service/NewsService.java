@@ -30,6 +30,7 @@ import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.TpNewsDTO;
 import com.yqm.common.entity.TpNews;
 import com.yqm.common.request.TpNewsRequest;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.service.ITpNewsService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
@@ -65,6 +66,7 @@ public class NewsService {
 
     /**
      * 保存/修改 新闻
+     *
      * @param request
      * @return
      */
@@ -78,7 +80,7 @@ public class NewsService {
             news.setCreateTime(nowDate);
             news.setReleaseTime(nowDate);
             int maxSort = iTpNewsService.getMaxSort(user.getId());
-            iTpNewsService.updateAllSortGal(maxSort,user.getId());
+            iTpNewsService.updateAllSortGal(maxSort, user.getId());
             news.setSort(1);
         }
 
@@ -93,6 +95,7 @@ public class NewsService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -103,6 +106,7 @@ public class NewsService {
 
     /**
      * 删除新闻
+     *
      * @param id
      * @return
      */
@@ -120,6 +124,7 @@ public class NewsService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enableNews(TpNewsRequest request) {
@@ -152,6 +157,7 @@ public class NewsService {
 
     /**
      * 分页查询 新闻
+     *
      * @param request
      * @return
      */
@@ -175,6 +181,7 @@ public class NewsService {
 
     /**
      * 查询 新闻
+     *
      * @param request
      * @return
      */
@@ -193,6 +200,7 @@ public class NewsService {
 
     /**
      * 置顶
+     *
      * @param id
      * @return
      */
@@ -207,6 +215,27 @@ public class NewsService {
 
         return id;
     }
-    
-    
+
+
+    /**
+     * 更新 seo
+     *
+     * @param request
+     * @return
+     */
+    public String updateSEO(TpPagesRequest request) {
+        User user = UserInfoService.getUser();
+        UpdateWrapper<TpNews> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id", request.getId());
+        updateWrapper.eq("user_id", user.getId());
+        updateWrapper.set("seo_title", request.getSeoTitle());
+        updateWrapper.set("seo_keyword", request.getSeoKeyword());
+        updateWrapper.set("seo_content", request.getSeoContent());
+        updateWrapper.set("plug_code", request.getPlugCode());
+        updateWrapper.set("plug_location", request.getPlugLocation());
+        iTpNewsService.update(updateWrapper);
+
+        return request.getId();
+    }
+
 }

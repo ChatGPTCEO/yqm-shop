@@ -9,16 +9,16 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 新闻分类
-    * </p>
-*
-* @author weiximei
-* @since 2021-11-21
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class TpNewsClassify  extends BaseEntity implements Serializable {
+ * <p>
+ * 新闻分类
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-11-21
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpNewsClassify extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -111,6 +111,7 @@ import java.time.LocalDateTime;
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
 

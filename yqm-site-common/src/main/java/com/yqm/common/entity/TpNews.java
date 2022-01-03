@@ -161,6 +161,7 @@ public class TpNews extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
 

@@ -25,10 +25,13 @@ package com.yqm.module.admin.service;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yqm.common.conversion.TpSiteBingDomainToDTO;
 import com.yqm.common.conversion.TpSiteToDTO;
 import com.yqm.common.define.YqmDefine;
+import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.entity.TpSite;
+import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.TpSiteRequest;
 import com.yqm.common.service.ITpSiteService;
 import com.yqm.module.common.service.SysConfigService;
@@ -36,6 +39,7 @@ import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -127,7 +131,7 @@ public class SiteService {
      *
      * @return
      */
-    public Long enableSite(TpSiteRequest request) {
+    public String enableSite(TpSiteRequest request) {
         User user = UserInfoService.getUser();
 
         if (!YqmDefine.includeStatus.contains(request.getStatus())) {
@@ -190,19 +194,20 @@ public class SiteService {
 
     /**
      * 查询 站点
+     * 所有
      *
      * @param request
      * @return
      */
-    public List<TpSiteDTO> listSite(TpSiteRequest request) {
+    public List<TpSiteBingDomainDTO> listSiteSelect(TpSiteRequest request) {
         User user = UserInfoService.getUser();
-        List<TpSiteDTO> siteDTOS = new ArrayList<>();
+        List<TpSiteBingDomainDTO> siteDTOS = new ArrayList<>();
 
         request.setUserId(user.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpSite> classifyList = iTpSiteService.list(iTpSiteService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {
-            siteDTOS = TpSiteToDTO.toTpSiteDTOList(classifyList);
+            siteDTOS = TpSiteBingDomainToDTO.toTpSiteDTOList(classifyList);
         }
         return siteDTOS;
     }
@@ -213,7 +218,7 @@ public class SiteService {
      * @param id
      * @return
      */
-    public Long top(Long id) {
+    public String top(String id) {
         User user = UserInfoService.getUser();
 
         TpSite tpSite = iTpSiteService.getById(id);
@@ -225,5 +230,68 @@ public class SiteService {
         return id;
     }
 
+    /**
+     * 查询绑定的域名
+     *
+     * @param request
+     * @return
+     */
+    public IPage<TpSiteBingDomainDTO> getBingDomainSite(TpSiteRequest request) {
+        User user = UserInfoService.getUser();
+        Page<TpSite> page = new Page<>();
+        page.setCurrent(request.getCurrent());
+        page.setSize(request.getPageSize());
 
+        request.setUserId(user.getId());
+        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIsNullDomain(Boolean.TRUE);
+        IPage pageList = iTpSiteService.page(page, iTpSiteService.queryWrapper(request));
+
+        List list = pageList.getRecords();
+        if (CollectionUtils.isNotEmpty(list)) {
+            List<TpSiteBingDomainDTO> dtoList = TpSiteBingDomainToDTO.toTpSiteDTOList(list);
+            pageList.setRecords(dtoList);
+        }
+        return pageList;
+    }
+
+    /**
+     * 绑定域名
+     *
+     * @param request
+     * @return
+     */
+    public String bingDomainSite(TpSiteRequest request) {
+        User user = UserInfoService.getUser();
+        request.setUserId(user.getId());
+        TpSite site = iTpSiteService.getOne(iTpSiteService.queryWrapper(request));
+        if (Objects.nonNull(site)) {
+            if (StringUtils.isNotBlank(site.getDomain())) {
+                throw new YqmException("域名已存在");
+            }
+        } else {
+            throw new YqmException("请选择站点");
+        }
+
+        site.setDomain(request.getDomain());
+        iTpSiteService.saveOrUpdate(site);
+        return request.getId();
+    }
+
+    /**
+     * 移除域名
+     *
+     * @param id
+     * @return
+     */
+    public String removeBingDomainSite(String id) {
+        User user = UserInfoService.getUser();
+
+        UpdateWrapper<TpSite> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id", id);
+        updateWrapper.eq("user_id", user.getId());
+        updateWrapper.set("domain", null);
+        iTpSiteService.update(updateWrapper);
+        return id;
+    }
 }

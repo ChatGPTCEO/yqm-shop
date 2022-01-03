@@ -317,8 +317,10 @@ public class NewsClassifyService {
      * @return
      */
     public String updateSEO(TpPagesRequest request) {
+        User user = UserInfoService.getUser();
         UpdateWrapper<TpNewsClassify> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id", request.getId());
+        updateWrapper.eq("user_id", user.getId());
         updateWrapper.set("seo_title", request.getSeoTitle());
         updateWrapper.set("seo_keyword", request.getSeoKeyword());
         updateWrapper.set("seo_content", request.getSeoContent());

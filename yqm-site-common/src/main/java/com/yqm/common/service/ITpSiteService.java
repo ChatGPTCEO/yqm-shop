@@ -30,7 +30,7 @@ public interface ITpSiteService extends IService<TpSite> {
      *
      * @return
      */
-    int top(Long id, String userId);
+    int top(String id, String userId);
 
     /**
      * 获取最大 Sort

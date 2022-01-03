@@ -10,16 +10,16 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 公司
-    * </p>
-*
-* @author weiximei
-* @since 2021-09-11
-*/
-    @Data
-    @EqualsAndHashCode(callSuper = false)
-    public class TpCompany extends BaseEntity implements Serializable {
+ * <p>
+ * 公司
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-09-11
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpCompany extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -101,6 +101,7 @@ import java.time.LocalDateTime;
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
     /**

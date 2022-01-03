@@ -36,14 +36,8 @@ import java.util.List;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpSiteRequest {
+public class TpSiteRequest extends BaseRequest {
 
-
-    private Long current = 1L;
-
-    private Long pageSize = 10L;
-
-    private Long id;
 
     /**
      * 语言版本:zh_cn 中文 us_en 英文
@@ -106,6 +100,16 @@ public class TpSiteRequest {
     private String customizeTemplate;
 
     /**
+     * 公信备案
+     */
+    private String icp;
+
+    /**
+     * 公安备案
+     */
+    private String securityIcp;
+
+    /**
      * 创建人
      */
     private String createBy;
@@ -136,6 +140,16 @@ public class TpSiteRequest {
      * 包含的状态
      */
     private List<String> includeStatus;
+
+    /**
+     * 额外字段
+     **/
+
+    /**
+     * 域名是否为空
+     * true 不为空 false 为空
+     */
+    private Boolean isNullDomain;
 
 
 }

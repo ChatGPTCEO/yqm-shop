@@ -28,7 +28,7 @@ public interface TpSiteMapper extends BaseMapper<TpSite> {
      * @param id
      * @return
      */
-    int top(Long id, String userId);
+    int top(String id, String userId);
 
     /**
      * 获取最大的 Sort

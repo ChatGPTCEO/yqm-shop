@@ -9,16 +9,16 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 招聘
-    * </p>
-*
-* @author weiximei
-* @since 2021-09-11
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class TpRecruitment extends BaseEntity implements Serializable {
+ * <p>
+ * 招聘
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-09-11
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpRecruitment extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -68,7 +68,6 @@ import java.time.LocalDateTime;
     private String userId;
 
 
-
     /**
      * 联系方式
      */
@@ -97,6 +96,7 @@ import java.time.LocalDateTime;
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
 

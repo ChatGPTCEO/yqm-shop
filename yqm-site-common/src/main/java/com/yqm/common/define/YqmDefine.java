@@ -136,4 +136,37 @@ public class YqmDefine {
         }
     }
 
+    /**
+     * 付费状态
+     */
+    public enum WhetherPayType {
+        has_been_paid("已支付", 0),
+        not_pay("未支付", 1),
+        ;
+
+        private String desc;
+        private Integer value;
+
+        WhetherPayType(String desc, Integer value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        public void setValue(Integer value) {
+            this.value = value;
+        }
+    }
+
 }

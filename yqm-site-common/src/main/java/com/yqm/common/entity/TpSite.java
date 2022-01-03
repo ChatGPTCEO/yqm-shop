@@ -1,8 +1,7 @@
 package com.yqm.common.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,12 +18,9 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TpSite implements Serializable {
+public class TpSite extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @TableId(type = IdType.AUTO)
-    private Long id;
 
     /**
      * 语言版本:zh_cn 中文 us_en 英文
@@ -88,6 +84,22 @@ public class TpSite implements Serializable {
     private String customizeTemplate;
 
     /**
+     * 公信备案
+     */
+    private String icp;
+
+    /**
+     * 公安备案
+     */
+    private String securityIcp;
+
+    /**
+     * 付费状态
+     * 0 未付费 1 已付费
+     */
+    private Integer whetherPay;
+
+    /**
      * 创建人
      */
     private String createBy;
@@ -105,6 +117,7 @@ public class TpSite implements Serializable {
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
 

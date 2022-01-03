@@ -25,14 +25,14 @@ package com.yqm.module.admin.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpNewsDTO;
 import com.yqm.common.request.TpNewsRequest;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.NewsService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * 管理端-新闻
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -51,6 +51,7 @@ public class NewsController {
 
     /**
      * 添加新闻
+     *
      * @param request
      * @return
      */
@@ -62,6 +63,7 @@ public class NewsController {
 
     /**
      * 修改新闻
+     *
      * @param request
      * @return
      */
@@ -73,22 +75,24 @@ public class NewsController {
 
     /**
      * 删除新闻
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeNews(@PathVariable("id") String  id) {
+    public ResponseBean removeNews(@PathVariable("id") String id) {
         String removeId = newsService.removeNews(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询新闻
+     *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean getById(@PathVariable("id") String id) {
         TpNewsDTO dto = newsService.getById(id);
         return ResponseBean.success(dto);
     }
@@ -96,6 +100,7 @@ public class NewsController {
 
     /**
      * 分页查询新闻
+     *
      * @param request
      * @return
      */
@@ -107,6 +112,7 @@ public class NewsController {
 
     /**
      * 停用/启用 新闻
+     *
      * @param request
      * @return
      */
@@ -118,12 +124,25 @@ public class NewsController {
 
     /**
      * 置顶 新闻
+     *
      * @param request
      * @return
      */
     @PutMapping("/top")
     public ResponseBean top(@RequestBody TpNewsRequest request) {
         String enableId = newsService.top(request.getId());
+        return ResponseBean.success(enableId);
+    }
+
+    /**
+     * 修改 SEO
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/seo")
+    public ResponseBean seo(@RequestBody TpPagesRequest request) {
+        String enableId = newsService.updateSEO(request);
         return ResponseBean.success(enableId);
     }
 

@@ -1,5 +1,6 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,16 +9,16 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 团队分类
-    * </p>
-*
-* @author weiximei
-* @since 2021-11-09
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class TpTeamClassify extends BaseEntity implements Serializable {
+ * <p>
+ * 团队分类
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-11-09
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpTeamClassify extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -59,6 +60,7 @@ import java.time.LocalDateTime;
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
 

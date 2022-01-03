@@ -1,5 +1,6 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -109,6 +110,7 @@ public class TpPages extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
     /**

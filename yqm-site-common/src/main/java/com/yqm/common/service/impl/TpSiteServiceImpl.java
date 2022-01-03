@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * <p>
@@ -50,6 +51,16 @@ public class TpSiteServiceImpl extends ServiceImpl<TpSiteMapper, TpSite> impleme
         if (StringUtils.isNotBlank(request.getUserId())) {
             queryWrapper.eq("user_id", request.getUserId());
         }
+        if (Objects.nonNull(request.getIsNullDomain())) {
+            if (request.getIsNullDomain() == Boolean.TRUE) {
+                queryWrapper.isNotNull("domain");
+            } else {
+                queryWrapper.isNull("domain");
+            }
+        }
+        if (StringUtils.isNotBlank(request.getId())) {
+            queryWrapper.eq("id", request.getId());
+        }
         return queryWrapper;
     }
 
@@ -59,7 +70,7 @@ public class TpSiteServiceImpl extends ServiceImpl<TpSiteMapper, TpSite> impleme
     }
 
     @Override
-    public int top(Long id, String userId) {
+    public int top(String id, String userId) {
         return tpSiteMapper.top(id, userId);
     }
 
