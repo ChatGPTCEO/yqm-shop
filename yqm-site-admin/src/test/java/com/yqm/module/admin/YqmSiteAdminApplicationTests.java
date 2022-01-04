@@ -1,7 +1,5 @@
 package com.yqm.module.admin;
 
-import com.yqm.common.entity.TpRegion;
-import com.yqm.common.request.TpRegionRequest;
 import com.yqm.common.service.ITpRegionService;
 import io.github.yedaxia.apidocs.Docs;
 import io.github.yedaxia.apidocs.DocsConfig;
@@ -10,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.List;
 
 @Slf4j
 @SpringBootTest
@@ -25,14 +21,16 @@ class YqmSiteAdminApplicationTests {
 
     @Test
     void contextLoads() {
-      log.info("生成密码:{}", passwordEncoder.encode("123456"));
+        log.info("生成密码:{}", passwordEncoder.encode("123456"));
     }
 
+    /**
+     * 密匙加密
+     */
     @Test
-    void encodeSecret() {
+    void secretEncodeSecret() {
         log.info("生成密匙:{}", passwordEncoder.encode("29f5446f-b867-4417-9be4-5cae62ee3fc1"));
     }
-
 
 
     @Test
