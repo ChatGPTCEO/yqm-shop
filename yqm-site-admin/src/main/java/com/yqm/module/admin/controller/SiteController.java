@@ -23,6 +23,7 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yqm.common.dto.TpDomainInfoDTO;
 import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.request.TpSiteRequest;
@@ -184,4 +185,30 @@ public class SiteController {
         String removeId = siteService.removeBingDomainSite(id);
         return ResponseBean.success(removeId);
     }
+
+    /**
+     * 域名详情
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/ding/domain/{id}")
+    public ResponseBean domainInfo(@PathVariable("id") String id) {
+        TpDomainInfoDTO dto = siteService.domainInfo(id);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 修改域名详情
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/ding/domain")
+    public ResponseBean domainInfo(@RequestBody TpSiteRequest request) {
+        TpDomainInfoDTO dto = siteService.updateDomainInfo(request);
+        return ResponseBean.success(dto);
+    }
+
+
 }

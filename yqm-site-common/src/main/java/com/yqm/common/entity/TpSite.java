@@ -94,6 +94,11 @@ public class TpSite extends BaseEntity implements Serializable {
     private String securityIcp;
 
     /**
+     * 公安备案跳转地址
+     */
+    private String securityIcpUrl;
+
+    /**
      * 付费状态
      * 0 未付费 1 已付费
      */

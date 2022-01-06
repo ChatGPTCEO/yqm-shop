@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2022-1-3 16:56:02",
+  "updatedTime": "2022-1-6 20:25:57",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5591,6 +5591,21 @@
         {
           "defKey": "security_icp",
           "defName": "公安备案",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "security_icp_url",
+          "defName": "公安备案跳转地址",
           "comment": "",
           "type": "VARCHAR",
           "len": 255,

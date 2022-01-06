@@ -109,7 +109,9 @@ public class YqmDefine {
         upload("使用上传配置", "upload"),
         qiniu_upload("七牛云上传配置", "qiniu-upload"),
         domain("域名", "domain"),
-        sys_phone("联系方式", "sys_phone");
+        sys_phone("联系方式", "sys_phone"),
+        dns("dns服务器", "dns"),
+        ;
 
         private String desc;
         private String value;

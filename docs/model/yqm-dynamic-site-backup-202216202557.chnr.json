@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2022-1-3 14:28:09",
+  "updatedTime": "2022-1-3 16:56:02",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5546,7 +5546,7 @@
         {
           "defKey": "computer_room",
           "defName": "机房",
-          "comment": "china 中国  hong_kong 香港",
+          "comment": "china 中国大陆  hong_kong 中国香港",
           "type": "VARCHAR",
           "len": 255,
           "scale": "",
@@ -5602,6 +5602,21 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "whether_pay",
+          "defName": "付费状态",
+          "comment": "0 未付费 1 已付费",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "0",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "Int"
         },
         {
           "defKey": "create_by",

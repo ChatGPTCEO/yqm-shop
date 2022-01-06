@@ -22,12 +22,17 @@
 
 package com.yqm.module.admin.service;
 
+import cn.hutool.core.bean.BeanUtil;
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yqm.common.conversion.TpDomainInfoToDTO;
 import com.yqm.common.conversion.TpSiteBingDomainToDTO;
 import com.yqm.common.conversion.TpSiteToDTO;
 import com.yqm.common.define.YqmDefine;
+import com.yqm.common.dto.TpDomainDnsDTO;
+import com.yqm.common.dto.TpDomainInfoDTO;
 import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.entity.TpSite;
@@ -293,5 +298,88 @@ public class SiteService {
         updateWrapper.set("domain", null);
         iTpSiteService.update(updateWrapper);
         return id;
+    }
+
+    /**
+     * 域名详情
+     *
+     * @param id
+     * @return
+     */
+    public TpDomainInfoDTO domainInfo(String id) {
+        if (StringUtils.isEmpty(id)) {
+            return new TpDomainInfoDTO();
+        }
+        User user = UserInfoService.getUser();
+        String sysPhone = sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.sys_phone.getValue());
+
+        String dnsValue = sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.dns.getValue());
+        TpDomainDnsDTO dnsDTO = JSON.parseObject(dnsValue, TpDomainDnsDTO.class);
+
+        List<TpDomainDnsDTO> dnsDTOS = new ArrayList<>();
+
+        TpSiteRequest request = new TpSiteRequest();
+        request.setId(id);
+        request.setUserId(user.getId());
+        TpSite site = iTpSiteService.getOne(iTpSiteService.queryWrapper(request));
+        TpDomainInfoDTO domainInfo = TpDomainInfoToDTO.toTpSiteDTO(site);
+        domainInfo.setSysPhone(sysPhone);
+        domainInfo.setDomainToDnsList(dnsDTOS);
+        
+        if (StringUtils.isNotEmpty(site.getDomain())) {
+            if (site.getDomain().startsWith("www.")) {
+                TpDomainDnsDTO wwwDnsDTO = new TpDomainDnsDTO();
+                BeanUtil.copyProperties(dnsDTO, wwwDnsDTO);
+                wwwDnsDTO.setDomain(site.getDomain());
+
+                TpDomainDnsDTO notWwwDnsDTO = new TpDomainDnsDTO();
+                BeanUtil.copyProperties(dnsDTO, notWwwDnsDTO);
+                notWwwDnsDTO.setDomain(site.getDomain().replace("www.", ""));
+
+                dnsDTOS.add(wwwDnsDTO);
+                dnsDTOS.add(notWwwDnsDTO);
+            } else {
+                TpDomainDnsDTO wwwDnsDTO = new TpDomainDnsDTO();
+                BeanUtil.copyProperties(dnsDTO, wwwDnsDTO);
+                wwwDnsDTO.setDomain("www." + site.getDomain());
+
+                TpDomainDnsDTO notWwwDnsDTO = new TpDomainDnsDTO();
+                BeanUtil.copyProperties(dnsDTO, notWwwDnsDTO);
+                notWwwDnsDTO.setDomain(site.getDomain());
+
+                dnsDTOS.add(wwwDnsDTO);
+                dnsDTOS.add(notWwwDnsDTO);
+            }
+
+        }
+
+
+        return domainInfo;
+    }
+
+    /**
+     * 修改域名相关信息
+     *
+     * @param request
+     * @return
+     */
+    public TpDomainInfoDTO updateDomainInfo(TpSiteRequest request) {
+        if (StringUtils.isEmpty(request.getDomain())) {
+            throw new YqmException("此处无法删除域名，请返回上一级操作");
+        }
+
+        User user = UserInfoService.getUser();
+        UpdateWrapper<TpSite> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id", request.getId());
+        updateWrapper.eq("user_id", user.getId());
+        updateWrapper.set("icp", request.getIcp());
+        updateWrapper.set("domain", request.getDomain());
+        updateWrapper.set("security_icp", request.getSecurityIcp());
+        updateWrapper.set("security_icp_url", request.getSecurityIcpUrl());
+
+        iTpSiteService.update(updateWrapper);
+
+        return this.domainInfo(request.getId());
+
     }
 }

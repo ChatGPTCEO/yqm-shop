@@ -110,6 +110,11 @@ public class TpSiteRequest extends BaseRequest {
     private String securityIcp;
 
     /**
+     * 公安备案跳转地址
+     */
+    private String securityIcpUrl;
+
+    /**
      * 创建人
      */
     private String createBy;
