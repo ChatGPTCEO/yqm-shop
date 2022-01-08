@@ -33,3 +33,7 @@ build/
 .vscode/
 /logs
 logs
+
+# prod
+!**/src/main/resources/**prod.yml
+/src/main/resources/**prod.yml
