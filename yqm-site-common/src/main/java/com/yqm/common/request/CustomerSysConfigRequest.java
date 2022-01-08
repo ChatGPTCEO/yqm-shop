@@ -36,6 +36,8 @@ import java.time.LocalDateTime;
 @Data
 public class CustomerSysConfigRequest extends BaseRequest {
 
+    private String siteId;
+
     /**
      * 配置名称
      */

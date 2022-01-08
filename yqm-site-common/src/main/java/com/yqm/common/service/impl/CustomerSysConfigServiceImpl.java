@@ -26,6 +26,12 @@ public class CustomerSysConfigServiceImpl extends ServiceImpl<CustomerSysConfigM
         if (StringUtils.isNotBlank(request.getConfigName())) {
             queryWrapper.eq("config_name", request.getConfigName());
         }
+        if (StringUtils.isNotBlank(request.getUserId())) {
+            queryWrapper.eq("user_id", request.getUserId());
+        }
+        if (StringUtils.isNotBlank(request.getSiteId())) {
+            queryWrapper.eq("site_id", request.getSiteId());
+        }
         return queryWrapper;
     }
 }

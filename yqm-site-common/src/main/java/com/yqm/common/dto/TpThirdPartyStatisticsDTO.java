@@ -34,6 +34,7 @@ import lombok.Data;
 @Data
 public class TpThirdPartyStatisticsDTO {
 
+    private String siteId;
     private CustomerPageConfig pageHeader = new CustomerPageConfig();
     private CustomerPageConfig pageTail = new CustomerPageConfig();
 

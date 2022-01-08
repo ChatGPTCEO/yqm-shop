@@ -22,17 +22,11 @@
 
 package com.yqm.module.admin.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.TpThirdPartyStatisticsDTO;
 import com.yqm.common.request.TpThirdPartyStatisticsRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.common.service.CustomerConfigService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @Author: weiximei
@@ -52,15 +46,9 @@ public class CustomerSysController {
     }
 
     @GetMapping("")
-    public ResponseBean getCustomerSysConfig() {
-        Map<String, Object> map = new HashMap<>();
-        map.put(YqmDefine.CustomerSysConfigType.customer.getValue(), new TpThirdPartyStatisticsDTO());
-        String value = customerConfigService.getUserCacheValue(YqmDefine.CustomerSysConfigType.customer.getValue());
-        if (StringUtils.isNotBlank(value)) {
-            TpThirdPartyStatisticsDTO entity = JSONObject.parseObject(value, TpThirdPartyStatisticsDTO.class);
-            map.put(YqmDefine.CustomerSysConfigType.customer.getValue(), entity);
-        }
-        return ResponseBean.success(map);
+    public ResponseBean getCustomerSysConfig(TpThirdPartyStatisticsRequest request) {
+        TpThirdPartyStatisticsDTO dto = customerConfigService.getThirdPartyStatistics(request);
+        return ResponseBean.success(dto);
     }
 
 

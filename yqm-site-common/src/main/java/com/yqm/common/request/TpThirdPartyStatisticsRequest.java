@@ -34,6 +34,7 @@ import lombok.Data;
 @Data
 public class TpThirdPartyStatisticsRequest {
 
+    private String siteId;
     private CustomerPageConfig pageHeader;
     private CustomerPageConfig pageTail;
 

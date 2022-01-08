@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2022-1-6 20:25:57",
+  "updatedTime": "2022-1-8 18:25:20",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5220,6 +5220,21 @@
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": true,
+          "domain": "IdOrKey"
+        },
+        {
+          "defKey": "site_id",
+          "defName": "站点id",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
           "domain": "IdOrKey"
         },
         {

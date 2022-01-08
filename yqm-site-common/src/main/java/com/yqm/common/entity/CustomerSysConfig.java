@@ -23,6 +23,11 @@ public class CustomerSysConfig extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 站点id
+     */
+    private String siteId;
+
+    /**
      * 配置名称
      */
     private String configName;

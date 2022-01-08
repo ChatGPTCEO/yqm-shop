@@ -25,6 +25,7 @@ package com.yqm.module.common.service;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.cache.Cache;
 import com.yqm.common.define.YqmDefine;
+import com.yqm.common.dto.TpThirdPartyStatisticsDTO;
 import com.yqm.common.entity.CustomerSysConfig;
 import com.yqm.common.request.CustomerSysConfigRequest;
 import com.yqm.common.request.TpThirdPartyStatisticsRequest;
@@ -60,13 +61,13 @@ public class CustomerConfigService {
         this.cacheLocal = cacheLocal;
     }
 
-    public String getCacheValue(String key, String type) {
-        String keyPrefix = type + key;
+    public String getCacheValue(String key, String type, String siteId) {
+        String keyPrefix = type + siteId + key;
         String value = cacheLocal.getIfPresent(keyPrefix);
         if (StringUtils.isNotBlank(value)) {
             return value;
         }
-        String dbValue = this.getValue(key);
+        String dbValue = this.getValue(key, siteId);
         if (StringUtils.isNotBlank(dbValue)) {
             cacheLocal.put(keyPrefix, dbValue);
         }
@@ -74,12 +75,21 @@ public class CustomerConfigService {
     }
 
     public String getUserCacheValue(String key) {
-        return getCacheValue(key, YqmDefine.CacheKeyType.user.getValue());
+        return getCacheValue(key, YqmDefine.CacheKeyType.user.getValue(), "");
     }
 
-    public String getValue(String key) {
+    public String getUserCacheValueSite(String key, String siteId) {
+        return getCacheValue(key, YqmDefine.CacheKeyType.user.getValue(), siteId);
+    }
+
+    public String getValue(String key, String siteId) {
+        User user = UserInfoService.getUser();
         CustomerSysConfigRequest request = new CustomerSysConfigRequest();
         request.setConfigName(key);
+        request.setUserId(user.getId());
+        if (StringUtils.isNotBlank(siteId)) {
+            request.setSiteId(siteId);
+        }
         CustomerSysConfig customerSysConfig = customerSysConfigService.getOne(customerSysConfigService.queryWrapper(request));
         if (Objects.isNull(customerSysConfig)) {
             log.error("本地缓存未找到 [key={}]， 请检查数据库!", key);
@@ -89,11 +99,22 @@ public class CustomerConfigService {
     }
 
 
+    public TpThirdPartyStatisticsDTO getThirdPartyStatistics(TpThirdPartyStatisticsRequest request) {
+        TpThirdPartyStatisticsDTO entity = new TpThirdPartyStatisticsDTO();
+        String value = this.getValue(YqmDefine.CustomerSysConfigType.customer.getValue(), request.getSiteId());
+        if (StringUtils.isNotBlank(value)) {
+            entity = JSONObject.parseObject(value, TpThirdPartyStatisticsDTO.class);
+        }
+        entity.setSiteId(request.getSiteId());
+        return entity;
+    }
+
     public String saveThirdPartyStatistics(TpThirdPartyStatisticsRequest request) {
         User user = UserInfoService.getUser();
         CustomerSysConfigRequest configRequest = new CustomerSysConfigRequest();
 
         configRequest.setUserId(user.getId());
+        configRequest.setSiteId(request.getSiteId());
         configRequest.setConfigName(YqmDefine.CustomerSysConfigType.customer.getValue());
         CustomerSysConfig customerSysConfig = customerSysConfigService.getOne(customerSysConfigService.queryWrapper(configRequest));
         if (Objects.isNull(customerSysConfig)) {
@@ -105,6 +126,7 @@ public class CustomerConfigService {
         }
 
         String json = JSONObject.toJSONString(request);
+        customerSysConfig.setSiteId(request.getSiteId());
         customerSysConfig.setConfigValue(json);
         customerSysConfig.setConfigName(configRequest.getConfigName());
         customerSysConfig.setUserId(configRequest.getUserId());
