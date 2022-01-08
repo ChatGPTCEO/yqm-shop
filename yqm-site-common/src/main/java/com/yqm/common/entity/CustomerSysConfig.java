@@ -1,6 +1,7 @@
 package com.yqm.common.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class CustomerSysConfig implements Serializable {
+public class CustomerSysConfig extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

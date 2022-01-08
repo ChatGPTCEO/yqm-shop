@@ -139,6 +139,37 @@ public class YqmDefine {
     }
 
     /**
+     * 系统配置
+     */
+    public enum CustomerSysConfigType {
+        customer("用户配置", "customer");
+
+        private String desc;
+        private String value;
+
+        CustomerSysConfigType(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
+    /**
      * 付费状态
      */
     public enum WhetherPayType {

@@ -72,10 +72,6 @@ public class SysConfigService {
         return getCacheValue(key, YqmDefine.CacheKeyType.system.getValue());
     }
 
-    public String getUserCacheValue(String key) {
-        return getCacheValue(key, YqmDefine.CacheKeyType.user.getValue());
-    }
-
     public String getValue(String key) {
         SysConfigRequest request = new SysConfigRequest();
         request.setConfigName(key);
