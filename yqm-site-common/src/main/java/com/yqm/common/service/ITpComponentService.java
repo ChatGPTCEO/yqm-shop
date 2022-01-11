@@ -2,20 +2,21 @@ package com.yqm.common.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yqm.common.entity.TpTemplate;
-import com.yqm.common.request.TpTemplateRequest;
+import com.yqm.common.entity.TpComponent;
+import com.yqm.common.request.TpComponentRequest;
 
 /**
  * <p>
- * 模板 服务类
+ * 组件 服务类
  * </p>
  *
  * @author weiximei
- * @since 2022-01-10
+ * @since 2022-01-11
  */
-public interface ITpTemplateService extends IService<TpTemplate> {
+public interface ITpComponentService extends IService<TpComponent> {
 
-    QueryWrapper<TpTemplate> queryWrapper(TpTemplateRequest request);
+
+    QueryWrapper<TpComponent> queryWrapper(TpComponentRequest request);
 
     /**
      * 所有排序加一

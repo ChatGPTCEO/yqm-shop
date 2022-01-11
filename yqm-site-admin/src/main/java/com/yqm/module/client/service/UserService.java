@@ -23,8 +23,6 @@
 package com.yqm.module.client.service;
 
 
-import com.yqm.common.SpringContextHelper;
-import com.yqm.common.dto.TpUserDTO;
 import com.yqm.common.entity.TpUser;
 import com.yqm.common.mapper.TpUserMapper;
 import com.yqm.common.request.TpUserRequest;
@@ -42,7 +40,7 @@ import org.springframework.stereotype.Service;
  * @Email: 907147608@qq.com
  */
 @Service
-public class ClientUserService {
+public class UserService {
 
     @Autowired
     private TpUserMapper tpUserMapper;
@@ -51,8 +49,6 @@ public class ClientUserService {
     private PasswordEncoder passwordEncoder;
 
     public TpUser registered(TpUserRequest request) {
-
-        SpringContextHelper.getApplicationContext().publishEvent(new ClientUserService());
         return null;
     }
 

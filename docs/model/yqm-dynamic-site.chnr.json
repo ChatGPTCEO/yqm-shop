@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2022-1-10 21:46:58",
+  "updatedTime": "2022-1-11 21:11:03",
   "dbConns": [],
   "profile": {
     "default": {
@@ -6965,6 +6965,21 @@
           "domain": "DefaultString"
         },
         {
+          "defKey": "code_name",
+          "defName": "code名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
           "defKey": "component_name",
           "defName": "组件名称",
           "comment": "",
@@ -6973,6 +6988,21 @@
           "scale": "",
           "primaryKey": false,
           "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "component_img",
+          "defName": "图片",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": false,

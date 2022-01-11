@@ -10,28 +10,62 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 模块
+ * 组件
  * </p>
  *
  * @author weiximei
- * @since 2022-01-10
+ * @since 2022-01-11
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class TpModule extends BaseEntity implements Serializable {
+public class TpComponent extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 模块名称
+     * 模块id
      */
-    private String moduleName;
-    
+    private String moduleId;
+
+    /**
+     * 模板id
+     */
+    private String templateId;
+
+    /**
+     * code名称
+     */
+    private String codeName;
+
+    /**
+     * 组件名称
+     */
+    private String componentName;
+
+    /**
+     * 图片
+     */
+    private String componentImg;
+
+    /**
+     * 内容
+     */
+    private String content;
+
+    /**
+     * 模块排序
+     */
+    private Integer templateSort;
 
     /**
      * 排序
      */
     private Integer sort;
+
+    /**
+     * 用户id
+     */
+    private String userId;
 
     /**
      * 公司id

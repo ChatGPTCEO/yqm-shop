@@ -22,46 +22,57 @@
 
 package com.yqm.module.client.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yqm.common.dto.TpComponentDTO;
+import com.yqm.common.request.TpComponentRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.security.UserInfoService;
+import com.yqm.module.client.service.ComponentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 客户端用户
+ * 组件
  *
  * @Author: weiximei
- * @Date: 2021/10/16 22:07
+ * @Date: 2022/1/11 21:00
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/user")
+@RequestMapping("/client/component")
 @RestController
-public class ClientUserController {
+public class ComponentController {
 
-    /**
-     * 获取用户信息-客户端
-     *
-     * @return
-     */
-    @GetMapping("/getUserInfo")
-    public ResponseBean userInfo() {
-        return ResponseBean.success(UserInfoService.getUser());
+    private final ComponentService componentService;
+
+    public ComponentController(ComponentService componentService) {
+        this.componentService = componentService;
     }
 
     /**
-     * 获取用户路由信息
+     * 查询组件
      *
+     * @param request
      * @return
      */
-    @GetMapping("/routes")
-    public ResponseBean routes() {
-        return ResponseBean.success(new ArrayList<>());
+    @GetMapping("")
+    public ResponseBean getComponentList(TpComponentRequest request) {
+        List<TpComponentDTO> componentList = componentService.getComponentList(request);
+        return ResponseBean.success(componentList);
     }
 
-
+    /**
+     * 查询组件 分页
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/page")
+    public ResponseBean getComponentPage(TpComponentRequest request) {
+        IPage<TpComponentDTO> componentList = componentService.getComponentPage(request);
+        return ResponseBean.success(componentList);
+    }
 }

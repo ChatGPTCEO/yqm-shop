@@ -23,7 +23,7 @@ public class TpModuleDTO extends BaseEntity implements Serializable {
      * 模块名称
      */
     private String moduleName;
-
+    
     /**
      * 排序
      */

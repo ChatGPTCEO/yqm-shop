@@ -22,46 +22,45 @@
 
 package com.yqm.module.client.controller;
 
+import com.yqm.common.dto.TpModuleDTO;
+import com.yqm.common.request.TpModuleRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.security.UserInfoService;
+import com.yqm.module.client.service.ModuleService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * 客户端用户
+ * 模块
  *
  * @Author: weiximei
- * @Date: 2021/10/16 22:07
+ * @Date: 2022/1/11 20:24
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/user")
+@RequestMapping("/client/module")
 @RestController
-public class ClientUserController {
+public class ModuleController {
 
-    /**
-     * 获取用户信息-客户端
-     *
-     * @return
-     */
-    @GetMapping("/getUserInfo")
-    public ResponseBean userInfo() {
-        return ResponseBean.success(UserInfoService.getUser());
+
+    private final ModuleService moduleService;
+
+    public ModuleController(ModuleService moduleService) {
+        this.moduleService = moduleService;
     }
 
     /**
-     * 获取用户路由信息
+     * 所有模块
      *
+     * @param request
      * @return
      */
-    @GetMapping("/routes")
-    public ResponseBean routes() {
-        return ResponseBean.success(new ArrayList<>());
+    @GetMapping()
+    public ResponseBean getModuleList(TpModuleRequest request) {
+        List<TpModuleDTO> moduleList = moduleService.getModuleList(request);
+        return ResponseBean.success(moduleList);
     }
-
-
 }

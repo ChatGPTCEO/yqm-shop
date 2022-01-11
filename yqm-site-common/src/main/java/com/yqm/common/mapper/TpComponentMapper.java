@@ -1,17 +1,17 @@
 package com.yqm.common.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yqm.common.entity.TpTemplate;
+import com.yqm.common.entity.TpComponent;
 
 /**
  * <p>
- * 模板 Mapper 接口
+ * 组件 Mapper 接口
  * </p>
  *
  * @author weiximei
- * @since 2022-01-10
+ * @since 2022-01-11
  */
-public interface TpTemplateMapper extends BaseMapper<TpTemplate> {
+public interface TpComponentMapper extends BaseMapper<TpComponent> {
 
     /**
      * 所有 Sort 加 1
