@@ -3,7 +3,6 @@ package com.yqm.common.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yqm.common.entity.TpPhotoAlbum;
-import com.yqm.common.entity.TpPhotoAlbumClassify;
 import com.yqm.common.mapper.TpPhotoAlbumMapper;
 import com.yqm.common.request.TpPhotoAlbumRequest;
 import com.yqm.common.service.ITpPhotoAlbumService;
@@ -12,13 +11,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
-* <p>
-    * 相册 服务实现类
-    * </p>
-*
-* @author weiximei
-* @since 2021-11-20
-*/
+ * <p>
+ * 相册 服务实现类
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-11-20
+ */
 @Service
 public class TpPhotoAlbumServiceImpl extends ServiceImpl<TpPhotoAlbumMapper, TpPhotoAlbum> implements ITpPhotoAlbumService {
 
@@ -33,7 +32,7 @@ public class TpPhotoAlbumServiceImpl extends ServiceImpl<TpPhotoAlbumMapper, TpP
             queryWrapper.eq("user_id", request.getUserId());
         }
         if (StringUtils.isNotBlank(request.getPhotoAlbumName())) {
-            queryWrapper.eq("photo_album_name", request.getPhotoAlbumName());
+            queryWrapper.like("photo_album_name", request.getPhotoAlbumName());
         }
         return queryWrapper;
     }

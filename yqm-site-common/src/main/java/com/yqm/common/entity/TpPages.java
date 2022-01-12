@@ -38,9 +38,14 @@ public class TpPages extends BaseEntity implements Serializable {
     private String pageName;
 
     /**
-     * 页面类型;system 系统 user 用户
+     * 页面类型 navigation 导航
      */
     private String pageType;
+
+    /**
+     * 页面归属;system 系统 user 用户
+     */
+    private String pageBelongs;
 
     /**
      * SEO标题

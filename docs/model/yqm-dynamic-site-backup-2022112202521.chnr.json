@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2022-1-11 21:10:57",
+  "updatedTime": "2022-1-12 20:25:16",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5870,6 +5870,21 @@
         {
           "defKey": "page_type",
           "defName": "页面类型",
+          "comment": "navigation 导航",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'user'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "page_belongs",
+          "defName": "页面归属",
           "comment": "system 系统 user 用户",
           "type": "VARCHAR",
           "len": 255,
@@ -6965,6 +6980,21 @@
           "domain": "DefaultString"
         },
         {
+          "defKey": "code_name",
+          "defName": "code名称",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
           "defKey": "component_name",
           "defName": "组件名称",
           "comment": "",
@@ -7134,21 +7164,6 @@
           "notNull": true,
           "autoIncrement": false,
           "defaultValue": "'effective'",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "code_name",
-          "defName": "code名称",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"

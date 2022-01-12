@@ -154,6 +154,18 @@ public class PagesService {
     }
 
     /**
+     * 分页查询 页面导航
+     *
+     * @param request
+     * @return
+     */
+    public IPage<TpPagesDTO> pagePagesNavigator(TpPagesRequest request) {
+        request.setPageType(YqmDefine.PageType.navigation.getValue());
+        request.setPageBelongs(YqmDefine.PageBelongsType.system.getValue());
+        return this.pagePages(request);
+    }
+
+    /**
      * 分页查询 页面
      *
      * @param request
@@ -222,7 +234,7 @@ public class PagesService {
      */
     public String updateSEO(TpPagesRequest request) {
         User user = UserInfoService.getUser();
-        
+
         UpdateWrapper<TpPages> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id", request.getId());
         updateWrapper.eq("user_id", user.getId());

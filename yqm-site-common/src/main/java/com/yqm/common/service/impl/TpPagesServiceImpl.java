@@ -50,6 +50,12 @@ public class TpPagesServiceImpl extends ServiceImpl<TpPagesMapper, TpPages> impl
         if (Objects.nonNull(request.getSiteId())) {
             queryWrapper.eq("site_id", request.getSiteId());
         }
+        if (StringUtils.isNotBlank(request.getPageBelongs())) {
+            queryWrapper.eq("page_belongs", request.getPageBelongs());
+        }
+        if (StringUtils.isNotBlank(request.getPageType())) {
+            queryWrapper.eq("page_type", request.getPageType());
+        }
         return queryWrapper;
     }
 

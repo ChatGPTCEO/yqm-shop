@@ -145,5 +145,15 @@ public class PagesController {
         return ResponseBean.success(enableId);
     }
 
-
+    /**
+     * 导航
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/navigator/page")
+    public ResponseBean pagePagesNavigator(TpPagesRequest request) {
+        IPage<TpPagesDTO> page = pagesService.pagePagesNavigator(request);
+        return ResponseBean.success(page);
+    }
 }
