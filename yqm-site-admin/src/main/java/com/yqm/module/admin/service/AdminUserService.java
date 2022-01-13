@@ -26,7 +26,6 @@ import com.yqm.common.conversion.TpUserToDTO;
 import com.yqm.common.dto.TpUserDTO;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
@@ -38,10 +37,8 @@ import org.springframework.stereotype.Service;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@Slf4j
 @Service
 public class AdminUserService {
-
 
     /**
      * 获取用户信息

@@ -33,6 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-相册分类
+ * 
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -51,91 +52,97 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 添加相册分类
+     * 
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
+    public ResponseBean<TpPhotoAlbumClassifyDTO> addRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
         TpPhotoAlbumClassifyDTO dto = photoAlbumClassifyService.savePhotoAlbumClassify(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 修改相册分类
+     * 
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
+    public ResponseBean<TpPhotoAlbumClassifyDTO> updateRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
         TpPhotoAlbumClassifyDTO dto = photoAlbumClassifyService.savePhotoAlbumClassify(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 删除相册分类
+     * 
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removePhotoAlbumClassify(@PathVariable("id") String  id) {
+    public ResponseBean<String> removePhotoAlbumClassify(@PathVariable("id") String id) {
         String removeId = photoAlbumClassifyService.removePhotoAlbumClassify(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询相册分类
+     * 
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean<TpPhotoAlbumClassifyDTO> getById(@PathVariable("id") String id) {
         TpPhotoAlbumClassifyDTO dto = photoAlbumClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
-
     /**
      * 分页查询相册分类
+     * 
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpPhotoAlbumClassifyRequest request) {
+    public ResponseBean<IPage<TpPhotoAlbumClassifyDTO>> pageRecruitment(TpPhotoAlbumClassifyRequest request) {
         IPage<TpPhotoAlbumClassifyDTO> page = photoAlbumClassifyService.pagePhotoAlbumClassify(request);
         return ResponseBean.success(page);
     }
 
     /**
      * 查询相册分类
+     * 
      * @param request
      * @return
      */
     @GetMapping("/list")
-    public ResponseBean listPhotoAlbumClassify(TpPhotoAlbumClassifyRequest request) {
+    public ResponseBean<List<TpPhotoAlbumClassifyDTO>> listPhotoAlbumClassify(TpPhotoAlbumClassifyRequest request) {
         List<TpPhotoAlbumClassifyDTO> list = photoAlbumClassifyService.listPhotoAlbumClassify(request);
         return ResponseBean.success(list);
     }
 
     /**
      * 查询相册分类 层级
+     * 
      * @return
      */
     @GetMapping("/getPhotoAlbumClassify")
-    public ResponseBean getPhotoAlbumClassify() {
+    public ResponseBean<List<TpPhotoAlbumClassifyDTO>> getPhotoAlbumClassify() {
         List<TpPhotoAlbumClassifyDTO> list = photoAlbumClassifyService.getPhotoAlbumClassify();
         return ResponseBean.success(list);
     }
 
     /**
      * 停用/启用 相册分类
+     * 
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
         String enableId = photoAlbumClassifyService.enablePhotoAlbumClassify(request);
         return ResponseBean.success(enableId);
     }
-
 
 }

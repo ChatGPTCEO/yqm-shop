@@ -24,8 +24,6 @@ package com.yqm.common.upload;
 
 import com.yqm.common.SpringContextHelper;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -52,13 +50,14 @@ public class UploadImg {
      */
     private Map<String, UploadAbstractImg> map = new HashMap<>();
 
-
     @PostConstruct
-    public void init(){
-        //根据接口类型返回相应的所有bean
-        Map<String, UploadAbstractImg> classzMap = SpringContextHelper.getApplicationContext().getBeansOfType(UploadAbstractImg.class);
+    public void init() {
+        // 根据接口类型返回相应的所有bean
+        Map<String, UploadAbstractImg> classzMap = SpringContextHelper.getApplicationContext()
+                .getBeansOfType(UploadAbstractImg.class);
 
-        List<UploadAbstractImg> uploadImgList = classzMap.entrySet().stream().map(Map.Entry::getValue).collect(Collectors.toList());
+        List<UploadAbstractImg> uploadImgList = classzMap.entrySet().stream().map(Map.Entry::getValue)
+                .collect(Collectors.toList());
         if (CollectionUtils.isEmpty(uploadImgList)) {
             return;
         }

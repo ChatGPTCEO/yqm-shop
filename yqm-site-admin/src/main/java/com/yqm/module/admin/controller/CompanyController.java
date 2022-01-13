@@ -22,11 +22,11 @@
 
 package com.yqm.module.admin.controller;
 
+import com.yqm.common.dto.TpCompanyDTO;
 import com.yqm.common.request.TpCompanyRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.CompanyService;
 import com.yqm.module.service.CommonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -52,44 +52,45 @@ public class CompanyController {
 
     /**
      * 添加操作
+     * 
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addCompany(@RequestBody TpCompanyRequest request) {
-       return ResponseBean.success(companyService.addCompany(request));
+    public ResponseBean<TpCompanyDTO> addCompany(@RequestBody TpCompanyRequest request) {
+        return ResponseBean.success(companyService.addCompany(request));
     }
 
     /**
      * 修改操作
+     * 
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateCompany(@RequestBody TpCompanyRequest request) {
+    public ResponseBean<TpCompanyDTO> updateCompany(@RequestBody TpCompanyRequest request) {
         return ResponseBean.success(companyService.updateCompany(request));
     }
 
     /**
      * 获取用户绑定的公司
+     * 
      * @return
      */
     @GetMapping("/getUserBingCompany")
-    public ResponseBean getUserBingCompany() {
+    public ResponseBean<TpCompanyDTO> getUserBingCompany() {
         return ResponseBean.success(commonService.getUserBingCompany());
     }
 
-
     /**
      * 修改公司简介操作
+     * 
      * @param request
      * @return
      */
     @PutMapping("/introduce")
-    public ResponseBean updateIntroduce(@RequestBody TpCompanyRequest request) {
+    public ResponseBean<TpCompanyDTO> updateIntroduce(@RequestBody TpCompanyRequest request) {
         return ResponseBean.success(companyService.updateIntroduce(request));
     }
-
-
 
 }

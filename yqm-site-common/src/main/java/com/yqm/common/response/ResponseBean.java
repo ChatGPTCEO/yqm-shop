@@ -22,8 +22,6 @@
 
 package com.yqm.common.response;
 
-import lombok.Builder;
-
 import java.io.Serializable;
 
 /**
@@ -41,8 +39,6 @@ public class ResponseBean<T> implements Serializable {
     private Integer code;
     private String message;
     private T data;
-
-
 
     private ResponseBean(Integer code, String message, T data) {
         this.code = code;

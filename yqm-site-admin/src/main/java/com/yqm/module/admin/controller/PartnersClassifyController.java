@@ -33,6 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-合作伙伴分类
+ * 
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -51,81 +52,86 @@ public class PartnersClassifyController {
 
     /**
      * 添加合作伙伴分类
+     * 
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpPartnersClassifyRequest request) {
+    public ResponseBean<TpPartnersClassifyDTO> addRecruitment(@RequestBody TpPartnersClassifyRequest request) {
         TpPartnersClassifyDTO dto = linkClassifyService.savePartnersClassify(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 修改合作伙伴分类
+     * 
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpPartnersClassifyRequest request) {
+    public ResponseBean<TpPartnersClassifyDTO> updateRecruitment(@RequestBody TpPartnersClassifyRequest request) {
         TpPartnersClassifyDTO dto = linkClassifyService.savePartnersClassify(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 删除合作伙伴分类
+     * 
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removePartnersClassify(@PathVariable("id") String  id) {
+    public ResponseBean<String> removePartnersClassify(@PathVariable("id") String id) {
         String removeId = linkClassifyService.removePartnersClassify(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询合作伙伴分类
+     * 
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean<TpPartnersClassifyDTO> getById(@PathVariable("id") String id) {
         TpPartnersClassifyDTO dto = linkClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
-
     /**
      * 分页查询合作伙伴分类
+     * 
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpPartnersClassifyRequest request) {
+    public ResponseBean<IPage<TpPartnersClassifyDTO>> pageRecruitment(TpPartnersClassifyRequest request) {
         IPage<TpPartnersClassifyDTO> page = linkClassifyService.pagePartnersClassify(request);
         return ResponseBean.success(page);
     }
 
     /**
      * 查询合作伙伴分类
+     * 
      * @param request
      * @return
      */
     @GetMapping("/list")
-    public ResponseBean listPartnersClassify(TpPartnersClassifyRequest request) {
+    public ResponseBean<List<TpPartnersClassifyDTO>> listPartnersClassify(TpPartnersClassifyRequest request) {
         List<TpPartnersClassifyDTO> list = linkClassifyService.listPartnersClassify(request);
         return ResponseBean.success(list);
     }
 
     /**
      * 停用/启用 合作伙伴分类
+     * 
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpPartnersClassifyRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpPartnersClassifyRequest request) {
         String enableId = linkClassifyService.enablePartnersClassify(request);
         return ResponseBean.success(enableId);
     }
-
 
 }

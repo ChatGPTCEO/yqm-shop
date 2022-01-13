@@ -58,7 +58,7 @@ public class NewsClassifyController {
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpNewsClassifyRequest request) {
+    public ResponseBean<TpNewsClassifyDTO> addRecruitment(@RequestBody TpNewsClassifyRequest request) {
         TpNewsClassifyDTO dto = newsClassifyClassifyService.saveNewsClassify(request);
         return ResponseBean.success(dto);
     }
@@ -70,7 +70,7 @@ public class NewsClassifyController {
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpNewsClassifyRequest request) {
+    public ResponseBean<TpNewsClassifyDTO> updateRecruitment(@RequestBody TpNewsClassifyRequest request) {
         TpNewsClassifyDTO dto = newsClassifyClassifyService.saveNewsClassify(request);
         return ResponseBean.success(dto);
     }
@@ -82,7 +82,7 @@ public class NewsClassifyController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeNewsClassify(@PathVariable("id") String id) {
+    public ResponseBean<String> removeNewsClassify(@PathVariable("id") String id) {
         String removeId = newsClassifyClassifyService.removeNewsClassify(id);
         return ResponseBean.success(removeId);
     }
@@ -94,11 +94,10 @@ public class NewsClassifyController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String id) {
+    public ResponseBean<TpNewsClassifyDTO> getById(@PathVariable("id") String id) {
         TpNewsClassifyDTO dto = newsClassifyClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
-
 
     /**
      * 分页查询新闻分类
@@ -107,24 +106,22 @@ public class NewsClassifyController {
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpNewsClassifyRequest request) {
+    public ResponseBean<IPage<TpNewsClassifyDTO>> pageRecruitment(TpNewsClassifyRequest request) {
         IPage<TpNewsClassifyDTO> page = newsClassifyClassifyService.pageNewsClassify(request);
         return ResponseBean.success(page);
     }
 
     /**
-     * 分页查询新闻分类
-     * 直接列表形式
+     * 分页查询新闻分类 直接列表形式
      *
      * @param request
      * @return
      */
     @GetMapping("/page/list")
-    public ResponseBean pageNewsClassifyList(TpNewsClassifyRequest request) {
+    public ResponseBean<IPage<TpNewsClassifyDTO>> pageNewsClassifyList(TpNewsClassifyRequest request) {
         IPage<TpNewsClassifyDTO> page = newsClassifyClassifyService.pageNewsClassifyList(request);
         return ResponseBean.success(page);
     }
-
 
     /**
      * 分页查询新闻分类
@@ -133,11 +130,10 @@ public class NewsClassifyController {
      * @return
      */
     @GetMapping("/list")
-    public ResponseBean listRecruitment(TpNewsClassifyRequest request) {
+    public ResponseBean<List<TpNewsClassifyDTO>> listRecruitment(TpNewsClassifyRequest request) {
         List<TpNewsClassifyDTO> list = newsClassifyClassifyService.getNewsClassify();
         return ResponseBean.success(list);
     }
-
 
     /**
      * 停用/启用 新闻分类
@@ -146,7 +142,7 @@ public class NewsClassifyController {
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpNewsClassifyRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpNewsClassifyRequest request) {
         String enableId = newsClassifyClassifyService.enableNewsClassify(request);
         return ResponseBean.success(enableId);
     }
@@ -158,7 +154,7 @@ public class NewsClassifyController {
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpNewsClassifyRequest request) {
+    public ResponseBean<String> top(@RequestBody TpNewsClassifyRequest request) {
         String enableId = newsClassifyClassifyService.top(request.getId());
         return ResponseBean.success(enableId);
     }
@@ -170,7 +166,7 @@ public class NewsClassifyController {
      * @return
      */
     @PutMapping("/seo")
-    public ResponseBean seo(@RequestBody TpPagesRequest request) {
+    public ResponseBean<String> seo(@RequestBody TpPagesRequest request) {
         String enableId = newsClassifyClassifyService.updateSEO(request);
         return ResponseBean.success(enableId);
     }

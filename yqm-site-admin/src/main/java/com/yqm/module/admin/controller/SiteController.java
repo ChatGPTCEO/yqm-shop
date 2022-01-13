@@ -59,7 +59,7 @@ public class SiteController {
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpSiteRequest request) {
+    public ResponseBean<TpSiteDTO> addRecruitment(@RequestBody TpSiteRequest request) {
         TpSiteDTO dto = siteService.saveSite(request);
         return ResponseBean.success(dto);
     }
@@ -71,7 +71,7 @@ public class SiteController {
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpSiteRequest request) {
+    public ResponseBean<TpSiteDTO> updateRecruitment(@RequestBody TpSiteRequest request) {
         TpSiteDTO dto = siteService.saveSite(request);
         return ResponseBean.success(dto);
     }
@@ -83,7 +83,7 @@ public class SiteController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeSite(@PathVariable("id") String id) {
+    public ResponseBean<String> removeSite(@PathVariable("id") String id) {
         String removeId = siteService.removeSite(id);
         return ResponseBean.success(removeId);
     }
@@ -95,11 +95,10 @@ public class SiteController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String id) {
+    public ResponseBean<TpSiteDTO> getById(@PathVariable("id") String id) {
         TpSiteDTO dto = siteService.getById(id);
         return ResponseBean.success(dto);
     }
-
 
     /**
      * 分页查询站点
@@ -108,7 +107,7 @@ public class SiteController {
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpSiteRequest request) {
+    public ResponseBean<IPage<TpSiteDTO>> pageRecruitment(TpSiteRequest request) {
         IPage<TpSiteDTO> page = siteService.pageSite(request);
         return ResponseBean.success(page);
     }
@@ -120,11 +119,10 @@ public class SiteController {
      * @return
      */
     @GetMapping("/list")
-    public ResponseBean listSiteSelect(TpSiteRequest request) {
+    public ResponseBean<List<TpSiteBingDomainDTO>> listSiteSelect(TpSiteRequest request) {
         List<TpSiteBingDomainDTO> list = siteService.listSiteSelect(request);
         return ResponseBean.success(list);
     }
-
 
     /**
      * 停用/启用 站点
@@ -133,7 +131,7 @@ public class SiteController {
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpSiteRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpSiteRequest request) {
         String enableId = siteService.enableSite(request);
         return ResponseBean.success(enableId);
     }
@@ -145,7 +143,7 @@ public class SiteController {
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpSiteRequest request) {
+    public ResponseBean<String> top(@RequestBody TpSiteRequest request) {
         String enableId = siteService.top(request.getId());
         return ResponseBean.success(enableId);
     }
@@ -157,7 +155,7 @@ public class SiteController {
      * @return
      */
     @GetMapping("/page/user/domain")
-    public ResponseBean getBingDomainSite(TpSiteRequest request) {
+    public ResponseBean<IPage<TpSiteBingDomainDTO>> getBingDomainSite(TpSiteRequest request) {
         IPage<TpSiteBingDomainDTO> page = siteService.getBingDomainSite(request);
         return ResponseBean.success(page);
     }
@@ -169,7 +167,7 @@ public class SiteController {
      * @return
      */
     @PostMapping("/ding/domain")
-    public ResponseBean bingDomainSite(@RequestBody TpSiteRequest request) {
+    public ResponseBean<String> bingDomainSite(@RequestBody TpSiteRequest request) {
         String id = siteService.bingDomainSite(request);
         return ResponseBean.success(id);
     }
@@ -181,7 +179,7 @@ public class SiteController {
      * @return
      */
     @DeleteMapping("/ding/domain/{id}")
-    public ResponseBean removeBingDomainSite(@PathVariable("id") String id) {
+    public ResponseBean<String> removeBingDomainSite(@PathVariable("id") String id) {
         String removeId = siteService.removeBingDomainSite(id);
         return ResponseBean.success(removeId);
     }
@@ -193,7 +191,7 @@ public class SiteController {
      * @return
      */
     @GetMapping("/ding/domain/{id}")
-    public ResponseBean domainInfo(@PathVariable("id") String id) {
+    public ResponseBean<TpDomainInfoDTO> domainInfo(@PathVariable("id") String id) {
         TpDomainInfoDTO dto = siteService.domainInfo(id);
         return ResponseBean.success(dto);
     }
@@ -205,10 +203,9 @@ public class SiteController {
      * @return
      */
     @PutMapping("/ding/domain")
-    public ResponseBean domainInfo(@RequestBody TpSiteRequest request) {
+    public ResponseBean<TpDomainInfoDTO> domainInfo(@RequestBody TpSiteRequest request) {
         TpDomainInfoDTO dto = siteService.updateDomainInfo(request);
         return ResponseBean.success(dto);
     }
-
 
 }

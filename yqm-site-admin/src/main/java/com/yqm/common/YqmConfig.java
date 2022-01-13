@@ -22,15 +22,9 @@
 
 package com.yqm.common;
 
-import com.yqm.security.core.properties.BrowseProperties;
-import com.yqm.security.core.properties.OAuth2Properties;
-import com.yqm.security.core.properties.ValidateCodeProperties;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 /**
  * 配置文件
@@ -45,8 +39,5 @@ import java.util.List;
 @Component
 @ConfigurationProperties(prefix = "yqm")
 public class YqmConfig {
-
-
-
 
 }

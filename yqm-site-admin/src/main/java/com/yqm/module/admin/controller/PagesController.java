@@ -55,7 +55,7 @@ public class PagesController {
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpPagesRequest request) {
+    public ResponseBean<TpPagesDTO> addRecruitment(@RequestBody TpPagesRequest request) {
         TpPagesDTO dto = pagesService.savePages(request);
         return ResponseBean.success(dto);
     }
@@ -67,7 +67,7 @@ public class PagesController {
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpPagesRequest request) {
+    public ResponseBean<TpPagesDTO> updateRecruitment(@RequestBody TpPagesRequest request) {
         TpPagesDTO dto = pagesService.savePages(request);
         return ResponseBean.success(dto);
     }
@@ -79,7 +79,7 @@ public class PagesController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removePages(@PathVariable("id") String id) {
+    public ResponseBean<String> removePages(@PathVariable("id") String id) {
         String removeId = pagesService.removePages(id);
         return ResponseBean.success(removeId);
     }
@@ -91,11 +91,10 @@ public class PagesController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String id) {
+    public ResponseBean<TpPagesDTO> getById(@PathVariable("id") String id) {
         TpPagesDTO dto = pagesService.getById(id);
         return ResponseBean.success(dto);
     }
-
 
     /**
      * 分页查询页面
@@ -104,7 +103,7 @@ public class PagesController {
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpPagesRequest request) {
+    public ResponseBean<IPage<TpPagesDTO>> pageRecruitment(TpPagesRequest request) {
         IPage<TpPagesDTO> page = pagesService.pagePages(request);
         return ResponseBean.success(page);
     }
@@ -116,7 +115,7 @@ public class PagesController {
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpPagesRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpPagesRequest request) {
         String enableId = pagesService.enablePages(request);
         return ResponseBean.success(enableId);
     }
@@ -128,7 +127,7 @@ public class PagesController {
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpPagesRequest request) {
+    public ResponseBean<String> top(@RequestBody TpPagesRequest request) {
         String enableId = pagesService.top(request.getId());
         return ResponseBean.success(enableId);
     }
@@ -140,7 +139,7 @@ public class PagesController {
      * @return
      */
     @PutMapping("/seo")
-    public ResponseBean seo(@RequestBody TpPagesRequest request) {
+    public ResponseBean<String> seo(@RequestBody TpPagesRequest request) {
         String enableId = pagesService.updateSEO(request);
         return ResponseBean.success(enableId);
     }
@@ -152,7 +151,7 @@ public class PagesController {
      * @return
      */
     @GetMapping("/navigator/page")
-    public ResponseBean pagePagesNavigator(TpPagesRequest request) {
+    public ResponseBean<IPage<TpPagesDTO>> pagePagesNavigator(TpPagesRequest request) {
         IPage<TpPagesDTO> page = pagesService.pagePagesNavigator(request);
         return ResponseBean.success(page);
     }

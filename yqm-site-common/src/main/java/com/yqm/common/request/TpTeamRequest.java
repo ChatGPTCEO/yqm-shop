@@ -22,10 +22,8 @@
 
 package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -37,8 +35,7 @@ import java.util.List;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpTeamRequest  extends  BaseRequest {
-
+public class TpTeamRequest extends BaseRequest {
 
     /**
      * 名称
@@ -75,7 +72,6 @@ public class TpTeamRequest  extends  BaseRequest {
      */
     private String status;
 
-
     /**
      * 地址
      */
@@ -105,7 +101,6 @@ public class TpTeamRequest  extends  BaseRequest {
      * 排序
      */
     private boolean orderSort = true;
-
 
     /**
      * 包含的状态

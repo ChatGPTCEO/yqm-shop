@@ -43,7 +43,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin/honor")
 public class HonorController {
 
-
     private final HonorService honorService;
 
     public HonorController(HonorService honorService) {
@@ -52,82 +51,86 @@ public class HonorController {
 
     /**
      * 添加荣誉证书
+     * 
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpHonorRequest request) {
+    public ResponseBean<TpHonorDTO> addRecruitment(@RequestBody TpHonorRequest request) {
         TpHonorDTO dto = honorService.saveHonor(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 修改荣誉证书
+     * 
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpHonorRequest request) {
+    public ResponseBean<TpHonorDTO> updateRecruitment(@RequestBody TpHonorRequest request) {
         TpHonorDTO dto = honorService.saveHonor(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 删除荣誉证书
+     * 
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeHonor(@PathVariable("id") String  id) {
+    public ResponseBean<String> removeHonor(@PathVariable("id") String id) {
         String removeId = honorService.removeHonor(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询荣誉证书
+     * 
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean<TpHonorDTO> getById(@PathVariable("id") String id) {
         TpHonorDTO dto = honorService.getById(id);
         return ResponseBean.success(dto);
     }
 
-
     /**
      * 分页查询荣誉证书
+     * 
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpHonorRequest request) {
+    public ResponseBean<IPage<TpHonorDTO>> pageRecruitment(TpHonorRequest request) {
         IPage<TpHonorDTO> page = honorService.pageHonor(request);
         return ResponseBean.success(page);
     }
 
     /**
      * 停用/启用 荣誉证书
+     * 
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpHonorRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpHonorRequest request) {
         String enableId = honorService.enableHonor(request);
         return ResponseBean.success(enableId);
     }
 
     /**
      * 置顶 荣誉证书
+     * 
      * @param request
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpHonorRequest request) {
+    public ResponseBean<String> top(@RequestBody TpHonorRequest request) {
         String enableId = honorService.top(request.getId());
         return ResponseBean.success(enableId);
     }
-
-
 
 }

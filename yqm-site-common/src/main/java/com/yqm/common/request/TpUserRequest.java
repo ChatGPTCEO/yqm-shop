@@ -22,7 +22,6 @@
 
 package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -35,7 +34,7 @@ import java.time.LocalDateTime;
  * @Email: 907147608@qq.com
  */
 @Data
-public class TpUserRequest  extends BaseRequest {
+public class TpUserRequest extends BaseRequest {
 
     /**
      * 用户姓名

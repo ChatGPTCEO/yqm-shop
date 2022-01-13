@@ -24,11 +24,8 @@ package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpLinkClassifyDTO;
-import com.yqm.common.dto.TpRecruitmentDTO;
 import com.yqm.common.request.TpLinkClassifyRequest;
-import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.common.service.ITpLinkClassifyService;
 import com.yqm.module.admin.service.LinkClassifyService;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-友情链接分类
+ * 
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -54,81 +52,86 @@ public class LinkClassifyController {
 
     /**
      * 添加友情链接分类
+     * 
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpLinkClassifyRequest request) {
+    public ResponseBean<TpLinkClassifyDTO> addRecruitment(@RequestBody TpLinkClassifyRequest request) {
         TpLinkClassifyDTO dto = linkClassifyService.saveLinkClassify(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 修改友情链接分类
+     * 
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpLinkClassifyRequest request) {
+    public ResponseBean<TpLinkClassifyDTO> updateRecruitment(@RequestBody TpLinkClassifyRequest request) {
         TpLinkClassifyDTO dto = linkClassifyService.saveLinkClassify(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 删除友情链接分类
+     * 
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeLinkClassify(@PathVariable("id") String  id) {
+    public ResponseBean<String> removeLinkClassify(@PathVariable("id") String id) {
         String removeId = linkClassifyService.removeLinkClassify(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询友情链接分类
+     * 
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean<TpLinkClassifyDTO> getById(@PathVariable("id") String id) {
         TpLinkClassifyDTO dto = linkClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
-
     /**
      * 分页查询友情链接分类
+     * 
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpLinkClassifyRequest request) {
+    public ResponseBean<IPage<TpLinkClassifyDTO>> pageRecruitment(TpLinkClassifyRequest request) {
         IPage<TpLinkClassifyDTO> page = linkClassifyService.pageLinkClassify(request);
         return ResponseBean.success(page);
     }
 
     /**
      * 查询友情链接分类
+     * 
      * @param request
      * @return
      */
     @GetMapping("/list")
-    public ResponseBean listLinkClassify(TpLinkClassifyRequest request) {
+    public ResponseBean<List<TpLinkClassifyDTO>> listLinkClassify(TpLinkClassifyRequest request) {
         List<TpLinkClassifyDTO> list = linkClassifyService.listLinkClassify(request);
         return ResponseBean.success(list);
     }
 
     /**
      * 停用/启用 友情链接分类
+     * 
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpLinkClassifyRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpLinkClassifyRequest request) {
         String enableId = linkClassifyService.enableLinkClassify(request);
         return ResponseBean.success(enableId);
     }
-
 
 }

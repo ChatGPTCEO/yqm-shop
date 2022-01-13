@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端-团队
+ * 
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -49,81 +50,86 @@ public class TeamController {
 
     /**
      * 添加团队
+     * 
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpTeamRequest request) {
+    public ResponseBean<TpTeamDTO> addRecruitment(@RequestBody TpTeamRequest request) {
         TpTeamDTO dto = teamClassifyService.saveTeam(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 修改团队
+     * 
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpTeamRequest request) {
+    public ResponseBean<TpTeamDTO> updateRecruitment(@RequestBody TpTeamRequest request) {
         TpTeamDTO dto = teamClassifyService.saveTeam(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 删除团队
+     * 
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeTeam(@PathVariable("id") String  id) {
+    public ResponseBean<String> removeTeam(@PathVariable("id") String id) {
         String removeId = teamClassifyService.removeTeam(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询团队
+     * 
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String  id) {
+    public ResponseBean<TpTeamDTO> getById(@PathVariable("id") String id) {
         TpTeamDTO dto = teamClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
-
     /**
      * 分页查询团队
+     * 
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpTeamRequest request) {
+    public ResponseBean<IPage<TpTeamDTO>> pageRecruitment(TpTeamRequest request) {
         IPage<TpTeamDTO> page = teamClassifyService.pageTeam(request);
         return ResponseBean.success(page);
     }
 
     /**
      * 停用/启用 团队
+     * 
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpTeamRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpTeamRequest request) {
         String enableId = teamClassifyService.enableTeam(request);
         return ResponseBean.success(enableId);
     }
 
     /**
      * 置顶 团队
+     * 
      * @param request
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpTeamRequest request) {
+    public ResponseBean<String> top(@RequestBody TpTeamRequest request) {
         String enableId = teamClassifyService.top(request.getId());
         return ResponseBean.success(enableId);
     }
-
 
 }

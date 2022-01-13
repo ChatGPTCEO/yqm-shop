@@ -50,9 +50,10 @@ public class SysController {
     }
 
     @GetMapping("")
-    public ResponseBean getSysConfig() {
+    public ResponseBean<Map<String, Object>> getSysConfig() {
         Map<String, Object> map = new HashMap<>();
-        map.put(YqmDefine.SysConfigType.sys_phone.getValue(), sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.sys_phone.getValue()));
+        map.put(YqmDefine.SysConfigType.sys_phone.getValue(),
+                sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.sys_phone.getValue()));
         return ResponseBean.success(map);
     }
 

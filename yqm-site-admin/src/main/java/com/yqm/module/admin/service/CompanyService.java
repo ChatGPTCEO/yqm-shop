@@ -23,7 +23,6 @@
 package com.yqm.module.admin.service;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.LocalDateTimeUtil;
 import com.yqm.common.conversion.TpCompanyToDTO;
 import com.yqm.common.dto.TpCompanyDTO;
@@ -35,8 +34,6 @@ import com.yqm.module.service.CommonService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -58,14 +55,14 @@ public class CompanyService {
     private final ITpCompanyService iTpCompanyService;
     private final CommonService commonService;
 
-    public CompanyService(ITpCompanyService iTpCompanyService,
-                          CommonService commonService) {
+    public CompanyService(ITpCompanyService iTpCompanyService, CommonService commonService) {
         this.iTpCompanyService = iTpCompanyService;
         this.commonService = commonService;
     }
 
     /**
      * 添加公司
+     * 
      * @param request
      * @return
      */
@@ -76,7 +73,6 @@ public class CompanyService {
             log.error("异常 -> 用户添加公司操作-用户已存在公司，无法添加![userId={}]", currentUser.getId());
             throw new YqmException("数据异常!");
         }
-
 
         TpCompany company = TpCompanyToDTO.toTpCompany(request);
         company.setUserId(currentUser.getId());
@@ -93,6 +89,7 @@ public class CompanyService {
 
     /**
      * 修改公司
+     * 
      * @param request
      * @return
      */
@@ -103,7 +100,6 @@ public class CompanyService {
             log.error("异常 -> 用户修改公司操作-公司不在这个用户名下![companyId={}, userId={}]", request.getId(), currentUser.getId());
             throw new YqmException("数据异常!");
         }
-
 
         TpCompany newCompany = TpCompanyToDTO.toTpCompany(request);
         TpCompany oldCompany = iTpCompanyService.getById(request.getId());
@@ -122,6 +118,7 @@ public class CompanyService {
 
     /**
      * 修改公司简介(目前小程序专用)
+     * 
      * @param request
      * @return
      */
@@ -136,7 +133,6 @@ public class CompanyService {
         if (Objects.isNull(company)) {
             throw new YqmException("请先完善公司基本资料!");
         }
-
 
         company.setIntroduce(request.getIntroduce());
         if (!iTpCompanyService.updateById(company)) {

@@ -46,17 +46,15 @@ public class CustomerSysController {
     }
 
     @GetMapping("")
-    public ResponseBean getCustomerSysConfig(TpThirdPartyStatisticsRequest request) {
+    public ResponseBean<TpThirdPartyStatisticsDTO> getCustomerSysConfig(TpThirdPartyStatisticsRequest request) {
         TpThirdPartyStatisticsDTO dto = customerConfigService.getThirdPartyStatistics(request);
         return ResponseBean.success(dto);
     }
 
-
     @PutMapping("")
-    public ResponseBean saveCustomerSysConfig(@RequestBody TpThirdPartyStatisticsRequest request) {
+    public ResponseBean<String> saveCustomerSysConfig(@RequestBody TpThirdPartyStatisticsRequest request) {
         String id = customerConfigService.saveThirdPartyStatistics(request);
         return ResponseBean.success(id);
     }
-
 
 }

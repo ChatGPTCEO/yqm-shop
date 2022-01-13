@@ -22,7 +22,6 @@
 
 package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -93,11 +92,9 @@ public class TpPhotoAlbumRequest extends BaseRequest {
      */
     private boolean orderSort = true;
 
-
     /**
      * 包含的状态
      */
     private List<String> includeStatus;
-
 
 }

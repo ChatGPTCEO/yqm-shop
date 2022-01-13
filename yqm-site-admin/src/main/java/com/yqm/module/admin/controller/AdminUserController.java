@@ -22,18 +22,18 @@
 
 package com.yqm.module.admin.controller;
 
+import com.yqm.common.dto.TpUserDTO;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.common.upload.UploadImg;
 import com.yqm.module.admin.service.AdminUserService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 管理端用户
+ * 
  * @Author: weiximei
  * @Date: 2021/10/18 21:30
  * @微信: wxm907147608
@@ -41,7 +41,6 @@ import java.util.ArrayList;
  * @Email: 907147608@qq.com
  */
 
-@Slf4j
 @RequestMapping("/admin/user")
 @RestController
 public class AdminUserController {
@@ -49,22 +48,23 @@ public class AdminUserController {
     @Autowired
     private AdminUserService adminUserService;
 
-
     /**
      * 获取用户信息
+     * 
      * @return
      */
     @GetMapping("/getUserInfo")
-    public ResponseBean getUserInfo() {
+    public ResponseBean<TpUserDTO> getUserInfo() {
         return ResponseBean.success(adminUserService.getUserInfo());
     }
 
     /**
      * 获取用户路由信息
+     * 
      * @return
      */
     @GetMapping("/routes")
-    public ResponseBean routes() {
+    public ResponseBean<List<String>> routes() {
         return ResponseBean.success(new ArrayList<>());
     }
 

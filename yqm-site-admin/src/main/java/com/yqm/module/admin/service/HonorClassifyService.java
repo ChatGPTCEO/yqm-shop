@@ -46,6 +46,7 @@ import java.util.Objects;
 
 /**
  * 管理端-荣誉证书分类
+ * 
  * @Author: weiximei
  * @Date: 2021/11/8 20:06
  * @微信: wxm907147608
@@ -56,7 +57,6 @@ import java.util.Objects;
 @Slf4j
 public class HonorClassifyService {
 
-
     private ITpHonorClassifyService iTpHonorClassifyService;
 
     public HonorClassifyService(ITpHonorClassifyService iTpHonorClassifyService) {
@@ -65,6 +65,7 @@ public class HonorClassifyService {
 
     /**
      * 保存/修改 荣誉证书分类
+     * 
      * @param request
      * @return
      */
@@ -88,6 +89,7 @@ public class HonorClassifyService {
 
     /**
      * 根据id查询
+     * 
      * @param id
      * @return
      */
@@ -98,6 +100,7 @@ public class HonorClassifyService {
 
     /**
      * 删除荣誉证书分类
+     * 
      * @param id
      * @return
      */
@@ -115,6 +118,7 @@ public class HonorClassifyService {
 
     /**
      * 停用/启用
+     * 
      * @return
      */
     public String enableHonorClassify(TpHonorClassifyRequest request) {
@@ -147,6 +151,7 @@ public class HonorClassifyService {
 
     /**
      * 分页查询 荣誉证书分类
+     * 
      * @param request
      * @return
      */
@@ -157,7 +162,8 @@ public class HonorClassifyService {
         page.setSize(request.getPageSize());
 
         request.setUserId(currentUser.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpHonorClassifyService.page(page, iTpHonorClassifyService.queryWrapper(request));
 
         List list = pageList.getRecords();
@@ -169,6 +175,7 @@ public class HonorClassifyService {
 
     /**
      * 查询 荣誉证书分类
+     * 
      * @param request
      * @return
      */
@@ -177,13 +184,14 @@ public class HonorClassifyService {
         List<TpHonorClassifyDTO> honorClassifyDTOS = new ArrayList<>();
 
         request.setUserId(currentUser.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
-        List<TpHonorClassify> classifyList = iTpHonorClassifyService.list(iTpHonorClassifyService.queryWrapper(request));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        List<TpHonorClassify> classifyList = iTpHonorClassifyService
+                .list(iTpHonorClassifyService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {
             honorClassifyDTOS = TpHonorClassifyToDTO.toTpHonorClassifyDTOList(classifyList);
         }
         return honorClassifyDTOS;
     }
-
 
 }

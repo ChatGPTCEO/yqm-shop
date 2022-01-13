@@ -32,7 +32,7 @@ public class TpComponentServiceImpl extends ServiceImpl<TpComponentMapper, TpCom
     @Override
     public QueryWrapper<TpComponent> queryWrapper(TpComponentRequest request) {
 
-        QueryWrapper<TpComponent> queryWrapper = new QueryWrapper();
+        QueryWrapper<TpComponent> queryWrapper = new QueryWrapper<>();
         if (request.isOrderSort()) {
             queryWrapper.orderByAsc("sort");
             queryWrapper.orderByDesc("updated_time");
@@ -70,6 +70,5 @@ public class TpComponentServiceImpl extends ServiceImpl<TpComponentMapper, TpCom
     public int getMaxSort() {
         return tpComponentMapper.getMaxSort();
     }
-
 
 }

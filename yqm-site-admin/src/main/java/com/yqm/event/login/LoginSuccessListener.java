@@ -24,7 +24,6 @@ package com.yqm.event.login;
 
 import com.yqm.security.event.LoginSuccessEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 

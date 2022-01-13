@@ -56,7 +56,7 @@ public class NewsController {
      * @return
      */
     @PostMapping("")
-    public ResponseBean addRecruitment(@RequestBody TpNewsRequest request) {
+    public ResponseBean<TpNewsDTO> addRecruitment(@RequestBody TpNewsRequest request) {
         TpNewsDTO dto = newsService.saveNews(request);
         return ResponseBean.success(dto);
     }
@@ -68,7 +68,7 @@ public class NewsController {
      * @return
      */
     @PutMapping("")
-    public ResponseBean updateRecruitment(@RequestBody TpNewsRequest request) {
+    public ResponseBean<TpNewsDTO> updateRecruitment(@RequestBody TpNewsRequest request) {
         TpNewsDTO dto = newsService.saveNews(request);
         return ResponseBean.success(dto);
     }
@@ -80,7 +80,7 @@ public class NewsController {
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean removeNews(@PathVariable("id") String id) {
+    public ResponseBean<String> removeNews(@PathVariable("id") String id) {
         String removeId = newsService.removeNews(id);
         return ResponseBean.success(removeId);
     }
@@ -92,11 +92,10 @@ public class NewsController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean getById(@PathVariable("id") String id) {
+    public ResponseBean<TpNewsDTO> getById(@PathVariable("id") String id) {
         TpNewsDTO dto = newsService.getById(id);
         return ResponseBean.success(dto);
     }
-
 
     /**
      * 分页查询新闻
@@ -105,7 +104,7 @@ public class NewsController {
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean pageRecruitment(TpNewsRequest request) {
+    public ResponseBean<IPage<TpNewsDTO>> pageRecruitment(TpNewsRequest request) {
         IPage<TpNewsDTO> page = newsService.pageNews(request);
         return ResponseBean.success(page);
     }
@@ -117,7 +116,7 @@ public class NewsController {
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean enableRecruitment(@RequestBody TpNewsRequest request) {
+    public ResponseBean<String> enableRecruitment(@RequestBody TpNewsRequest request) {
         String enableId = newsService.enableNews(request);
         return ResponseBean.success(enableId);
     }
@@ -129,7 +128,7 @@ public class NewsController {
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean top(@RequestBody TpNewsRequest request) {
+    public ResponseBean<String> top(@RequestBody TpNewsRequest request) {
         String enableId = newsService.top(request.getId());
         return ResponseBean.success(enableId);
     }
@@ -141,10 +140,9 @@ public class NewsController {
      * @return
      */
     @PutMapping("/seo")
-    public ResponseBean seo(@RequestBody TpPagesRequest request) {
+    public ResponseBean<String> seo(@RequestBody TpPagesRequest request) {
         String enableId = newsService.updateSEO(request);
         return ResponseBean.success(enableId);
     }
-
 
 }

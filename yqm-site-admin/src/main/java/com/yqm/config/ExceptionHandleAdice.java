@@ -44,15 +44,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ExceptionHandleAdice {
 
     @ExceptionHandler(Exception.class)
-    public ResponseBean handleException(Exception e){
-        log.error(e.getMessage(),e);
+    public ResponseBean handleException(Exception e) {
+        log.error(e.getMessage(), e);
         return ResponseBean.error("系统异常,请稍后重试!");
     }
 
-
     @ExceptionHandler(YqmException.class)
-    public ResponseBean handleException(YqmException e){
-        log.error(e.getMessage(),e);
+    public ResponseBean handleException(YqmException e) {
+        log.error(e.getMessage(), e);
         return ResponseBean.error(e.getCode(), e.getMessage());
     }
 
