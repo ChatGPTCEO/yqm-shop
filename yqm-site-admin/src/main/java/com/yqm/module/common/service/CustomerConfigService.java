@@ -56,7 +56,8 @@ public class CustomerConfigService {
     private final ICustomerSysConfigService customerSysConfigService;
     private final Cache<String, String> cacheLocal;
 
-    public CustomerConfigService(ICustomerSysConfigService customerSysConfigService, @Qualifier("yqmCache") Cache<String, String> cacheLocal) {
+    public CustomerConfigService(ICustomerSysConfigService customerSysConfigService,
+            @Qualifier("yqmCache") Cache<String, String> cacheLocal) {
         this.customerSysConfigService = customerSysConfigService;
         this.cacheLocal = cacheLocal;
     }
@@ -90,14 +91,14 @@ public class CustomerConfigService {
         if (StringUtils.isNotBlank(siteId)) {
             request.setSiteId(siteId);
         }
-        CustomerSysConfig customerSysConfig = customerSysConfigService.getOne(customerSysConfigService.queryWrapper(request));
+        CustomerSysConfig customerSysConfig = customerSysConfigService
+                .getOne(customerSysConfigService.queryWrapper(request));
         if (Objects.isNull(customerSysConfig)) {
             log.error("本地缓存未找到 [key={}]， 请检查数据库!", key);
             return null;
         }
         return customerSysConfig.getConfigValue();
     }
-
 
     public TpThirdPartyStatisticsDTO getThirdPartyStatistics(TpThirdPartyStatisticsRequest request) {
         TpThirdPartyStatisticsDTO entity = new TpThirdPartyStatisticsDTO();
@@ -116,7 +117,8 @@ public class CustomerConfigService {
         configRequest.setUserId(user.getId());
         configRequest.setSiteId(request.getSiteId());
         configRequest.setConfigName(YqmDefine.CustomerSysConfigType.customer.getValue());
-        CustomerSysConfig customerSysConfig = customerSysConfigService.getOne(customerSysConfigService.queryWrapper(configRequest));
+        CustomerSysConfig customerSysConfig = customerSysConfigService
+                .getOne(customerSysConfigService.queryWrapper(configRequest));
         if (Objects.isNull(customerSysConfig)) {
             customerSysConfig = new CustomerSysConfig();
             customerSysConfig.setCreateTime(LocalDateTime.now());

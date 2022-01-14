@@ -38,6 +38,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -56,6 +57,7 @@ import java.util.Objects;
  */
 @Service
 @Slf4j
+@Transactional(rollbackFor = Exception.class)
 public class NewsService {
 
     private ITpNewsService iTpNewsService;

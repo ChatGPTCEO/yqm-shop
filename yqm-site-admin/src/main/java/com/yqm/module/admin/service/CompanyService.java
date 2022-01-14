@@ -35,6 +35,7 @@ import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -50,6 +51,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class CompanyService {
 
     private final ITpCompanyService iTpCompanyService;

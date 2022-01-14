@@ -27,7 +27,6 @@ import com.yqm.common.dto.TpCompanyDTO;
 import com.yqm.common.entity.TpCompany;
 import com.yqm.common.service.ITpCompanyService;
 import com.yqm.security.UserInfoService;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +34,7 @@ import java.util.Objects;
 
 /**
  * 公共
+ * 
  * @Author: weiximei
  * @Date: 2021/11/6 15:04
  * @微信: wxm907147608
@@ -42,7 +42,6 @@ import java.util.Objects;
  * @Email: 907147608@qq.com
  */
 @Service
-@Slf4j
 public class CommonService {
 
     private final ITpCompanyService iTpCompanyService;
@@ -53,6 +52,7 @@ public class CommonService {
 
     /**
      * 检查是否存在 公司
+     * 
      * @return
      */
     public boolean checkUserBindingCompany() {
@@ -62,6 +62,7 @@ public class CommonService {
 
     /**
      * 检查公司 是否 在自己名下
+     * 
      * @return
      */
     public boolean checkUserByCompany(String companyId) {
@@ -73,9 +74,9 @@ public class CommonService {
         return false;
     }
 
-
     /**
      * 获取用户绑定的公司
+     * 
      * @return
      */
     public TpCompanyDTO getUserBingCompany() {

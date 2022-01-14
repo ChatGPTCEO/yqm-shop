@@ -27,6 +27,7 @@ import com.yqm.common.dto.TpUserDTO;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 管理端用户
@@ -38,6 +39,7 @@ import org.springframework.stereotype.Service;
  * @Email: 907147608@qq.com
  */
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class AdminUserService {
 
     /**

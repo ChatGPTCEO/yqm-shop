@@ -46,6 +46,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -64,6 +65,7 @@ import java.util.Objects;
  */
 @Service
 @Slf4j
+@Transactional(rollbackFor = Exception.class)
 public class SiteService {
 
     private ITpSiteService iTpSiteService;
@@ -72,6 +74,13 @@ public class SiteService {
     public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService) {
         this.iTpSiteService = iTpSiteService;
         this.sysConfigService = sysConfigService;
+    }
+
+    /**
+     * 创建站点
+     */
+    public TpSiteDTO createSite() {
+        return null;
     }
 
     /**
@@ -177,7 +186,8 @@ public class SiteService {
         page.setSize(request.getPageSize());
 
         request.setUserId(user.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpSiteService.page(page, iTpSiteService.queryWrapper(request));
 
         List list = pageList.getRecords();
@@ -209,7 +219,8 @@ public class SiteService {
         List<TpSiteBingDomainDTO> siteDTOS = new ArrayList<>();
 
         request.setUserId(user.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpSite> classifyList = iTpSiteService.list(iTpSiteService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {
             siteDTOS = TpSiteBingDomainToDTO.toTpSiteDTOList(classifyList);
@@ -248,7 +259,8 @@ public class SiteService {
         page.setSize(request.getPageSize());
 
         request.setUserId(user.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         request.setIsNullDomain(Boolean.TRUE);
         IPage pageList = iTpSiteService.page(page, iTpSiteService.queryWrapper(request));
 
@@ -325,7 +337,7 @@ public class SiteService {
         TpDomainInfoDTO domainInfo = TpDomainInfoToDTO.toTpSiteDTO(site);
         domainInfo.setSysPhone(sysPhone);
         domainInfo.setDomainToDnsList(dnsDTOS);
-        
+
         if (StringUtils.isNotEmpty(site.getDomain())) {
             if (site.getDomain().startsWith("www.")) {
                 TpDomainDnsDTO wwwDnsDTO = new TpDomainDnsDTO();
@@ -352,7 +364,6 @@ public class SiteService {
             }
 
         }
-
 
         return domainInfo;
     }

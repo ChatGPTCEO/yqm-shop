@@ -42,6 +42,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -58,6 +59,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class RecruitmentService {
 
     private final CommonService commonService;
