@@ -33,5 +33,5 @@ build/
 .vscode/
 
 # prod
-!**/src/main/resources/*prod.yml
-/src/main/resources/*prod.yml
+!**/src/main/resources/**prod.yml
+/src/main/resources/**prod.yml
