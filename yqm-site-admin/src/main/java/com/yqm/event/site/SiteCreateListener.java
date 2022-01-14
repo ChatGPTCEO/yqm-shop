@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 站点创建成功 - 初始化页面
+ * 站点创建成功
  *
  * @Author: weiximei
  * @Date: 2021/10/16 22:03
@@ -28,23 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional(rollbackFor = Exception.class)
 public class SiteCreateListener implements ApplicationListener<LoginSuccessEvent> {
 
-    private final PagesService pagesService;
-
-    public SiteCreateListener(PagesService pagesService) {
-        this.pagesService = pagesService;
-    }
-
     @Override
     public void onApplicationEvent(LoginSuccessEvent event) {
-        log.info("处理站点创建成功事件 -> 初始化页面");
-
-        String userId = "-1";
-
-        TpPagesRequest requestPages = new TpPagesRequest();
-        requestPages.setUserId(userId);
-        List<TpPagesDTO> pagesDTOs = pagesService.baseListPages(requestPages);
-        pagesService.saveBachPages(TpPagesToDTO.toTpPagesRequestList(pagesDTOs));
-
+        log.info("处理站点创建成功事件...");
     }
 
 }

@@ -73,29 +73,10 @@ public class SiteService {
 
     private final ITpSiteService iTpSiteService;
     private final SysConfigService sysConfigService;
-    private final ApplicationContext applicationContext;
 
-    public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService,
-            ApplicationContext applicationContext) {
+    public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService) {
         this.iTpSiteService = iTpSiteService;
         this.sysConfigService = sysConfigService;
-        this.applicationContext = applicationContext;
-    }
-
-    /**
-     * 创建站点
-     */
-    public TpSiteDTO createSite() {
-        User user = UserInfoService.getUser();
-        TpSiteRequest siteRequest = new TpSiteRequest();
-        siteRequest.setUserId(user.getId());
-        siteRequest.setSiteName("我的站点");
-        siteRequest.setDueTime(DateUtils.addMonth(LocalDateTime.now(), 1));
-        TpSiteDTO siteDTO = this.saveSite(siteRequest);
-
-        // 发送站点创建成功事件
-        applicationContext.publishEvent(new SiteCreateEvent(siteDTO));
-        return siteDTO;
     }
 
     /**
