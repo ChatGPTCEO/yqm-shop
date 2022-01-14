@@ -1,11 +1,5 @@
 package com.yqm.event.site;
 
-import java.util.List;
-
-import com.yqm.common.conversion.TpPagesToDTO;
-import com.yqm.common.dto.TpPagesDTO;
-import com.yqm.common.request.TpPagesRequest;
-import com.yqm.module.admin.service.PagesService;
 import com.yqm.security.event.LoginSuccessEvent;
 
 import org.springframework.context.ApplicationListener;
