@@ -20,12 +20,13 @@
  * limitations under the License.
  */
 
-package com.yqm.event;
+package com.yqm.common.event;
 
 import org.springframework.context.ApplicationEvent;
 
 /**
  * 客户端注册
+ * 
  * @Author: weiximei
  * @Date: 2021/10/16 23:38
  * @微信: wxm907147608

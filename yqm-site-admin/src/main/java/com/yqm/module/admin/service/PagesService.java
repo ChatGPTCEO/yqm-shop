@@ -29,6 +29,7 @@ import com.yqm.common.conversion.TpPagesToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.TpPagesDTO;
 import com.yqm.common.entity.TpPages;
+import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.service.ITpPagesService;
 import com.yqm.security.User;
@@ -44,6 +45,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * 管理端-页面
@@ -74,23 +76,63 @@ public class PagesService {
     public TpPagesDTO savePages(TpPagesRequest request) {
         User user = UserInfoService.getUser();
 
-        TpPages news = TpPagesToDTO.toTpPages(request);
+        TpPages pages = TpPagesToDTO.toTpPages(request);
         if (StringUtils.isEmpty(request.getId())) {
             LocalDateTime nowDate = LocalDateTime.now();
-            news.setCreateBy(user.getId());
-            news.setCreateTime(nowDate);
+            pages.setCreateBy(user.getId());
+            pages.setCreateTime(nowDate);
             int maxSort = iTpPagesService.getMaxSort(user.getId());
             iTpPagesService.updateAllSortGal(maxSort, user.getId());
-            news.setSort(1);
+            pages.setSort(1);
         }
 
-        news.setUserId(user.getId());
-        news.setStatus(YqmDefine.StatusType.effective.getValue());
-        news.setUpdatedBy(user.getId());
-        news.setUpdatedTime(LocalDateTime.now());
-        iTpPagesService.saveOrUpdate(news);
+        pages.setUserId(user.getId());
+        pages.setStatus(YqmDefine.StatusType.effective.getValue());
+        pages.setUpdatedBy(user.getId());
+        pages.setUpdatedTime(LocalDateTime.now());
+        iTpPagesService.saveOrUpdate(pages);
 
-        return TpPagesToDTO.toTpPagesDTO(news);
+        return TpPagesToDTO.toTpPagesDTO(pages);
+    }
+
+    /**
+     * 批量 保存/修改 页面
+     *
+     * @param request
+     * @return
+     */
+    public List<TpPagesDTO> saveBachPages(List<TpPagesRequest> requestList) {
+        User user = UserInfoService.getUser();
+
+        if (CollectionUtils.isEmpty(requestList)) {
+            return null;
+        }
+        List<TpPages> pagesEntityList = requestList.stream().map(e -> {
+            TpPages pages = TpPagesToDTO.toTpPages(e);
+            if (StringUtils.isEmpty(e.getId())) {
+                LocalDateTime nowDate = LocalDateTime.now();
+                pages.setCreateBy(user.getId());
+                pages.setCreateTime(nowDate);
+                int maxSort = iTpPagesService.getMaxSort(user.getId());
+                iTpPagesService.updateAllSortGal(maxSort, user.getId());
+                pages.setSort(1);
+            }
+
+            pages.setUserId(user.getId());
+            pages.setStatus(YqmDefine.StatusType.effective.getValue());
+            pages.setUpdatedBy(user.getId());
+            pages.setUpdatedTime(LocalDateTime.now());
+
+            return pages;
+        }).collect(Collectors.toList());
+
+        boolean bool = iTpPagesService.saveBatch(pagesEntityList);
+        if (false == bool) {
+            log.error("批量 保存/修改 页面! [userId={}, pagesRequest={}]", user.getId(), requestList);
+            throw new YqmException("处理页面失败");
+        }
+
+        return TpPagesToDTO.toTpPagesDTOList(pagesEntityList);
     }
 
     /**
@@ -100,8 +142,8 @@ public class PagesService {
      * @return
      */
     public TpPagesDTO getById(String id) {
-        TpPages news = iTpPagesService.getById(id);
-        return TpPagesToDTO.toTpPagesDTO(news);
+        TpPages pages = iTpPagesService.getById(id);
+        return TpPagesToDTO.toTpPagesDTO(pages);
     }
 
     /**
@@ -135,12 +177,12 @@ public class PagesService {
             return request.getId();
         }
 
-        TpPages news = iTpPagesService.getById(request.getId());
-        if (Objects.isNull(news)) {
+        TpPages pages = iTpPagesService.getById(request.getId());
+        if (Objects.isNull(pages)) {
             log.error("操作异常->停用/启用页面错误->数据未找到！[id={}]", request.getId());
             return request.getId();
         }
-        if (YqmDefine.StatusType.delete.getValue().equals(news.getStatus())) {
+        if (YqmDefine.StatusType.delete.getValue().equals(pages.getStatus())) {
             log.error("操作异常->停用/启用页面错误->该信息已经被删除！[id={}]", request.getId());
             return request.getId();
         }
@@ -180,7 +222,8 @@ public class PagesService {
         page.setSize(request.getPageSize());
 
         request.setUserId(user.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         IPage pageList = iTpPagesService.page(page, iTpPagesService.queryWrapper(request));
 
         List list = pageList.getRecords();
@@ -199,15 +242,29 @@ public class PagesService {
      */
     public List<TpPagesDTO> listPages(TpPagesRequest request) {
         User user = UserInfoService.getUser();
-        List<TpPagesDTO> newsDTOS = new ArrayList<>();
 
         request.setUserId(user.getId());
-        request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
+
+        return this.baseListPages(request);
+    }
+
+    /**
+     * 查询 页面
+     *
+     * @param request
+     * @return
+     */
+    public List<TpPagesDTO> baseListPages(TpPagesRequest request) {
+        List<TpPagesDTO> pagesDTOS = new ArrayList<>();
+        request.setIncludeStatus(
+                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         List<TpPages> classifyList = iTpPagesService.list(iTpPagesService.queryWrapper(request));
         if (CollectionUtils.isNotEmpty(classifyList)) {
-            newsDTOS = TpPagesToDTO.toTpPagesDTOList(classifyList);
+            pagesDTOS = TpPagesToDTO.toTpPagesDTOList(classifyList);
         }
-        return newsDTOS;
+        return pagesDTOS;
     }
 
     /**

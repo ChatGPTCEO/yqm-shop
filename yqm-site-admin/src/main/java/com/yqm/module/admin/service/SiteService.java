@@ -36,15 +36,18 @@ import com.yqm.common.dto.TpDomainInfoDTO;
 import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.entity.TpSite;
+import com.yqm.common.event.SiteCreateEvent;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.TpSiteRequest;
 import com.yqm.common.service.ITpSiteService;
+import com.yqm.common.utils.DateUtils;
 import com.yqm.module.common.service.SysConfigService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,19 +71,31 @@ import java.util.Objects;
 @Transactional(rollbackFor = Exception.class)
 public class SiteService {
 
-    private ITpSiteService iTpSiteService;
-    private SysConfigService sysConfigService;
+    private final ITpSiteService iTpSiteService;
+    private final SysConfigService sysConfigService;
+    private final ApplicationContext applicationContext;
 
-    public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService) {
+    public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService,
+            ApplicationContext applicationContext) {
         this.iTpSiteService = iTpSiteService;
         this.sysConfigService = sysConfigService;
+        this.applicationContext = applicationContext;
     }
 
     /**
      * 创建站点
      */
     public TpSiteDTO createSite() {
-        return null;
+        User user = UserInfoService.getUser();
+        TpSiteRequest siteRequest = new TpSiteRequest();
+        siteRequest.setUserId(user.getId());
+        siteRequest.setSiteName("我的站点");
+        siteRequest.setDueTime(DateUtils.addMonth(LocalDateTime.now(), 1));
+        TpSiteDTO siteDTO = this.saveSite(siteRequest);
+
+        // 发送站点创建成功事件
+        applicationContext.publishEvent(new SiteCreateEvent(siteDTO));
+        return siteDTO;
     }
 
     /**

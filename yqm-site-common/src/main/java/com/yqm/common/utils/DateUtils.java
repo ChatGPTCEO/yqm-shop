@@ -44,7 +44,28 @@ public class DateUtils {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(format);
             return dateTimeFormatter.format(time);
         }
-       return null;
+        return null;
+    }
+
+    public static LocalDateTime addMonth(LocalDateTime now, int num) {
+        if (Objects.isNull(now)) {
+            return null;
+        }
+        return now.plusHours(num);
+    }
+
+    public static LocalDateTime addDays(LocalDateTime now, int num) {
+        if (Objects.isNull(now)) {
+            return null;
+        }
+        return now.plusDays(num);
+    }
+
+    public static LocalDateTime addYears(LocalDateTime now, int num) {
+        if (Objects.isNull(now)) {
+            return null;
+        }
+        return now.plusYears(num);
     }
 
 }

@@ -58,11 +58,18 @@ public class TpPagesToDTO {
         return entity;
     }
 
+    public static TpPagesRequest toTpPagesRequest(TpPagesDTO dto) {
+        TpPagesRequest request = new TpPagesRequest();
+        BeanUtil.copyProperties(dto, request);
+        return request;
+    }
+
     public static List<TpPagesDTO> toTpPagesDTOList(List<TpPages> entityList) {
         if (CollectionUtils.isEmpty(entityList)) {
             return null;
         }
-        List<TpPagesDTO> dtoList = entityList.stream().map(e -> TpPagesToDTO.toTpPagesDTO(e)).collect(Collectors.toList());
+        List<TpPagesDTO> dtoList = entityList.stream().map(e -> TpPagesToDTO.toTpPagesDTO(e))
+                .collect(Collectors.toList());
         return dtoList;
     }
 
@@ -71,6 +78,15 @@ public class TpPagesToDTO {
             return null;
         }
         List<TpPages> entityList = dtoList.stream().map(e -> TpPagesToDTO.toTpPages(e)).collect(Collectors.toList());
+        return entityList;
+    }
+
+    public static List<TpPagesRequest> toTpPagesRequestList(List<TpPagesDTO> dtoList) {
+        if (CollectionUtils.isEmpty(dtoList)) {
+            return null;
+        }
+        List<TpPagesRequest> entityList = dtoList.stream().map(e -> TpPagesToDTO.toTpPagesRequest(e))
+                .collect(Collectors.toList());
         return entityList;
     }
 }
