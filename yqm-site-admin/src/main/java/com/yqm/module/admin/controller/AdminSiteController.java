@@ -44,11 +44,11 @@ import java.util.List;
  */
 @RequestMapping("/admin/site")
 @RestController
-public class SiteController {
+public class AdminSiteController {
 
     private final SiteService siteService;
 
-    public SiteController(SiteService siteService) {
+    public AdminSiteController(SiteService siteService) {
         this.siteService = siteService;
     }
 

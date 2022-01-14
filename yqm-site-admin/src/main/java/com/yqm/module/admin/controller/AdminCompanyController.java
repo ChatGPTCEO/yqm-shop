@@ -40,12 +40,12 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/admin/company")
 @RestController
-public class CompanyController {
+public class AdminCompanyController {
 
     private final CompanyService companyService;
     private final CommonService commonService;
 
-    public CompanyController(CompanyService companyService, CommonService commonService) {
+    public AdminCompanyController(CompanyService companyService, CommonService commonService) {
         this.companyService = companyService;
         this.commonService = commonService;
     }

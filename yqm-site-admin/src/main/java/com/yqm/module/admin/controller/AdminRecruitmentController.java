@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端-招聘
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/6 14:19
  * @微信: wxm907147608
@@ -40,17 +40,17 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/admin/recruitment")
 @RestController
-public class RecruitmentController {
+public class AdminRecruitmentController {
 
     private final RecruitmentService recruitmentService;
 
-    public RecruitmentController(RecruitmentService recruitmentService) {
+    public AdminRecruitmentController(RecruitmentService recruitmentService) {
         this.recruitmentService = recruitmentService;
     }
 
     /**
      * 添加招聘
-     * 
+     *
      * @param request
      * @return
      */
@@ -62,7 +62,7 @@ public class RecruitmentController {
 
     /**
      * 修改招聘
-     * 
+     *
      * @param request
      * @return
      */
@@ -74,7 +74,7 @@ public class RecruitmentController {
 
     /**
      * 删除招聘
-     * 
+     *
      * @param id
      * @return
      */
@@ -86,7 +86,7 @@ public class RecruitmentController {
 
     /**
      * 根据id查询招聘
-     * 
+     *
      * @param id
      * @return
      */
@@ -98,7 +98,7 @@ public class RecruitmentController {
 
     /**
      * 分页查询招聘
-     * 
+     *
      * @param request
      * @return
      */
@@ -110,7 +110,7 @@ public class RecruitmentController {
 
     /**
      * 停用/启用 招聘
-     * 
+     *
      * @param request
      * @return
      */
@@ -122,7 +122,7 @@ public class RecruitmentController {
 
     /**
      * 置顶 招聘
-     * 
+     *
      * @param request
      * @return
      */

@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-团队分类
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -42,17 +42,17 @@ import java.util.List;
  */
 @RequestMapping("/admin/teamClassify")
 @RestController
-public class TeamClassifyController {
+public class AdminTeamClassifyController {
 
     private final TeamClassifyService teamClassifyService;
 
-    public TeamClassifyController(TeamClassifyService teamClassifyService) {
+    public AdminTeamClassifyController(TeamClassifyService teamClassifyService) {
         this.teamClassifyService = teamClassifyService;
     }
 
     /**
      * 添加团队分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -64,7 +64,7 @@ public class TeamClassifyController {
 
     /**
      * 修改团队分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -76,7 +76,7 @@ public class TeamClassifyController {
 
     /**
      * 删除团队分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -88,7 +88,7 @@ public class TeamClassifyController {
 
     /**
      * 根据id查询团队分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -100,7 +100,7 @@ public class TeamClassifyController {
 
     /**
      * 分页查询团队分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -112,7 +112,7 @@ public class TeamClassifyController {
 
     /**
      * 查询团队分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -124,7 +124,7 @@ public class TeamClassifyController {
 
     /**
      * 停用/启用 团队分类
-     * 
+     *
      * @param request
      * @return
      */

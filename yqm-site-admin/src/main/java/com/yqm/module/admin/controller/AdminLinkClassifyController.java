@@ -42,11 +42,11 @@ import java.util.List;
  */
 @RequestMapping("/admin/linkClassify")
 @RestController
-public class LinkClassifyController {
+public class AdminLinkClassifyController {
 
     private final LinkClassifyService linkClassifyService;
 
-    public LinkClassifyController(LinkClassifyService linkClassifyService) {
+    public AdminLinkClassifyController(LinkClassifyService linkClassifyService) {
         this.linkClassifyService = linkClassifyService;
     }
 

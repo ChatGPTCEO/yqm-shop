@@ -20,41 +20,42 @@
  * limitations under the License.
  */
 
-package com.yqm.module.admin.controller;
+package com.yqm.module.client.controller;
 
-import com.yqm.common.define.YqmDefine;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.common.service.SysConfigService;
+import com.yqm.module.client.service.PagesService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
+ * 页面
+ *
  * @Author: weiximei
- * @Date: 2022/1/8 12:08
+ * @Date: 2022/1/14 21:17
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/sys")
+@RequestMapping("/client/pages")
 @RestController
-public class SysController {
+public class PagesController {
 
-    private final SysConfigService sysConfigService;
+    private final PagesService pagesService;
 
-    public SysController(SysConfigService sysConfigService) {
-        this.sysConfigService = sysConfigService;
+    public PagesController(PagesService pagesService) {
+        this.pagesService = pagesService;
     }
 
-    @GetMapping("")
-    public ResponseBean<Map<String, Object>> getSysConfig() {
-        Map<String, Object> map = new HashMap<>();
-        map.put(YqmDefine.SysConfigType.sys_phone.getValue(),
-                sysConfigService.getSysCacheValue(YqmDefine.SysConfigType.sys_phone.getValue()));
-        return ResponseBean.success(map);
+    /**
+     * 查询 导航集合
+     *
+     * @return
+     */
+    @GetMapping("/navigation")
+    public ResponseBean listNavigation(TpPagesRequest request) {
+        return ResponseBean.success(pagesService.listNavigation(request));
     }
 
 }

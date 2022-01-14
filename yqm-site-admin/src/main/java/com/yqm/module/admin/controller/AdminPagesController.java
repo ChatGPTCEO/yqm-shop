@@ -40,11 +40,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/admin/pages")
 @RestController
-public class PagesController {
+public class AdminPagesController {
 
     private final PagesService pagesService;
 
-    public PagesController(PagesService pagesService) {
+    public AdminPagesController(PagesService pagesService) {
         this.pagesService = pagesService;
     }
 

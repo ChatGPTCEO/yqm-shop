@@ -37,11 +37,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/admin/customer/sys")
 @RestController
-public class CustomerSysController {
+public class AdminCustomerSysController {
 
     private final CustomerConfigService customerConfigService;
 
-    public CustomerSysController(CustomerConfigService customerConfigService) {
+    public AdminCustomerSysController(CustomerConfigService customerConfigService) {
         this.customerConfigService = customerConfigService;
     }
 

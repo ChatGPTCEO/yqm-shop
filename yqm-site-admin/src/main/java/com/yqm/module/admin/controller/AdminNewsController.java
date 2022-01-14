@@ -41,11 +41,11 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/admin/news")
 @RestController
-public class NewsController {
+public class AdminNewsController {
 
     private final NewsService newsService;
 
-    public NewsController(NewsService newsService) {
+    public AdminNewsController(NewsService newsService) {
         this.newsService = newsService;
     }
 

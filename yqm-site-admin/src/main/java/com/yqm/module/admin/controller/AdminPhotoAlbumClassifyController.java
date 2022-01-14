@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-相册分类
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -42,17 +42,17 @@ import java.util.List;
  */
 @RequestMapping("/admin/photoAlbumClassify")
 @RestController
-public class PhotoAlbumClassifyController {
+public class AdminPhotoAlbumClassifyController {
 
     private final PhotoAlbumClassifyService photoAlbumClassifyService;
 
-    public PhotoAlbumClassifyController(PhotoAlbumClassifyService photoAlbumClassifyService) {
+    public AdminPhotoAlbumClassifyController(PhotoAlbumClassifyService photoAlbumClassifyService) {
         this.photoAlbumClassifyService = photoAlbumClassifyService;
     }
 
     /**
      * 添加相册分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -64,7 +64,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 修改相册分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -76,7 +76,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 删除相册分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -88,7 +88,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 根据id查询相册分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -100,7 +100,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 分页查询相册分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -112,7 +112,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 查询相册分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -124,7 +124,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 查询相册分类 层级
-     * 
+     *
      * @return
      */
     @GetMapping("/getPhotoAlbumClassify")
@@ -135,7 +135,7 @@ public class PhotoAlbumClassifyController {
 
     /**
      * 停用/启用 相册分类
-     * 
+     *
      * @param request
      * @return
      */

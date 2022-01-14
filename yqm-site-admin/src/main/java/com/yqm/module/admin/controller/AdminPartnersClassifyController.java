@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-合作伙伴分类
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -42,17 +42,17 @@ import java.util.List;
  */
 @RequestMapping("/admin/partnersClassify")
 @RestController
-public class PartnersClassifyController {
+public class AdminPartnersClassifyController {
 
     private final PartnersClassifyService linkClassifyService;
 
-    public PartnersClassifyController(PartnersClassifyService linkClassifyService) {
+    public AdminPartnersClassifyController(PartnersClassifyService linkClassifyService) {
         this.linkClassifyService = linkClassifyService;
     }
 
     /**
      * 添加合作伙伴分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -64,7 +64,7 @@ public class PartnersClassifyController {
 
     /**
      * 修改合作伙伴分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -76,7 +76,7 @@ public class PartnersClassifyController {
 
     /**
      * 删除合作伙伴分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -88,7 +88,7 @@ public class PartnersClassifyController {
 
     /**
      * 根据id查询合作伙伴分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -100,7 +100,7 @@ public class PartnersClassifyController {
 
     /**
      * 分页查询合作伙伴分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -112,7 +112,7 @@ public class PartnersClassifyController {
 
     /**
      * 查询合作伙伴分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -124,7 +124,7 @@ public class PartnersClassifyController {
 
     /**
      * 停用/启用 合作伙伴分类
-     * 
+     *
      * @param request
      * @return
      */

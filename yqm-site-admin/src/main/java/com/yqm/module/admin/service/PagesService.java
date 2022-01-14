@@ -32,6 +32,7 @@ import com.yqm.common.entity.TpPages;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.service.ITpPagesService;
+import com.yqm.module.service.PagesCommonService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -41,7 +42,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -61,10 +61,12 @@ import java.util.stream.Collectors;
 @Transactional(rollbackFor = Exception.class)
 public class PagesService {
 
-    private ITpPagesService iTpPagesService;
+    private final ITpPagesService iTpPagesService;
+    private final PagesCommonService pagesCommonService;
 
-    public PagesService(ITpPagesService iTpPagesService) {
+    public PagesService(ITpPagesService iTpPagesService, PagesCommonService pagesCommonService) {
         this.iTpPagesService = iTpPagesService;
+        this.pagesCommonService = pagesCommonService;
     }
 
     /**
@@ -98,7 +100,7 @@ public class PagesService {
     /**
      * 批量 保存/修改 页面
      *
-     * @param request
+     * @param requestList
      * @return
      */
     public List<TpPagesDTO> saveBachPages(List<TpPagesRequest> requestList) {
@@ -247,24 +249,7 @@ public class PagesService {
         request.setIncludeStatus(
                 Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
 
-        return this.baseListPages(request);
-    }
-
-    /**
-     * 查询 页面
-     *
-     * @param request
-     * @return
-     */
-    public List<TpPagesDTO> baseListPages(TpPagesRequest request) {
-        List<TpPagesDTO> pagesDTOS = new ArrayList<>();
-        request.setIncludeStatus(
-                Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
-        List<TpPages> classifyList = iTpPagesService.list(iTpPagesService.queryWrapper(request));
-        if (CollectionUtils.isNotEmpty(classifyList)) {
-            pagesDTOS = TpPagesToDTO.toTpPagesDTOList(classifyList);
-        }
-        return pagesDTOS;
+        return pagesCommonService.baseListPages(request);
     }
 
     /**
@@ -293,18 +278,8 @@ public class PagesService {
      */
     public String updateSEO(TpPagesRequest request) {
         User user = UserInfoService.getUser();
-
-        UpdateWrapper<TpPages> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("id", request.getId());
-        updateWrapper.eq("user_id", user.getId());
-        updateWrapper.set("seo_title", request.getSeoTitle());
-        updateWrapper.set("seo_keyword", request.getSeoKeyword());
-        updateWrapper.set("seo_content", request.getSeoContent());
-        updateWrapper.set("plug_code", request.getPlugCode());
-        updateWrapper.set("plug_location", request.getPlugLocation());
-        iTpPagesService.update(updateWrapper);
-
-        return request.getId();
+        request.setUserId(user.getId());
+        return pagesCommonService.updateSEO(request);
     }
 
 }

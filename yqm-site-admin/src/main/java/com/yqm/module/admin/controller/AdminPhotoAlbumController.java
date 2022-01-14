@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * 管理端-相册
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -42,17 +42,17 @@ import java.util.List;
  */
 @RequestMapping("/admin/photoAlbum")
 @RestController
-public class PhotoAlbumController {
+public class AdminPhotoAlbumController {
 
     private final PhotoAlbumService photoAlbumService;
 
-    public PhotoAlbumController(PhotoAlbumService photoAlbumService) {
+    public AdminPhotoAlbumController(PhotoAlbumService photoAlbumService) {
         this.photoAlbumService = photoAlbumService;
     }
 
     /**
      * 添加相册
-     * 
+     *
      * @param request
      * @return
      */
@@ -64,7 +64,7 @@ public class PhotoAlbumController {
 
     /**
      * 修改相册
-     * 
+     *
      * @param request
      * @return
      */
@@ -76,7 +76,7 @@ public class PhotoAlbumController {
 
     /**
      * 删除相册
-     * 
+     *
      * @param id
      * @return
      */
@@ -88,7 +88,7 @@ public class PhotoAlbumController {
 
     /**
      * 根据id查询相册
-     * 
+     *
      * @param id
      * @return
      */
@@ -100,7 +100,7 @@ public class PhotoAlbumController {
 
     /**
      * 分页查询相册
-     * 
+     *
      * @param request
      * @return
      */
@@ -112,7 +112,7 @@ public class PhotoAlbumController {
 
     /**
      * 查询相册
-     * 
+     *
      * @param request
      * @return
      */
@@ -124,7 +124,7 @@ public class PhotoAlbumController {
 
     /**
      * 停用/启用 相册
-     * 
+     *
      * @param request
      * @return
      */

@@ -43,11 +43,11 @@ import java.util.List;
  */
 @RequestMapping("/admin/newsClassify")
 @RestController
-public class NewsClassifyController {
+public class AdminNewsClassifyController {
 
     private final NewsClassifyService newsClassifyClassifyService;
 
-    public NewsClassifyController(NewsClassifyService newsClassifyClassifyService) {
+    public AdminNewsClassifyController(NewsClassifyService newsClassifyClassifyService) {
         this.newsClassifyClassifyService = newsClassifyClassifyService;
     }
 

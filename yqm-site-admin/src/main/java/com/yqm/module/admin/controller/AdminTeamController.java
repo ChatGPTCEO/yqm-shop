@@ -23,112 +23,112 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.yqm.common.dto.TpPartnersDTO;
-import com.yqm.common.request.TpPartnersRequest;
+import com.yqm.common.dto.TpTeamDTO;
+import com.yqm.common.request.TpTeamRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.PartnersService;
+import com.yqm.module.admin.service.TeamService;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 管理端-合作伙伴
- * 
+ * 管理端-团队
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/partners")
+@RequestMapping("/admin/team")
 @RestController
-public class PartnersController {
+public class AdminTeamController {
 
-    private final PartnersService partnersClassifyService;
+    private final TeamService teamClassifyService;
 
-    public PartnersController(PartnersService partnersClassifyService) {
-        this.partnersClassifyService = partnersClassifyService;
+    public AdminTeamController(TeamService teamClassifyService) {
+        this.teamClassifyService = teamClassifyService;
     }
 
     /**
-     * 添加合作伙伴
-     * 
+     * 添加团队
+     *
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean<TpPartnersDTO> addRecruitment(@RequestBody TpPartnersRequest request) {
-        TpPartnersDTO dto = partnersClassifyService.savePartners(request);
+    public ResponseBean<TpTeamDTO> addRecruitment(@RequestBody TpTeamRequest request) {
+        TpTeamDTO dto = teamClassifyService.saveTeam(request);
         return ResponseBean.success(dto);
     }
 
     /**
-     * 修改合作伙伴
-     * 
+     * 修改团队
+     *
      * @param request
      * @return
      */
     @PutMapping("")
-    public ResponseBean<TpPartnersDTO> updateRecruitment(@RequestBody TpPartnersRequest request) {
-        TpPartnersDTO dto = partnersClassifyService.savePartners(request);
+    public ResponseBean<TpTeamDTO> updateRecruitment(@RequestBody TpTeamRequest request) {
+        TpTeamDTO dto = teamClassifyService.saveTeam(request);
         return ResponseBean.success(dto);
     }
 
     /**
-     * 删除合作伙伴
-     * 
+     * 删除团队
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseBean<String> removePartners(@PathVariable("id") String id) {
-        String removeId = partnersClassifyService.removePartners(id);
+    public ResponseBean<String> removeTeam(@PathVariable("id") String id) {
+        String removeId = teamClassifyService.removeTeam(id);
         return ResponseBean.success(removeId);
     }
 
     /**
-     * 根据id查询合作伙伴
-     * 
+     * 根据id查询团队
+     *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseBean<TpPartnersDTO> getById(@PathVariable("id") String id) {
-        TpPartnersDTO dto = partnersClassifyService.getById(id);
+    public ResponseBean<TpTeamDTO> getById(@PathVariable("id") String id) {
+        TpTeamDTO dto = teamClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
     /**
-     * 分页查询合作伙伴
-     * 
+     * 分页查询团队
+     *
      * @param request
      * @return
      */
     @GetMapping("/page")
-    public ResponseBean<IPage<TpPartnersDTO>> pageRecruitment(TpPartnersRequest request) {
-        IPage<TpPartnersDTO> page = partnersClassifyService.pagePartners(request);
+    public ResponseBean<IPage<TpTeamDTO>> pageRecruitment(TpTeamRequest request) {
+        IPage<TpTeamDTO> page = teamClassifyService.pageTeam(request);
         return ResponseBean.success(page);
     }
 
     /**
-     * 停用/启用 合作伙伴
-     * 
+     * 停用/启用 团队
+     *
      * @param request
      * @return
      */
     @PutMapping("/enable")
-    public ResponseBean<String> enableRecruitment(@RequestBody TpPartnersRequest request) {
-        String enableId = partnersClassifyService.enablePartners(request);
+    public ResponseBean<String> enableRecruitment(@RequestBody TpTeamRequest request) {
+        String enableId = teamClassifyService.enableTeam(request);
         return ResponseBean.success(enableId);
     }
 
     /**
-     * 置顶 合作伙伴
-     * 
+     * 置顶 团队
+     *
      * @param request
      * @return
      */
     @PutMapping("/top")
-    public ResponseBean<String> top(@RequestBody TpPartnersRequest request) {
-        String enableId = partnersClassifyService.top(request.getId());
+    public ResponseBean<String> top(@RequestBody TpTeamRequest request) {
+        String enableId = teamClassifyService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 

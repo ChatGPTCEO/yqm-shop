@@ -42,11 +42,11 @@ import java.util.List;
  */
 @RequestMapping("/admin/honorClassify")
 @RestController
-public class HonorClassifyController {
+public class AdminHonorClassifyController {
 
     private final HonorClassifyService honorClassifyService;
 
-    public HonorClassifyController(HonorClassifyService honorClassifyService) {
+    public AdminHonorClassifyController(HonorClassifyService honorClassifyService) {
         this.honorClassifyService = honorClassifyService;
     }
 
