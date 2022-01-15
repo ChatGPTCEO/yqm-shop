@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2021-9-11 10:54:06",
-  "updatedTime": "2022-1-15 17:43:54",
+  "updatedTime": "2022-1-15 23:09:24",
   "dbConns": [],
   "profile": {
     "default": {
@@ -4956,7 +4956,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
@@ -6175,6 +6175,21 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
+        },
+        {
+          "defKey": "level",
+          "defName": "层级",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "Int"
         }
       ],
       "correlations": [],

@@ -59,6 +59,9 @@ public class TpPagesServiceImpl extends ServiceImpl<TpPagesMapper, TpPages> impl
         if (StringUtils.isNotBlank(request.getId())) {
             queryWrapper.eq("id", request.getId());
         }
+        if (StringUtils.isNotBlank(request.getPid())) {
+            queryWrapper.eq("pid", request.getPid());
+        }
         return queryWrapper;
     }
 

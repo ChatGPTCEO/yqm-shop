@@ -29,6 +29,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @Author: weiximei
@@ -162,5 +163,15 @@ public class TpPagesDTO extends BaseEntity {
      * 打开类型;new 新窗口 current 当前
      */
     private String openType;
+
+    /**
+     * 层级
+     */
+    private Integer level;
+
+    /**
+     * 子集
+     */
+    private List<TpPagesDTO> children;
 
 }

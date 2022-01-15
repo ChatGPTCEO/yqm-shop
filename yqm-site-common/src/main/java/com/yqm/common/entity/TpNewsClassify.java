@@ -28,6 +28,11 @@ public class TpNewsClassify extends BaseEntity implements Serializable {
     private String pid;
 
     /**
+     * 父id集合
+     */
+    private String pids;
+
+    /**
      * 名称
      */
     private String newsClassifyName;

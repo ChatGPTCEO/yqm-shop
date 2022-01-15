@@ -183,4 +183,9 @@ public class TpPagesRequest extends BaseRequest {
      */
     private Boolean delay;
 
+    /**
+     * 层级
+     */
+    private Integer level;
+
 }

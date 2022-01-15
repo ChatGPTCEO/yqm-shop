@@ -3,20 +3,20 @@
 <mapper namespace="com.yqm.common.mapper.TpComponentMapper">
 
     <update id="updateAllSortGal">
-        update tp_link
+        update tp_component
         set sort = sort + 1
         where `sort` <![CDATA[ <= ]]>  #{currentSort}
     </update>
 
     <update id="top">
-        update tp_link
+        update tp_component
         set sort = 1
         where id <![CDATA[ = ]]>  #{id}
     </update>
 
     <select id="getMaxSort" resultType="int">
         select IFNULL(max(sort), 1)
-        from tp_link
+        from tp_component
         where `status` in ('effective', 'failure')
     </select>
 

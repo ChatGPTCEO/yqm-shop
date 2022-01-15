@@ -3,14 +3,14 @@
 <mapper namespace="com.yqm.common.mapper.TpPagesMapper">
 
     <update id="updateAllSortGal">
-        update tp_news
+        update tp_pages
         set sort = sort + 1
         where `sort` <![CDATA[ <= ]]>  #{currentSort}
           and user_id = #{userId}
     </update>
 
     <update id="top">
-        update tp_news
+        update tp_pages
         set sort = 1
         where id <![CDATA[ = ]]>  #{id}
           and user_id = #{userId}
@@ -18,7 +18,7 @@
 
     <select id="getMaxSort" resultType="int">
         select IFNULL(max(sort), 1)
-        from tp_news
+        from tp_pages
         where user_id = #{userId}
           and `status` in ('effective', 'failure')
     </select>

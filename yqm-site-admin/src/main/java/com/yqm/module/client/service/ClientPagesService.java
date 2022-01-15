@@ -29,6 +29,7 @@ import com.yqm.common.service.ITpPagesService;
 import com.yqm.module.service.PagesCommonService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -56,7 +57,7 @@ public class ClientPagesService {
 
 
     /**
-     * 查询 导航
+     * 查询 导航集合
      *
      * @param request
      * @return
@@ -67,9 +68,68 @@ public class ClientPagesService {
         }
         User user = UserInfoService.getUser();
         request.setPageType(YqmDefine.PageType.navigation.getValue());
-        request.setPageBelongs(YqmDefine.PageBelongsType.system.getValue());
         request.setUserId(user.getId());
         return pagesCommonService.baseListPages(request);
+    }
+
+    /**
+     * 查询 导航集合 梯子型
+     *
+     * @return
+     */
+    public List<TpPagesDTO> listNavigationChildren() {
+        User user = UserInfoService.getUser();
+        TpPagesRequest request = new TpPagesRequest();
+        request.setPageType(YqmDefine.PageType.navigation.getValue());
+        request.setUserId(user.getId());
+        request.setPid("-1");
+
+        List<TpPagesDTO> pagesDTOList = pagesCommonService.baseListPages(request);
+        return this.navigationChildren(pagesDTOList);
+    }
+
+    /**
+     * 查询 导航集合 id查询
+     *
+     * @return
+     */
+    public List<TpPagesDTO> navigationChildren(List<TpPagesDTO> list) {
+        if (CollectionUtils.isEmpty(list)) {
+            return null;
+        }
+
+        for (TpPagesDTO dto : list) {
+            List<TpPagesDTO> dtoList2 = this.navigationPid(dto.getId());
+            dto.setChildren(dtoList2);
+            if (CollectionUtils.isEmpty(dtoList2)) {
+                continue;
+            }
+            for (TpPagesDTO dto3 : dtoList2) {
+                List<TpPagesDTO> areaDtoList = this.navigationPid(dto3.getId());
+                dto3.setChildren(areaDtoList);
+            }
+
+        }
+
+        return list;
+    }
+
+    /**
+     * 查询 导航集合 id查询
+     *
+     * @return
+     */
+    public List<TpPagesDTO> navigationPid(String pid) {
+        if (StringUtils.isEmpty(pid)) {
+            return null;
+        }
+
+        User user = UserInfoService.getUser();
+        TpPagesRequest request = new TpPagesRequest();
+        request.setPid(pid);
+        request.setUserId(user.getId());
+        List<TpPagesDTO> pagesDTOList = pagesCommonService.baseListPages(request);
+        return CollectionUtils.isNotEmpty(pagesDTOList) ? pagesDTOList : null;
     }
 
     /**
@@ -91,6 +151,18 @@ public class ClientPagesService {
                 Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
         request.setUserId(user.getId());
         return pagesCommonService.getOne(request);
+    }
+
+    /**
+     * 保存/修改 导航栏
+     *
+     * @param request
+     * @return
+     */
+    public TpPagesDTO saveNavigation(TpPagesRequest request) {
+        request.setPageType(YqmDefine.PageType.navigation.getValue());
+        request.setPageBelongs(YqmDefine.PageBelongsType.user.getValue());
+        return pagesCommonService.savePages(request);
     }
 
 

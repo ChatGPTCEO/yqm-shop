@@ -88,6 +88,7 @@ public class AdminNewsClassifyService {
         TpNewsClassify tpNewsClassify = iTpNewsClassifyService.getById(request.getPid());
         if (Objects.isNull(tpNewsClassify)) {
             newsClassify.setPid("-1");
+            newsClassify.setPids("-1");
         }
 
         newsClassify.setUserId(user.getId());

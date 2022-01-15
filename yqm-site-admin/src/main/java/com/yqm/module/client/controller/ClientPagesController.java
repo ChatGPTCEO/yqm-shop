@@ -25,10 +25,7 @@ package com.yqm.module.client.controller;
 import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.client.service.ClientPagesService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 页面
@@ -60,6 +57,17 @@ public class ClientPagesController {
     }
 
     /**
+     * 查询 导航集合 梯子型
+     *
+     * @return
+     */
+    @GetMapping("/navigation/children")
+    public ResponseBean listNavigationChildren() {
+        return ResponseBean.success(clientPagesService.listNavigationChildren());
+    }
+
+
+    /**
      * 查询一条导航数据
      *
      * @return
@@ -67,6 +75,16 @@ public class ClientPagesController {
     @GetMapping("/navigation/{id}/{siteId}")
     public ResponseBean navigationInfo(@PathVariable String id, @PathVariable String siteId) {
         return ResponseBean.success(clientPagesService.navigationInfo(id, siteId));
+    }
+
+    /**
+     * 保存/修改 导航数据
+     *
+     * @return
+     */
+    @PostMapping("/navigation")
+    public ResponseBean saveNavigation(@RequestBody TpPagesRequest request) {
+        return ResponseBean.success(clientPagesService.saveNavigation(request));
     }
 
 }

@@ -32,11 +32,14 @@ import com.yqm.common.service.ITpPagesService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author: weiximei
@@ -113,6 +116,39 @@ public class PagesCommonService {
      */
     public TpPagesDTO getOne(TpPagesRequest request) {
         TpPages pages = iTpPagesService.getOne(iTpPagesService.queryWrapper(request));
+        return TpPagesToDTO.toTpPagesDTO(pages);
+    }
+
+    /**
+     * 保存/修改 页面
+     *
+     * @param request
+     * @return
+     */
+    public TpPagesDTO savePages(TpPagesRequest request) {
+        User user = UserInfoService.getUser();
+
+        TpPages pages = TpPagesToDTO.toTpPages(request);
+        if (StringUtils.isEmpty(request.getId())) {
+            LocalDateTime nowDate = LocalDateTime.now();
+            pages.setCreateBy(user.getId());
+            pages.setCreateTime(nowDate);
+            int maxSort = iTpPagesService.getMaxSort(user.getId());
+            pages.setSort(maxSort + 1);
+        }
+
+        TpPages pagesPidEntity = iTpPagesService.getById(request.getPid());
+        if (Objects.isNull(pagesPidEntity)) {
+            pages.setPid("-1");
+            pages.setPids("-1");
+        }
+
+        pages.setUserId(user.getId());
+        pages.setStatus(YqmDefine.StatusType.effective.getValue());
+        pages.setUpdatedBy(user.getId());
+        pages.setUpdatedTime(LocalDateTime.now());
+        iTpPagesService.saveOrUpdate(pages);
+
         return TpPagesToDTO.toTpPagesDTO(pages);
     }
 
