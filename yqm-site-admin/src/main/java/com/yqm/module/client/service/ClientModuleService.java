@@ -42,11 +42,11 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class ModuleService {
+public class ClientModuleService {
 
     private final ITpModuleService iTpModuleService;
 
-    public ModuleService(ITpModuleService iTpModuleService) {
+    public ClientModuleService(ITpModuleService iTpModuleService) {
         this.iTpModuleService = iTpModuleService;
     }
 

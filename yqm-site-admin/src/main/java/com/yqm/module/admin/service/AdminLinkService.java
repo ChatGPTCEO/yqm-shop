@@ -25,13 +25,12 @@ package com.yqm.module.admin.service;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yqm.common.conversion.TpHonorToDTO;
+import com.yqm.common.conversion.TpLinkToDTO;
 import com.yqm.common.define.YqmDefine;
-import com.yqm.common.dto.TpHonorDTO;
-import com.yqm.common.entity.TpHonor;
-import com.yqm.common.request.TpHonorRequest;
-import com.yqm.common.service.ITpHonorService;
-import com.yqm.common.service.ITpHonorService;
+import com.yqm.common.dto.TpLinkDTO;
+import com.yqm.common.entity.TpLink;
+import com.yqm.common.request.TpLinkRequest;
+import com.yqm.common.service.ITpLinkService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -46,9 +45,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 管理端-荣誉证书
+ * 管理端-友情链接
+ *
  * @Author: weiximei
- * @Date: 2021/11/8 19:54
+ * @Date: 2021/11/7 19:33
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
@@ -56,138 +56,144 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class HonorService {
+public class AdminLinkService {
 
-    private ITpHonorService iTpHonorService;
 
-    public HonorService(ITpHonorService iTpHonorService) {
-        this.iTpHonorService = iTpHonorService;
+    private ITpLinkService iTpLinkService;
+
+    public AdminLinkService(ITpLinkService iTpLinkService) {
+        this.iTpLinkService = iTpLinkService;
     }
 
     /**
-     * 保存/修改 荣誉证书分类
+     * 保存/修改 友情链接分类
+     *
      * @param request
      * @return
      */
-    public TpHonorDTO saveHonor(TpHonorRequest request) {
+    public TpLinkDTO saveLink(TpLinkRequest request) {
         User user = UserInfoService.getUser();
 
-        TpHonor honor = TpHonorToDTO.toTpHonor(request);
+        TpLink link = TpLinkToDTO.toTpLink(request);
         if (StringUtils.isEmpty(request.getId())) {
-            honor.setCreatedBy(user.getId());
-            honor.setCreatedTime(LocalDateTime.now());
+            link.setCreatedBy(user.getId());
+            link.setCreatedTime(LocalDateTime.now());
 
-            int maxSort = iTpHonorService.getMaxSort(user.getId());
-            iTpHonorService.updateAllSortGal(maxSort,user.getId());
-            honor.setSort(1);
+            int maxSort = iTpLinkService.getMaxSort(user.getId());
+            iTpLinkService.updateAllSortGal(maxSort, user.getId());
+            link.setSort(1);
         }
 
-        honor.setUserId(user.getId());
-        honor.setStatus(YqmDefine.StatusType.effective.getValue());
-        honor.setUpdatedBy(user.getId());
-        honor.setUpdatedTime(LocalDateTime.now());
-        iTpHonorService.saveOrUpdate(honor);
+        link.setUserId(user.getId());
+        link.setStatus(YqmDefine.StatusType.effective.getValue());
+        link.setUpdatedBy(user.getId());
+        link.setUpdatedTime(LocalDateTime.now());
+        iTpLinkService.saveOrUpdate(link);
 
-        return TpHonorToDTO.toTpHonorDTO(honor);
+        return TpLinkToDTO.toTpLinkDTO(link);
     }
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
-    public TpHonorDTO getById(String id) {
-        TpHonor honor = iTpHonorService.getById(id);
-        return TpHonorToDTO.toTpHonorDTO(honor);
+    public TpLinkDTO getById(String id) {
+        TpLink link = iTpLinkService.getById(id);
+        return TpLinkToDTO.toTpLinkDTO(link);
     }
 
     /**
-     * 删除荣誉证书分类
+     * 删除友情链接分类
+     *
      * @param id
      * @return
      */
-    public String removeHonor(String id) {
+    public String removeLink(String id) {
         User user = UserInfoService.getUser();
 
-        UpdateWrapper<TpHonor> updateWrapper = new UpdateWrapper<>();
+        UpdateWrapper<TpLink> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("status", YqmDefine.StatusType.delete.getValue());
         updateWrapper.eq("id", id);
         updateWrapper.eq("user_id", user.getId());
-        iTpHonorService.update(updateWrapper);
+        iTpLinkService.update(updateWrapper);
 
         return id;
     }
 
     /**
      * 停用/启用
+     *
      * @return
      */
-    public String enableHonor(TpHonorRequest request) {
+    public String enableLink(TpLinkRequest request) {
         User user = UserInfoService.getUser();
 
         if (!YqmDefine.includeStatus.contains(request.getStatus())) {
-            log.error("操作异常->停用/启用荣誉证书错误->传入状态不正确！[id={},status={}]", request.getId(), request.getStatus());
+            log.error("操作异常->停用/启用友情链接错误->传入状态不正确！[id={},status={}]", request.getId(), request.getStatus());
             return request.getId();
         }
 
-        TpHonor honor = iTpHonorService.getById(request.getId());
-        if (Objects.isNull(honor)) {
-            log.error("操作异常->停用/启用荣誉证书错误->数据未找到！[id={}]", request.getId());
+        TpLink link = iTpLinkService.getById(request.getId());
+        if (Objects.isNull(link)) {
+            log.error("操作异常->停用/启用友情链接错误->数据未找到！[id={}]", request.getId());
             return request.getId();
         }
-        if (YqmDefine.StatusType.delete.getValue().equals(honor.getStatus())) {
-            log.error("操作异常->停用/启用荣誉证书错误->该信息已经被删除！[id={}]", request.getId());
+        if (YqmDefine.StatusType.delete.getValue().equals(link.getStatus())) {
+            log.error("操作异常->停用/启用友情链接错误->该信息已经被删除！[id={}]", request.getId());
             return request.getId();
         }
 
-        UpdateWrapper<TpHonor> updateWrapper = new UpdateWrapper<>();
+        UpdateWrapper<TpLink> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("status", request.getStatus());
         updateWrapper.eq("id", request.getId());
         updateWrapper.eq("user_id", user.getId());
-        iTpHonorService.update(updateWrapper);
+        iTpLinkService.update(updateWrapper);
 
         return request.getId();
 
     }
 
     /**
-     * 分页查询 荣誉证书分类
+     * 分页查询 友情链接分类
+     *
      * @param request
      * @return
      */
-    public IPage<TpHonorDTO> pageHonor(TpHonorRequest request) {
+    public IPage<TpLinkDTO> pageLink(TpLinkRequest request) {
         User currentUser = UserInfoService.getUser();
-        Page<TpHonor> page = new Page<>();
+        Page<TpLink> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
         request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
-        IPage pageList = iTpHonorService.page(page, iTpHonorService.queryWrapper(request));
+        IPage pageList = iTpLinkService.page(page, iTpLinkService.queryWrapper(request));
 
         List list = pageList.getRecords();
         if (CollectionUtils.isNotEmpty(list)) {
-            pageList.setRecords(TpHonorToDTO.toTpHonorDTOList(list));
+            pageList.setRecords(TpLinkToDTO.toTpLinkDTOList(list));
         }
         return pageList;
     }
 
     /**
      * 置顶
+     *
      * @param id
      * @return
      */
     public String top(String id) {
         User user = UserInfoService.getUser();
 
-        TpHonor tpHonor = iTpHonorService.getById(id);
-        if (Objects.nonNull(tpHonor)) {
-            iTpHonorService.updateAllSortGal(tpHonor.getSort(), user.getId());
-            iTpHonorService.top(id, user.getId());
+        TpLink tpLink = iTpLinkService.getById(id);
+        if (Objects.nonNull(tpLink)) {
+            iTpLinkService.updateAllSortGal(tpLink.getSort(), user.getId());
+            iTpLinkService.top(id, user.getId());
         }
 
         return id;
     }
-
 
 }

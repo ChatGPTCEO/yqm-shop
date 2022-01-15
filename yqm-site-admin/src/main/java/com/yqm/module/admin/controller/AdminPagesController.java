@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpPagesDTO;
 import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.PagesService;
+import com.yqm.module.admin.service.AdminPagesService;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -42,10 +42,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminPagesController {
 
-    private final PagesService pagesService;
+    private final AdminPagesService adminPagesService;
 
-    public AdminPagesController(PagesService pagesService) {
-        this.pagesService = pagesService;
+    public AdminPagesController(AdminPagesService adminPagesService) {
+        this.adminPagesService = adminPagesService;
     }
 
     /**
@@ -56,7 +56,7 @@ public class AdminPagesController {
      */
     @PostMapping("")
     public ResponseBean<TpPagesDTO> addRecruitment(@RequestBody TpPagesRequest request) {
-        TpPagesDTO dto = pagesService.savePages(request);
+        TpPagesDTO dto = adminPagesService.savePages(request);
         return ResponseBean.success(dto);
     }
 
@@ -68,7 +68,7 @@ public class AdminPagesController {
      */
     @PutMapping("")
     public ResponseBean<TpPagesDTO> updateRecruitment(@RequestBody TpPagesRequest request) {
-        TpPagesDTO dto = pagesService.savePages(request);
+        TpPagesDTO dto = adminPagesService.savePages(request);
         return ResponseBean.success(dto);
     }
 
@@ -80,7 +80,7 @@ public class AdminPagesController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removePages(@PathVariable("id") String id) {
-        String removeId = pagesService.removePages(id);
+        String removeId = adminPagesService.removePages(id);
         return ResponseBean.success(removeId);
     }
 
@@ -92,7 +92,7 @@ public class AdminPagesController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpPagesDTO> getById(@PathVariable("id") String id) {
-        TpPagesDTO dto = pagesService.getById(id);
+        TpPagesDTO dto = adminPagesService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -104,7 +104,7 @@ public class AdminPagesController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpPagesDTO>> pageRecruitment(TpPagesRequest request) {
-        IPage<TpPagesDTO> page = pagesService.pagePages(request);
+        IPage<TpPagesDTO> page = adminPagesService.pagePages(request);
         return ResponseBean.success(page);
     }
 
@@ -116,7 +116,7 @@ public class AdminPagesController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpPagesRequest request) {
-        String enableId = pagesService.enablePages(request);
+        String enableId = adminPagesService.enablePages(request);
         return ResponseBean.success(enableId);
     }
 
@@ -128,7 +128,7 @@ public class AdminPagesController {
      */
     @PutMapping("/top")
     public ResponseBean<String> top(@RequestBody TpPagesRequest request) {
-        String enableId = pagesService.top(request.getId());
+        String enableId = adminPagesService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 
@@ -140,7 +140,7 @@ public class AdminPagesController {
      */
     @PutMapping("/seo")
     public ResponseBean<String> seo(@RequestBody TpPagesRequest request) {
-        String enableId = pagesService.updateSEO(request);
+        String enableId = adminPagesService.updateSEO(request);
         return ResponseBean.success(enableId);
     }
 
@@ -152,7 +152,7 @@ public class AdminPagesController {
      */
     @GetMapping("/navigator/page")
     public ResponseBean<IPage<TpPagesDTO>> pagePagesNavigator(TpPagesRequest request) {
-        IPage<TpPagesDTO> page = pagesService.pagePagesNavigator(request);
+        IPage<TpPagesDTO> page = adminPagesService.pagePagesNavigator(request);
         return ResponseBean.success(page);
     }
 }

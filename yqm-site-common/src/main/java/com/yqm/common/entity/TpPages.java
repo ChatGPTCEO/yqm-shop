@@ -123,5 +123,25 @@ public class TpPages extends BaseEntity implements Serializable {
      */
     private String status;
 
+    /**
+     * 是否显示;show 显示 hidden 隐藏
+     */
+    private String pageShow;
+
+    /**
+     * 链接类型;default 默认 custom 自定义
+     */
+    private String linkType;
+
+    /**
+     * 链接地址
+     */
+    private String linkUrl;
+
+    /**
+     * 打开类型;new 新窗口 current 当前
+     */
+    private String openType;
+
 
 }

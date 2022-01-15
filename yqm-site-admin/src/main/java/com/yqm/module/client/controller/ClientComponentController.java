@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpComponentDTO;
 import com.yqm.common.request.TpComponentRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.client.service.ComponentService;
+import com.yqm.module.client.service.ClientComponentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,12 +44,12 @@ import java.util.List;
  */
 @RequestMapping("/client/component")
 @RestController
-public class ComponentController {
+public class ClientComponentController {
 
-    private final ComponentService componentService;
+    private final ClientComponentService clientComponentService;
 
-    public ComponentController(ComponentService componentService) {
-        this.componentService = componentService;
+    public ClientComponentController(ClientComponentService clientComponentService) {
+        this.clientComponentService = clientComponentService;
     }
 
     /**
@@ -60,7 +60,7 @@ public class ComponentController {
      */
     @GetMapping("")
     public ResponseBean getComponentList(TpComponentRequest request) {
-        List<TpComponentDTO> componentList = componentService.getComponentList(request);
+        List<TpComponentDTO> componentList = clientComponentService.getComponentList(request);
         return ResponseBean.success(componentList);
     }
 
@@ -72,7 +72,7 @@ public class ComponentController {
      */
     @GetMapping("/page")
     public ResponseBean getComponentPage(TpComponentRequest request) {
-        IPage<TpComponentDTO> componentList = componentService.getComponentPage(request);
+        IPage<TpComponentDTO> componentList = clientComponentService.getComponentPage(request);
         return ResponseBean.success(componentList);
     }
 }

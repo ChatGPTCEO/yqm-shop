@@ -25,12 +25,12 @@ package com.yqm.module.admin.service;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yqm.common.conversion.TpLinkToDTO;
+import com.yqm.common.conversion.TpTeamToDTO;
 import com.yqm.common.define.YqmDefine;
-import com.yqm.common.dto.TpLinkDTO;
-import com.yqm.common.entity.TpLink;
-import com.yqm.common.request.TpLinkRequest;
-import com.yqm.common.service.ITpLinkService;
+import com.yqm.common.dto.TpTeamDTO;
+import com.yqm.common.entity.TpTeam;
+import com.yqm.common.request.TpTeamRequest;
+import com.yqm.common.service.ITpTeamService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +45,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 管理端-友情链接
+ * 管理端-团队
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:33
  * @微信: wxm907147608
@@ -55,135 +56,141 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class LinkService {
+public class AdminTeamService {
 
 
-    private ITpLinkService iTpLinkService;
+    private ITpTeamService iTpTeamService;
 
-    public LinkService(ITpLinkService iTpLinkService) {
-        this.iTpLinkService = iTpLinkService;
+    public AdminTeamService(ITpTeamService iTpTeamService) {
+        this.iTpTeamService = iTpTeamService;
     }
 
     /**
-     * 保存/修改 友情链接分类
+     * 保存/修改 团队分类
+     *
      * @param request
      * @return
      */
-    public TpLinkDTO saveLink(TpLinkRequest request) {
+    public TpTeamDTO saveTeam(TpTeamRequest request) {
         User user = UserInfoService.getUser();
 
-        TpLink link = TpLinkToDTO.toTpLink(request);
+        TpTeam team = TpTeamToDTO.toTpTeam(request);
         if (StringUtils.isEmpty(request.getId())) {
-            link.setCreatedBy(user.getId());
-            link.setCreatedTime(LocalDateTime.now());
+            team.setCreatedBy(user.getId());
+            team.setCreatedTime(LocalDateTime.now());
 
-            int maxSort = iTpLinkService.getMaxSort(user.getId());
-            iTpLinkService.updateAllSortGal(maxSort,user.getId());
-            link.setSort(1);
+            int maxSort = iTpTeamService.getMaxSort(user.getId());
+            iTpTeamService.updateAllSortGal(maxSort, user.getId());
+            team.setSort(1);
         }
 
-        link.setUserId(user.getId());
-        link.setStatus(YqmDefine.StatusType.effective.getValue());
-        link.setUpdatedBy(user.getId());
-        link.setUpdatedTime(LocalDateTime.now());
-        iTpLinkService.saveOrUpdate(link);
+        team.setUserId(user.getId());
+        team.setStatus(YqmDefine.StatusType.effective.getValue());
+        team.setUpdatedBy(user.getId());
+        team.setUpdatedTime(LocalDateTime.now());
+        iTpTeamService.saveOrUpdate(team);
 
-        return TpLinkToDTO.toTpLinkDTO(link);
+        return TpTeamToDTO.toTpTeamDTO(team);
     }
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
-    public TpLinkDTO getById(String id) {
-        TpLink link = iTpLinkService.getById(id);
-        return TpLinkToDTO.toTpLinkDTO(link);
+    public TpTeamDTO getById(String id) {
+        TpTeam team = iTpTeamService.getById(id);
+        return TpTeamToDTO.toTpTeamDTO(team);
     }
 
     /**
-     * 删除友情链接分类
+     * 删除团队分类
+     *
      * @param id
      * @return
      */
-    public String removeLink(String id) {
+    public String removeTeam(String id) {
         User user = UserInfoService.getUser();
 
-        UpdateWrapper<TpLink> updateWrapper = new UpdateWrapper<>();
+        UpdateWrapper<TpTeam> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("status", YqmDefine.StatusType.delete.getValue());
         updateWrapper.eq("id", id);
         updateWrapper.eq("user_id", user.getId());
-        iTpLinkService.update(updateWrapper);
+        iTpTeamService.update(updateWrapper);
 
         return id;
     }
 
     /**
      * 停用/启用
+     *
      * @return
      */
-    public String enableLink(TpLinkRequest request) {
+    public String enableTeam(TpTeamRequest request) {
         User user = UserInfoService.getUser();
 
         if (!YqmDefine.includeStatus.contains(request.getStatus())) {
-            log.error("操作异常->停用/启用友情链接错误->传入状态不正确！[id={},status={}]", request.getId(), request.getStatus());
+            log.error("操作异常->停用/启用团队错误->传入状态不正确！[id={},status={}]", request.getId(), request.getStatus());
             return request.getId();
         }
 
-        TpLink link = iTpLinkService.getById(request.getId());
-        if (Objects.isNull(link)) {
-            log.error("操作异常->停用/启用友情链接错误->数据未找到！[id={}]", request.getId());
+        TpTeam team = iTpTeamService.getById(request.getId());
+        if (Objects.isNull(team)) {
+            log.error("操作异常->停用/启用团队错误->数据未找到！[id={}]", request.getId());
             return request.getId();
         }
-        if (YqmDefine.StatusType.delete.getValue().equals(link.getStatus())) {
-            log.error("操作异常->停用/启用友情链接错误->该信息已经被删除！[id={}]", request.getId());
+        if (YqmDefine.StatusType.delete.getValue().equals(team.getStatus())) {
+            log.error("操作异常->停用/启用团队错误->该信息已经被删除！[id={}]", request.getId());
             return request.getId();
         }
 
-        UpdateWrapper<TpLink> updateWrapper = new UpdateWrapper<>();
+        UpdateWrapper<TpTeam> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("status", request.getStatus());
         updateWrapper.eq("id", request.getId());
         updateWrapper.eq("user_id", user.getId());
-        iTpLinkService.update(updateWrapper);
+        iTpTeamService.update(updateWrapper);
 
         return request.getId();
 
     }
 
     /**
-     * 分页查询 友情链接分类
+     * 分页查询 团队分类
+     *
      * @param request
      * @return
      */
-    public IPage<TpLinkDTO> pageLink(TpLinkRequest request) {
+    public IPage<TpTeamDTO> pageTeam(TpTeamRequest request) {
         User currentUser = UserInfoService.getUser();
-        Page<TpLink> page = new Page<>();
+        Page<TpTeam> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
         request.setUserId(currentUser.getId());
         request.setIncludeStatus(Arrays.asList(YqmDefine.StatusType.effective.getValue(), YqmDefine.StatusType.failure.getValue()));
-        IPage pageList = iTpLinkService.page(page, iTpLinkService.queryWrapper(request));
+        IPage pageList = iTpTeamService.page(page, iTpTeamService.queryWrapper(request));
 
         List list = pageList.getRecords();
         if (CollectionUtils.isNotEmpty(list)) {
-            pageList.setRecords(TpLinkToDTO.toTpLinkDTOList(list));
+            pageList.setRecords(TpTeamToDTO.toTpTeamDTOList(list));
         }
         return pageList;
     }
 
     /**
      * 置顶
+     *
      * @param id
      * @return
      */
     public String top(String id) {
         User user = UserInfoService.getUser();
 
-        TpLink tpLink = iTpLinkService.getById(id);
-        if (Objects.nonNull(tpLink)) {
-            iTpLinkService.updateAllSortGal(tpLink.getSort(), user.getId());
-            iTpLinkService.top(id, user.getId());
+        TpTeam tpTeam = iTpTeamService.getById(id);
+        if (Objects.nonNull(tpTeam)) {
+            iTpTeamService.updateAllSortGal(tpTeam.getSort(), user.getId());
+            iTpTeamService.top(id, user.getId());
         }
 
         return id;

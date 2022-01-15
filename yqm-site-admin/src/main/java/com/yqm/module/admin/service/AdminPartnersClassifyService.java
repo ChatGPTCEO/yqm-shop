@@ -47,6 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-合作伙伴分类
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 17:30
  * @微信: wxm907147608
@@ -56,16 +57,17 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class PartnersClassifyService {
+public class AdminPartnersClassifyService {
 
     private ITpPartnersClassifyService iTpPartnersClassifyService;
 
-    public PartnersClassifyService(ITpPartnersClassifyService iTpPartnersClassifyService) {
+    public AdminPartnersClassifyService(ITpPartnersClassifyService iTpPartnersClassifyService) {
         this.iTpPartnersClassifyService = iTpPartnersClassifyService;
     }
 
     /**
      * 保存/修改 合作伙伴分类
+     *
      * @param request
      * @return
      */
@@ -89,6 +91,7 @@ public class PartnersClassifyService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -99,6 +102,7 @@ public class PartnersClassifyService {
 
     /**
      * 删除合作伙伴分类
+     *
      * @param id
      * @return
      */
@@ -116,6 +120,7 @@ public class PartnersClassifyService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enablePartnersClassify(TpPartnersClassifyRequest request) {
@@ -148,6 +153,7 @@ public class PartnersClassifyService {
 
     /**
      * 分页查询 合作伙伴分类
+     *
      * @param request
      * @return
      */
@@ -170,6 +176,7 @@ public class PartnersClassifyService {
 
     /**
      * 查询 合作伙伴分类
+     *
      * @param request
      * @return
      */

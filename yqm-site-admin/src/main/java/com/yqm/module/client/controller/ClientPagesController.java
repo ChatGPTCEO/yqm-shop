@@ -22,45 +22,51 @@
 
 package com.yqm.module.client.controller;
 
-import com.yqm.common.dto.TpModuleDTO;
-import com.yqm.common.request.TpModuleRequest;
+import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.client.service.ModuleService;
+import com.yqm.module.client.service.ClientPagesService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 /**
- * 模块
+ * 页面
  *
  * @Author: weiximei
- * @Date: 2022/1/11 20:24
+ * @Date: 2022/1/14 21:17
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/module")
+@RequestMapping("/client/pages")
 @RestController
-public class ModuleController {
+public class ClientPagesController {
 
+    private final ClientPagesService clientPagesService;
 
-    private final ModuleService moduleService;
-
-    public ModuleController(ModuleService moduleService) {
-        this.moduleService = moduleService;
+    public ClientPagesController(ClientPagesService clientPagesService) {
+        this.clientPagesService = clientPagesService;
     }
 
     /**
-     * 所有模块
+     * 查询 导航集合
      *
-     * @param request
      * @return
      */
-    @GetMapping()
-    public ResponseBean getModuleList(TpModuleRequest request) {
-        List<TpModuleDTO> moduleList = moduleService.getModuleList(request);
-        return ResponseBean.success(moduleList);
+    @GetMapping("/navigation/list")
+    public ResponseBean listNavigation(TpPagesRequest request) {
+        return ResponseBean.success(clientPagesService.listNavigation(request));
     }
+
+    /**
+     * 查询一条导航数据
+     *
+     * @return
+     */
+    @GetMapping("/navigation/{id}/{siteId}")
+    public ResponseBean navigationInfo(@PathVariable String id, @PathVariable String siteId) {
+        return ResponseBean.success(clientPagesService.navigationInfo(id, siteId));
+    }
+
 }

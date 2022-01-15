@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpPhotoAlbumDTO;
 import com.yqm.common.request.TpPhotoAlbumRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.PhotoAlbumService;
+import com.yqm.module.admin.service.AdminPhotoAlbumService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,10 +44,10 @@ import java.util.List;
 @RestController
 public class AdminPhotoAlbumController {
 
-    private final PhotoAlbumService photoAlbumService;
+    private final AdminPhotoAlbumService adminPhotoAlbumService;
 
-    public AdminPhotoAlbumController(PhotoAlbumService photoAlbumService) {
-        this.photoAlbumService = photoAlbumService;
+    public AdminPhotoAlbumController(AdminPhotoAlbumService adminPhotoAlbumService) {
+        this.adminPhotoAlbumService = adminPhotoAlbumService;
     }
 
     /**
@@ -58,7 +58,7 @@ public class AdminPhotoAlbumController {
      */
     @PostMapping("")
     public ResponseBean<TpPhotoAlbumDTO> addRecruitment(@RequestBody TpPhotoAlbumRequest request) {
-        TpPhotoAlbumDTO dto = photoAlbumService.savePhotoAlbum(request);
+        TpPhotoAlbumDTO dto = adminPhotoAlbumService.savePhotoAlbum(request);
         return ResponseBean.success(dto);
     }
 
@@ -70,7 +70,7 @@ public class AdminPhotoAlbumController {
      */
     @PutMapping("")
     public ResponseBean<TpPhotoAlbumDTO> updateRecruitment(@RequestBody TpPhotoAlbumRequest request) {
-        TpPhotoAlbumDTO dto = photoAlbumService.savePhotoAlbum(request);
+        TpPhotoAlbumDTO dto = adminPhotoAlbumService.savePhotoAlbum(request);
         return ResponseBean.success(dto);
     }
 
@@ -82,7 +82,7 @@ public class AdminPhotoAlbumController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removePhotoAlbum(@PathVariable("id") String id) {
-        String removeId = photoAlbumService.removePhotoAlbum(id);
+        String removeId = adminPhotoAlbumService.removePhotoAlbum(id);
         return ResponseBean.success(removeId);
     }
 
@@ -94,7 +94,7 @@ public class AdminPhotoAlbumController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpPhotoAlbumDTO> getById(@PathVariable("id") String id) {
-        TpPhotoAlbumDTO dto = photoAlbumService.getById(id);
+        TpPhotoAlbumDTO dto = adminPhotoAlbumService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -106,7 +106,7 @@ public class AdminPhotoAlbumController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpPhotoAlbumDTO>> pageRecruitment(TpPhotoAlbumRequest request) {
-        IPage<TpPhotoAlbumDTO> page = photoAlbumService.pagePhotoAlbum(request);
+        IPage<TpPhotoAlbumDTO> page = adminPhotoAlbumService.pagePhotoAlbum(request);
         return ResponseBean.success(page);
     }
 
@@ -118,7 +118,7 @@ public class AdminPhotoAlbumController {
      */
     @GetMapping("/list")
     public ResponseBean<List<TpPhotoAlbumDTO>> listPhotoAlbum(TpPhotoAlbumRequest request) {
-        List<TpPhotoAlbumDTO> list = photoAlbumService.listPhotoAlbum(request);
+        List<TpPhotoAlbumDTO> list = adminPhotoAlbumService.listPhotoAlbum(request);
         return ResponseBean.success(list);
     }
 
@@ -130,7 +130,7 @@ public class AdminPhotoAlbumController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpPhotoAlbumRequest request) {
-        String enableId = photoAlbumService.enablePhotoAlbum(request);
+        String enableId = adminPhotoAlbumService.enablePhotoAlbum(request);
         return ResponseBean.success(enableId);
     }
 

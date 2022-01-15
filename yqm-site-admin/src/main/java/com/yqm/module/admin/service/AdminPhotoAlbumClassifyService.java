@@ -26,12 +26,9 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.TpPhotoAlbumClassifyToDTO;
-import com.yqm.common.conversion.TpRegionToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.TpPhotoAlbumClassifyDTO;
-import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpPhotoAlbumClassify;
-import com.yqm.common.entity.TpRegion;
 import com.yqm.common.request.TpPhotoAlbumClassifyRequest;
 import com.yqm.common.service.ITpPhotoAlbumClassifyService;
 import com.yqm.security.User;
@@ -50,6 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-相册分类
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 17:30
  * @微信: wxm907147608
@@ -59,16 +57,17 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class PhotoAlbumClassifyService {
+public class AdminPhotoAlbumClassifyService {
 
     private ITpPhotoAlbumClassifyService iTpPhotoAlbumClassifyService;
 
-    public PhotoAlbumClassifyService(ITpPhotoAlbumClassifyService iTpPhotoAlbumClassifyService) {
+    public AdminPhotoAlbumClassifyService(ITpPhotoAlbumClassifyService iTpPhotoAlbumClassifyService) {
         this.iTpPhotoAlbumClassifyService = iTpPhotoAlbumClassifyService;
     }
 
     /**
      * 保存/修改 相册分类
+     *
      * @param request
      * @return
      */
@@ -88,11 +87,11 @@ public class PhotoAlbumClassifyService {
             linkClassify.setPid(pid);
             linkClassify.setPids(String.join(",", pidsList));
         } else {
-           List<TpPhotoAlbumClassifyDTO> dtoList = listPhotoAlbumClassify("-1");
-           if (CollectionUtils.isNotEmpty(dtoList)) {
-               linkClassify.setPid(dtoList.get(0).getId());
-               linkClassify.setPids(dtoList.get(0).getId());
-           }
+            List<TpPhotoAlbumClassifyDTO> dtoList = listPhotoAlbumClassify("-1");
+            if (CollectionUtils.isNotEmpty(dtoList)) {
+                linkClassify.setPid(dtoList.get(0).getId());
+                linkClassify.setPids(dtoList.get(0).getId());
+            }
 
         }
 
@@ -107,6 +106,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -117,6 +117,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 删除相册分类
+     *
      * @param id
      * @return
      */
@@ -134,6 +135,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enablePhotoAlbumClassify(TpPhotoAlbumClassifyRequest request) {
@@ -166,6 +168,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 分页查询 相册分类
+     *
      * @param request
      * @return
      */
@@ -188,6 +191,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 查询 相册分类
+     *
      * @param request
      * @return
      */
@@ -206,6 +210,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 根据pid查询 相册分类
+     *
      * @param pid
      * @return
      */
@@ -219,6 +224,7 @@ public class PhotoAlbumClassifyService {
 
     /**
      * 查询 相册分类
+     *
      * @return
      */
     public List<TpPhotoAlbumClassifyDTO> getPhotoAlbumClassify() {

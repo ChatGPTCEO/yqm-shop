@@ -26,11 +26,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpHonorDTO;
 import com.yqm.common.request.TpHonorRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.HonorService;
+import com.yqm.module.admin.service.AdminHonorService;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
  * 管理端-荣誉证书
  *
  * @Author: weiximei
@@ -43,93 +42,93 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin/honor")
 public class AdminHonorController {
 
-    private final HonorService honorService;
+    private final AdminHonorService adminHonorService;
 
-    public AdminHonorController(HonorService honorService) {
-        this.honorService = honorService;
+    public AdminHonorController(AdminHonorService adminHonorService) {
+        this.adminHonorService = adminHonorService;
     }
 
     /**
      * 添加荣誉证书
-     * 
+     *
      * @param request
      * @return
      */
     @PostMapping("")
     public ResponseBean<TpHonorDTO> addRecruitment(@RequestBody TpHonorRequest request) {
-        TpHonorDTO dto = honorService.saveHonor(request);
+        TpHonorDTO dto = adminHonorService.saveHonor(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 修改荣誉证书
-     * 
+     *
      * @param request
      * @return
      */
     @PutMapping("")
     public ResponseBean<TpHonorDTO> updateRecruitment(@RequestBody TpHonorRequest request) {
-        TpHonorDTO dto = honorService.saveHonor(request);
+        TpHonorDTO dto = adminHonorService.saveHonor(request);
         return ResponseBean.success(dto);
     }
 
     /**
      * 删除荣誉证书
-     * 
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removeHonor(@PathVariable("id") String id) {
-        String removeId = honorService.removeHonor(id);
+        String removeId = adminHonorService.removeHonor(id);
         return ResponseBean.success(removeId);
     }
 
     /**
      * 根据id查询荣誉证书
-     * 
+     *
      * @param id
      * @return
      */
     @GetMapping("/{id}")
     public ResponseBean<TpHonorDTO> getById(@PathVariable("id") String id) {
-        TpHonorDTO dto = honorService.getById(id);
+        TpHonorDTO dto = adminHonorService.getById(id);
         return ResponseBean.success(dto);
     }
 
     /**
      * 分页查询荣誉证书
-     * 
+     *
      * @param request
      * @return
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpHonorDTO>> pageRecruitment(TpHonorRequest request) {
-        IPage<TpHonorDTO> page = honorService.pageHonor(request);
+        IPage<TpHonorDTO> page = adminHonorService.pageHonor(request);
         return ResponseBean.success(page);
     }
 
     /**
      * 停用/启用 荣誉证书
-     * 
+     *
      * @param request
      * @return
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpHonorRequest request) {
-        String enableId = honorService.enableHonor(request);
+        String enableId = adminHonorService.enableHonor(request);
         return ResponseBean.success(enableId);
     }
 
     /**
      * 置顶 荣誉证书
-     * 
+     *
      * @param request
      * @return
      */
     @PutMapping("/top")
     public ResponseBean<String> top(@RequestBody TpHonorRequest request) {
-        String enableId = honorService.top(request.getId());
+        String enableId = adminHonorService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 

@@ -57,22 +57,22 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class PhotoAlbumService {
+public class AdminPhotoAlbumService {
 
 
     private ITpPhotoAlbumService iTpPhotoAlbumService;
     private ITpPhotoAlbumClassifyService iTpPhotoAlbumClassifyService;
 
 
-    public PhotoAlbumService(ITpPhotoAlbumService iTpPhotoAlbumService, ITpPhotoAlbumClassifyService iTpPhotoAlbumClassifyService) {
+    public AdminPhotoAlbumService(ITpPhotoAlbumService iTpPhotoAlbumService, ITpPhotoAlbumClassifyService iTpPhotoAlbumClassifyService) {
         this.iTpPhotoAlbumService = iTpPhotoAlbumService;
         this.iTpPhotoAlbumClassifyService = iTpPhotoAlbumClassifyService;
     }
 
 
-
     /**
      * 保存/修改 相册
+     *
      * @param request
      * @return
      */
@@ -101,6 +101,7 @@ public class PhotoAlbumService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -111,6 +112,7 @@ public class PhotoAlbumService {
 
     /**
      * 删除相册
+     *
      * @param id
      * @return
      */
@@ -128,6 +130,7 @@ public class PhotoAlbumService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enablePhotoAlbum(TpPhotoAlbumRequest request) {
@@ -160,6 +163,7 @@ public class PhotoAlbumService {
 
     /**
      * 分页查询 相册
+     *
      * @param request
      * @return
      */
@@ -182,6 +186,7 @@ public class PhotoAlbumService {
 
     /**
      * 查询 相册
+     *
      * @param request
      * @return
      */

@@ -94,4 +94,26 @@ public class PagesCommonService {
         return request.getId();
     }
 
+    /**
+     * 根据id查询
+     *
+     * @param id
+     * @return
+     */
+    public TpPagesDTO getById(String id) {
+        TpPages pages = iTpPagesService.getById(id);
+        return TpPagesToDTO.toTpPagesDTO(pages);
+    }
+
+    /**
+     * 查询一条数据
+     *
+     * @param request
+     * @return
+     */
+    public TpPagesDTO getOne(TpPagesRequest request) {
+        TpPages pages = iTpPagesService.getOne(iTpPagesService.queryWrapper(request));
+        return TpPagesToDTO.toTpPagesDTO(pages);
+    }
+
 }

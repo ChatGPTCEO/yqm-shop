@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpPhotoAlbumClassifyDTO;
 import com.yqm.common.request.TpPhotoAlbumClassifyRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.PhotoAlbumClassifyService;
+import com.yqm.module.admin.service.AdminPhotoAlbumClassifyService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,10 +44,10 @@ import java.util.List;
 @RestController
 public class AdminPhotoAlbumClassifyController {
 
-    private final PhotoAlbumClassifyService photoAlbumClassifyService;
+    private final AdminPhotoAlbumClassifyService adminPhotoAlbumClassifyService;
 
-    public AdminPhotoAlbumClassifyController(PhotoAlbumClassifyService photoAlbumClassifyService) {
-        this.photoAlbumClassifyService = photoAlbumClassifyService;
+    public AdminPhotoAlbumClassifyController(AdminPhotoAlbumClassifyService adminPhotoAlbumClassifyService) {
+        this.adminPhotoAlbumClassifyService = adminPhotoAlbumClassifyService;
     }
 
     /**
@@ -58,7 +58,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @PostMapping("")
     public ResponseBean<TpPhotoAlbumClassifyDTO> addRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
-        TpPhotoAlbumClassifyDTO dto = photoAlbumClassifyService.savePhotoAlbumClassify(request);
+        TpPhotoAlbumClassifyDTO dto = adminPhotoAlbumClassifyService.savePhotoAlbumClassify(request);
         return ResponseBean.success(dto);
     }
 
@@ -70,7 +70,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @PutMapping("")
     public ResponseBean<TpPhotoAlbumClassifyDTO> updateRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
-        TpPhotoAlbumClassifyDTO dto = photoAlbumClassifyService.savePhotoAlbumClassify(request);
+        TpPhotoAlbumClassifyDTO dto = adminPhotoAlbumClassifyService.savePhotoAlbumClassify(request);
         return ResponseBean.success(dto);
     }
 
@@ -82,7 +82,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removePhotoAlbumClassify(@PathVariable("id") String id) {
-        String removeId = photoAlbumClassifyService.removePhotoAlbumClassify(id);
+        String removeId = adminPhotoAlbumClassifyService.removePhotoAlbumClassify(id);
         return ResponseBean.success(removeId);
     }
 
@@ -94,7 +94,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpPhotoAlbumClassifyDTO> getById(@PathVariable("id") String id) {
-        TpPhotoAlbumClassifyDTO dto = photoAlbumClassifyService.getById(id);
+        TpPhotoAlbumClassifyDTO dto = adminPhotoAlbumClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -106,7 +106,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpPhotoAlbumClassifyDTO>> pageRecruitment(TpPhotoAlbumClassifyRequest request) {
-        IPage<TpPhotoAlbumClassifyDTO> page = photoAlbumClassifyService.pagePhotoAlbumClassify(request);
+        IPage<TpPhotoAlbumClassifyDTO> page = adminPhotoAlbumClassifyService.pagePhotoAlbumClassify(request);
         return ResponseBean.success(page);
     }
 
@@ -118,7 +118,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @GetMapping("/list")
     public ResponseBean<List<TpPhotoAlbumClassifyDTO>> listPhotoAlbumClassify(TpPhotoAlbumClassifyRequest request) {
-        List<TpPhotoAlbumClassifyDTO> list = photoAlbumClassifyService.listPhotoAlbumClassify(request);
+        List<TpPhotoAlbumClassifyDTO> list = adminPhotoAlbumClassifyService.listPhotoAlbumClassify(request);
         return ResponseBean.success(list);
     }
 
@@ -129,7 +129,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @GetMapping("/getPhotoAlbumClassify")
     public ResponseBean<List<TpPhotoAlbumClassifyDTO>> getPhotoAlbumClassify() {
-        List<TpPhotoAlbumClassifyDTO> list = photoAlbumClassifyService.getPhotoAlbumClassify();
+        List<TpPhotoAlbumClassifyDTO> list = adminPhotoAlbumClassifyService.getPhotoAlbumClassify();
         return ResponseBean.success(list);
     }
 
@@ -141,7 +141,7 @@ public class AdminPhotoAlbumClassifyController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpPhotoAlbumClassifyRequest request) {
-        String enableId = photoAlbumClassifyService.enablePhotoAlbumClassify(request);
+        String enableId = adminPhotoAlbumClassifyService.enablePhotoAlbumClassify(request);
         return ResponseBean.success(enableId);
     }
 

@@ -47,6 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-友情链接分类
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 17:30
  * @微信: wxm907147608
@@ -56,16 +57,17 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class LinkClassifyService {
+public class AdminLinkClassifyService {
 
     private ITpLinkClassifyService iTpLinkClassifyService;
 
-    public LinkClassifyService(ITpLinkClassifyService iTpLinkClassifyService) {
+    public AdminLinkClassifyService(ITpLinkClassifyService iTpLinkClassifyService) {
         this.iTpLinkClassifyService = iTpLinkClassifyService;
     }
 
     /**
      * 保存/修改 友情链接分类
+     *
      * @param request
      * @return
      */
@@ -89,6 +91,7 @@ public class LinkClassifyService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -99,6 +102,7 @@ public class LinkClassifyService {
 
     /**
      * 删除友情链接分类
+     *
      * @param id
      * @return
      */
@@ -116,6 +120,7 @@ public class LinkClassifyService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enableLinkClassify(TpLinkClassifyRequest request) {
@@ -148,6 +153,7 @@ public class LinkClassifyService {
 
     /**
      * 分页查询 友情链接分类
+     *
      * @param request
      * @return
      */
@@ -170,6 +176,7 @@ public class LinkClassifyService {
 
     /**
      * 查询 友情链接分类
+     *
      * @param request
      * @return
      */

@@ -46,6 +46,7 @@ import java.util.Objects;
 
 /**
  * 管理端-合作伙伴
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:33
  * @微信: wxm907147608
@@ -55,17 +56,18 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class PartnersService {
+public class AdminPartnersService {
 
 
     private ITpPartnersService iTpPartnersService;
 
-    public PartnersService(ITpPartnersService iTpPartnersService) {
+    public AdminPartnersService(ITpPartnersService iTpPartnersService) {
         this.iTpPartnersService = iTpPartnersService;
     }
 
     /**
      * 保存/修改 合作伙伴分类
+     *
      * @param request
      * @return
      */
@@ -78,7 +80,7 @@ public class PartnersService {
             partners.setCreatedTime(LocalDateTime.now());
 
             int maxSort = iTpPartnersService.getMaxSort(user.getId());
-            iTpPartnersService.updateAllSortGal(maxSort,user.getId());
+            iTpPartnersService.updateAllSortGal(maxSort, user.getId());
             partners.setSort(1);
         }
 
@@ -93,6 +95,7 @@ public class PartnersService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -103,6 +106,7 @@ public class PartnersService {
 
     /**
      * 删除合作伙伴分类
+     *
      * @param id
      * @return
      */
@@ -120,6 +124,7 @@ public class PartnersService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enablePartners(TpPartnersRequest request) {
@@ -152,6 +157,7 @@ public class PartnersService {
 
     /**
      * 分页查询 合作伙伴分类
+     *
      * @param request
      * @return
      */
@@ -174,6 +180,7 @@ public class PartnersService {
 
     /**
      * 置顶
+     *
      * @param id
      * @return
      */

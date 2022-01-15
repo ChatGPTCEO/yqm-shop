@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpTeamClassifyDTO;
 import com.yqm.common.request.TpTeamClassifyRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.TeamClassifyService;
+import com.yqm.module.admin.service.AdminTeamClassifyService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,10 +44,10 @@ import java.util.List;
 @RestController
 public class AdminTeamClassifyController {
 
-    private final TeamClassifyService teamClassifyService;
+    private final AdminTeamClassifyService adminTeamClassifyService;
 
-    public AdminTeamClassifyController(TeamClassifyService teamClassifyService) {
-        this.teamClassifyService = teamClassifyService;
+    public AdminTeamClassifyController(AdminTeamClassifyService adminTeamClassifyService) {
+        this.adminTeamClassifyService = adminTeamClassifyService;
     }
 
     /**
@@ -58,7 +58,7 @@ public class AdminTeamClassifyController {
      */
     @PostMapping("")
     public ResponseBean<TpTeamClassifyDTO> addRecruitment(@RequestBody TpTeamClassifyRequest request) {
-        TpTeamClassifyDTO dto = teamClassifyService.saveTeamClassify(request);
+        TpTeamClassifyDTO dto = adminTeamClassifyService.saveTeamClassify(request);
         return ResponseBean.success(dto);
     }
 
@@ -70,7 +70,7 @@ public class AdminTeamClassifyController {
      */
     @PutMapping("")
     public ResponseBean<TpTeamClassifyDTO> updateRecruitment(@RequestBody TpTeamClassifyRequest request) {
-        TpTeamClassifyDTO dto = teamClassifyService.saveTeamClassify(request);
+        TpTeamClassifyDTO dto = adminTeamClassifyService.saveTeamClassify(request);
         return ResponseBean.success(dto);
     }
 
@@ -82,7 +82,7 @@ public class AdminTeamClassifyController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removeTeamClassify(@PathVariable("id") String id) {
-        String removeId = teamClassifyService.removeTeamClassify(id);
+        String removeId = adminTeamClassifyService.removeTeamClassify(id);
         return ResponseBean.success(removeId);
     }
 
@@ -94,7 +94,7 @@ public class AdminTeamClassifyController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpTeamClassifyDTO> getById(@PathVariable("id") String id) {
-        TpTeamClassifyDTO dto = teamClassifyService.getById(id);
+        TpTeamClassifyDTO dto = adminTeamClassifyService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -106,7 +106,7 @@ public class AdminTeamClassifyController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpTeamClassifyDTO>> pageRecruitment(TpTeamClassifyRequest request) {
-        IPage<TpTeamClassifyDTO> page = teamClassifyService.pageTeamClassify(request);
+        IPage<TpTeamClassifyDTO> page = adminTeamClassifyService.pageTeamClassify(request);
         return ResponseBean.success(page);
     }
 
@@ -118,7 +118,7 @@ public class AdminTeamClassifyController {
      */
     @GetMapping("/list")
     public ResponseBean<List<TpTeamClassifyDTO>> listTeamClassify(TpTeamClassifyRequest request) {
-        List<TpTeamClassifyDTO> list = teamClassifyService.listTeamClassify(request);
+        List<TpTeamClassifyDTO> list = adminTeamClassifyService.listTeamClassify(request);
         return ResponseBean.success(list);
     }
 
@@ -130,7 +130,7 @@ public class AdminTeamClassifyController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpTeamClassifyRequest request) {
-        String enableId = teamClassifyService.enableTeamClassify(request);
+        String enableId = adminTeamClassifyService.enableTeamClassify(request);
         return ResponseBean.success(enableId);
     }
 

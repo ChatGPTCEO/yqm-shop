@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpPartnersDTO;
 import com.yqm.common.request.TpPartnersRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.PartnersService;
+import com.yqm.module.admin.service.AdminPartnersService;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -42,9 +42,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminPartnersController {
 
-    private final PartnersService partnersClassifyService;
+    private final AdminPartnersService partnersClassifyService;
 
-    public AdminPartnersController(PartnersService partnersClassifyService) {
+    public AdminPartnersController(AdminPartnersService partnersClassifyService) {
         this.partnersClassifyService = partnersClassifyService;
     }
 

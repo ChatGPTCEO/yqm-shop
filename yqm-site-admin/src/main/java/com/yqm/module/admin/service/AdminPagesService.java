@@ -59,12 +59,12 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class PagesService {
+public class AdminPagesService {
 
     private final ITpPagesService iTpPagesService;
     private final PagesCommonService pagesCommonService;
 
-    public PagesService(ITpPagesService iTpPagesService, PagesCommonService pagesCommonService) {
+    public AdminPagesService(ITpPagesService iTpPagesService, PagesCommonService pagesCommonService) {
         this.iTpPagesService = iTpPagesService;
         this.pagesCommonService = pagesCommonService;
     }
@@ -144,8 +144,7 @@ public class PagesService {
      * @return
      */
     public TpPagesDTO getById(String id) {
-        TpPages pages = iTpPagesService.getById(id);
-        return TpPagesToDTO.toTpPagesDTO(pages);
+        return pagesCommonService.getById(id);
     }
 
     /**

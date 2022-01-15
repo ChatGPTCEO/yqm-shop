@@ -28,7 +28,7 @@ import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.request.TpSiteRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.SiteService;
+import com.yqm.module.admin.service.AdminSiteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,10 +46,10 @@ import java.util.List;
 @RestController
 public class AdminSiteController {
 
-    private final SiteService siteService;
+    private final AdminSiteService adminSiteService;
 
-    public AdminSiteController(SiteService siteService) {
-        this.siteService = siteService;
+    public AdminSiteController(AdminSiteService adminSiteService) {
+        this.adminSiteService = adminSiteService;
     }
 
     /**
@@ -60,7 +60,7 @@ public class AdminSiteController {
      */
     @PostMapping("")
     public ResponseBean<TpSiteDTO> addRecruitment(@RequestBody TpSiteRequest request) {
-        TpSiteDTO dto = siteService.saveSite(request);
+        TpSiteDTO dto = adminSiteService.saveSite(request);
         return ResponseBean.success(dto);
     }
 
@@ -72,7 +72,7 @@ public class AdminSiteController {
      */
     @PutMapping("")
     public ResponseBean<TpSiteDTO> updateRecruitment(@RequestBody TpSiteRequest request) {
-        TpSiteDTO dto = siteService.saveSite(request);
+        TpSiteDTO dto = adminSiteService.saveSite(request);
         return ResponseBean.success(dto);
     }
 
@@ -84,7 +84,7 @@ public class AdminSiteController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removeSite(@PathVariable("id") String id) {
-        String removeId = siteService.removeSite(id);
+        String removeId = adminSiteService.removeSite(id);
         return ResponseBean.success(removeId);
     }
 
@@ -96,7 +96,7 @@ public class AdminSiteController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpSiteDTO> getById(@PathVariable("id") String id) {
-        TpSiteDTO dto = siteService.getById(id);
+        TpSiteDTO dto = adminSiteService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -108,7 +108,7 @@ public class AdminSiteController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpSiteDTO>> pageRecruitment(TpSiteRequest request) {
-        IPage<TpSiteDTO> page = siteService.pageSite(request);
+        IPage<TpSiteDTO> page = adminSiteService.pageSite(request);
         return ResponseBean.success(page);
     }
 
@@ -120,7 +120,7 @@ public class AdminSiteController {
      */
     @GetMapping("/list")
     public ResponseBean<List<TpSiteBingDomainDTO>> listSiteSelect(TpSiteRequest request) {
-        List<TpSiteBingDomainDTO> list = siteService.listSiteSelect(request);
+        List<TpSiteBingDomainDTO> list = adminSiteService.listSiteSelect(request);
         return ResponseBean.success(list);
     }
 
@@ -132,7 +132,7 @@ public class AdminSiteController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpSiteRequest request) {
-        String enableId = siteService.enableSite(request);
+        String enableId = adminSiteService.enableSite(request);
         return ResponseBean.success(enableId);
     }
 
@@ -144,7 +144,7 @@ public class AdminSiteController {
      */
     @PutMapping("/top")
     public ResponseBean<String> top(@RequestBody TpSiteRequest request) {
-        String enableId = siteService.top(request.getId());
+        String enableId = adminSiteService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 
@@ -156,7 +156,7 @@ public class AdminSiteController {
      */
     @GetMapping("/page/user/domain")
     public ResponseBean<IPage<TpSiteBingDomainDTO>> getBingDomainSite(TpSiteRequest request) {
-        IPage<TpSiteBingDomainDTO> page = siteService.getBingDomainSite(request);
+        IPage<TpSiteBingDomainDTO> page = adminSiteService.getBingDomainSite(request);
         return ResponseBean.success(page);
     }
 
@@ -168,7 +168,7 @@ public class AdminSiteController {
      */
     @PostMapping("/ding/domain")
     public ResponseBean<String> bingDomainSite(@RequestBody TpSiteRequest request) {
-        String id = siteService.bingDomainSite(request);
+        String id = adminSiteService.bingDomainSite(request);
         return ResponseBean.success(id);
     }
 
@@ -180,7 +180,7 @@ public class AdminSiteController {
      */
     @DeleteMapping("/ding/domain/{id}")
     public ResponseBean<String> removeBingDomainSite(@PathVariable("id") String id) {
-        String removeId = siteService.removeBingDomainSite(id);
+        String removeId = adminSiteService.removeBingDomainSite(id);
         return ResponseBean.success(removeId);
     }
 
@@ -192,7 +192,7 @@ public class AdminSiteController {
      */
     @GetMapping("/ding/domain/{id}")
     public ResponseBean<TpDomainInfoDTO> domainInfo(@PathVariable("id") String id) {
-        TpDomainInfoDTO dto = siteService.domainInfo(id);
+        TpDomainInfoDTO dto = adminSiteService.domainInfo(id);
         return ResponseBean.success(dto);
     }
 
@@ -204,7 +204,7 @@ public class AdminSiteController {
      */
     @PutMapping("/ding/domain")
     public ResponseBean<TpDomainInfoDTO> domainInfo(@RequestBody TpSiteRequest request) {
-        TpDomainInfoDTO dto = siteService.updateDomainInfo(request);
+        TpDomainInfoDTO dto = adminSiteService.updateDomainInfo(request);
         return ResponseBean.success(dto);
     }
 

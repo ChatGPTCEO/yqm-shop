@@ -25,14 +25,10 @@ package com.yqm.module.admin.service;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
 import com.yqm.common.conversion.TpRecruitmentToDTO;
 import com.yqm.common.define.YqmDefine;
-import com.yqm.common.dto.TpCompanyDTO;
 import com.yqm.common.dto.TpRecruitmentDTO;
 import com.yqm.common.entity.TpRecruitment;
-import com.yqm.common.exception.YqmException;
-import com.yqm.common.mapper.TpRecruitmentMapper;
 import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.service.ITpRecruitmentService;
 import com.yqm.module.service.CommonService;
@@ -51,6 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-招聘
+ *
  * @Author: weiximei
  * @Date: 2021/11/6 14:19
  * @微信: wxm907147608
@@ -60,18 +57,19 @@ import java.util.Objects;
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class RecruitmentService {
+public class AdminRecruitmentService {
 
     private final CommonService commonService;
     private final ITpRecruitmentService recruitmentService;
 
-    public RecruitmentService(CommonService commonService, ITpRecruitmentService recruitmentService) {
+    public AdminRecruitmentService(CommonService commonService, ITpRecruitmentService recruitmentService) {
         this.commonService = commonService;
         this.recruitmentService = recruitmentService;
     }
 
     /**
      * 保存/修改 招聘
+     *
      * @param request
      * @return
      */
@@ -83,12 +81,12 @@ public class RecruitmentService {
         recruitment.setStatus(YqmDefine.StatusType.effective.getValue());
 
         if (StringUtils.isEmpty(recruitment.getId())) {
-          recruitment.setCreatedBy(user.getId());
-          recruitment.setCreatedTime(LocalDateTime.now());
+            recruitment.setCreatedBy(user.getId());
+            recruitment.setCreatedTime(LocalDateTime.now());
 
-          int maxSort = recruitmentService.getMaxSort(user.getId());
-          recruitmentService.updateAllSortGal(maxSort,user.getId());
-          recruitment.setSort(1);
+            int maxSort = recruitmentService.getMaxSort(user.getId());
+            recruitmentService.updateAllSortGal(maxSort, user.getId());
+            recruitment.setSort(1);
         }
 
         recruitment.setUpdatedBy(user.getId());
@@ -100,6 +98,7 @@ public class RecruitmentService {
 
     /**
      * 分页查询 招聘
+     *
      * @param request
      * @return
      */
@@ -122,6 +121,7 @@ public class RecruitmentService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -132,6 +132,7 @@ public class RecruitmentService {
 
     /**
      * 删除招聘
+     *
      * @param id
      * @return
      */
@@ -149,38 +150,40 @@ public class RecruitmentService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enableRecruitment(TpRecruitmentRequest request) {
         User user = UserInfoService.getUser();
 
-      if (!YqmDefine.includeStatus.contains(request.getStatus())) {
-          log.error("操作异常->停用/启用招聘错误->传入状态不正确！[id={},status={}]", request.getId(), request.getStatus());
-          return request.getId();
-      }
+        if (!YqmDefine.includeStatus.contains(request.getStatus())) {
+            log.error("操作异常->停用/启用招聘错误->传入状态不正确！[id={},status={}]", request.getId(), request.getStatus());
+            return request.getId();
+        }
 
-      TpRecruitment recruitment = recruitmentService.getById(request.getId());
-      if (Objects.isNull(recruitment)) {
-          log.error("操作异常->停用/启用招聘错误->数据未找到！[id={}]", request.getId());
-          return request.getId();
-      }
-      if (YqmDefine.StatusType.delete.getValue().equals(recruitment.getStatus())) {
-          log.error("操作异常->停用/启用招聘错误->该信息已经被删除！[id={}]", request.getId());
-          return request.getId();
-      }
+        TpRecruitment recruitment = recruitmentService.getById(request.getId());
+        if (Objects.isNull(recruitment)) {
+            log.error("操作异常->停用/启用招聘错误->数据未找到！[id={}]", request.getId());
+            return request.getId();
+        }
+        if (YqmDefine.StatusType.delete.getValue().equals(recruitment.getStatus())) {
+            log.error("操作异常->停用/启用招聘错误->该信息已经被删除！[id={}]", request.getId());
+            return request.getId();
+        }
 
-      UpdateWrapper<TpRecruitment> updateWrapper = new UpdateWrapper<>();
-      updateWrapper.set("status", request.getStatus());
-      updateWrapper.eq("id", request.getId());
-      updateWrapper.eq("user_id", user.getId());
-      recruitmentService.update(updateWrapper);
+        UpdateWrapper<TpRecruitment> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.set("status", request.getStatus());
+        updateWrapper.eq("id", request.getId());
+        updateWrapper.eq("user_id", user.getId());
+        recruitmentService.update(updateWrapper);
 
-      return request.getId();
+        return request.getId();
 
     }
 
     /**
      * 置顶
+     *
      * @param id
      * @return
      */

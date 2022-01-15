@@ -36,18 +36,15 @@ import com.yqm.common.dto.TpDomainInfoDTO;
 import com.yqm.common.dto.TpSiteBingDomainDTO;
 import com.yqm.common.dto.TpSiteDTO;
 import com.yqm.common.entity.TpSite;
-import com.yqm.common.event.SiteCreateEvent;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.TpSiteRequest;
 import com.yqm.common.service.ITpSiteService;
-import com.yqm.common.utils.DateUtils;
 import com.yqm.module.common.service.SysConfigService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -69,12 +66,12 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class SiteService {
+public class AdminSiteService {
 
     private final ITpSiteService iTpSiteService;
     private final SysConfigService sysConfigService;
 
-    public SiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService) {
+    public AdminSiteService(ITpSiteService iTpSiteService, SysConfigService sysConfigService) {
         this.iTpSiteService = iTpSiteService;
         this.sysConfigService = sysConfigService;
     }

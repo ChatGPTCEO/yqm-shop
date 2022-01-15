@@ -27,7 +27,7 @@ import com.yqm.common.dto.TpNewsClassifyDTO;
 import com.yqm.common.request.TpNewsClassifyRequest;
 import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.NewsClassifyService;
+import com.yqm.module.admin.service.AdminNewsClassifyService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,9 +45,9 @@ import java.util.List;
 @RestController
 public class AdminNewsClassifyController {
 
-    private final NewsClassifyService newsClassifyClassifyService;
+    private final AdminNewsClassifyService newsClassifyClassifyService;
 
-    public AdminNewsClassifyController(NewsClassifyService newsClassifyClassifyService) {
+    public AdminNewsClassifyController(AdminNewsClassifyService newsClassifyClassifyService) {
         this.newsClassifyClassifyService = newsClassifyClassifyService;
     }
 

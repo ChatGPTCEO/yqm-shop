@@ -26,12 +26,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpLinkDTO;
 import com.yqm.common.request.TpLinkRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.LinkService;
+import com.yqm.module.admin.service.AdminLinkService;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端-友情链接
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 19:09
  * @微信: wxm907147608
@@ -42,15 +42,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminLinkController {
 
-    private final LinkService linkClassifyService;
+    private final AdminLinkService linkClassifyService;
 
-    public AdminLinkController(LinkService linkClassifyService) {
+    public AdminLinkController(AdminLinkService linkClassifyService) {
         this.linkClassifyService = linkClassifyService;
     }
 
     /**
      * 添加友情链接
-     * 
+     *
      * @param request
      * @return
      */
@@ -62,7 +62,7 @@ public class AdminLinkController {
 
     /**
      * 修改友情链接
-     * 
+     *
      * @param request
      * @return
      */
@@ -74,7 +74,7 @@ public class AdminLinkController {
 
     /**
      * 删除友情链接
-     * 
+     *
      * @param id
      * @return
      */
@@ -86,7 +86,7 @@ public class AdminLinkController {
 
     /**
      * 根据id查询友情链接
-     * 
+     *
      * @param id
      * @return
      */
@@ -98,7 +98,7 @@ public class AdminLinkController {
 
     /**
      * 分页查询友情链接
-     * 
+     *
      * @param request
      * @return
      */
@@ -110,7 +110,7 @@ public class AdminLinkController {
 
     /**
      * 停用/启用 友情链接
-     * 
+     *
      * @param request
      * @return
      */
@@ -122,7 +122,7 @@ public class AdminLinkController {
 
     /**
      * 置顶 友情链接
-     * 
+     *
      * @param request
      * @return
      */

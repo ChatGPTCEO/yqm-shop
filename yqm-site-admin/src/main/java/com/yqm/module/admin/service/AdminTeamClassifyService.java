@@ -47,6 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-团队分类
+ *
  * @Author: weiximei
  * @Date: 2021/11/7 17:30
  * @微信: wxm907147608
@@ -56,16 +57,17 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class TeamClassifyService {
+public class AdminTeamClassifyService {
 
     private ITpTeamClassifyService iTpTeamClassifyService;
 
-    public TeamClassifyService(ITpTeamClassifyService iTpTeamClassifyService) {
+    public AdminTeamClassifyService(ITpTeamClassifyService iTpTeamClassifyService) {
         this.iTpTeamClassifyService = iTpTeamClassifyService;
     }
 
     /**
      * 保存/修改 团队分类
+     *
      * @param request
      * @return
      */
@@ -89,6 +91,7 @@ public class TeamClassifyService {
 
     /**
      * 根据id查询
+     *
      * @param id
      * @return
      */
@@ -99,6 +102,7 @@ public class TeamClassifyService {
 
     /**
      * 删除团队分类
+     *
      * @param id
      * @return
      */
@@ -116,6 +120,7 @@ public class TeamClassifyService {
 
     /**
      * 停用/启用
+     *
      * @return
      */
     public String enableTeamClassify(TpTeamClassifyRequest request) {
@@ -148,6 +153,7 @@ public class TeamClassifyService {
 
     /**
      * 分页查询 团队分类
+     *
      * @param request
      * @return
      */
@@ -170,6 +176,7 @@ public class TeamClassifyService {
 
     /**
      * 查询 团队分类
+     *
      * @param request
      * @return
      */

@@ -58,11 +58,11 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class NewsClassifyService {
+public class AdminNewsClassifyService {
 
     private ITpNewsClassifyService iTpNewsClassifyService;
 
-    public NewsClassifyService(ITpNewsClassifyService iTpNewsClassifyService) {
+    public AdminNewsClassifyService(ITpNewsClassifyService iTpNewsClassifyService) {
         this.iTpNewsClassifyService = iTpNewsClassifyService;
     }
 

@@ -52,19 +52,19 @@ import java.util.Objects;
 @Slf4j
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class CompanyService {
+public class AdminCompanyService {
 
     private final ITpCompanyService iTpCompanyService;
     private final CommonService commonService;
 
-    public CompanyService(ITpCompanyService iTpCompanyService, CommonService commonService) {
+    public AdminCompanyService(ITpCompanyService iTpCompanyService, CommonService commonService) {
         this.iTpCompanyService = iTpCompanyService;
         this.commonService = commonService;
     }
 
     /**
      * 添加公司
-     * 
+     *
      * @param request
      * @return
      */
@@ -91,7 +91,7 @@ public class CompanyService {
 
     /**
      * 修改公司
-     * 
+     *
      * @param request
      * @return
      */
@@ -120,7 +120,7 @@ public class CompanyService {
 
     /**
      * 修改公司简介(目前小程序专用)
-     * 
+     *
      * @param request
      * @return
      */

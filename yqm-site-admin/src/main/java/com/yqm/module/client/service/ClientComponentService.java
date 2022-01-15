@@ -44,11 +44,11 @@ import java.util.List;
  */
 @Service
 @Slf4j
-public class ComponentService {
+public class ClientComponentService {
 
     private final ITpComponentService iTpComponentService;
 
-    public ComponentService(ITpComponentService iTpComponentService) {
+    public ClientComponentService(ITpComponentService iTpComponentService) {
         this.iTpComponentService = iTpComponentService;
     }
 

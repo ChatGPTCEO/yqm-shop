@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpTeamDTO;
 import com.yqm.common.request.TpTeamRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.TeamService;
+import com.yqm.module.admin.service.AdminTeamService;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -42,9 +42,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminTeamController {
 
-    private final TeamService teamClassifyService;
+    private final AdminTeamService teamClassifyService;
 
-    public AdminTeamController(TeamService teamClassifyService) {
+    public AdminTeamController(AdminTeamService teamClassifyService) {
         this.teamClassifyService = teamClassifyService;
     }
 

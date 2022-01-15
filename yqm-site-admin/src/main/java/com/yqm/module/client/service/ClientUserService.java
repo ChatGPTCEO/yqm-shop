@@ -40,7 +40,7 @@ import org.springframework.stereotype.Service;
  * @Email: 907147608@qq.com
  */
 @Service
-public class UserService {
+public class ClientUserService {
 
     @Autowired
     private TpUserMapper tpUserMapper;

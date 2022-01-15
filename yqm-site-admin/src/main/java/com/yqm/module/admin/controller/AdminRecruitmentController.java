@@ -26,7 +26,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.TpRecruitmentDTO;
 import com.yqm.common.request.TpRecruitmentRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.RecruitmentService;
+import com.yqm.module.admin.service.AdminRecruitmentService;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -42,10 +42,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminRecruitmentController {
 
-    private final RecruitmentService recruitmentService;
+    private final AdminRecruitmentService adminRecruitmentService;
 
-    public AdminRecruitmentController(RecruitmentService recruitmentService) {
-        this.recruitmentService = recruitmentService;
+    public AdminRecruitmentController(AdminRecruitmentService adminRecruitmentService) {
+        this.adminRecruitmentService = adminRecruitmentService;
     }
 
     /**
@@ -56,7 +56,7 @@ public class AdminRecruitmentController {
      */
     @PostMapping("")
     public ResponseBean<TpRecruitmentDTO> addRecruitment(@RequestBody TpRecruitmentRequest request) {
-        TpRecruitmentDTO dto = recruitmentService.saveRecruitment(request);
+        TpRecruitmentDTO dto = adminRecruitmentService.saveRecruitment(request);
         return ResponseBean.success(dto);
     }
 
@@ -68,7 +68,7 @@ public class AdminRecruitmentController {
      */
     @PutMapping("")
     public ResponseBean<TpRecruitmentDTO> updateRecruitment(@RequestBody TpRecruitmentRequest request) {
-        TpRecruitmentDTO dto = recruitmentService.saveRecruitment(request);
+        TpRecruitmentDTO dto = adminRecruitmentService.saveRecruitment(request);
         return ResponseBean.success(dto);
     }
 
@@ -80,7 +80,7 @@ public class AdminRecruitmentController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> deleteRecruitment(@PathVariable("id") String id) {
-        String removeId = recruitmentService.removeRecruitment(id);
+        String removeId = adminRecruitmentService.removeRecruitment(id);
         return ResponseBean.success(removeId);
     }
 
@@ -92,7 +92,7 @@ public class AdminRecruitmentController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpRecruitmentDTO> getById(@PathVariable("id") String id) {
-        TpRecruitmentDTO dto = recruitmentService.getById(id);
+        TpRecruitmentDTO dto = adminRecruitmentService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -104,7 +104,7 @@ public class AdminRecruitmentController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpRecruitmentDTO>> pageRecruitment(TpRecruitmentRequest request) {
-        IPage<TpRecruitmentDTO> page = recruitmentService.pageRecruitment(request);
+        IPage<TpRecruitmentDTO> page = adminRecruitmentService.pageRecruitment(request);
         return ResponseBean.success(page);
     }
 
@@ -116,7 +116,7 @@ public class AdminRecruitmentController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpRecruitmentRequest request) {
-        String enableId = recruitmentService.enableRecruitment(request);
+        String enableId = adminRecruitmentService.enableRecruitment(request);
         return ResponseBean.success(enableId);
     }
 
@@ -128,7 +128,7 @@ public class AdminRecruitmentController {
      */
     @PutMapping("/top")
     public ResponseBean<String> top(@RequestBody TpRecruitmentRequest request) {
-        String enableId = recruitmentService.top(request.getId());
+        String enableId = adminRecruitmentService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 

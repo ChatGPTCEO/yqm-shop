@@ -25,7 +25,7 @@ package com.yqm.module.admin.controller;
 import com.yqm.common.dto.TpCompanyDTO;
 import com.yqm.common.request.TpCompanyRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.CompanyService;
+import com.yqm.module.admin.service.AdminCompanyService;
 import com.yqm.module.service.CommonService;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,39 +42,39 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminCompanyController {
 
-    private final CompanyService companyService;
+    private final AdminCompanyService adminCompanyService;
     private final CommonService commonService;
 
-    public AdminCompanyController(CompanyService companyService, CommonService commonService) {
-        this.companyService = companyService;
+    public AdminCompanyController(AdminCompanyService adminCompanyService, CommonService commonService) {
+        this.adminCompanyService = adminCompanyService;
         this.commonService = commonService;
     }
 
     /**
      * 添加操作
-     * 
+     *
      * @param request
      * @return
      */
     @PostMapping("")
     public ResponseBean<TpCompanyDTO> addCompany(@RequestBody TpCompanyRequest request) {
-        return ResponseBean.success(companyService.addCompany(request));
+        return ResponseBean.success(adminCompanyService.addCompany(request));
     }
 
     /**
      * 修改操作
-     * 
+     *
      * @param request
      * @return
      */
     @PutMapping("")
     public ResponseBean<TpCompanyDTO> updateCompany(@RequestBody TpCompanyRequest request) {
-        return ResponseBean.success(companyService.updateCompany(request));
+        return ResponseBean.success(adminCompanyService.updateCompany(request));
     }
 
     /**
      * 获取用户绑定的公司
-     * 
+     *
      * @return
      */
     @GetMapping("/getUserBingCompany")
@@ -84,13 +84,13 @@ public class AdminCompanyController {
 
     /**
      * 修改公司简介操作
-     * 
+     *
      * @param request
      * @return
      */
     @PutMapping("/introduce")
     public ResponseBean<TpCompanyDTO> updateIntroduce(@RequestBody TpCompanyRequest request) {
-        return ResponseBean.success(companyService.updateIntroduce(request));
+        return ResponseBean.success(adminCompanyService.updateIntroduce(request));
     }
 
 }

@@ -47,7 +47,7 @@ import java.util.Objects;
 
 /**
  * 管理端-荣誉证书分类
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/11/8 20:06
  * @微信: wxm907147608
@@ -57,17 +57,17 @@ import java.util.Objects;
 @Service
 @Slf4j
 @Transactional(rollbackFor = Exception.class)
-public class HonorClassifyService {
+public class AdminHonorClassifyService {
 
     private ITpHonorClassifyService iTpHonorClassifyService;
 
-    public HonorClassifyService(ITpHonorClassifyService iTpHonorClassifyService) {
+    public AdminHonorClassifyService(ITpHonorClassifyService iTpHonorClassifyService) {
         this.iTpHonorClassifyService = iTpHonorClassifyService;
     }
 
     /**
      * 保存/修改 荣誉证书分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -91,7 +91,7 @@ public class HonorClassifyService {
 
     /**
      * 根据id查询
-     * 
+     *
      * @param id
      * @return
      */
@@ -102,7 +102,7 @@ public class HonorClassifyService {
 
     /**
      * 删除荣誉证书分类
-     * 
+     *
      * @param id
      * @return
      */
@@ -120,7 +120,7 @@ public class HonorClassifyService {
 
     /**
      * 停用/启用
-     * 
+     *
      * @return
      */
     public String enableHonorClassify(TpHonorClassifyRequest request) {
@@ -153,7 +153,7 @@ public class HonorClassifyService {
 
     /**
      * 分页查询 荣誉证书分类
-     * 
+     *
      * @param request
      * @return
      */
@@ -177,7 +177,7 @@ public class HonorClassifyService {
 
     /**
      * 查询 荣誉证书分类
-     * 
+     *
      * @param request
      * @return
      */

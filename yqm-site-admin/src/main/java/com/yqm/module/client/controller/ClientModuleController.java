@@ -22,40 +22,45 @@
 
 package com.yqm.module.client.controller;
 
-import com.yqm.common.request.TpPagesRequest;
+import com.yqm.common.dto.TpModuleDTO;
+import com.yqm.common.request.TpModuleRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.client.service.PagesService;
+import com.yqm.module.client.service.ClientModuleService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
- * 页面
+ * 模块
  *
  * @Author: weiximei
- * @Date: 2022/1/14 21:17
+ * @Date: 2022/1/11 20:24
  * @微信: wxm907147608
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/pages")
+@RequestMapping("/client/module")
 @RestController
-public class PagesController {
+public class ClientModuleController {
 
-    private final PagesService pagesService;
 
-    public PagesController(PagesService pagesService) {
-        this.pagesService = pagesService;
+    private final ClientModuleService clientModuleService;
+
+    public ClientModuleController(ClientModuleService clientModuleService) {
+        this.clientModuleService = clientModuleService;
     }
 
     /**
-     * 查询 导航集合
+     * 所有模块
      *
+     * @param request
      * @return
      */
-    @GetMapping("/navigation")
-    public ResponseBean listNavigation(TpPagesRequest request) {
-        return ResponseBean.success(pagesService.listNavigation(request));
+    @GetMapping()
+    public ResponseBean getModuleList(TpModuleRequest request) {
+        List<TpModuleDTO> moduleList = clientModuleService.getModuleList(request);
+        return ResponseBean.success(moduleList);
     }
-
 }

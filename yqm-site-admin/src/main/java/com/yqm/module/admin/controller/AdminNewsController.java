@@ -27,7 +27,7 @@ import com.yqm.common.dto.TpNewsDTO;
 import com.yqm.common.request.TpNewsRequest;
 import com.yqm.common.request.TpPagesRequest;
 import com.yqm.common.response.ResponseBean;
-import com.yqm.module.admin.service.NewsService;
+import com.yqm.module.admin.service.AdminNewsService;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -43,10 +43,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AdminNewsController {
 
-    private final NewsService newsService;
+    private final AdminNewsService adminNewsService;
 
-    public AdminNewsController(NewsService newsService) {
-        this.newsService = newsService;
+    public AdminNewsController(AdminNewsService adminNewsService) {
+        this.adminNewsService = adminNewsService;
     }
 
     /**
@@ -57,7 +57,7 @@ public class AdminNewsController {
      */
     @PostMapping("")
     public ResponseBean<TpNewsDTO> addRecruitment(@RequestBody TpNewsRequest request) {
-        TpNewsDTO dto = newsService.saveNews(request);
+        TpNewsDTO dto = adminNewsService.saveNews(request);
         return ResponseBean.success(dto);
     }
 
@@ -69,7 +69,7 @@ public class AdminNewsController {
      */
     @PutMapping("")
     public ResponseBean<TpNewsDTO> updateRecruitment(@RequestBody TpNewsRequest request) {
-        TpNewsDTO dto = newsService.saveNews(request);
+        TpNewsDTO dto = adminNewsService.saveNews(request);
         return ResponseBean.success(dto);
     }
 
@@ -81,7 +81,7 @@ public class AdminNewsController {
      */
     @DeleteMapping("/{id}")
     public ResponseBean<String> removeNews(@PathVariable("id") String id) {
-        String removeId = newsService.removeNews(id);
+        String removeId = adminNewsService.removeNews(id);
         return ResponseBean.success(removeId);
     }
 
@@ -93,7 +93,7 @@ public class AdminNewsController {
      */
     @GetMapping("/{id}")
     public ResponseBean<TpNewsDTO> getById(@PathVariable("id") String id) {
-        TpNewsDTO dto = newsService.getById(id);
+        TpNewsDTO dto = adminNewsService.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -105,7 +105,7 @@ public class AdminNewsController {
      */
     @GetMapping("/page")
     public ResponseBean<IPage<TpNewsDTO>> pageRecruitment(TpNewsRequest request) {
-        IPage<TpNewsDTO> page = newsService.pageNews(request);
+        IPage<TpNewsDTO> page = adminNewsService.pageNews(request);
         return ResponseBean.success(page);
     }
 
@@ -117,7 +117,7 @@ public class AdminNewsController {
      */
     @PutMapping("/enable")
     public ResponseBean<String> enableRecruitment(@RequestBody TpNewsRequest request) {
-        String enableId = newsService.enableNews(request);
+        String enableId = adminNewsService.enableNews(request);
         return ResponseBean.success(enableId);
     }
 
@@ -129,7 +129,7 @@ public class AdminNewsController {
      */
     @PutMapping("/top")
     public ResponseBean<String> top(@RequestBody TpNewsRequest request) {
-        String enableId = newsService.top(request.getId());
+        String enableId = adminNewsService.top(request.getId());
         return ResponseBean.success(enableId);
     }
 
@@ -141,7 +141,7 @@ public class AdminNewsController {
      */
     @PutMapping("/seo")
     public ResponseBean<String> seo(@RequestBody TpPagesRequest request) {
-        String enableId = newsService.updateSEO(request);
+        String enableId = adminNewsService.updateSEO(request);
         return ResponseBean.success(enableId);
     }
 
