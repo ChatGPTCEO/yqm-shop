@@ -48,7 +48,7 @@ import java.util.stream.Collectors;
  * @Email: 907147608@qq.com
  */
 @RestController
-@RequestMapping("/common")
+@RequestMapping("/api/common")
 public class CommonController {
 
 
@@ -60,6 +60,7 @@ public class CommonController {
 
     /**
      * 根据 pid 获取省市区
+     *
      * @param pid
      * @return
      */
@@ -75,6 +76,7 @@ public class CommonController {
 
     /**
      * 获取省市区 所有
+     *
      * @return
      */
     @GetMapping("/provinces/all")
@@ -86,6 +88,7 @@ public class CommonController {
 
     /**
      * 图片上传
+     *
      * @param file
      * @return
      */

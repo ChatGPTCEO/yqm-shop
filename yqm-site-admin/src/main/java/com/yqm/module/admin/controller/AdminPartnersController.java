@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.*;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/partners")
+@RequestMapping("/api/admin/partners")
 @RestController
 public class AdminPartnersController {
 

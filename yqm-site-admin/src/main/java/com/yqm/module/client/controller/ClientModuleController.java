@@ -41,7 +41,7 @@ import java.util.List;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/module")
+@RequestMapping("/api/client/module")
 @RestController
 public class ClientModuleController {
 

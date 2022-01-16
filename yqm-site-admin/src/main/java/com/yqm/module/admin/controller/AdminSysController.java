@@ -39,7 +39,7 @@ import java.util.Map;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/sys")
+@RequestMapping("/api/admin/sys")
 @RestController
 public class AdminSysController {
 

@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.*;
  * @Email: 907147608@qq.com
  */
 @RestController
-@RequestMapping("/admin/honor")
+@RequestMapping("/api/admin/honor")
 public class AdminHonorController {
 
     private final AdminHonorService adminHonorService;

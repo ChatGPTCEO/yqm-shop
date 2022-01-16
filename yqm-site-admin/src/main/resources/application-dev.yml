@@ -17,8 +17,8 @@ yqm:
     ignore-url: "" # 忽略请求，不做拦截
     token-seconds: 7776000 # Token有效期 90天
     browse:
-      login-url: /authentication/login # 登录入口
-      login-page: /authentication/require # 当需要身份认证的时候，跳转到这里
+      login-url: /api/authentication/login # 登录入口
+      login-page: /api/authentication/require # 当需要身份认证的时候，跳转到这里
       username-parameter: username # 登录提交表单的 账号 参数名
       password-parameter: password # 登录提交表单的 密码 参数名
     code: # 图形验证码 宽 高 大小 有效期

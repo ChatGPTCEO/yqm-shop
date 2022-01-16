@@ -40,7 +40,7 @@ import java.util.List;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/partnersClassify")
+@RequestMapping("/api/admin/partnersClassify")
 @RestController
 public class AdminPartnersClassifyController {
 

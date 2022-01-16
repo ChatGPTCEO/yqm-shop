@@ -39,7 +39,7 @@ import java.util.ArrayList;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/user")
+@RequestMapping("/api/client/user")
 @RestController
 public class ClientUserController {
 

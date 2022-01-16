@@ -42,7 +42,7 @@ import java.util.List;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/client/component")
+@RequestMapping("/api/client/component")
 @RestController
 public class ClientComponentController {
 

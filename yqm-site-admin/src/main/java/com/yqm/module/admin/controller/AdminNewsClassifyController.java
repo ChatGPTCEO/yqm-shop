@@ -41,7 +41,7 @@ import java.util.List;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/newsClassify")
+@RequestMapping("/api/admin/newsClassify")
 @RestController
 public class AdminNewsClassifyController {
 

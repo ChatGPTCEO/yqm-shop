@@ -40,7 +40,7 @@ import java.util.List;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
-@RequestMapping("/admin/photoAlbum")
+@RequestMapping("/api/admin/photoAlbum")
 @RestController
 public class AdminPhotoAlbumController {
 

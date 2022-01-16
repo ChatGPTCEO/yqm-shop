@@ -26,14 +26,16 @@ import com.yqm.common.dto.TpUserDTO;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 管理端用户
- * 
+ *
  * @Author: weiximei
  * @Date: 2021/10/18 21:30
  * @微信: wxm907147608
@@ -41,7 +43,7 @@ import java.util.List;
  * @Email: 907147608@qq.com
  */
 
-@RequestMapping("/admin/user")
+@RequestMapping("/api/admin/user")
 @RestController
 public class AdminUserController {
 
@@ -50,7 +52,7 @@ public class AdminUserController {
 
     /**
      * 获取用户信息
-     * 
+     *
      * @return
      */
     @GetMapping("/getUserInfo")
@@ -60,7 +62,7 @@ public class AdminUserController {
 
     /**
      * 获取用户路由信息
-     * 
+     *
      * @return
      */
     @GetMapping("/routes")
