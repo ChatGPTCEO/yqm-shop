@@ -87,4 +87,16 @@ public class ClientPagesController {
         return ResponseBean.success(clientPagesService.saveNavigation(request));
     }
 
+    /**
+     * 查询系统页面
+     * 不包含导航
+     *
+     * @return
+     */
+    @GetMapping("/system/{siteId}")
+    public ResponseBean navigationInfo(@PathVariable String siteId) {
+        return ResponseBean.success(clientPagesService.getSystemPages(siteId));
+    }
+
+
 }

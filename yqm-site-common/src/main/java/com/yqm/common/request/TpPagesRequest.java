@@ -163,6 +163,10 @@ public class TpPagesRequest extends BaseRequest {
      */
     private String openType;
 
+    /**
+     * 层级
+     */
+    private Integer level;
 
     /** 额外 **/
 
@@ -184,8 +188,13 @@ public class TpPagesRequest extends BaseRequest {
     private Boolean delay;
 
     /**
-     * 层级
+     * 不包含页面类型
      */
-    private Integer level;
+    private List<String> notPageType;
+
+    /**
+     * 为null
+     */
+    private Boolean isNullPageType;
 
 }

@@ -165,5 +165,24 @@ public class ClientPagesService {
         return pagesCommonService.savePages(request);
     }
 
+    /**
+     * 查询系统页面
+     * 排除导航
+     *
+     * @param request
+     * @return
+     */
+    public List<TpPagesDTO> getSystemPages(String siteId) {
+        if (StringUtils.isEmpty(siteId)) {
+            return new ArrayList<>();
+        }
+        User user = UserInfoService.getUser();
+        TpPagesRequest request = new TpPagesRequest();
+        request.setSiteId(siteId);
+        request.setUserId(user.getId());
+        request.setPageBelongs(YqmDefine.PageBelongsType.system.getValue());
+        request.setIsNullPageType(Boolean.TRUE);
+        return pagesCommonService.baseListPages(request);
+    }
 
 }
