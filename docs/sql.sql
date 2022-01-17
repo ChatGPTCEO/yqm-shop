@@ -516,41 +516,14 @@ CREATE TABLE tp_pages
     `level`       INT                   DEFAULT 1 COMMENT '层级',
     PRIMARY KEY (id)
 ) COMMENT = '页面';
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('1', -1, 'index', '首页', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL, '1',
-        '2022-01-02 12:09:24', '1', '2022-01-02 12:09:24', 'effective', 'show', 'default', null, 'current');
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('2', -1, 'news', '新闻资讯', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL, '1',
-        '2022-01-02 12:09:24', '1', '2022-01-02 12:09:24', 'effective', 'show', 'default', null, 'current');
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('3', -1, 'company', '公司简介', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL,
-        '1', '2022-01-12 12:08:10', '1', '2022-01-12 12:08:10', 'effective', 'show', 'default', null, 'current');
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('4', -1, 'product', '产品展示', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL,
-        '1', '2022-01-12 12:08:10', '1', '2022-01-12 12:08:10', 'effective', 'show', 'default', null, 'current');
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('5', -1, 'cert', '荣誉证书', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL, '1',
-        '2022-01-12 12:08:10', '1', '2022-01-12 12:08:10', 'effective', 'show', 'default', null, 'current');
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('6', -1, 'message', '在线留言', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL,
-        '1', '2022-01-12 12:08:10', '1', '2022-01-12 12:08:10', 'effective', 'show', 'default', null, 'current');
-INSERT INTO `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`,
-                        `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`,
-                        `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`)
-VALUES ('7', -1, 'contact', '联系我们', 'navigation', 'system', NULL, NULL, NULL, NULL, NULL, '-1', '-1', 1, '-1', NULL,
-        '1', '2022-01-12 12:08:10', '1', '2022-01-12 12:08:10', 'effective', 'show', 'default', null, 'current');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('1','-1','index','首页','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-02 12:09:24','1','2022-01-02 12:09:24','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('16','-1','404','404页面',NULL,'system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-16 04:56:11','1','2022-01-16 04:56:11','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('2','-1','news','新闻资讯','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-02 12:09:24','1','2022-01-02 12:09:24','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('3','-1','company','公司简介','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-12 12:08:10','1','2022-01-12 12:08:10','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('4','-1','product','产品展示','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-12 12:08:10','1','2022-01-12 12:08:10','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('5','-1','cert','荣誉证书','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-12 12:08:10','1','2022-01-12 12:08:10','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('6','-1','message','在线留言','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-12 12:08:10','1','2022-01-12 12:08:10','effective','show','default',NULL,'current','1');
+insert into `tp_pages` (`id`, `site_id`, `page_url`, `page_name`, `page_type`, `page_belongs`, `seo_title`, `seo_keyword`, `seo_content`, `plug_code`, `plug_location`, `pid`, `pids`, `sort`, `user_id`, `company_id`, `create_by`, `create_time`, `updated_by`, `updated_time`, `status`, `page_show`, `link_type`, `link_url`, `open_type`, `level`) values('7','-1','contact','联系我们','navigation','system',NULL,NULL,NULL,NULL,NULL,'-1','-1','1','-1',NULL,'1','2022-01-12 12:08:10','1','2022-01-12 12:08:10','effective','show','default',NULL,'current','1');
 
 
 
