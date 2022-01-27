@@ -2,23 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.yqm</groupId>
-    <artifactId>yqm-site</artifactId>
+    <artifactId>yqm-shop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>yqm-site-logging</module>
-        <module>yqm-site-common</module>
-        <module>yqm-site-admin</module>
-        <module>yqm-site-tools</module>
-        <module>yqm-site-security</module>
+        <module>yqm-shop-logging</module>
+        <module>yqm-shop-common</module>
+        <module>yqm-shop-admin</module>
+        <module>yqm-shop-tools</module>
+        <module>yqm-shop-security</module>
     </modules>
     <packaging>pom</packaging>
-    <name>yqm-site建站系统</name>
+    <name>yqm-shop商城系统</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.4</version>
+        <version>2.6.3</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
 
