@@ -5,8 +5,12 @@ spring:
     name: yqm-site-admin
   profiles:
     active: dev
+  session:
+    store-type: jdbc
   jackson:
     time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization: { WRITE_DATES_AS_TIMESTAMPS: true }
   datasource:
     druid:
       # 初始连接数
@@ -61,3 +65,4 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.yqm.common.entity

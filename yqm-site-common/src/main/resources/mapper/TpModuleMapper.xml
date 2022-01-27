@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yqm.common.mapper.TpModuleMapper">
+
+    <update id="updateAllSortGal">
+        update tp_module
+        set sort = sort + 1
+        where `sort` <![CDATA[ <= ]]>  #{currentSort}
+    </update>
+
+    <update id="top">
+        update tp_module
+        set sort = 1
+        where id <![CDATA[ = ]]>  #{id}
+    </update>
+
+    <select id="getMaxSort" resultType="int">
+        select IFNULL(max(sort), 1)
+        from tp_module
+        where `status` in ('effective', 'failure')
+    </select>
+
+</mapper>

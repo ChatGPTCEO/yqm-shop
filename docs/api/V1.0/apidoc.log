@@ -1,0 +1,34 @@
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find java src paths:  [E:\git\yqm-site\yqm-site-admin\src\main\java\]
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: project type not set, try to figure out...
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start find controllers in path : E:\git\yqm-site\yqm-site-admin\src\main\java\
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : AdminUserController.java
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : ClientUserController.java
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : AdminUserController.java
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : AdminUserController.java
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : ClientUserController.java
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : ClientUserController.java
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs start...
+十月 22, 2021 8:02:51 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\git\yqm-site\yqm-site-admin\src\main\java\com\yqm\module\admin\controller\AdminUserController.java
+十月 22, 2021 8:02:52 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\git\yqm-site\yqm-site-admin\src\main\java\com\yqm\module\admin\controller\AdminUserController.java
+十月 22, 2021 8:02:52 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\git\yqm-site\yqm-site-admin\src\main\java\com\yqm\module\client\controller\ClientUserController.java
+十月 22, 2021 8:02:52 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\git\yqm-site\yqm-site-admin\src\main\java\com\yqm\module\client\controller\ClientUserController.java
+十月 22, 2021 8:02:52 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate index start !!!
+十月 22, 2021 8:02:52 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate index done !!!
+十月 22, 2021 8:02:52 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs done !!!

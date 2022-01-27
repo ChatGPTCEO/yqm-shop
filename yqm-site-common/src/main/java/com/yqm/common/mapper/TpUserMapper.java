@@ -13,4 +13,6 @@ import com.yqm.common.entity.TpUser;
 */
     public interface TpUserMapper extends BaseMapper<TpUser> {
 
+        TpUser selectByUsername(String username);
+
     }

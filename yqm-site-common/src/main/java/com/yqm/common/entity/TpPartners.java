@@ -9,42 +9,78 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 合作伙伴
-    * </p>
-*
-* @author weiximei
-* @since 2021-09-11
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class TpPartners extends BaseEntity implements Serializable {
+ * <p>
+ * 合作伙伴
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-09-11
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpPartners extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 合作伙伴名称
+     */
     private String partnersName;
 
+    /**
+     * 合作伙伴分类
+     */
     private String partnersClassifyId;
 
+    /**
+     * 合作伙伴地址
+     */
     private String partnersAddress;
 
-    private String img;
+    /**
+     * 合作伙伴图片
+     */
+    private String partnersImg;
 
+    /**
+     * 排序
+     */
     private Integer sort;
 
+    /**
+     * 公司id
+     */
     private String companyId;
 
-        @TableField("CREATED_BY")
+    /**
+     * 用户id
+     */
+    private String userId;
+
+    /**
+     * 状态;状态: effective 有效 failure 失效 delete 删除
+     */
+    private String status;
+
+    /**
+     * 创建人
+     */
     private String createdBy;
 
-        @TableField("CREATED_TIME")
+    /**
+     * 创建时间
+     */
     private LocalDateTime createdTime;
 
-        @TableField("UPDATED_BY")
+    /**
+     * 更新人
+     */
     private String updatedBy;
 
-        @TableField("UPDATED_TIME")
+    /**
+     * 更新时间
+     */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
-
 
 }

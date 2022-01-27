@@ -13,6 +13,7 @@ import lombok.Data;
  */
 @Data
 public class BaseEntity {
+
     @TableId(type = IdType.ASSIGN_ID)
     private String id;
 }

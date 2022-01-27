@@ -1,7 +1,8 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.yqm.common.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,65 +10,112 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 用户表
-    * </p>
-*
-* @author weiximei
-* @since 2021-09-11
-*/
-    @Data
-    @EqualsAndHashCode(callSuper = false)
-    public class TpUser extends BaseEntity implements Serializable {
+ * <p>
+ * 用户表
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-09-11
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class TpUser implements Serializable {
+
+    @TableId(type = IdType.ASSIGN_ID)
+    private String id;
 
     private static final long serialVersionUID = 1L;
 
-        @TableField("USER_NAME")
+    /**
+     * 用户姓名
+     */
     private String userName;
 
-        @TableField("SEX")
+    /**
+     * 性别;0 未知 1 男 2 女
+     */
     private Integer sex;
 
-        @TableField("PHONE")
+    /**
+     * 手机
+     */
     private String phone;
 
-        @TableField("EMAIL")
+    /**
+     * 邮箱
+     */
     private String email;
 
-        @TableField("ADDRESS")
+    /**
+     * 地址;详细地址
+     */
     private String address;
 
-        @TableField("POSTAL_CODE")
+    /**
+     * 邮编
+     */
     private String postalCode;
 
-        @TableField("ACCOUNT")
+    /**
+     * 账号
+     */
     private String account;
 
-        @TableField("PASSWORD")
+    /**
+     * 密码
+     */
     private String password;
 
-        @TableField("PROVINCE_ID")
+    /**
+     * 省
+     */
     private String provinceId;
 
+    /**
+     * 市
+     */
     private String cityId;
 
+    /**
+     * 区
+     */
     private String areaId;
 
+    /**
+     * 企业认证;0未认证 1 认证 2 认证审核中
+     */
     private Integer enterpriseCertification;
 
+    /**
+     * 状态;effective 有效 failure 失效 delete 删除
+     */
     private String status;
 
-        @TableField("CREATED_BY")
+    /**
+     * 创建人
+     */
     private String createdBy;
 
-        @TableField("CREATED_TIME")
+    /**
+     * 创建时间
+     */
     private LocalDateTime createdTime;
 
-        @TableField("UPDATED_BY")
+    /**
+     * 更新人
+     */
     private String updatedBy;
 
-        @TableField("UPDATED_TIME")
+    /**
+     * 更新时间
+     */
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
+
+    /**
+     * 头像
+     */
+    private String avatar;
 
 
 }
