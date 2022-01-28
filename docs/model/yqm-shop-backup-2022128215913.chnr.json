@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-1-28 21:59:13",
+  "updatedTime": "2022-1-28 21:59:11",
   "dbConns": [],
   "profile": {
     "default": {
@@ -2510,8 +2510,8 @@
           "defKey": "img_count",
           "defName": "图片总数",
           "comment": "",
-          "type": "INT",
-          "len": "",
+          "type": "VARCHAR",
+          "len": 255,
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -2519,7 +2519,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "Int"
+          "domain": "DefaultString"
         }
       ],
       "correlations": [],

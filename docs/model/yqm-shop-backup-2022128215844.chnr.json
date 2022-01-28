@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-1-28 21:59:13",
+  "updatedTime": "2022-1-28 21:58:21",
   "dbConns": [],
   "profile": {
     "default": {
@@ -2505,21 +2505,6 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DescText"
-        },
-        {
-          "defKey": "img_count",
-          "defName": "图片总数",
-          "comment": "",
-          "type": "INT",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "Int"
         }
       ],
       "correlations": [],
@@ -2728,21 +2713,6 @@
         {
           "defKey": "img",
           "defName": "图片",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "introduce",
-          "defName": "介绍",
           "comment": "",
           "type": "VARCHAR",
           "len": 255,
