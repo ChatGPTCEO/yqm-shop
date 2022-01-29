@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-1-29 20:55:25",
+  "updatedTime": "2022-1-29 20:52:57",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1957,7 +1957,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "'show'",
+          "defaultValue": "`show`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -2266,7 +2266,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'show'",
+          "defaultValue": "`show`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -2719,7 +2719,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"

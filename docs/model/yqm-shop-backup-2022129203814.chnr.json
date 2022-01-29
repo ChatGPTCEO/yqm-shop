@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-1-29 20:55:25",
+  "updatedTime": "2022-1-28 21:59:13",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1043,7 +1043,7 @@
           "defName": "服务保证",
           "comment": "",
           "type": "VARCHAR",
-          "len": "900",
+          "len": 255,
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -1051,7 +1051,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DescText"
+          "domain": "DefaultString"
         },
         {
           "defKey": "details_title",
@@ -1168,7 +1168,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "domain": "DefaultString"
         }
@@ -1375,20 +1375,6 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
-        },
-        {
-          "defKey": "`status`",
-          "defName": "状态",
-          "comment": "delete 删除 success 有效",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "'success'",
-          "hideInGraph": false,
-          "domain": "DefaultString"
         }
       ],
       "correlations": [],
@@ -1694,7 +1680,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "domain": "DefaultString"
         }
@@ -1882,7 +1868,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -1957,7 +1943,7 @@
           "primaryKey": false,
           "notNull": true,
           "autoIncrement": false,
-          "defaultValue": "'show'",
+          "defaultValue": "`show`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -2191,7 +2177,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -2266,7 +2252,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'show'",
+          "defaultValue": "`show`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -2470,7 +2456,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -2719,7 +2705,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'success'",
+          "defaultValue": "`success`",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
