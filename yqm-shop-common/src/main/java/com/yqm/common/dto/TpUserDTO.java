@@ -22,7 +22,6 @@
 
 package com.yqm.common.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 

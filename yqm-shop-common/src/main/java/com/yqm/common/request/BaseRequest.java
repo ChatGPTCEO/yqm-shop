@@ -40,4 +40,6 @@ public class BaseRequest {
 
     private String id;
 
+    private Boolean isSort;
+
 }

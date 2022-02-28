@@ -2,4 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yqm.common.mapper.YqmBrandMapper">
 
+    <select id="getMaxSort" resultType="int">
+        select max(sort) from yqm_brand
+    </select>
+
+    <update id="topSort">
+        update yqm_brand set sort = 1, updated_by = #{userId},updated_time = now() where id = #{id}
+    </update>
+
+    <update id="minusOneSort">
+        update yqm_brand set sort = sort + 1,updated_by = #{userId},updated_time = now()
+    </update>
+
 </mapper>

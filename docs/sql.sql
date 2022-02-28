@@ -64,6 +64,12 @@ CREATE TABLE `oauth_client_details`
     `additional_information`  varchar(255) DEFAULT NULL COMMENT '预留字段',
     `autoapprove`             varchar(255) DEFAULT NULL COMMENT '用户是否自动Approval操作'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = '客户端用来记录token信息';
+INSERT INTO `oauth_client_details` (`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`,
+                                    `web_server_redirect_uri`, `authorities`, `access_token_validity`,
+                                    `refresh_token_validity`, `additional_information`, `autoapprove`)
+VALUES ('7d4fa629-785a-42b2-8d14-8d1c38417880', NULL, '$2a$10$mihA6JP/5ITvWPlVTNSvjuvkxZBk4KKvFI9vMn2aJJNzgfBFmmZ7.',
+        'all', 'refresh_token,password', NULL, NULL, 7200, 9000, NULL, 'true');
+
 
 DROP TABLE IF EXISTS `oauth_client_token`;
 CREATE TABLE `oauth_client_token`
@@ -116,6 +122,184 @@ CREATE TABLE tp_user
     `avatar`                 varchar(1024)         DEFAULT NULL COMMENT '头像',
     PRIMARY KEY (id)
 ) COMMENT = '用户表';
+insert into `tp_user` (`id`, `user_name`, `sex`, `phone`, `email`, `address`, `postal_code`, `account`, `password`,
+                       `province_id`, `city_id`, `area_id`, `enterprise_certification`, `status`, `created_by`,
+                       `created_time`, `updated_by`, `updated_time`, `avatar`)
+values ('1', 'admin', '1', '15871301059', '907147608@qq.com', '湖北省', NULL, '15871301059',
+        '$2a$10$Kes4JuGAcDtef6kqqEq2w.8bsFdG6lD204uApJkjvd7XMPSQvtcO6', '1', '1', '1', '0', 'effective', '1',
+        '2021-10-17 03:49:38', '1', '2021-10-17 03:49:38',
+        'https://ts1.cn.mm.bing.net/th/id/R-C.8c372fd892b3bd371eb3a1df8bd7fc88?rik=4KxekfOQD28FKA&riu=http%3a%2f%2fwww.desktx.com%2fd%2ffile%2fwallpaper%2fscenery%2f20170303%2fdfe53a7300794009a029131a062836d5.jpg&ehk=6ayU5y%2fwtGnzhu7g%2bJimm2REgEbHGczl9Mkbg3I1%2b5I%3d&risl=&pid=ImgRaw&r=0');
+
+
+
+DROP TABLE IF EXISTS yqm_store_product;
+CREATE TABLE yqm_store_product
+(
+    id                  VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by          VARCHAR(32)  NOT NULL COMMENT '创建人',
+    created_time        DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_by          VARCHAR(32)  NOT NULL COMMENT '更新人',
+    updated_time        DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    product_name        VARCHAR(255) NOT NULL COMMENT '商品名称',
+    product_img         VARCHAR(255) NOT NULL COMMENT '商品图片',
+    product_banner      text         NOT NULL COMMENT '轮播图',
+    subtitle            VARCHAR(900) COMMENT '副标题',
+    brand_id            VARCHAR(32) COMMENT '品牌id',
+    classify_id         VARCHAR(255) NOT NULL COMMENT '商品分类id',
+    introduce           VARCHAR(900) NOT NULL COMMENT '介绍',
+    freight_template_id VARCHAR(255) NOT NULL COMMENT '运费模板id',
+    article_number      VARCHAR(255) NOT NULL COMMENT '货号',
+    price               VARCHAR(255) COMMENT '价格',
+    market_price        VARCHAR(255) COMMENT '市场价',
+    inventory_warning   INT COMMENT '总库存预警值',
+    measuring_unit      VARCHAR(255) COMMENT '计量单位',
+    weight_num          VARCHAR(255) COMMENT '重量;单位克',
+    is_shelves          VARCHAR(255)          DEFAULT 'not_shelves' COMMENT '是否上架;shelves 上架 not_shelves 下架',
+    recommended         VARCHAR(255) COMMENT '推荐',
+    service_guarantee   VARCHAR(900) COMMENT '服务保证',
+    details_title       VARCHAR(255) COMMENT '详情页标题',
+    details_describe    VARCHAR(255) COMMENT '详情页描述',
+    note                VARCHAR(900) COMMENT '商品备注',
+    specifications      VARCHAR(900) COMMENT '规格汇总',
+    parameter           VARCHAR(255) COMMENT '商品参数;json数据',
+    audit               INT                   DEFAULT -1 COMMENT '审核;-1 待审核 0 不同意 1 同意',
+    audit_message       VARCHAR(900) COMMENT '审核完后信息',
+    `status`            VARCHAR(255) NOT NULL DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    PRIMARY KEY (id)
+) COMMENT = '商品表';
+
+
+
+DROP TABLE IF EXISTS yqm_classification;
+CREATE TABLE yqm_classification
+(
+    id            VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by    VARCHAR(32) COMMENT '创建人',
+    created_time  DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by    VARCHAR(32) COMMENT '更新人',
+    updated_time  DATETIME              DEFAULT now() COMMENT '更新时间',
+    classify_name VARCHAR(255) NOT NULL COMMENT '商品分类',
+    pids          VARCHAR(255) COMMENT '父编号',
+    level         INT                   DEFAULT 1 COMMENT '等级',
+    `status`      VARCHAR(255) NOT NULL DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    PRIMARY KEY (id)
+) COMMENT = '商品分类';
+
+
+
+DROP TABLE IF EXISTS yqm_store_sku;
+CREATE TABLE yqm_store_sku
+(
+    id                VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by        VARCHAR(32) COMMENT '创建人',
+    created_time      DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by        VARCHAR(32) COMMENT '更新人',
+    updated_time      DATETIME             DEFAULT now() COMMENT '更新时间',
+    sku_name          VARCHAR(255) COMMENT '名称',
+    sku_value         VARCHAR(255) COMMENT '值',
+    sale_price        VARCHAR(255) COMMENT '销售价',
+    inventory         INT                  DEFAULT 0 COMMENT '库存',
+    inventory_warning VARCHAR(255) COMMENT '库存预警值;0 没有',
+    sku_num           VARCHAR(255) COMMENT 'sku编号',
+    `sort`            INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    img               VARCHAR(255) COMMENT '图片',
+    product_id        VARCHAR(32) NOT NULL COMMENT '商品id',
+    `status`          VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    PRIMARY KEY (id)
+) COMMENT = '商品sku';
+
+
+
+DROP TABLE IF EXISTS yqm_store_evaluation;
+CREATE TABLE yqm_store_evaluation
+(
+    id           VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32) COMMENT '创建人',
+    created_time DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`       INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    product_id   VARCHAR(32)  NOT NULL COMMENT '商品id',
+    sku_id       VARCHAR(32)  NOT NULL COMMENT 'sku编号',
+    `score`      VARCHAR(255) COMMENT '分数',
+    ip           VARCHAR(255) COMMENT 'IP地址',
+    is_show      VARCHAR(255) NOT NULL DEFAULT 'show' COMMENT '是否显示;show 显示 not_show 不显示',
+    content      text COMMENT '内容',
+    user_id      VARCHAR(32)  NOT NULL COMMENT '用户id',
+    reply_id     VARCHAR(32) COMMENT '评论id',
+    PRIMARY KEY (id)
+) COMMENT = '商品评价';
+
+
+DROP TABLE IF EXISTS yqm_brand;
+CREATE TABLE yqm_brand
+(
+    id                     VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by             VARCHAR(32) COMMENT '创建人',
+    created_time           DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by             VARCHAR(32) COMMENT '更新人',
+    updated_time           DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`                 INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`               VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    brand_name             VARCHAR(255) NOT NULL COMMENT '品牌名称',
+    logo                   VARCHAR(255) NOT NULL COMMENT '品牌logo',
+    max_log                VARCHAR(255) COMMENT '品牌专区大图',
+    introduce              text COMMENT '介绍',
+    is_show                VARCHAR(255)          DEFAULT 'show' COMMENT '是否显示;show 显示 not_show 不显示',
+    is_brand_manufacturers VARCHAR(255)          DEFAULT 0 COMMENT '是否品牌制造商;0 不是 1是',
+    PRIMARY KEY (id)
+) COMMENT = '品牌';
+
+
+
+DROP TABLE IF EXISTS yqm_photoalbum;
+CREATE TABLE yqm_photoalbum
+(
+    id              VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by      VARCHAR(32) COMMENT '创建人',
+    created_time    DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by      VARCHAR(32) COMMENT '更新人',
+    updated_time    DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`          INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`        VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    photoalbum_name VARCHAR(255) NOT NULL COMMENT '相册名称',
+    img             VARCHAR(255) COMMENT '封面',
+    introduce       VARCHAR(900) COMMENT '介绍',
+    img_count       INT COMMENT '图片总数',
+    PRIMARY KEY (id)
+) COMMENT = '相册';
+
+
+DROP TABLE IF EXISTS yqm_photoalbum_img;
+CREATE TABLE yqm_photoalbum_img
+(
+    id            VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by    VARCHAR(32) COMMENT '创建人',
+    created_time  DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by    VARCHAR(32) COMMENT '更新人',
+    updated_time  DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`        INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`      VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    photoalbum_id VARCHAR(32) COMMENT '相册id',
+    img           VARCHAR(255) COMMENT '图片',
+    introduce     VARCHAR(255) COMMENT '介绍',
+    PRIMARY KEY (id)
+) COMMENT = '相册图片';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
