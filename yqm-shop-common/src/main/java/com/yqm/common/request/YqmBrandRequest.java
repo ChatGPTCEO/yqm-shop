@@ -33,12 +33,12 @@ public class YqmBrandRequest extends BaseRequest implements Serializable {
     /**
      * 更新人
      */
-    private String updatedTime;
+    private String updatedBy;
 
     /**
      * 更新时间
      */
-    private LocalDateTime updatedBy;
+    private LocalDateTime updatedTime;
 
     /**
      * 排序

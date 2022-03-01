@@ -15,12 +15,11 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yqm.common.dto.YqmBrandDTO;
 import com.yqm.common.request.YqmBrandRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminBrandService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理端-品牌
@@ -51,5 +50,29 @@ public class AdminBrandController {
     public ResponseBean getPage(YqmBrandRequest request) {
         IPage page = adminBrandService.page(request);
         return ResponseBean.success(page);
+    }
+
+    /**
+     * 保存
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping("")
+    public ResponseBean save(YqmBrandRequest request) {
+        YqmBrandDTO dto = adminBrandService.save(request);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 修改
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("")
+    public ResponseBean update(YqmBrandRequest request) {
+        YqmBrandDTO dto = adminBrandService.save(request);
+        return ResponseBean.success(dto);
     }
 }

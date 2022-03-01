@@ -25,6 +25,7 @@ package com.yqm.common.conversion;
 import cn.hutool.core.bean.BeanUtil;
 import com.yqm.common.dto.YqmBrandDTO;
 import com.yqm.common.entity.YqmBrand;
+import com.yqm.common.request.YqmBrandRequest;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.List;
@@ -55,6 +56,15 @@ public class YqmBrandToDTO {
         }
         YqmBrand entity = new YqmBrand();
         BeanUtil.copyProperties(dto, entity);
+        return entity;
+    }
+
+    public static YqmBrand toYqmBrand(YqmBrandRequest request) {
+        if (Objects.isNull(request)) {
+            return null;
+        }
+        YqmBrand entity = new YqmBrand();
+        BeanUtil.copyProperties(request, entity);
         return entity;
     }
 
