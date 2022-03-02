@@ -1,5 +1,6 @@
 package com.yqm.common.entity;
 
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -7,16 +8,16 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 商品表
-    * </p>
-*
-* @author weiximei
-* @since 2022-01-30
-*/
-    @Data
-        @EqualsAndHashCode(callSuper = false)
-    public class YqmStoreProduct implements Serializable {
+ * <p>
+ * 商品表
+ * </p>
+ *
+ * @author weiximei
+ * @since 2022-01-30
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class YqmStoreProduct extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

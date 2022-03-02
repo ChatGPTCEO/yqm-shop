@@ -8,16 +8,16 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
-* <p>
-    * 品牌
-    * </p>
-*
-* @author weiximei
-* @since 2022-01-29
-*/
-    @Data
-    @EqualsAndHashCode(callSuper = false)
-    public class YqmBrandDTO extends BaseEntity implements Serializable {
+ * <p>
+ * 品牌
+ * </p>
+ *
+ * @author weiximei
+ * @since 2022-01-29
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class YqmBrandDTO extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -81,5 +81,9 @@ import java.time.LocalDateTime;
      */
     private String isBrandManufacturers;
 
+    /**
+     * 首字母
+     */
+    private String firstLetter;
 
 }

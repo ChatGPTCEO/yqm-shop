@@ -80,5 +80,9 @@ public class YqmBrandRequest extends BaseRequest implements Serializable {
      */
     private String isBrandManufacturers;
 
+    /**
+     * 首字母
+     */
+    private String firstLetter;
 
 }

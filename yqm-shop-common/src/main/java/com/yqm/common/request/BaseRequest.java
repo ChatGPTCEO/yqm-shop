@@ -42,4 +42,6 @@ public class BaseRequest {
 
     private Boolean isSort;
 
+    private String keyword;
+
 }

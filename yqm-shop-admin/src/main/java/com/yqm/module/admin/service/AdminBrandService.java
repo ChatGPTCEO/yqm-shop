@@ -3,6 +3,7 @@ package com.yqm.module.admin.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.YqmBrandToDTO;
+import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmBrandDTO;
 import com.yqm.common.entity.YqmBrand;
 import com.yqm.common.request.YqmBrandRequest;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * 管理端-品牌
@@ -53,6 +55,17 @@ public class AdminBrandService {
     }
 
     /**
+     * 详情
+     *
+     * @param id
+     * @return
+     */
+    public YqmBrandDTO getById(String id) {
+        YqmBrand entity = iYqmBrandService.getById(id);
+        return YqmBrandToDTO.toYqmBrandDTO(entity);
+    }
+
+    /**
      * 保存/修改
      *
      * @param request
@@ -67,8 +80,48 @@ public class AdminBrandService {
         }
 
         entity.setUpdatedBy(user.getId());
-        entity.setCreatedTime(LocalDateTime.now());
+        entity.setUpdatedTime(LocalDateTime.now());
+        iYqmBrandService.saveOrUpdate(entity);
         return YqmBrandToDTO.toYqmBrandDTO(entity);
     }
 
+    /**
+     * 是否显示
+     *
+     * @param request
+     * @return
+     */
+    public YqmBrandDTO isShow(YqmBrandRequest request) {
+        YqmBrand brand = iYqmBrandService.getById(request.getId());
+        brand.setIsShow(request.getIsShow());
+        return this.save(YqmBrandToDTO.toYqmBrandRequest(brand));
+    }
+
+    /**
+     * 是否品牌制造商
+     *
+     * @param request
+     * @return
+     */
+    public YqmBrandDTO isBrandManufacturers(YqmBrandRequest request) {
+        YqmBrand brand = iYqmBrandService.getById(request.getId());
+        brand.setIsBrandManufacturers(request.getIsBrandManufacturers());
+        return this.save(YqmBrandToDTO.toYqmBrandRequest(brand));
+    }
+
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    public String deleteById(String id) {
+        YqmBrand brand = iYqmBrandService.getById(id);
+        if (Objects.isNull(brand)) {
+            return id;
+        }
+        brand.setStatus(YqmDefine.StatusType.delete.getValue());
+        this.save(YqmBrandToDTO.toYqmBrandRequest(brand));
+        return id;
+    }
 }

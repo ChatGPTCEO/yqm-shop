@@ -53,13 +53,37 @@ public class AdminBrandController {
     }
 
     /**
+     * 查询详情
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public ResponseBean getById(@PathVariable String id) {
+        YqmBrandDTO dto = adminBrandService.getById(id);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public ResponseBean deleteById(@PathVariable String id) {
+        String removeId = adminBrandService.deleteById(id);
+        return ResponseBean.success(removeId);
+    }
+
+    /**
      * 保存
      *
      * @param request
      * @return
      */
     @PostMapping("")
-    public ResponseBean save(YqmBrandRequest request) {
+    public ResponseBean save(@RequestBody YqmBrandRequest request) {
         YqmBrandDTO dto = adminBrandService.save(request);
         return ResponseBean.success(dto);
     }
@@ -71,8 +95,32 @@ public class AdminBrandController {
      * @return
      */
     @PutMapping("")
-    public ResponseBean update(YqmBrandRequest request) {
+    public ResponseBean update(@RequestBody YqmBrandRequest request) {
         YqmBrandDTO dto = adminBrandService.save(request);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 是否显示
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/isShow")
+    public ResponseBean isShow(@RequestBody YqmBrandRequest request) {
+        YqmBrandDTO dto = adminBrandService.isShow(request);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 是否品牌制造商
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/isBrandManufacturers")
+    public ResponseBean isBrandManufacturers(@RequestBody YqmBrandRequest request) {
+        YqmBrandDTO dto = adminBrandService.isBrandManufacturers(request);
         return ResponseBean.success(dto);
     }
 }

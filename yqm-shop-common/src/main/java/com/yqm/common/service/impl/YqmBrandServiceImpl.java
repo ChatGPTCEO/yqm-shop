@@ -37,6 +37,9 @@ public class YqmBrandServiceImpl extends ServiceImpl<YqmBrandMapper, YqmBrand> i
         if (Objects.nonNull(request.getIsSort())) {
             queryWrapper.orderByAsc("sort");
         }
+        if (StringUtils.isNotBlank(request.getKeyword())) {
+            queryWrapper.like("brand_name", request.getKeyword());
+        }
         return queryWrapper;
     }
 

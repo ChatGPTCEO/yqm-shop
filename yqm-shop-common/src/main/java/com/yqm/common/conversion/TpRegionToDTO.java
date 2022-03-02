@@ -22,10 +22,10 @@
 
 package com.yqm.common.conversion;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpRegion;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,12 +41,12 @@ public class TpRegionToDTO {
 
     public static TpRegionDTO toTpCompanyDTO(TpRegion entity) {
         TpRegionDTO dto = new TpRegionDTO();
-        BeanUtil.copyProperties(entity, dto);
+        BeanUtils.copyProperties(entity, dto);
         return dto;
     }
 
     public static List<TpRegionDTO> toTpCompanyDTOList(List<TpRegion> entityList) {
-        if  (CollectionUtils.isEmpty(entityList)) return null;
+        if (CollectionUtils.isEmpty(entityList)) return null;
         List<TpRegionDTO> dtoList = entityList.stream().map(e -> TpRegionToDTO.toTpCompanyDTO(e)).collect(Collectors.toList());
         return dtoList;
     }

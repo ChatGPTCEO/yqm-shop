@@ -22,11 +22,11 @@
 
 package com.yqm.common.conversion;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.yqm.common.dto.YqmBrandDTO;
 import com.yqm.common.entity.YqmBrand;
 import com.yqm.common.request.YqmBrandRequest;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -46,7 +46,7 @@ public class YqmBrandToDTO {
             return null;
         }
         YqmBrandDTO dto = new YqmBrandDTO();
-        BeanUtil.copyProperties(entity, dto);
+        BeanUtils.copyProperties(entity, dto);
         return dto;
     }
 
@@ -55,8 +55,17 @@ public class YqmBrandToDTO {
             return null;
         }
         YqmBrand entity = new YqmBrand();
-        BeanUtil.copyProperties(dto, entity);
+        BeanUtils.copyProperties(dto, entity);
         return entity;
+    }
+
+    public static YqmBrandRequest toYqmBrandRequest(YqmBrand entity) {
+        if (Objects.isNull(entity)) {
+            return null;
+        }
+        YqmBrandRequest brandRequest = new YqmBrandRequest();
+        BeanUtils.copyProperties(entity, brandRequest);
+        return brandRequest;
     }
 
     public static YqmBrand toYqmBrand(YqmBrandRequest request) {
@@ -64,7 +73,7 @@ public class YqmBrandToDTO {
             return null;
         }
         YqmBrand entity = new YqmBrand();
-        BeanUtil.copyProperties(request, entity);
+        BeanUtils.copyProperties(request, entity);
         return entity;
     }
 

@@ -22,9 +22,9 @@
 
 package com.yqm.common.conversion;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.yqm.common.dto.TpUserDTO;
 import com.yqm.common.entity.TpUser;
+import org.springframework.beans.BeanUtils;
 
 /**
  * @Author: weiximei
@@ -37,7 +37,7 @@ public class TpUserToDTO {
 
     public static TpUserDTO toTpUserDTO(TpUser user) {
         TpUserDTO userDTO = new TpUserDTO();
-        BeanUtil.copyProperties(user, userDTO);
+        BeanUtils.copyProperties(user, userDTO);
         return userDTO;
     }
 

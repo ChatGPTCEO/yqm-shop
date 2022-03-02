@@ -31,7 +31,7 @@ public class YqmBrand extends BaseEntity implements Serializable {
      */
     private LocalDateTime createdTime;
 
-    
+
     private LocalDateTime updatedTime;
 
     /**
@@ -79,5 +79,8 @@ public class YqmBrand extends BaseEntity implements Serializable {
      */
     private String isBrandManufacturers;
 
-
+    /**
+     * 首字母
+     */
+    private String firstLetter;
 }
