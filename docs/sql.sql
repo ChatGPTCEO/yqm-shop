@@ -248,6 +248,7 @@ CREATE TABLE yqm_brand
     introduce              text COMMENT '介绍',
     is_show                VARCHAR(255)          DEFAULT 'show' COMMENT '是否显示;show 显示 not_show 不显示',
     is_brand_manufacturers VARCHAR(255)          DEFAULT 0 COMMENT '是否品牌制造商;0 不是 1是',
+    first_letter           VARCHAR(255) COMMENT '首字母',
     PRIMARY KEY (id)
 ) COMMENT = '品牌';
 
@@ -288,6 +289,19 @@ CREATE TABLE yqm_photoalbum_img
 ) COMMENT = '相册图片';
 
 
+DROP TABLE IF EXISTS sys_config;
+CREATE TABLE sys_config
+(
+    id           VARCHAR(255) NOT NULL COMMENT '编号',
+    config_name  VARCHAR(255) COMMENT '名称',
+    config_value text COMMENT '配置值',
+    config_desc  VARCHAR(255) COMMENT '描述',
+    create_by    VARCHAR(32) COMMENT '创建人',
+    create_time  DATETIME DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME DEFAULT now() COMMENT '更新时间',
+    PRIMARY KEY (id)
+) COMMENT = '站点配置';
 
 
 
