@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * 管理端-分类
@@ -96,5 +97,21 @@ public class AdminClassificationService {
 		  YqmClassification brand = iYqmClassificationService.getById(request.getId());
 		  brand.setIsShow(request.getIsShow());
 		  return this.save(YqmClassificationToDTO.toYqmClassificationRequest(brand));
+	 }
+
+	 /**
+	  * 删除
+	  *
+	  * @param id
+	  * @return
+	  */
+	 public String deleteById(String id) {
+		  YqmClassification entity = iYqmClassificationService.getById(id);
+		  if (Objects.isNull(entity)) {
+				return id;
+		  }
+		  entity.setStatus(YqmDefine.StatusType.delete.getValue());
+		  this.save(YqmClassificationToDTO.toYqmClassificationRequest(entity));
+		  return id;
 	 }
 }
