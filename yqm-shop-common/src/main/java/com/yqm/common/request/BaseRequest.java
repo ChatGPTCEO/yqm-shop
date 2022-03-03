@@ -24,6 +24,8 @@ package com.yqm.common.request;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @Author: weiximei
  * @Date: 2021/11/6 16:04
@@ -43,5 +45,10 @@ public class BaseRequest {
     private Boolean isSort;
 
     private String keyword;
+
+    /**
+     * 状态;delete 删除 success 有效
+     */
+    private List<String> statusList;
 
 }

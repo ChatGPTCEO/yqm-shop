@@ -1,6 +1,5 @@
-package com.yqm.common.entity;
+package com.yqm.common.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +17,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmClassification extends BaseEntity implements Serializable {
+public class YqmClassificationDTO extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +39,6 @@ public class YqmClassification extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
-    @TableField(value = "updated_time", update="now()")
     private LocalDateTime updatedTime;
 
     /**

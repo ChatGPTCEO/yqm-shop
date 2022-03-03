@@ -47,6 +47,8 @@ public class AdminBrandService {
         Page<YqmBrand> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
+
+        request.setStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmBrandService.page(page, iYqmBrandService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
             pageList.setRecords(YqmBrandToDTO.toYqmBrandDTOList(pageList.getRecords()));

@@ -6,6 +6,7 @@ import com.yqm.common.entity.YqmBrand;
 import com.yqm.common.mapper.YqmBrandMapper;
 import com.yqm.common.request.YqmBrandRequest;
 import com.yqm.common.service.IYqmBrandService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,9 @@ public class YqmBrandServiceImpl extends ServiceImpl<YqmBrandMapper, YqmBrand> i
         }
         if (StringUtils.isNotBlank(request.getKeyword())) {
             queryWrapper.like("brand_name", request.getKeyword());
+        }
+        if (CollectionUtils.isNotEmpty(request.getStatusList())) {
+            queryWrapper.in("status", request.getStatusList());
         }
         return queryWrapper;
     }

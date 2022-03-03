@@ -1,5 +1,6 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,7 +32,7 @@ public class YqmBrand extends BaseEntity implements Serializable {
      */
     private LocalDateTime createdTime;
 
-
+    @TableField(value = "updated_time", update="now()")
     private LocalDateTime updatedTime;
 
     /**

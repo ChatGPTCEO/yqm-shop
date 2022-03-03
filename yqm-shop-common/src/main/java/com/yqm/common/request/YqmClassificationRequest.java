@@ -1,7 +1,5 @@
-package com.yqm.common.entity;
+package com.yqm.common.request;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * <p>
+ * <p> 
  * 商品分类
  * </p>
  *
@@ -18,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmClassification extends BaseEntity implements Serializable {
+public class YqmClassificationRequest extends BaseRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +38,6 @@ public class YqmClassification extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
-    @TableField(value = "updated_time", update="now()")
     private LocalDateTime updatedTime;
 
     /**
