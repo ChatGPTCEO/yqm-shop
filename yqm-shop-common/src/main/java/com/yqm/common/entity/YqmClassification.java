@@ -40,7 +40,7 @@ public class YqmClassification extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
-    @TableField(value = "updated_time", update="now()")
+    @TableField(value = "updated_time", update = "now()")
     private LocalDateTime updatedTime;
 
     /**
@@ -49,9 +49,14 @@ public class YqmClassification extends BaseEntity implements Serializable {
     private String classifyName;
 
     /**
-     * 父编号
+     * 父编号集合
      */
     private String pids;
+
+    /**
+     * 父编号
+     */
+    private String pid;
 
     /**
      * 等级
@@ -67,6 +72,21 @@ public class YqmClassification extends BaseEntity implements Serializable {
      * 是否显示;show 显示 not_show 不显示
      */
     private String isShow;
+
+    /**
+     * 是否显示;show 显示 not_show 不显示
+     */
+    private String isNavigation;
+
+    /**
+     * 图标
+     */
+    private String logo;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
 
 
 }

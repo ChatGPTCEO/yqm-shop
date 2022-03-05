@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -52,6 +53,11 @@ public class YqmClassificationDTO extends BaseEntity implements Serializable {
     private String pids;
 
     /**
+     * 父编号
+     */
+    private String pid;
+
+    /**
      * 等级
      */
     private Integer level;
@@ -66,5 +72,24 @@ public class YqmClassificationDTO extends BaseEntity implements Serializable {
      */
     private String isShow;
 
+    /**
+     * 是否显示;show 显示 not_show 不显示
+     */
+    private String isNavigation;
+
+    /**
+     * 图标
+     */
+    private String logo;
+
+    /**
+     * 排序
+     */
+    private Integer sort;
+
+    /**
+     * 子集
+     */
+    private List<YqmClassificationDTO> children;
 
 }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -31,87 +32,131 @@ import java.util.Objects;
 @Transactional(rollbackFor = Exception.class)
 public class AdminClassificationService {
 
-	 private final IYqmClassificationService iYqmClassificationService;
+    private final IYqmClassificationService iYqmClassificationService;
 
-	 public AdminClassificationService(IYqmClassificationService iYqmClassificationService) {
-		  this.iYqmClassificationService = iYqmClassificationService;
-	 }
+    public AdminClassificationService(IYqmClassificationService iYqmClassificationService) {
+        this.iYqmClassificationService = iYqmClassificationService;
+    }
 
-	 /**
-	  * 分页查询
-	  *
-	  * @param request
-	  * @return
-	  */
-	 public IPage<YqmClassificationDTO> page(YqmClassificationRequest request) {
-		  Page<YqmClassification> page = new Page<>();
-		  page.setCurrent(request.getCurrent());
-		  page.setSize(request.getPageSize());
+    /**
+     * 分页查询
+     *
+     * @param request
+     * @return
+     */
+    public IPage<YqmClassificationDTO> page(YqmClassificationRequest request) {
+        Page<YqmClassification> page = new Page<>();
+        page.setCurrent(request.getCurrent());
+        page.setSize(request.getPageSize());
 
-		  request.setStatusList(YqmDefine.includeStatus);
-		  IPage pageList = iYqmClassificationService.page(page, iYqmClassificationService.getQuery(request));
-		  if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
-				pageList.setRecords(YqmClassificationToDTO.toYqmClassificationDTOList(pageList.getRecords()));
-		  }
-		  return pageList;
-	 }
+        request.setStatusList(YqmDefine.includeStatus);
+        IPage pageList = iYqmClassificationService.page(page, iYqmClassificationService.getQuery(request));
+        if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
+            pageList.setRecords(YqmClassificationToDTO.toYqmClassificationDTOList(pageList.getRecords()));
+        }
+        return pageList;
+    }
 
-	 /**
-	  * 详情
-	  *
-	  * @param id
-	  * @return
-	  */
-	 public YqmClassificationDTO getById(String id) {
-		  YqmClassification entity = iYqmClassificationService.getById(id);
-		  return YqmClassificationToDTO.toYqmClassificationDTO(entity);
-	 }
+    /**
+     * 详情
+     *
+     * @param id
+     * @return
+     */
+    public YqmClassificationDTO getById(String id) {
+        YqmClassification entity = iYqmClassificationService.getById(id);
+        return YqmClassificationToDTO.toYqmClassificationDTO(entity);
+    }
 
-	 /**
-	  * 保存/修改
-	  *
-	  * @param request
-	  * @return
-	  */
-	 public YqmClassificationDTO save(YqmClassificationRequest request) {
-		  User user = UserInfoService.getUser();
-		  YqmClassification entity = YqmClassificationToDTO.toYqmClassification(request);
-		  if (StringUtils.isEmpty(request.getId())) {
-				entity.setCreatedTime(LocalDateTime.now());
-				entity.setCreatedBy(user.getId());
-		  }
+    /**
+     * 保存/修改
+     *
+     * @param request
+     * @return
+     */
+    public YqmClassificationDTO save(YqmClassificationRequest request) {
+        User user = UserInfoService.getUser();
+        YqmClassification entity = YqmClassificationToDTO.toYqmClassification(request);
+        if (StringUtils.isEmpty(request.getId())) {
+            entity.setCreatedTime(LocalDateTime.now());
+            entity.setCreatedBy(user.getId());
+        }
 
-		  entity.setUpdatedBy(user.getId());
-		  entity.setUpdatedTime(LocalDateTime.now());
-		  iYqmClassificationService.saveOrUpdate(entity);
-		  return YqmClassificationToDTO.toYqmClassificationDTO(entity);
-	 }
+        entity.setUpdatedBy(user.getId());
+        entity.setUpdatedTime(LocalDateTime.now());
+        iYqmClassificationService.saveOrUpdate(entity);
+        return YqmClassificationToDTO.toYqmClassificationDTO(entity);
+    }
 
-	 /**
-	  * 是否显示
-	  *
-	  * @param request
-	  * @return
-	  */
-	 public YqmClassificationDTO isShow(YqmClassificationRequest request) {
-		  YqmClassification brand = iYqmClassificationService.getById(request.getId());
-		  brand.setIsShow(request.getIsShow());
-		  return this.save(YqmClassificationToDTO.toYqmClassificationRequest(brand));
-	 }
+    /**
+     * 是否显示
+     *
+     * @param request
+     * @return
+     */
+    public YqmClassificationDTO isShow(YqmClassificationRequest request) {
+        YqmClassification classification = iYqmClassificationService.getById(request.getId());
+        classification.setIsShow(request.getIsShow());
+        return this.save(YqmClassificationToDTO.toYqmClassificationRequest(classification));
+    }
 
-	 /**
-	  * 删除
-	  *
-	  * @param id
-	  * @return
-	  */
-	 public String deleteById(String id) {
-		  YqmClassification entity = iYqmClassificationService.getById(id);
-		  if (Objects.isNull(entity)) {
-				return id;
-		  }
-		  entity.setStatus(YqmDefine.StatusType.delete.getValue());
-		  this.save(YqmClassificationToDTO.toYqmClassificationRequest(entity));
-		  return id;
-	 }
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    public String deleteById(String id) {
+        YqmClassification entity = iYqmClassificationService.getById(id);
+        if (Objects.isNull(entity)) {
+            return id;
+        }
+        entity.setStatus(YqmDefine.StatusType.delete.getValue());
+        this.save(YqmClassificationToDTO.toYqmClassificationRequest(entity));
+        return id;
+    }
+
+    /**
+     * 是否显示在导航栏
+     *
+     * @param request
+     * @return
+     */
+    public YqmClassificationDTO isNavigation(YqmClassificationRequest request) {
+        YqmClassification classification = iYqmClassificationService.getById(request.getId());
+        classification.setIsNavigation(request.getIsShow());
+        return this.save(YqmClassificationToDTO.toYqmClassificationRequest(classification));
+    }
+
+    /**
+     * 集合
+     *
+     * @param request
+     * @return
+     */
+    public List<YqmClassificationDTO> list(YqmClassificationRequest request) {
+        request.setStatusList(YqmDefine.includeStatus);
+        List<YqmClassification> list = iYqmClassificationService.list(iYqmClassificationService.getQuery(request));
+        return YqmClassificationToDTO.toYqmClassificationDTOList(list);
+    }
+
+
+    /**
+     * 集合 子集
+     *
+     * @param request
+     * @return
+     */
+    public List<YqmClassificationDTO> listChild(YqmClassificationRequest request) {
+        request.setLevel(1);
+        List<YqmClassificationDTO> list = this.list(request);
+        for (YqmClassificationDTO dto : list) {
+            YqmClassificationRequest requestChild = new YqmClassificationRequest();
+            requestChild.setPid(dto.getId());
+            List<YqmClassificationDTO> child = this.list(requestChild);
+            dto.setChildren(child);
+        }
+
+        return list;
+    }
 }

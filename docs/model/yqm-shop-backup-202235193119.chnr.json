@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-5 19:33:09",
+  "updatedTime": "2022-3-5 19:30:59",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1347,26 +1347,11 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "pid",
-          "defName": "父编号",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "1",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
           "defKey": "pids",
           "defName": "父编号集合",
           "comment": "",
           "type": "VARCHAR",
-          "len": "900",
+          "len": 255,
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -1374,7 +1359,7 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DescText"
+          "domain": "DefaultString"
         },
         {
           "defKey": "level",
@@ -1406,6 +1391,21 @@
           "domain": "DefaultString"
         },
         {
+          "defKey": "pid",
+          "defName": "父编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
           "defKey": "logo",
           "defName": "图标",
           "comment": "",
@@ -1434,36 +1434,6 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
-        },
-        {
-          "defKey": "is_show",
-          "defName": "是否显示",
-          "comment": "show 显示 not_show 不显示",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "'show'",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "`sort`",
-          "defName": "排序",
-          "comment": "",
-          "type": "INT",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "1",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "Int"
         }
       ],
       "correlations": [],

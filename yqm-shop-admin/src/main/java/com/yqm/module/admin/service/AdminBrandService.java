@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -54,6 +55,18 @@ public class AdminBrandService {
             pageList.setRecords(YqmBrandToDTO.toYqmBrandDTOList(pageList.getRecords()));
         }
         return pageList;
+    }
+
+    /**
+     * 查询
+     *
+     * @param request
+     * @return
+     */
+    public List<YqmBrandDTO> list(YqmBrandRequest request) {
+        request.setStatusList(YqmDefine.includeStatus);
+        List<YqmBrand> list = iYqmBrandService.list(iYqmBrandService.getQuery(request));
+        return YqmBrandToDTO.toYqmBrandDTOList(list);
     }
 
     /**
@@ -126,4 +139,6 @@ public class AdminBrandService {
         this.save(YqmBrandToDTO.toYqmBrandRequest(brand));
         return id;
     }
+
+
 }

@@ -41,6 +41,17 @@ public class AdminBrandController {
     }
 
     /**
+     * 查询
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/list")
+    public ResponseBean list(YqmBrandRequest request) {
+        return ResponseBean.success(adminBrandService.list(request));
+    }
+
+    /**
      * 查询分页
      *
      * @param request

@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -86,4 +87,8 @@ public class YqmBrandDTO extends BaseEntity implements Serializable {
      */
     private String firstLetter;
 
+    /**
+     * 子集合
+     */
+    private List<YqmBrandDTO> children;
 }

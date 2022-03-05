@@ -11,23 +11,27 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 /**
-* <p>
-    * 商品分类 服务实现类
-    * </p>
-*
-* @author weiximei
-* @since 2022-01-30
-*/
+ * <p>
+ * 商品分类 服务实现类
+ * </p>
+ *
+ * @author weiximei
+ * @since 2022-01-30
+ */
 @Service
 public class YqmClassificationServiceImpl extends ServiceImpl<YqmClassificationMapper, YqmClassification> implements IYqmClassificationService {
 
-    @Override public QueryWrapper<YqmClassification> getQuery(YqmClassificationRequest request) {
+    @Override
+    public QueryWrapper<YqmClassification> getQuery(YqmClassificationRequest request) {
         QueryWrapper<YqmClassification> queryWrapper = new QueryWrapper<>();
-        if (StringUtils.isNotBlank(request.getClassifyName())) {
-            queryWrapper.like("classify_name", request.getClassifyName());
+        if (StringUtils.isNotBlank(request.getKeyword())) {
+            queryWrapper.like("classify_name", request.getKeyword());
         }
         if (CollectionUtils.isNotEmpty(request.getStatusList())) {
             queryWrapper.in("status", request.getStatusList());
+        }
+        if (StringUtils.isNotBlank(request.getPid())) {
+            queryWrapper.eq("pid", request.getPid());
         }
         return queryWrapper;
     }

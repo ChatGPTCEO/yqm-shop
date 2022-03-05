@@ -41,7 +41,7 @@ public class YqmDefine {
      * 状态类型
      */
     public enum StatusType {
-        effective("有效", "effective"),
+        effective("有效", "success"),
         failure("失效", "failure"),
         delete("删除", "delete");
 

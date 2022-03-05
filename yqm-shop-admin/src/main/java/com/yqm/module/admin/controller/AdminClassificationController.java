@@ -21,6 +21,8 @@ import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminClassificationService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 管理端-商品分类
  *
@@ -112,4 +114,27 @@ public class AdminClassificationController {
         return ResponseBean.success(dto);
     }
 
+    /**
+     * 是否显示导航栏
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/isNavigation")
+    public ResponseBean isNavigation(@RequestBody YqmClassificationRequest request) {
+        YqmClassificationDTO dto = adminClassificationService.isNavigation(request);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 查询集合
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/listChild")
+    public ResponseBean list(YqmClassificationRequest request) {
+        List<YqmClassificationDTO> dtoList = adminClassificationService.listChild(request);
+        return ResponseBean.success(dtoList);
+    }
 }
