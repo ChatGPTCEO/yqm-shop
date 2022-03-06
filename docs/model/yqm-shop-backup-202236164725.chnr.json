@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-6 17:29:23",
+  "updatedTime": "2022-3-6 16:47:15",
   "dbConns": [],
   "profile": {
     "default": {
@@ -3079,7 +3079,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "first_num",
+          "defKey": "g_num",
           "defName": "首重量kg",
           "comment": "",
           "type": "VARCHAR",
@@ -3094,7 +3094,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "first_price",
+          "defKey": "g_price",
           "defName": "首费(分)",
           "comment": "",
           "type": "VARCHAR",
@@ -3109,7 +3109,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "continue_num",
+          "defKey": "continue_g_num",
           "defName": "续重kg",
           "comment": "",
           "type": "VARCHAR",
@@ -3124,7 +3124,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "continue_piece",
+          "defKey": "continue_g_piece",
           "defName": "续费(分)",
           "comment": "",
           "type": "VARCHAR",
@@ -3335,7 +3335,7 @@
           "len": 255,
           "scale": "",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": false,
@@ -3350,7 +3350,7 @@
           "len": 255,
           "scale": "",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
           "hideInGraph": false,
@@ -3479,7 +3479,7 @@
         },
         {
           "defKey": "weight",
-          "defName": "按重量计算",
+          "defName": "重量",
           "sort": "",
           "parentKey": "price_type",
           "intro": "",
@@ -3490,7 +3490,7 @@
         },
         {
           "defKey": "piece",
-          "defName": "按商品件数计算",
+          "defName": "单件",
           "sort": "",
           "parentKey": "price_type",
           "intro": "",

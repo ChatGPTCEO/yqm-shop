@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-6 17:29:23",
+  "updatedTime": "2022-3-6 16:44:24",
   "dbConns": [],
   "profile": {
     "default": {
@@ -3079,7 +3079,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "first_num",
+          "defKey": "g_num",
           "defName": "首重量kg",
           "comment": "",
           "type": "VARCHAR",
@@ -3094,7 +3094,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "first_price",
+          "defKey": "g_price",
           "defName": "首费(分)",
           "comment": "",
           "type": "VARCHAR",
@@ -3109,7 +3109,7 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "continue_num",
+          "defKey": "continue_g_num",
           "defName": "续重kg",
           "comment": "",
           "type": "VARCHAR",
@@ -3124,257 +3124,8 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "continue_piece",
+          "defKey": "continue_g_piece",
           "defName": "续费(分)",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        }
-      ],
-      "correlations": [],
-      "indexes": []
-    },
-    {
-      "defKey": "yqm_dictionary",
-      "defName": "字典表",
-      "comment": "",
-      "properties": {},
-      "nameTemplate": "{defKey}[{defName}]",
-      "headers": [
-        {
-          "freeze": false,
-          "refKey": "hideInGraph",
-          "hideInGraph": true
-        },
-        {
-          "freeze": true,
-          "refKey": "defKey",
-          "hideInGraph": false
-        },
-        {
-          "freeze": true,
-          "refKey": "defName",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "primaryKey",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "notNull",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "autoIncrement",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "domain",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "type",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "len",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "scale",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "comment",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "refDict",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "defaultValue",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "isStandard",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "uiHint",
-          "hideInGraph": true
-        }
-      ],
-      "fields": [
-        {
-          "defKey": "id",
-          "defName": "编号",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": true,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "created_by",
-          "defName": "创建人",
-          "comment": "",
-          "domain": "IdOrKey",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "created_time",
-          "defName": "创建时间",
-          "comment": "",
-          "domain": "DateTime",
-          "type": "DATETIME",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "now()",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "updated_by",
-          "defName": "更新人",
-          "comment": "",
-          "domain": "IdOrKey",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "updated_time",
-          "defName": "更新时间",
-          "comment": "",
-          "domain": "DateTime",
-          "type": "DATETIME",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "now()",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "`sort`",
-          "defName": "排序",
-          "comment": "",
-          "type": "INT",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "1",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "Int"
-        },
-        {
-          "defKey": "`status`",
-          "defName": "状态",
-          "comment": "delete 删除 success 有效 failure 失效",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "'success'",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "dictionary_name",
-          "defName": "字典名称",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "dictionary_code",
-          "defName": "字典code",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "pcode",
-          "defName": "父code",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "dictionary_desc",
-          "defName": "描述",
           "comment": "",
           "type": "VARCHAR",
           "len": 255,
@@ -3479,18 +3230,7 @@
         },
         {
           "defKey": "weight",
-          "defName": "按重量计算",
-          "sort": "",
-          "parentKey": "price_type",
-          "intro": "",
-          "enabled": true,
-          "attr1": "",
-          "attr2": "",
-          "attr3": ""
-        },
-        {
-          "defKey": "piece",
-          "defName": "按商品件数计算",
+          "defName": "重量",
           "sort": "",
           "parentKey": "price_type",
           "intro": "",

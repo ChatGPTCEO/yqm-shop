@@ -27,9 +27,9 @@ import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpRegion;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.common.service.ITpRegionService;
+import com.yqm.module.common.service.DictionaryService;
 import com.yqm.module.common.service.UploadService;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -52,11 +52,17 @@ import java.util.stream.Collectors;
 public class CommonController {
 
 
-    @Autowired
-    private UploadService uploadService;
+    private final UploadService uploadService;
 
-    @Autowired
-    private ITpRegionService iTpRegionService;
+    private final ITpRegionService iTpRegionService;
+
+    private final DictionaryService dictionaryService;
+
+    public CommonController(UploadService uploadService, ITpRegionService iTpRegionService, DictionaryService dictionaryService) {
+        this.uploadService = uploadService;
+        this.iTpRegionService = iTpRegionService;
+        this.dictionaryService = dictionaryService;
+    }
 
     /**
      * 根据 pid 获取省市区
@@ -100,6 +106,16 @@ public class CommonController {
             e.printStackTrace();
         }
         return ResponseBean.error("上传失败");
+    }
+
+    /**
+     * 运费模板-费用计算方式
+     *
+     * @return
+     */
+    @GetMapping("/dictionary/priceType")
+    public ResponseBean uploadImg() {
+        return ResponseBean.success(dictionaryService.priceTypeList());
     }
 
 }

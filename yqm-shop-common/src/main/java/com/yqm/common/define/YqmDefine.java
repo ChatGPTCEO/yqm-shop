@@ -139,7 +139,7 @@ public class YqmDefine {
     }
 
     /**
-     * 系统配置
+     * 用户配置
      */
     public enum CustomerSysConfigType {
         customer("用户配置", "customer");
@@ -203,15 +203,15 @@ public class YqmDefine {
     }
 
     /**
-     * 页面类型
+     * 字典类型
      */
-    public enum PageType {
-        navigation("导航", "navigation");
+    public enum DictionaryType {
+        priceType("运费计算方式", "price_type");
 
         private String desc;
         private String value;
 
-        PageType(String desc, String value) {
+        DictionaryType(String desc, String value) {
             this.desc = desc;
             this.value = value;
         }
@@ -233,36 +233,5 @@ public class YqmDefine {
         }
     }
 
-    /**
-     * 页面归属
-     */
-    public enum PageBelongsType {
-        system("系统", "system"),
-        user("用户", "user");
-
-        private String desc;
-        private String value;
-
-        PageBelongsType(String desc, String value) {
-            this.desc = desc;
-            this.value = value;
-        }
-
-        public String getDesc() {
-            return desc;
-        }
-
-        public void setDesc(String desc) {
-            this.desc = desc;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
-    }
 
 }
