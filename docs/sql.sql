@@ -179,9 +179,14 @@ CREATE TABLE yqm_classification
     updated_by    VARCHAR(32) COMMENT '更新人',
     updated_time  DATETIME              DEFAULT now() COMMENT '更新时间',
     classify_name VARCHAR(255) NOT NULL COMMENT '商品分类',
-    pids          VARCHAR(255) COMMENT '父编号',
+    pid           VARCHAR(32)  NOT NULL DEFAULT 1 COMMENT '父编号',
+    pids          VARCHAR(900) COMMENT '父编号集合',
     level         INT                   DEFAULT 1 COMMENT '等级',
     `status`      VARCHAR(255) NOT NULL DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    logo          VARCHAR(900) COMMENT '图标',
+    is_navigation VARCHAR(255) NOT NULL DEFAULT 'show' COMMENT '是否显示导航;show 显示 not_show 不显示',
+    is_show       VARCHAR(255) NOT NULL DEFAULT 'show' COMMENT '是否显示;show 显示 not_show 不显示',
+    `sort`        INT          NOT NULL DEFAULT 1 COMMENT '排序',
     PRIMARY KEY (id)
 ) COMMENT = '商品分类';
 
@@ -305,14 +310,56 @@ CREATE TABLE sys_config
 
 
 
+DROP TABLE IF EXISTS yqm_freight_template;
+CREATE TABLE yqm_freight_template
+(
+    id             VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by     VARCHAR(32) COMMENT '创建人',
+    created_time   DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by     VARCHAR(32) COMMENT '更新人',
+    updated_time   DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`         INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`       VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    template_name  VARCHAR(255) COMMENT '模板名称',
+    price_type     VARCHAR(255) NOT NULL COMMENT '运费方式;weight 重量 piece 单件',
+    first_num      VARCHAR(255) COMMENT '首重量kg',
+    first_price    VARCHAR(255) NOT NULL COMMENT '首费(分)',
+    continue_num   VARCHAR(255) COMMENT '续重kg',
+    continue_piece VARCHAR(255) COMMENT '续费(分)',
+    PRIMARY KEY (id)
+) COMMENT = '运费模板';
 
 
 
+DROP TABLE IF EXISTS yqm_dictionary;
+CREATE TABLE yqm_dictionary
+(
+    id              VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by      VARCHAR(32) COMMENT '创建人',
+    created_time    DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by      VARCHAR(32) COMMENT '更新人',
+    updated_time    DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`          INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`        VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    dictionary_name VARCHAR(255) NOT NULL COMMENT '字典名称',
+    dictionary_code VARCHAR(255) NOT NULL COMMENT '字典code',
+    pcode           VARCHAR(255) COMMENT '父code',
+    dictionary_desc VARCHAR(255) COMMENT '描述',
+    PRIMARY KEY (id)
+) COMMENT = '字典表';
 
-
-
-
-
+INSERT INTO `yqm_dictionary` (`id`, `created_by`, `created_time`, `updated_by`, `updated_time`, `sort`, `status`,
+                              `dictionary_name`, `dictionary_code`, `pcode`, `dictionary_desc`)
+VALUES ('1', '1', '2022-03-06 09:05:58', '1', '2022-03-06 09:05:58', 1, 'success', '费用计算方式', 'price_type', NULL,
+        '运费模板');
+INSERT INTO `yqm_dictionary` (`id`, `created_by`, `created_time`, `updated_by`, `updated_time`, `sort`, `status`,
+                              `dictionary_name`, `dictionary_code`, `pcode`, `dictionary_desc`)
+VALUES ('2', '1', '2022-03-06 09:06:19', '1', '2022-03-06 09:06:19', 1, 'success', '按重量计算', 'weight', 'price_type',
+        NULL);
+INSERT INTO `yqm_dictionary` (`id`, `created_by`, `created_time`, `updated_by`, `updated_time`, `sort`, `status`,
+                              `dictionary_name`, `dictionary_code`, `pcode`, `dictionary_desc`)
+VALUES ('3', '1', '2022-03-06 09:06:19', '1', '2022-03-06 09:06:19', 1, 'success', '按商品件数计算', 'piece', 'price_type',
+        NULL);
 
 
 
