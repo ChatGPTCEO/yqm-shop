@@ -165,6 +165,8 @@ CREATE TABLE yqm_store_product
     audit               INT                   DEFAULT -1 COMMENT '审核;-1 待审核 0 不同意 1 同意',
     audit_message       VARCHAR(900) COMMENT '审核完后信息',
     `status`            VARCHAR(255) NOT NULL DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    `sort`              INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    is_show             VARCHAR(255) NOT NULL DEFAULT 'show' COMMENT '是否显示;show 显示 not_show 不显示',
     PRIMARY KEY (id)
 ) COMMENT = '商品表';
 
