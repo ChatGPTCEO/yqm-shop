@@ -1,4 +1,4 @@
-package com.yqm.common.entity;
+package com.yqm.common.dto;
 
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmStoreProduct extends BaseEntity implements Serializable {
+public class YqmStoreProductDTO extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
