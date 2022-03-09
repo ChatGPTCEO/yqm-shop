@@ -22,10 +22,12 @@
 
 package com.yqm.common.conversion;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yqm.common.dto.YqmStoreProductDTO;
 import com.yqm.common.entity.YqmStoreProduct;
 import com.yqm.common.request.YqmStoreProductRequest;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
 import java.util.List;
@@ -47,6 +49,9 @@ public class YqmStoreProductToDTO {
         }
         YqmStoreProductDTO dto = new YqmStoreProductDTO();
         BeanUtils.copyProperties(entity, dto);
+        if (StringUtils.isNotBlank(entity.getProductBanner())) {
+            dto.setProductBannerList(JSONObject.parseArray(entity.getProductBanner(), String.class));
+        }
         return dto;
     }
 

@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -54,6 +55,11 @@ public class YqmStoreProductRequest extends BaseRequest implements Serializable 
      * 轮播图
      */
     private String productBanner;
+
+    /**
+     * 轮播图 集合
+     */
+    private List<String> productBannerList;
 
     /**
      * 副标题

@@ -112,14 +112,14 @@ public class AdminStoreProductController {
     }
 
     /**
-     * 是否显示
+     * 上下架
      *
      * @param request
      * @return
      */
-    @PutMapping("/isShow")
+    @PutMapping("/isShelves")
     public ResponseBean isShow(@RequestBody YqmStoreProductRequest request) {
-        YqmStoreProductDTO dto = adminStoreProductService.isShow(request);
+        YqmStoreProductDTO dto = adminStoreProductService.isShelves(request);
         return ResponseBean.success(dto);
     }
 

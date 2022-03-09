@@ -1,5 +1,6 @@
 package com.yqm.module.admin.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.YqmStoreProductToDTO;
@@ -93,6 +94,9 @@ public class AdminStoreProductService {
             entity.setCreatedTime(LocalDateTime.now());
             entity.setCreatedBy(user.getId());
         }
+        if (CollectionUtils.isNotEmpty(request.getProductBannerList())) {
+            entity.setProductBanner(JSONObject.toJSONString(request.getProductBannerList()));
+        }
 
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
@@ -101,14 +105,14 @@ public class AdminStoreProductService {
     }
 
     /**
-     * 是否显示
+     * 上下架
      *
      * @param request
      * @return
      */
-    public YqmStoreProductDTO isShow(YqmStoreProductRequest request) {
+    public YqmStoreProductDTO isShelves(YqmStoreProductRequest request) {
         YqmStoreProduct entity = iYqmStoreProductService.getById(request.getId());
-        entity.setIsShow(request.getIsShow());
+        entity.setIsShelves(request.getIsShelves());
         return this.save(YqmStoreProductToDTO.toYqmStoreProductRequest(entity));
     }
 
