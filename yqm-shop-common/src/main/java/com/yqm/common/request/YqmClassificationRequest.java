@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -49,6 +50,11 @@ public class YqmClassificationRequest extends BaseRequest implements Serializabl
      * 父编号
      */
     private String pids;
+
+    /**
+     * 父编号
+     */
+    private List<String> pidsList;
 
     /**
      * 父编号

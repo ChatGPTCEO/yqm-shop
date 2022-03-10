@@ -33,6 +33,9 @@ public class YqmClassificationServiceImpl extends ServiceImpl<YqmClassificationM
         if (StringUtils.isNotBlank(request.getPid())) {
             queryWrapper.eq("pid", request.getPid());
         }
+        if (null !=  request.getLevel()) {
+            queryWrapper.eq("level", request.getLevel());
+        }
         return queryWrapper;
     }
 }

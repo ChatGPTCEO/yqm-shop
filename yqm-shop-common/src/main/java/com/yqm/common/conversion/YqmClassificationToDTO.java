@@ -26,8 +26,10 @@ import com.yqm.common.dto.YqmClassificationDTO;
 import com.yqm.common.entity.YqmClassification;
 import com.yqm.common.request.YqmClassificationRequest;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -47,6 +49,11 @@ public class YqmClassificationToDTO {
         }
         YqmClassificationDTO dto = new YqmClassificationDTO();
         BeanUtils.copyProperties(entity, dto);
+
+        if (StringUtils.isNotBlank(entity.getPids())) {
+            dto.setPidsList(Arrays.asList(StringUtils.split(entity.getPids(), ",")));
+        }
+
         return dto;
     }
 
@@ -74,6 +81,12 @@ public class YqmClassificationToDTO {
         }
         YqmClassification entity = new YqmClassification();
         BeanUtils.copyProperties(request, entity);
+
+        if (CollectionUtils.isNotEmpty(request.getPidsList())) {
+            entity.setPids(StringUtils.join(request.getPidsList().toArray(),","));
+            entity.setPid(request.getPidsList().get(request.getPidsList().size() - 1));
+        }
+
         return entity;
     }
 

@@ -1,6 +1,5 @@
 package com.yqm.module.admin.service;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.YqmStoreProductToDTO;
@@ -94,9 +93,7 @@ public class AdminStoreProductService {
             entity.setCreatedTime(LocalDateTime.now());
             entity.setCreatedBy(user.getId());
         }
-        if (CollectionUtils.isNotEmpty(request.getProductBannerList())) {
-            entity.setProductBanner(JSONObject.toJSONString(request.getProductBannerList()));
-        }
+
 
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());

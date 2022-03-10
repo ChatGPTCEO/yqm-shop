@@ -82,6 +82,10 @@ public class AdminClassificationService {
             entity.setCreatedBy(user.getId());
         }
 
+        if (CollectionUtils.isNotEmpty(request.getPidsList())) {
+            entity.setLevel(request.getPidsList().size() + 1);
+        }
+
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
         iYqmClassificationService.saveOrUpdate(entity);

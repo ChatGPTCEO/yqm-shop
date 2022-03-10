@@ -79,6 +79,11 @@ public class YqmStoreProductToDTO {
         }
         YqmStoreProduct entity = new YqmStoreProduct();
         BeanUtils.copyProperties(request, entity);
+
+        if (CollectionUtils.isNotEmpty(request.getProductBannerList())) {
+            entity.setProductBanner(JSONObject.toJSONString(request.getProductBannerList()));
+        }
+
         return entity;
     }
 

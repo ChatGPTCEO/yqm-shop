@@ -55,6 +55,11 @@ public class YqmClassificationDTO extends BaseEntity implements Serializable {
     /**
      * 父编号
      */
+    private List<String> pidsList;
+
+    /**
+     * 父编号
+     */
     private String pid;
 
     /**
