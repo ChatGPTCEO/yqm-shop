@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.YqmStoreProductToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmStoreProductDTO;
+import com.yqm.common.dto.YqmStoreProductStatisticsDTO;
 import com.yqm.common.entity.YqmStoreProduct;
 import com.yqm.common.request.YqmStoreProductRequest;
 import com.yqm.common.service.IYqmStoreProductService;
@@ -130,5 +131,20 @@ public class AdminStoreProductService {
         return id;
     }
 
+    /**
+     * 商品-统计
+     * @return
+     */
+    public YqmStoreProductStatisticsDTO getStatistics() {
+        User user = UserInfoService.getUser();
+        Integer count = iYqmStoreProductService.getCount(user.getId());
+        Integer shelvesCount = iYqmStoreProductService.getShelvesCount(user.getId(), YqmDefine.ShelvesType.shelves.getValue());
+        Integer notShelvesCount = iYqmStoreProductService.getShelvesCount(user.getId(), YqmDefine.ShelvesType.not_shelves.getValue());
+
+        return YqmStoreProductStatisticsDTO.builder()
+              .shelvesCount(shelvesCount)
+              .notShelvesCount(notShelvesCount)
+              .count(count).build();
+    }
 
 }

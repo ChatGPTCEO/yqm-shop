@@ -233,5 +233,38 @@ public class YqmDefine {
         }
     }
 
+    /**
+     * 上下架状态
+     */
+    public enum ShelvesType {
+        shelves("上架", "shelves"),
+        not_shelves("未支付", "not_shelves"),
+        ;
+
+        private String desc;
+        private String value;
+
+        ShelvesType(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
 
 }

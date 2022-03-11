@@ -16,6 +16,7 @@ package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yqm.common.dto.YqmStoreProductDTO;
+import com.yqm.common.dto.YqmStoreProductStatisticsDTO;
 import com.yqm.common.request.YqmStoreProductRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminStoreProductService;
@@ -122,5 +123,17 @@ public class AdminStoreProductController {
         YqmStoreProductDTO dto = adminStoreProductService.isShelves(request);
         return ResponseBean.success(dto);
     }
+
+    /**
+     * 商品-统计
+     *
+     * @return
+     */
+    @GetMapping("/getStatistics")
+    public ResponseBean getStatistics() {
+        YqmStoreProductStatisticsDTO dto = adminStoreProductService.getStatistics();
+        return ResponseBean.success(dto);
+    }
+
 
 }

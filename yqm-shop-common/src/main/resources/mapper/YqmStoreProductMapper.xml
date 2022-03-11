@@ -23,4 +23,16 @@
             updated_time = now()
     </update>
 
+    <select id="getCount" resultType="int">
+        select ifnull(count(*), 0)
+        from yqm_store_product where status = #{status}
+    </select>
+
+    <select id="getShelvesCount" resultType="int">
+        select ifnull(count(*), 0)
+        from yqm_store_product where is_shelves = #{shelves}
+    </select>
+
+
+
 </mapper>

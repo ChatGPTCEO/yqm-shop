@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yqm.common.entity.YqmStoreProduct;
 import com.yqm.common.request.YqmStoreProductRequest;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -32,13 +31,27 @@ public interface IYqmStoreProductService extends IService<YqmStoreProduct> {
      * @param userId
      * @param id
      */
-    void topSort(@Param("userId") String userId, @Param("id") String id);
+    void topSort(String userId,String id);
 
     /**
      * sort 减一
      *
      * @param userId
      */
-    void minusOneSort(@Param("userId") String userId);
+    void minusOneSort(String userId);
+
+    /**
+     * 获取总数
+     * @param userId
+     * @return
+     */
+    int getCount(String userId);
+
+    /**
+     * 获取总数 (上下架)
+     * @param userId
+     * @return
+     */
+    int getShelvesCount(String userId, String shelves);
 
 }

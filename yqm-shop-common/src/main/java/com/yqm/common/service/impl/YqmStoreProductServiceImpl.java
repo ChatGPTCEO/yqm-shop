@@ -2,6 +2,7 @@ package com.yqm.common.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yqm.common.define.YqmDefine;
 import com.yqm.common.entity.YqmStoreProduct;
 import com.yqm.common.mapper.YqmStoreProductMapper;
 import com.yqm.common.request.YqmStoreProductRequest;
@@ -59,5 +60,15 @@ public class YqmStoreProductServiceImpl extends ServiceImpl<YqmStoreProductMappe
     @Override
     public void minusOneSort(String userId) {
         storeProductMapper.minusOneSort(userId);
+    }
+
+    @Override
+    public int getCount(String userId) {
+        return storeProductMapper.getCount(userId, YqmDefine.StatusType.effective.getValue());
+    }
+
+    @Override
+    public int getShelvesCount(String userId, String shelves) {
+        return storeProductMapper.getShelvesCount(userId, shelves);
     }
 }

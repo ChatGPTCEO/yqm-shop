@@ -36,4 +36,18 @@ public interface YqmStoreProductMapper extends BaseMapper<YqmStoreProduct> {
      */
     void minusOneSort(@Param("userId") String userId);
 
+    /**
+     * 获取总数
+     * @param userId
+     * @return
+     */
+    int getCount(@Param("userId") String userId, @Param("status") String status);
+
+    /**
+     * 获取总数 (上下架)
+     * @param userId
+     * @return
+     */
+    int getShelvesCount(@Param("userId") String userId, @Param("shelves") String shelves);
+
 }
