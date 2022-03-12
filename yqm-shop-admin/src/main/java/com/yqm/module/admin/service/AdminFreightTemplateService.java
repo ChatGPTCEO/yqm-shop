@@ -67,7 +67,7 @@ public class AdminFreightTemplateService {
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmFreightTemplateService.page(page, iYqmFreightTemplateService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
             pageList.setRecords(YqmFreightTemplateToDTO.toYqmFreightTemplateDTOList(pageList.getRecords()));
@@ -82,7 +82,7 @@ public class AdminFreightTemplateService {
      * @return
      */
     public List<YqmFreightTemplateDTO> list(YqmFreightTemplateRequest request) {
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         List<YqmFreightTemplate> list = iYqmFreightTemplateService.list(iYqmFreightTemplateService.getQuery(request));
         return YqmFreightTemplateToDTO.toYqmFreightTemplateDTOList(list);
     }

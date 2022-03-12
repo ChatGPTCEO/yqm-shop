@@ -73,6 +73,12 @@ public class YqmStoreProductDTO extends BaseEntity implements Serializable {
     private String brandId;
 
     /**
+     * 品牌名称
+     */
+    private String brandName;
+
+
+    /**
      * 商品分类id
      */
     private String classifyId;

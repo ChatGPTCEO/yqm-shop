@@ -49,7 +49,7 @@ public class AdminBrandService {
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmBrandService.page(page, iYqmBrandService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
             pageList.setRecords(YqmBrandToDTO.toYqmBrandDTOList(pageList.getRecords()));
@@ -64,7 +64,7 @@ public class AdminBrandService {
      * @return
      */
     public List<YqmBrandDTO> list(YqmBrandRequest request) {
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         List<YqmBrand> list = iYqmBrandService.list(iYqmBrandService.getQuery(request));
         return YqmBrandToDTO.toYqmBrandDTOList(list);
     }

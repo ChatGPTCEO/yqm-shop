@@ -47,8 +47,13 @@ public class BaseRequest {
     private String keyword;
 
     /**
-     * 状态;delete 删除 success 有效
+     * 状态集合;delete 删除 success 有效
      */
-    private List<String> statusList;
+    private List<String> inStatusList;
+
+    /**
+     * id 集合
+     */
+    private List<String> inIdList;
 
 }

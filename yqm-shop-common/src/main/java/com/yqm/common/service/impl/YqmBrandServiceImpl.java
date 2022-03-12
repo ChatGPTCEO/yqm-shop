@@ -41,9 +41,13 @@ public class YqmBrandServiceImpl extends ServiceImpl<YqmBrandMapper, YqmBrand> i
         if (StringUtils.isNotBlank(request.getKeyword())) {
             queryWrapper.like("brand_name", request.getKeyword());
         }
-        if (CollectionUtils.isNotEmpty(request.getStatusList())) {
-            queryWrapper.in("status", request.getStatusList());
+        if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
+            queryWrapper.in("status", request.getInStatusList());
         }
+        if (CollectionUtils.isNotEmpty(request.getInIdList())) {
+            queryWrapper.in("id", request.getInIdList());
+        }
+
         return queryWrapper;
     }
 

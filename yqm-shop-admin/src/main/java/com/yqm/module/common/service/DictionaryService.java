@@ -45,7 +45,7 @@ public class DictionaryService {
     }
 
     public List<YqmDictionaryDTO> list(YqmDictionaryRequest request) {
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         List<YqmDictionary> list = iYqmDictionaryService.list(iYqmDictionaryService.getQuery(request));
         return YqmDictionaryToDTO.toYqmDictionaryDTOList(list);
     }

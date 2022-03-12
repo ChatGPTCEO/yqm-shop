@@ -49,7 +49,7 @@ public class AdminClassificationService {
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmClassificationService.page(page, iYqmClassificationService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
             pageList.setRecords(YqmClassificationToDTO.toYqmClassificationDTOList(pageList.getRecords()));
@@ -139,7 +139,7 @@ public class AdminClassificationService {
      * @return
      */
     public List<YqmClassificationDTO> list(YqmClassificationRequest request) {
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         List<YqmClassification> list = iYqmClassificationService.list(iYqmClassificationService.getQuery(request));
         return YqmClassificationToDTO.toYqmClassificationDTOList(list);
     }

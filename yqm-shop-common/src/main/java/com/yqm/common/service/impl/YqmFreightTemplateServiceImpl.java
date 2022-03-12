@@ -27,8 +27,8 @@ public class YqmFreightTemplateServiceImpl extends ServiceImpl<YqmFreightTemplat
         if (StringUtils.isNotBlank(request.getKeyword())) {
             queryWrapper.like("template_name", request.getKeyword());
         }
-        if (CollectionUtils.isNotEmpty(request.getStatusList())) {
-            queryWrapper.in("status", request.getStatusList());
+        if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
+            queryWrapper.in("status", request.getInStatusList());
         }
         return queryWrapper;
     }

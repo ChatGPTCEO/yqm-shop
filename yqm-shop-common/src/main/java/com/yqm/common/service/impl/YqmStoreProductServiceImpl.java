@@ -41,8 +41,11 @@ public class YqmStoreProductServiceImpl extends ServiceImpl<YqmStoreProductMappe
         if (StringUtils.isNotBlank(request.getKeyword())) {
             queryWrapper.like("product_name", request.getKeyword());
         }
-        if (CollectionUtils.isNotEmpty(request.getStatusList())) {
-            queryWrapper.in("status", request.getStatusList());
+        if (StringUtils.isNotBlank(request.getIsShelves())) {
+            queryWrapper.like("is_shelves", request.getIsShelves());
+        }
+        if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
+            queryWrapper.in("status", request.getInStatusList());
         }
         return queryWrapper;
     }

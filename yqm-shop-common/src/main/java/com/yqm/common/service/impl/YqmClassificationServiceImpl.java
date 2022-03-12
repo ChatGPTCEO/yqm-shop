@@ -27,13 +27,13 @@ public class YqmClassificationServiceImpl extends ServiceImpl<YqmClassificationM
         if (StringUtils.isNotBlank(request.getKeyword())) {
             queryWrapper.like("classify_name", request.getKeyword());
         }
-        if (CollectionUtils.isNotEmpty(request.getStatusList())) {
-            queryWrapper.in("status", request.getStatusList());
+        if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
+            queryWrapper.in("status", request.getInStatusList());
         }
         if (StringUtils.isNotBlank(request.getPid())) {
             queryWrapper.eq("pid", request.getPid());
         }
-        if (null !=  request.getLevel()) {
+        if (null != request.getLevel()) {
             queryWrapper.eq("level", request.getLevel());
         }
         return queryWrapper;

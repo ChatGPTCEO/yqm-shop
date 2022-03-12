@@ -6,8 +6,11 @@ import com.yqm.common.conversion.YqmStoreProductToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmStoreProductDTO;
 import com.yqm.common.dto.YqmStoreProductStatisticsDTO;
+import com.yqm.common.entity.YqmBrand;
 import com.yqm.common.entity.YqmStoreProduct;
+import com.yqm.common.request.YqmBrandRequest;
 import com.yqm.common.request.YqmStoreProductRequest;
+import com.yqm.common.service.IYqmBrandService;
 import com.yqm.common.service.IYqmStoreProductService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
@@ -18,7 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * 管理端-商品
@@ -34,9 +39,11 @@ import java.util.Objects;
 public class AdminStoreProductService {
 
     private final IYqmStoreProductService iYqmStoreProductService;
+    private final IYqmBrandService iYqmBrandService;
 
-    public AdminStoreProductService(IYqmStoreProductService iYqmStoreProductService) {
+    public AdminStoreProductService(IYqmStoreProductService iYqmStoreProductService, IYqmBrandService iYqmBrandService) {
         this.iYqmStoreProductService = iYqmStoreProductService;
+        this.iYqmBrandService = iYqmBrandService;
     }
 
     /**
@@ -50,12 +57,37 @@ public class AdminStoreProductService {
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmStoreProductService.page(page, iYqmStoreProductService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
-            pageList.setRecords(YqmStoreProductToDTO.toYqmStoreProductDTOList(pageList.getRecords()));
+            List<YqmStoreProductDTO> dtoList = YqmStoreProductToDTO.toYqmStoreProductDTOList(pageList.getRecords());
+            this.getOther(dtoList);
+            pageList.setRecords(dtoList);
+
         }
         return pageList;
+    }
+
+    private List<YqmStoreProductDTO> getOther(List<YqmStoreProductDTO> dtoList) {
+        if (CollectionUtils.isEmpty(dtoList)) {
+            return null;
+        }
+        // 获取品牌
+        List<String> brandIdList = dtoList.stream().map(e -> e.getBrandId()).collect(Collectors.toList());
+        YqmBrandRequest brandRequest = new YqmBrandRequest();
+        brandRequest.setInIdList(brandIdList);
+        List<YqmBrand> brandList = iYqmBrandService.list(iYqmBrandService.getQuery(brandRequest));
+        if (CollectionUtils.isNotEmpty(brandList)) {
+            Map<String, YqmBrand> brandMap = brandList.stream().collect(Collectors.toMap(e -> e.getId(), e -> e));
+            dtoList.forEach(e -> {
+                YqmBrand yqmBrand = brandMap.get(e.getBrandId());
+                if (Objects.nonNull(yqmBrand)) {
+                    e.setBrandName(yqmBrand.getBrandName());
+                }
+            });
+        }
+
+        return dtoList;
     }
 
     /**
@@ -65,7 +97,7 @@ public class AdminStoreProductService {
      * @return
      */
     public List<YqmStoreProductDTO> list(YqmStoreProductRequest request) {
-        request.setStatusList(YqmDefine.includeStatus);
+        request.setInStatusList(YqmDefine.includeStatus);
         List<YqmStoreProduct> list = iYqmStoreProductService.list(iYqmStoreProductService.getQuery(request));
         return YqmStoreProductToDTO.toYqmStoreProductDTOList(list);
     }
@@ -133,6 +165,7 @@ public class AdminStoreProductService {
 
     /**
      * 商品-统计
+     *
      * @return
      */
     public YqmStoreProductStatisticsDTO getStatistics() {
@@ -142,9 +175,9 @@ public class AdminStoreProductService {
         Integer notShelvesCount = iYqmStoreProductService.getShelvesCount(user.getId(), YqmDefine.ShelvesType.not_shelves.getValue());
 
         return YqmStoreProductStatisticsDTO.builder()
-              .shelvesCount(shelvesCount)
-              .notShelvesCount(notShelvesCount)
-              .count(count).build();
+                .shelvesCount(shelvesCount)
+                .notShelvesCount(notShelvesCount)
+                .count(count).build();
     }
 
 }

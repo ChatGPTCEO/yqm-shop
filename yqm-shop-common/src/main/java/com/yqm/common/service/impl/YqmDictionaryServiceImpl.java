@@ -27,8 +27,8 @@ public class YqmDictionaryServiceImpl extends ServiceImpl<YqmDictionaryMapper, Y
         if (StringUtils.isNotBlank(request.getPcode())) {
             queryWrapper.eq("pcode", request.getPcode());
         }
-        if (CollectionUtils.isNotEmpty(request.getStatusList())) {
-            queryWrapper.in("status", request.getStatusList());
+        if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
+            queryWrapper.in("status", request.getInStatusList());
         }
         return queryWrapper;
     }
