@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-13 20:51:33",
+  "updatedTime": "2022-3-13 20:23:43",
   "dbConns": [],
   "profile": {
     "default": {
@@ -3882,36 +3882,6 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
-        },
-        {
-          "defKey": "input_type",
-          "defName": "录入方式",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "input_value",
-          "defName": "值",
-          "comment": "",
-          "type": "text",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": ""
         }
       ],
       "correlations": [],
