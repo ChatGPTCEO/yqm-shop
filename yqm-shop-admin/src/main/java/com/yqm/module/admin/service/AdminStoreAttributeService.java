@@ -6,8 +6,11 @@ import com.yqm.common.conversion.YqmStoreAttributeToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmStoreAttributeDTO;
 import com.yqm.common.entity.YqmStoreAttribute;
+import com.yqm.common.entity.YqmStoreType;
 import com.yqm.common.request.YqmStoreAttributeRequest;
+import com.yqm.common.request.YqmStoreTypeRequest;
 import com.yqm.common.service.IYqmStoreAttributeService;
+import com.yqm.common.service.IYqmStoreTypeService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.apache.commons.collections4.CollectionUtils;
@@ -17,7 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * 管理端-商品属性
@@ -33,9 +38,11 @@ import java.util.Objects;
 public class AdminStoreAttributeService {
 
     private final IYqmStoreAttributeService iYqmStoreAttributeService;
+    private final IYqmStoreTypeService iYqmStoreTypeService;
 
-    public AdminStoreAttributeService(IYqmStoreAttributeService iYqmStoreAttributeService) {
+    public AdminStoreAttributeService(IYqmStoreAttributeService iYqmStoreAttributeService, IYqmStoreTypeService iYqmStoreTypeService) {
         this.iYqmStoreAttributeService = iYqmStoreAttributeService;
+        this.iYqmStoreTypeService = iYqmStoreTypeService;
     }
 
     /**
@@ -52,9 +59,30 @@ public class AdminStoreAttributeService {
         request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmStoreAttributeService.page(page, iYqmStoreAttributeService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
-            pageList.setRecords(YqmStoreAttributeToDTO.toYqmStoreAttributeDTOList(pageList.getRecords()));
+            List<YqmStoreAttributeDTO> dtoList = YqmStoreAttributeToDTO.toYqmStoreAttributeDTOList(pageList.getRecords());
+            this.getOther(dtoList);
+            pageList.setRecords(dtoList);
         }
         return pageList;
+    }
+
+    private List<YqmStoreAttributeDTO> getOther(List<YqmStoreAttributeDTO> dtoList) {
+        if (CollectionUtils.isEmpty(dtoList)) {
+            return null;
+        }
+        List<String> typeIdList = dtoList.stream().map(e -> e.getStoreTypeId()).collect(Collectors.toList());
+        YqmStoreTypeRequest typeRequest = new YqmStoreTypeRequest();
+        typeRequest.setInIdList(typeIdList);
+        List<YqmStoreType> storeTypeList = iYqmStoreTypeService.list(iYqmStoreTypeService.getQuery(typeRequest));
+        Map<String, YqmStoreType> objectMap = storeTypeList.stream().collect(Collectors.toMap(e -> e.getId(), e -> e));
+        dtoList.forEach(e -> {
+            YqmStoreType entity = objectMap.get(e.getStoreTypeId());
+            if (Objects.nonNull(entity)) {
+                e.setStoreTypeName(entity.getTypeName());
+            }
+        });
+
+        return dtoList;
     }
 
     /**

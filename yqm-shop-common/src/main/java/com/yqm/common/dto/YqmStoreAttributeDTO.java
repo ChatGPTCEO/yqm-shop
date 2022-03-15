@@ -57,6 +57,11 @@ public class YqmStoreAttributeDTO extends BaseEntity implements Serializable {
     private String storeTypeId;
 
     /**
+     * 类型名称
+     */
+    private String storeTypeName;
+
+    /**
      * 属性名称
      */
     private String attributeName;
