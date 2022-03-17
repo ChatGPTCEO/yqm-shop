@@ -7,6 +7,9 @@ import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmStoreAttributeDTO;
 import com.yqm.common.entity.YqmStoreAttribute;
 import com.yqm.common.entity.YqmStoreType;
+import com.yqm.common.event.attribute.AttributeAddEvent;
+import com.yqm.common.event.attribute.AttributeDeleteEvent;
+import com.yqm.common.event.attribute.AttributeUpdateEvent;
 import com.yqm.common.request.YqmStoreAttributeRequest;
 import com.yqm.common.request.YqmStoreTypeRequest;
 import com.yqm.common.service.IYqmStoreAttributeService;
@@ -15,6 +18,7 @@ import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,10 +41,13 @@ import java.util.stream.Collectors;
 @Transactional(rollbackFor = Exception.class)
 public class AdminStoreAttributeService {
 
+    private final ApplicationContext applicationContext;
     private final IYqmStoreAttributeService iYqmStoreAttributeService;
     private final IYqmStoreTypeService iYqmStoreTypeService;
 
-    public AdminStoreAttributeService(IYqmStoreAttributeService iYqmStoreAttributeService, IYqmStoreTypeService iYqmStoreTypeService) {
+    public AdminStoreAttributeService(ApplicationContext applicationContext, IYqmStoreAttributeService iYqmStoreAttributeService,
+          IYqmStoreTypeService iYqmStoreTypeService) {
+        this.applicationContext = applicationContext;
         this.iYqmStoreAttributeService = iYqmStoreAttributeService;
         this.iYqmStoreTypeService = iYqmStoreTypeService;
     }
@@ -125,7 +132,14 @@ public class AdminStoreAttributeService {
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
         iYqmStoreAttributeService.saveOrUpdate(entity);
-        return YqmStoreAttributeToDTO.toYqmStoreAttributeDTO(entity);
+
+        YqmStoreAttributeDTO dto = YqmStoreAttributeToDTO.toYqmStoreAttributeDTO(entity);
+        if (StringUtils.isEmpty(request.getId())) {
+            applicationContext.publishEvent(new AttributeAddEvent(dto));
+        } else {
+            applicationContext.publishEvent(new AttributeUpdateEvent(dto));
+        }
+        return dto;
     }
 
     /**
@@ -135,12 +149,14 @@ public class AdminStoreAttributeService {
      * @return
      */
     public String deleteById(String id) {
-        YqmStoreAttribute brand = iYqmStoreAttributeService.getById(id);
-        if (Objects.isNull(brand)) {
+        YqmStoreAttribute entity = iYqmStoreAttributeService.getById(id);
+        if (Objects.isNull(entity)) {
             return id;
         }
-        brand.setStatus(YqmDefine.StatusType.delete.getValue());
-        this.save(YqmStoreAttributeToDTO.toYqmStoreAttributeRequest(brand));
+        entity.setStatus(YqmDefine.StatusType.delete.getValue());
+        this.save(YqmStoreAttributeToDTO.toYqmStoreAttributeRequest(entity));
+        YqmStoreAttributeDTO dto = YqmStoreAttributeToDTO.toYqmStoreAttributeDTO(entity);
+        applicationContext.publishEvent(new AttributeDeleteEvent(dto));
         return id;
     }
 

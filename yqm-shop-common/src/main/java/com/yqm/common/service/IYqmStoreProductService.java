@@ -34,7 +34,7 @@ public interface IYqmStoreProductService extends IService<YqmStoreProduct> {
     void topSort(String userId,String id);
 
     /**
-     * sort 减一
+     * sort 加一
      *
      * @param userId
      */

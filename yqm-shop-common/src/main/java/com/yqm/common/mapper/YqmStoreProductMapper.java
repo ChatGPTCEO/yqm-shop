@@ -30,7 +30,7 @@ public interface YqmStoreProductMapper extends BaseMapper<YqmStoreProduct> {
     void topSort(@Param("userId") String userId, @Param("id") String id);
 
     /**
-     * sort 减一
+     * sort 加一
      *
      * @param userId
      */

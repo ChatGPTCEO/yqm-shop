@@ -58,4 +58,5 @@ public class YqmStoreAttributeServiceImpl extends ServiceImpl<YqmStoreAttributeM
     public void minusOneSort(String userId) {
         storeAttributeMapper.minusOneSort(userId);
     }
+
 }

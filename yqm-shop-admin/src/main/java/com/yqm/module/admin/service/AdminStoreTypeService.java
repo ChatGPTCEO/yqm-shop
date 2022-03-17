@@ -32,6 +32,7 @@ import java.util.Objects;
 @Transactional(rollbackFor = Exception.class)
 public class AdminStoreTypeService {
 
+
     private final IYqmStoreTypeService iYqmStoreTypeService;
 
     public AdminStoreTypeService(IYqmStoreTypeService iYqmStoreTypeService) {

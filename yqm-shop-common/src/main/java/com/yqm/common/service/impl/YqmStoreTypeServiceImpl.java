@@ -54,4 +54,15 @@ public class YqmStoreTypeServiceImpl extends ServiceImpl<YqmStoreTypeMapper, Yqm
     public void minusOneSort(String userId) {
         storeTypeMapper.minusOneSort(userId);
     }
+
+
+    @Override
+    public void minusOneAttributeNum(String id) {
+        storeTypeMapper.minusOneAttributeNum(id);
+    }
+
+    @Override
+    public void subtractionOneAttributeNum(String id) {
+        storeTypeMapper.subtractionOneAttributeNum(id);
+    }
 }

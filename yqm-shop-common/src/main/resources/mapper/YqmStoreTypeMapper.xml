@@ -23,4 +23,18 @@
             updated_time = now()
     </update>
 
+
+    <update id="minusOneAttributeNum">
+        update yqm_store_type
+        set attribute_num  = attribute_num + 1
+            where id = #{id}
+    </update>
+
+    <update id="subtractionOneAttributeNum">
+        update yqm_store_type
+        set attribute_num  = attribute_num - 1
+            where id = #{id}
+    </update>
+
+
 </mapper>

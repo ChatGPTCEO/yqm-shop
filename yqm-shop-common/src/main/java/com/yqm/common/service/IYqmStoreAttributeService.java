@@ -35,10 +35,12 @@ public interface IYqmStoreAttributeService extends IService<YqmStoreAttribute> {
     void topSort(@Param("userId") String userId, @Param("id") String id);
 
     /**
-     * sort 减一
+     * sort 加一
      *
      * @param userId
      */
     void minusOneSort(@Param("userId") String userId);
+
+
 
 }
