@@ -59,7 +59,7 @@ public class YqmStoreAttribute extends BaseEntity implements Serializable {
     /**
      * 属性名称
      */
-    private String attributeName;
+    private String specName;
 
     /**
      * 选择类型

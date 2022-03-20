@@ -181,5 +181,14 @@ public class YqmStoreProductRequest extends BaseRequest implements Serializable 
      */
     private String isShow;
 
+    /**
+     * sku 集合
+     */
+    private List<YqmStoreSkuRequest> skuList;
+
+    /**
+     * 规格
+     */
+    private List<YqmStoreSpecRequest> specList;
 
 }

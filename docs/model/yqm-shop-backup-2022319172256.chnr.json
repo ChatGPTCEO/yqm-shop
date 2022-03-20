@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-20 21:13:53",
+  "updatedTime": "2022-3-19 17:22:47",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1802,11 +1802,11 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "spec_ids",
-          "defName": "spec",
+          "defKey": "sku_ids",
+          "defName": "sku",
           "comment": "组合属性",
           "type": "VARCHAR",
-          "len": "900",
+          "len": 255,
           "scale": "",
           "primaryKey": false,
           "notNull": false,
@@ -1814,11 +1814,11 @@
           "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "DescText"
+          "domain": "DefaultString"
         },
         {
-          "defKey": "pspec_ids",
-          "defName": "父spec",
+          "defKey": "psku_id",
+          "defName": "父sku",
           "comment": "组合父属性",
           "type": "VARCHAR",
           "len": "900",
@@ -3884,7 +3884,7 @@
           "domain": "IdOrKey"
         },
         {
-          "defKey": "spec_name",
+          "defKey": "attribute_name",
           "defName": "属性名称",
           "comment": "",
           "type": "VARCHAR",
@@ -4136,8 +4136,8 @@
           "defKey": "pid",
           "defName": "父id",
           "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
+          "type": "INT",
+          "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": true,
@@ -4145,7 +4145,7 @@
           "defaultValue": "0",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "IdOrKey"
+          "domain": "Int"
         },
         {
           "defKey": "spec_name",
@@ -4172,55 +4172,10 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "0",
+          "defaultValue": "1",
           "hideInGraph": false,
           "refDict": "",
           "domain": "Int"
-        },
-        {
-          "defKey": "product_id",
-          "defName": "商品id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "attrbute_id",
-          "defName": "属性模板id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "type_id",
-          "defName": "商品类型id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
         }
       ],
       "correlations": [],

@@ -267,4 +267,37 @@ public class YqmDefine {
     }
 
 
+    /**
+     * 规格/属性
+     */
+    public enum SpecType {
+        spec("规格", 1),
+        attr("属性", 0),
+        ;
+
+        private String desc;
+        private Integer value;
+
+        SpecType(String desc, Integer value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        public void setValue(Integer value) {
+            this.value = value;
+        }
+    }
+
 }

@@ -188,5 +188,14 @@ public class YqmStoreProductDTO extends BaseEntity implements Serializable {
      */
     private String isShow;
 
+    /**
+     * sku 集合
+     */
+    private List<YqmStoreSkuDTO> skuList;
+
+    /**
+     * 规格
+     */
+    private List<YqmStoreSpecDTO> specList;
 
 }

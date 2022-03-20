@@ -32,7 +32,7 @@ public class YqmStoreAttributeServiceImpl extends ServiceImpl<YqmStoreAttributeM
     public QueryWrapper<YqmStoreAttribute> getQuery(YqmStoreAttributeRequest request) {
         QueryWrapper<YqmStoreAttribute> queryWrapper = new QueryWrapper<>();
         if (StringUtils.isNotBlank(request.getKeyword())) {
-            queryWrapper.like("attribute_name", request.getKeyword()).or().like("input_value", request.getKeyword());
+            queryWrapper.like("spec_name", request.getKeyword()).or().like("input_value", request.getKeyword());
         }
         if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
             queryWrapper.in("status", request.getInStatusList());

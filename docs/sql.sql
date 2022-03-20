@@ -386,18 +386,18 @@ CREATE TABLE yqm_store_type
 DROP TABLE IF EXISTS yqm_store_attribute;
 CREATE TABLE yqm_store_attribute
 (
-    id             VARCHAR(32)  NOT NULL COMMENT '编号',
-    created_by     VARCHAR(32) COMMENT '创建人',
-    created_time   DATETIME              DEFAULT now() COMMENT '创建时间',
-    updated_by     VARCHAR(32) COMMENT '更新人',
-    updated_time   DATETIME              DEFAULT now() COMMENT '更新时间',
-    `sort`         INT          NOT NULL DEFAULT 1 COMMENT '排序',
-    `status`       VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
-    store_type_id  VARCHAR(32)  NOT NULL COMMENT '类型id',
-    attribute_name VARCHAR(255) NOT NULL COMMENT '属性名称',
-    choose_type    VARCHAR(255) COMMENT '选择类型',
-    input_type     VARCHAR(255) COMMENT '录入方式',
-    input_value    text COMMENT '值',
+    id            VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by    VARCHAR(32) COMMENT '创建人',
+    created_time  DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by    VARCHAR(32) COMMENT '更新人',
+    updated_time  DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`        INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`      VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    store_type_id VARCHAR(32)  NOT NULL COMMENT '类型id',
+    spec_name     VARCHAR(255) NOT NULL COMMENT '属性名称',
+    choose_type   VARCHAR(255) COMMENT '选择类型',
+    input_type    VARCHAR(255) COMMENT '录入方式',
+    input_value   text COMMENT '值',
     PRIMARY KEY (id)
 ) COMMENT = '商品属性';
 

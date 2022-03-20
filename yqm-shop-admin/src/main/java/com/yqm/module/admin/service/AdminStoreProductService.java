@@ -12,6 +12,7 @@ import com.yqm.common.request.YqmBrandRequest;
 import com.yqm.common.request.YqmStoreProductRequest;
 import com.yqm.common.service.IYqmBrandService;
 import com.yqm.common.service.IYqmStoreProductService;
+import com.yqm.common.service.IYqmStoreSpecService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.apache.commons.collections4.CollectionUtils;
@@ -40,10 +41,12 @@ public class AdminStoreProductService {
 
     private final IYqmStoreProductService iYqmStoreProductService;
     private final IYqmBrandService iYqmBrandService;
+    private final IYqmStoreSpecService iYqmStoreSpecService;
 
-    public AdminStoreProductService(IYqmStoreProductService iYqmStoreProductService, IYqmBrandService iYqmBrandService) {
+    public AdminStoreProductService(IYqmStoreProductService iYqmStoreProductService, IYqmBrandService iYqmBrandService, IYqmStoreSpecService iYqmStoreSpecService) {
         this.iYqmStoreProductService = iYqmStoreProductService;
         this.iYqmBrandService = iYqmBrandService;
+        this.iYqmStoreSpecService = iYqmStoreSpecService;
     }
 
     /**
@@ -126,7 +129,6 @@ public class AdminStoreProductService {
             entity.setCreatedTime(LocalDateTime.now());
             entity.setCreatedBy(user.getId());
         }
-
 
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());

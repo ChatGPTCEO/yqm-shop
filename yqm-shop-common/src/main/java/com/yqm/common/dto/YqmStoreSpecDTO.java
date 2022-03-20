@@ -1,22 +1,24 @@
-package com.yqm.common.request;
+package com.yqm.common.dto;
 
+import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
- * 商品属性
+ * 规格属性
  * </p>
  *
  * @author weiximei
- * @since 2022-03-13
+ * @since 2022-03-19
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmStoreAttributeRequest extends BaseRequest implements Serializable {
+public class YqmStoreSpecDTO extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -51,29 +53,44 @@ public class YqmStoreAttributeRequest extends BaseRequest implements Serializabl
     private String status;
 
     /**
-     * 类型id
+     * 父id
      */
-    private String storeTypeId;
+    private String pid;
 
     /**
-     * 属性名称
+     * 名称
      */
     private String specName;
 
     /**
-     * 选择类型
+     * 父属性名称
      */
-    private String chooseType;
+    private String prentSpecName;
 
     /**
-     * 录入方式
+     * 0属性 1规格
      */
-    private String inputType;
+    private Integer isParent;
 
     /**
-     * 值
+     * 商品id
      */
-    private String inputValue;
+    private String productId;
+
+    /**
+     * 属性模板id
+     */
+    private String attrbuteId;
+
+    /**
+     * 商品类型id
+     */
+    private String typeId;
+
+    /**
+     * 集合
+     */
+    private List<YqmStoreSpecDTO> inputValue;
 
 
 }

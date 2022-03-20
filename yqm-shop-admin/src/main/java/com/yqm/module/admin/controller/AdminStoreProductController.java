@@ -20,6 +20,7 @@ import com.yqm.common.dto.YqmStoreProductStatisticsDTO;
 import com.yqm.common.request.YqmStoreProductRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminStoreProductService;
+import com.yqm.module.admin.service.aggregation.AdminProductAggregation;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -36,9 +37,11 @@ import org.springframework.web.bind.annotation.*;
 public class AdminStoreProductController {
 
     private final AdminStoreProductService adminStoreProductService;
+    private final AdminProductAggregation adminProductAggregation;
 
-    public AdminStoreProductController(AdminStoreProductService adminStoreProductService) {
+    public AdminStoreProductController(AdminStoreProductService adminStoreProductService, AdminProductAggregation adminProductAggregation) {
         this.adminStoreProductService = adminStoreProductService;
+        this.adminProductAggregation = adminProductAggregation;
     }
 
     /**
@@ -72,7 +75,7 @@ public class AdminStoreProductController {
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable String id) {
-        YqmStoreProductDTO dto = adminStoreProductService.getById(id);
+        YqmStoreProductDTO dto = adminProductAggregation.getById(id);
         return ResponseBean.success(dto);
     }
 
@@ -96,7 +99,7 @@ public class AdminStoreProductController {
      */
     @PostMapping("")
     public ResponseBean save(@RequestBody YqmStoreProductRequest request) {
-        YqmStoreProductDTO dto = adminStoreProductService.save(request);
+        YqmStoreProductDTO dto = adminProductAggregation.saveProduct(request);
         return ResponseBean.success(dto);
     }
 
@@ -108,7 +111,7 @@ public class AdminStoreProductController {
      */
     @PutMapping("")
     public ResponseBean update(@RequestBody YqmStoreProductRequest request) {
-        YqmStoreProductDTO dto = adminStoreProductService.save(request);
+        YqmStoreProductDTO dto = adminProductAggregation.saveProduct(request);
         return ResponseBean.success(dto);
     }
 

@@ -1,11 +1,11 @@
-package com.yqm.common.entity;
+package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmStoreSku extends BaseEntity implements Serializable {
+public class YqmStoreSkuRequest extends BaseRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,12 +34,12 @@ public class YqmStoreSku extends BaseEntity implements Serializable {
     /**
      * 更新人
      */
-    private LocalDateTime updatedTime;
+    private String updatedTime;
 
     /**
      * 更新时间
      */
-    private String updatedBy;
+    private LocalDateTime updatedBy;
 
     /**
      * 名称
@@ -91,7 +91,6 @@ public class YqmStoreSku extends BaseEntity implements Serializable {
      */
     private String status;
 
-
     /**
      * spec;组合属性
      */
@@ -102,5 +101,8 @@ public class YqmStoreSku extends BaseEntity implements Serializable {
      */
     private String pspecIds;
 
-
+    /**
+     * sku 集合
+     */
+    private List<YqmStoreSpecRequest> spec;
 }

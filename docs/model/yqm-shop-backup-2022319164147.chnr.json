@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-20 21:13:53",
+  "updatedTime": "2022-3-19 16:40:03",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1800,36 +1800,6 @@
           "defaultValue": "'success'",
           "hideInGraph": false,
           "domain": "DefaultString"
-        },
-        {
-          "defKey": "spec_ids",
-          "defName": "spec",
-          "comment": "组合属性",
-          "type": "VARCHAR",
-          "len": "900",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DescText"
-        },
-        {
-          "defKey": "pspec_ids",
-          "defName": "父spec",
-          "comment": "组合父属性",
-          "type": "VARCHAR",
-          "len": "900",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DescText"
         }
       ],
       "correlations": [],
@@ -3685,7 +3655,7 @@
     },
     {
       "defKey": "yqm_store_attribute",
-      "defName": "商品属性模板",
+      "defName": "商品属性",
       "comment": "",
       "properties": {},
       "nameTemplate": "{defKey}[{defName}]",
@@ -3884,7 +3854,7 @@
           "domain": "IdOrKey"
         },
         {
-          "defKey": "spec_name",
+          "defKey": "attribute_name",
           "defName": "属性名称",
           "comment": "",
           "type": "VARCHAR",
@@ -3929,288 +3899,24 @@
           "domain": "DefaultString"
         },
         {
-          "defKey": "input_value",
-          "defName": "值",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        }
-      ],
-      "correlations": [],
-      "indexes": []
-    },
-    {
-      "defKey": "yqm_store_spec",
-      "defName": "规格属性",
-      "comment": "",
-      "properties": {},
-      "nameTemplate": "{defKey}[{defName}]",
-      "headers": [
-        {
-          "freeze": false,
-          "refKey": "hideInGraph",
-          "hideInGraph": true
-        },
-        {
-          "freeze": true,
-          "refKey": "defKey",
-          "hideInGraph": false
-        },
-        {
-          "freeze": true,
-          "refKey": "defName",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "primaryKey",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "notNull",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "autoIncrement",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "domain",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "type",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "len",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "scale",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "comment",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "refDict",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "defaultValue",
-          "hideInGraph": true
-        },
-        {
-          "freeze": false,
-          "refKey": "isStandard",
-          "hideInGraph": false
-        },
-        {
-          "freeze": false,
-          "refKey": "uiHint",
-          "hideInGraph": true
-        }
-      ],
-      "fields": [
-        {
-          "defKey": "id",
-          "defName": "编号",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": true,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "created_by",
-          "defName": "创建人",
-          "comment": "",
-          "domain": "IdOrKey",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "created_time",
-          "defName": "创建时间",
-          "comment": "",
-          "domain": "DateTime",
-          "type": "DATETIME",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "now()",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "updated_by",
-          "defName": "更新人",
-          "comment": "",
-          "domain": "IdOrKey",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "updated_time",
-          "defName": "更新时间",
-          "comment": "",
-          "domain": "DateTime",
-          "type": "DATETIME",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "now()",
-          "hideInGraph": true
-        },
-        {
-          "defKey": "`sort`",
-          "defName": "排序",
+          "defKey": "pid",
+          "defName": "父id",
           "comment": "",
           "type": "INT",
           "len": "",
           "scale": "",
           "primaryKey": false,
-          "notNull": true,
-          "autoIncrement": false,
-          "defaultValue": "1",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "Int"
-        },
-        {
-          "defKey": "`status`",
-          "defName": "状态",
-          "comment": "delete 删除 success 有效 failure 失效",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
           "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "'success'",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "pid",
-          "defName": "父id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": true,
           "autoIncrement": false,
           "defaultValue": "0",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "spec_name",
-          "defName": "名称",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
+          "domain": "Int"
         },
         {
           "defKey": "is_parent",
           "defName": "",
-          "comment": "0属性 1规格",
-          "type": "INT",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "0",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "Int"
-        },
-        {
-          "defKey": "product_id",
-          "defName": "商品id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "attrbute_id",
-          "defName": "属性模板id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 32,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "IdOrKey"
-        },
-        {
-          "defKey": "type_id",
-          "defName": "商品类型id",
-          "comment": "",
+          "comment": "0 属性 1 规格",
           "type": "VARCHAR",
           "len": 255,
           "scale": "",
