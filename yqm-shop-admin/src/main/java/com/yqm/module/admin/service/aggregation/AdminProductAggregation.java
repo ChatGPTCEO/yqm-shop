@@ -26,6 +26,7 @@ import com.yqm.module.admin.service.AdminStoreSkuService;
 import com.yqm.module.admin.service.AdminStoreSpecService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,11 +48,13 @@ public class AdminProductAggregation {
     private final AdminStoreProductService adminStoreProductService;
     private final AdminStoreSpecService adminStoreSpecService;
     private final AdminStoreSkuService adminStoreSkuService;
+    private final ApplicationContext applicationContext;
 
-    public AdminProductAggregation(AdminStoreProductService adminStoreProductService, AdminStoreSpecService adminStoreSpecService, AdminStoreSkuService adminStoreSkuService) {
+    public AdminProductAggregation(AdminStoreProductService adminStoreProductService, AdminStoreSpecService adminStoreSpecService, AdminStoreSkuService adminStoreSkuService, ApplicationContext applicationContext) {
         this.adminStoreProductService = adminStoreProductService;
         this.adminStoreSpecService = adminStoreSpecService;
         this.adminStoreSkuService = adminStoreSkuService;
+        this.applicationContext = applicationContext;
     }
 
     /**
@@ -115,6 +118,7 @@ public class AdminProductAggregation {
                 storeSkuRequest.setPspecIds(prentSpecId.toString());
                 storeSkuRequest.setProductId(storeProductDTO.getId());
                 adminStoreSkuService.save(storeSkuRequest);
+
             }
         }
 

@@ -50,6 +50,15 @@ public class YqmStoreSkuToDTO {
         return dto;
     }
 
+    public static YqmStoreSkuDTO requestToYqmStoreSkuDTO(YqmStoreSkuRequest request) {
+        if (Objects.isNull(request)) {
+            return null;
+        }
+        YqmStoreSkuDTO dto = new YqmStoreSkuDTO();
+        BeanUtils.copyProperties(request, dto);
+        return dto;
+    }
+
     public static YqmStoreSku toYqmStoreSku(YqmStoreSkuDTO dto) {
         if (Objects.isNull(dto)) {
             return null;

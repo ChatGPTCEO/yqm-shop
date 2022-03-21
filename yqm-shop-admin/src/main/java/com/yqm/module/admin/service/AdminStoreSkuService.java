@@ -121,6 +121,8 @@ public class AdminStoreSkuService {
         YqmStoreSkuDTO dto = YqmStoreSkuToDTO.toYqmStoreSkuDTO(entity);
         if (StringUtils.isEmpty(request.getId())) {
             applicationContext.publishEvent(new SkuAddEvent(dto));
+        } else if (YqmDefine.StatusType.delete.getValue().equals(request.getStatus())) {
+            applicationContext.publishEvent(new SkuDeleteEvent(YqmStoreSkuToDTO.requestToYqmStoreSkuDTO(request)));
         } else {
             applicationContext.publishEvent(new SkuUpdateEvent(dto));
         }
