@@ -401,5 +401,26 @@ CREATE TABLE yqm_store_attribute
     PRIMARY KEY (id)
 ) COMMENT = '商品属性';
 
-
+DROP TABLE IF EXISTS yqm_user;
+CREATE TABLE yqm_user
+(
+    id           VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32) COMMENT '创建人',
+    created_time DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`       INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    account      VARCHAR(255) COMMENT '账号',
+    password     VARCHAR(255) COMMENT '密码',
+    user_name    VARCHAR(255) NOT NULL COMMENT '用户姓名',
+    phone        VARCHAR(255) NOT NULL COMMENT '手机',
+    province_id  VARCHAR(255) NOT NULL COMMENT '省',
+    city_id      VARCHAR(255) NOT NULL COMMENT '市',
+    area_id      VARCHAR(255) NOT NULL COMMENT '区',
+    avatar       VARCHAR(255) COMMENT '头像',
+    sex          INT                   DEFAULT 1 COMMENT '性别;0 未知 1 男 2 女',
+    source       VARCHAR(255) COMMENT '来源',
+    PRIMARY KEY (id)
+) COMMENT = '普通用户表';
 
