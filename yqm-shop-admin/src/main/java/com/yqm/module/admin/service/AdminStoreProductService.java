@@ -1,5 +1,6 @@
 package com.yqm.module.admin.service;
 
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yqm.common.conversion.YqmStoreProductToDTO;
@@ -60,7 +61,7 @@ public class AdminStoreProductService {
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
-        request.setInStatusList(YqmDefine.includeStatus);
+        request.setStatus(YqmDefine.StatusType.effective.getValue());
         IPage pageList = iYqmStoreProductService.page(page, iYqmStoreProductService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
             List<YqmStoreProductDTO> dtoList = YqmStoreProductToDTO.toYqmStoreProductDTOList(pageList.getRecords());
@@ -69,6 +70,43 @@ public class AdminStoreProductService {
 
         }
         return pageList;
+    }
+
+    /**
+     * 回收站
+     *
+     * @param request
+     * @return
+     */
+    public IPage<YqmStoreProductDTO> recycle(YqmStoreProductRequest request) {
+        Page<YqmStoreProduct> page = new Page<>();
+        page.setCurrent(request.getCurrent());
+        page.setSize(request.getPageSize());
+
+        request.setStatus(YqmDefine.StatusType.failure.getValue());
+        IPage pageList = iYqmStoreProductService.page(page, iYqmStoreProductService.getQuery(request));
+        if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
+            List<YqmStoreProductDTO> dtoList = YqmStoreProductToDTO.toYqmStoreProductDTOList(pageList.getRecords());
+            this.getOther(dtoList);
+            pageList.setRecords(dtoList);
+
+        }
+        return pageList;
+    }
+
+    /**
+     * 还原
+     *
+     * @param id
+     * @return
+     */
+    public String reduction(String id) {
+        YqmStoreProduct storeProduct = iYqmStoreProductService.getById(id);
+        if (Objects.nonNull(storeProduct)) {
+            storeProduct.setStatus(YqmDefine.StatusType.effective.getValue());
+            this.save(YqmStoreProductToDTO.toYqmStoreProductRequest(storeProduct));
+        }
+        return id;
     }
 
     private List<YqmStoreProductDTO> getOther(List<YqmStoreProductDTO> dtoList) {
@@ -129,7 +167,9 @@ public class AdminStoreProductService {
             entity.setCreatedTime(LocalDateTime.now());
             entity.setCreatedBy(user.getId());
         }
-
+        if (StringUtils.isNotBlank(request.getArticleNumber())) {
+            entity.setArticleNumber(IdUtil.getSnowflake().nextIdStr());
+        }
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
         iYqmStoreProductService.saveOrUpdate(entity);
@@ -148,6 +188,21 @@ public class AdminStoreProductService {
         return this.save(YqmStoreProductToDTO.toYqmStoreProductRequest(entity));
     }
 
+    /**
+     * 放回回收站
+     *
+     * @param id
+     * @return
+     */
+    public String reRecycle(String id) {
+        YqmStoreProduct entity = iYqmStoreProductService.getById(id);
+        if (Objects.isNull(entity)) {
+            return id;
+        }
+        entity.setStatus(YqmDefine.StatusType.failure.getValue());
+        this.save(YqmStoreProductToDTO.toYqmStoreProductRequest(entity));
+        return id;
+    }
 
     /**
      * 删除

@@ -103,4 +103,10 @@ public class YqmStoreSku extends BaseEntity implements Serializable {
     private String pspecIds;
 
 
+    /**
+     * 是否上架;shelves 上架 not_shelves 下架
+     */
+    private String isShelves;
+
+
 }

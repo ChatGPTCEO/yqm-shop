@@ -68,6 +68,43 @@ public class AdminStoreProductController {
     }
 
     /**
+     * 回收站
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/recycle")
+    public ResponseBean recycle(YqmStoreProductRequest request) {
+        IPage page = adminStoreProductService.recycle(request);
+        return ResponseBean.success(page);
+    }
+
+    /**
+     * 还原
+     *
+     * @param id
+     * @return
+     */
+    @PutMapping("/reduction/{id}")
+    public ResponseBean reduction(@PathVariable("id") String id) {
+        String entityId = adminStoreProductService.reduction(id);
+        return ResponseBean.success(entityId);
+    }
+
+
+    /**
+     * 放回回收站
+     *
+     * @param id
+     * @return
+     */
+    @PutMapping("/reRecycle/{id}")
+    public ResponseBean reRecycle(@PathVariable("id") String id) {
+        String entityId = adminStoreProductService.reRecycle(id);
+        return ResponseBean.success(entityId);
+    }
+
+    /**
      * 查询详情
      *
      * @param id

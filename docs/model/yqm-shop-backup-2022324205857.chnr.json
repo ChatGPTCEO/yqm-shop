@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-24 20:58:57",
+  "updatedTime": "2022-3-22 20:57:29",
   "dbConns": [],
   "profile": {
     "default": {
@@ -1830,20 +1830,6 @@
           "hideInGraph": false,
           "refDict": "",
           "domain": "DescText"
-        },
-        {
-          "defKey": "is_shelves",
-          "defName": "是否上架",
-          "comment": "shelves 上架 not_shelves 下架",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "'not_shelves'",
-          "hideInGraph": false,
-          "domain": "DefaultString"
         }
       ],
       "correlations": [],

@@ -107,4 +107,10 @@ public class YqmStoreSkuDTO extends BaseEntity implements Serializable {
      */
     private List<YqmStoreSpecDTO> spec;
 
+
+    /**
+     * 是否上架;shelves 上架 not_shelves 下架
+     */
+    private String isShelves;
+
 }

@@ -105,4 +105,10 @@ public class YqmStoreSkuRequest extends BaseRequest implements Serializable {
      * sku 集合
      */
     private List<YqmStoreSpecRequest> spec;
+
+
+    /**
+     * 是否上架;shelves 上架 not_shelves 下架
+     */
+    private String isShelves;
 }
