@@ -424,3 +424,67 @@ CREATE TABLE yqm_user
     PRIMARY KEY (id)
 ) COMMENT = '普通用户表';
 
+
+
+DROP TABLE IF EXISTS yqm_order;
+CREATE TABLE yqm_order
+(
+    id               VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by       VARCHAR(32) COMMENT '创建人',
+    created_time     DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by       VARCHAR(32) COMMENT '更新人',
+    updated_time     DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`           INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`         VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    user_id          VARCHAR(32) NOT NULL COMMENT '用户编号',
+    amount_payable   VARCHAR(255) COMMENT '应付金额',
+    amount           VARCHAR(255) COMMENT '订单总额',
+    pay_type         VARCHAR(255) COMMENT '支付方式;alipay 支付宝 wxpay 微信支付',
+    order_source     VARCHAR(255) COMMENT '订单来源;app APP miniapp 小程序',
+    order_status     INT COMMENT '订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭',
+    shipping_address VARCHAR(900) COMMENT '收货地址',
+    shipping_phone   VARCHAR(255) COMMENT '收货电话',
+    shipping_name    VARCHAR(255) COMMENT '收货人姓名',
+    note             VARCHAR(255) COMMENT '备注',
+    express_single   VARCHAR(255) COMMENT '快递单号',
+    zip_code         VARCHAR(255) COMMENT '邮编',
+    PRIMARY KEY (id)
+) COMMENT = '订单';
+
+
+DROP TABLE IF EXISTS yqm_order_item;
+CREATE TABLE yqm_order_item
+(
+    id           VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32) COMMENT '创建人',
+    created_time DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`       INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    order_id     VARCHAR(32) NOT NULL COMMENT '订单编号',
+    product_id   VARCHAR(255) COMMENT '商品编号',
+    sku_id       VARCHAR(255) COMMENT 'sku',
+    num          VARCHAR(255) COMMENT '数量',
+    price        VARCHAR(255) COMMENT '价格',
+    PRIMARY KEY (id)
+) COMMENT = '订单子表';
+
+DROP TABLE IF EXISTS yqm_order_log;
+CREATE TABLE yqm_order_log
+(
+    id           VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32) COMMENT '创建人',
+    created_time DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`       INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    order_id     VARCHAR(32) COMMENT '订单id',
+    user_type    VARCHAR(255) COMMENT '用户类型',
+    user_id      VARCHAR(255) COMMENT '用户id',
+    order_status INT COMMENT '订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭',
+    note         VARCHAR(900) COMMENT '备注',
+    PRIMARY KEY (id)
+) COMMENT = '订单日志';
+

@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-3-31 21:04:48",
+  "updatedTime": "2022-3-31 21:04:41",
   "dbConns": [],
   "profile": {
     "default": {
@@ -4938,6 +4938,21 @@
         {
           "defKey": "zip_code",
           "defName": "邮编",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "DefaultString"
+        },
+        {
+          "defKey": "",
+          "defName": "",
           "comment": "",
           "type": "VARCHAR",
           "len": 255,
