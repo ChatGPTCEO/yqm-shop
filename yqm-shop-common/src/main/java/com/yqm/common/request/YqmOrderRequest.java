@@ -81,7 +81,7 @@ public class YqmOrderRequest extends BaseRequest implements Serializable {
     private String orderSource;
 
     /**
-     * 订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭
+     * 订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭 5 已发货 6 完成收货 7 完成评价
      */
     private Integer orderStatus;
 

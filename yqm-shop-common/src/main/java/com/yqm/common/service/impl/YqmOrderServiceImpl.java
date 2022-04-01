@@ -10,6 +10,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 /**
  * <p>
  * 订单 服务实现类
@@ -29,6 +31,9 @@ public class YqmOrderServiceImpl extends ServiceImpl<YqmOrderMapper, YqmOrder> i
         }
         if (StringUtils.isNotBlank(request.getStatus())) {
             queryWrapper.eq("status", request.getStatus());
+        }
+        if (Objects.nonNull(request.getOrderStatus())) {
+            queryWrapper.eq("order_status", request.getOrderStatus());
         }
         return queryWrapper;
     }

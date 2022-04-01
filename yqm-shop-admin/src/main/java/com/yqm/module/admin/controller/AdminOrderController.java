@@ -76,6 +76,18 @@ public class AdminOrderController {
     }
 
     /**
+     * 详情
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/info/{id}")
+    public ResponseBean info(@PathVariable String id) {
+        YqmOrderDTO dto = adminOrderService.orderInfo(id);
+        return ResponseBean.success(dto);
+    }
+
+    /**
      * 删除
      *
      * @param id

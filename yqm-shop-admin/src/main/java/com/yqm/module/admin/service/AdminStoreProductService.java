@@ -8,11 +8,14 @@ import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmStoreProductDTO;
 import com.yqm.common.dto.YqmStoreProductStatisticsDTO;
 import com.yqm.common.entity.YqmBrand;
+import com.yqm.common.entity.YqmProductSales;
+import com.yqm.common.entity.YqmProductSkuInventory;
 import com.yqm.common.entity.YqmStoreProduct;
 import com.yqm.common.request.YqmBrandRequest;
 import com.yqm.common.request.YqmStoreProductRequest;
 import com.yqm.common.service.IYqmBrandService;
 import com.yqm.common.service.IYqmStoreProductService;
+import com.yqm.common.service.IYqmStoreSkuService;
 import com.yqm.common.service.IYqmStoreSpecService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
@@ -43,11 +46,13 @@ public class AdminStoreProductService {
     private final IYqmStoreProductService iYqmStoreProductService;
     private final IYqmBrandService iYqmBrandService;
     private final IYqmStoreSpecService iYqmStoreSpecService;
+    private final IYqmStoreSkuService iYqmStoreSkuService;
 
-    public AdminStoreProductService(IYqmStoreProductService iYqmStoreProductService, IYqmBrandService iYqmBrandService, IYqmStoreSpecService iYqmStoreSpecService) {
+    public AdminStoreProductService(IYqmStoreProductService iYqmStoreProductService, IYqmBrandService iYqmBrandService, IYqmStoreSpecService iYqmStoreSpecService, IYqmStoreSkuService iYqmStoreSkuService) {
         this.iYqmStoreProductService = iYqmStoreProductService;
         this.iYqmBrandService = iYqmBrandService;
         this.iYqmStoreSpecService = iYqmStoreSpecService;
+        this.iYqmStoreSkuService = iYqmStoreSkuService;
     }
 
     /**
@@ -113,6 +118,7 @@ public class AdminStoreProductService {
         if (CollectionUtils.isEmpty(dtoList)) {
             return null;
         }
+
         // 获取品牌
         List<String> brandIdList = dtoList.stream().map(e -> e.getBrandId()).collect(Collectors.toList());
         YqmBrandRequest brandRequest = new YqmBrandRequest();
@@ -124,6 +130,31 @@ public class AdminStoreProductService {
                 YqmBrand yqmBrand = brandMap.get(e.getBrandId());
                 if (Objects.nonNull(yqmBrand)) {
                     e.setBrandName(yqmBrand.getBrandName());
+                }
+            });
+        }
+
+        // 库存
+        List<String> productIdList = dtoList.stream().map(e -> e.getId()).collect(Collectors.toList());
+        List<YqmProductSkuInventory> productSkuInventoryList = iYqmStoreSkuService.getProductSkuInventory(productIdList);
+        if (CollectionUtils.isNotEmpty(productSkuInventoryList)) {
+            Map<String, YqmProductSkuInventory> productSkuInventoryMap = productSkuInventoryList.stream().collect(Collectors.toMap(e -> e.getProductId(), e -> e));
+            dtoList.forEach(e -> {
+                YqmProductSkuInventory productSkuInventory = productSkuInventoryMap.get(e.getId());
+                if (Objects.nonNull(productSkuInventory)) {
+                    e.setInventory(productSkuInventory.getInventory());
+                }
+            });
+        }
+
+        // 销量
+        List<YqmProductSales> productSalesList = iYqmStoreSkuService.getProductSales(productIdList);
+        if (CollectionUtils.isNotEmpty(productSalesList)) {
+            Map<String, YqmProductSales> productSalesMap = productSalesList.stream().collect(Collectors.toMap(e -> e.getProductId(), e -> e));
+            dtoList.forEach(e -> {
+                YqmProductSales productSales = productSalesMap.get(e.getId());
+                if (Objects.nonNull(productSales)) {
+                    e.setSales(productSales.getSales());
                 }
             });
         }

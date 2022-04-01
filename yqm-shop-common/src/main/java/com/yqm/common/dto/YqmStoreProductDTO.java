@@ -198,4 +198,15 @@ public class YqmStoreProductDTO extends BaseEntity implements Serializable {
      */
     private List<YqmStoreSpecDTO> specList;
 
+
+    /**
+     * 总库存
+     */
+    private Integer inventory;
+
+    /**
+     * 销量
+     */
+    private Integer sales;
+
 }

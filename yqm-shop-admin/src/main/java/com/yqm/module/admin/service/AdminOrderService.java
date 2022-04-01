@@ -117,5 +117,9 @@ public class AdminOrderService {
         return id;
     }
 
+    public YqmOrderDTO orderInfo(String id) {
+        YqmOrderDTO dto = this.getById(id);
+        return dto;
+    }
 
 }
