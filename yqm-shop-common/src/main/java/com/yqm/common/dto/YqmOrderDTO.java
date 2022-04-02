@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -115,6 +116,44 @@ public class YqmOrderDTO extends BaseEntity implements Serializable {
      * 邮编
      */
     private String zipCode;
+
+    /**
+     * 物流轨迹
+     */
+    private String expressLogistics;
+
+    /**
+     * 自动收货天数
+     */
+    private Integer automaticDay;
+
+
+    /**
+     * 自动收货天数
+     */
+    private LocalDateTime automaticDate;
+
+    /**
+     * 订单类型;ordinary 普通
+     */
+    private String orderType;
+
+    /**
+     * 配送方式;express 快递
+     */
+    private String distributionMode;
+
+    /**
+     * 运费
+     */
+    private String freight;
+
+    // 额外
+
+    /**
+     * 商品
+     */
+    private List<YqmStoreProductDTO> storeProductDTO;
 
 
 }

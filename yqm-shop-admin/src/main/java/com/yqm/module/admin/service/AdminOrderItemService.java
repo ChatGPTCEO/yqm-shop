@@ -2,12 +2,12 @@ package com.yqm.module.admin.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yqm.common.conversion.YqmOrderToDTO;
+import com.yqm.common.conversion.YqmOrderItemToDTO;
 import com.yqm.common.define.YqmDefine;
-import com.yqm.common.dto.YqmOrderDTO;
-import com.yqm.common.entity.YqmOrder;
-import com.yqm.common.request.YqmOrderRequest;
-import com.yqm.common.service.IYqmOrderService;
+import com.yqm.common.dto.YqmOrderItemDTO;
+import com.yqm.common.entity.YqmOrderItem;
+import com.yqm.common.request.YqmOrderItemRequest;
+import com.yqm.common.service.IYqmOrderItemService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.apache.commons.collections4.CollectionUtils;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 管理端-订单
+ * 管理端-订单子表
  *
  * @Author: weiximei
  * @Date: 2022/2/28 20:01
@@ -30,13 +30,13 @@ import java.util.Objects;
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class AdminOrderService {
+public class AdminOrderItemService {
 
 
-    private final IYqmOrderService iYqmOrderService;
+    private final IYqmOrderItemService iYqmOrderItemService;
 
-    public AdminOrderService(IYqmOrderService iYqmOrderService) {
-        this.iYqmOrderService = iYqmOrderService;
+    public AdminOrderItemService(IYqmOrderItemService iYqmOrderItemService) {
+        this.iYqmOrderItemService = iYqmOrderItemService;
     }
 
     /**
@@ -45,15 +45,15 @@ public class AdminOrderService {
      * @param request
      * @return
      */
-    public IPage<YqmOrderDTO> page(YqmOrderRequest request) {
-        Page<YqmOrder> page = new Page<>();
+    public IPage<YqmOrderItemDTO> page(YqmOrderItemRequest request) {
+        Page<YqmOrderItem> page = new Page<>();
         page.setCurrent(request.getCurrent());
         page.setSize(request.getPageSize());
 
         request.setInStatusList(YqmDefine.includeStatus);
-        IPage pageList = iYqmOrderService.page(page, iYqmOrderService.getQuery(request));
+        IPage pageList = iYqmOrderItemService.page(page, iYqmOrderItemService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
-            pageList.setRecords(YqmOrderToDTO.toYqmOrderDTOList(pageList.getRecords()));
+            pageList.setRecords(YqmOrderItemToDTO.toYqmOrderItemDTOList(pageList.getRecords()));
         }
         return pageList;
     }
@@ -64,10 +64,10 @@ public class AdminOrderService {
      * @param request
      * @return
      */
-    public List<YqmOrderDTO> list(YqmOrderRequest request) {
+    public List<YqmOrderItemDTO> list(YqmOrderItemRequest request) {
         request.setInStatusList(YqmDefine.includeStatus);
-        List<YqmOrder> list = iYqmOrderService.list(iYqmOrderService.getQuery(request));
-        return YqmOrderToDTO.toYqmOrderDTOList(list);
+        List<YqmOrderItem> list = iYqmOrderItemService.list(iYqmOrderItemService.getQuery(request));
+        return YqmOrderItemToDTO.toYqmOrderItemDTOList(list);
     }
 
     /**
@@ -76,9 +76,9 @@ public class AdminOrderService {
      * @param id
      * @return
      */
-    public YqmOrderDTO getById(String id) {
-        YqmOrder entity = iYqmOrderService.getById(id);
-        return YqmOrderToDTO.toYqmOrderDTO(entity);
+    public YqmOrderItemDTO getById(String id) {
+        YqmOrderItem entity = iYqmOrderItemService.getById(id);
+        return YqmOrderItemToDTO.toYqmOrderItemDTO(entity);
     }
 
     /**
@@ -87,9 +87,9 @@ public class AdminOrderService {
      * @param request
      * @return
      */
-    public YqmOrderDTO save(YqmOrderRequest request) {
+    public YqmOrderItemDTO save(YqmOrderItemRequest request) {
         User user = UserInfoService.getUser();
-        YqmOrder entity = YqmOrderToDTO.toYqmOrder(request);
+        YqmOrderItem entity = YqmOrderItemToDTO.toYqmOrderItem(request);
         if (StringUtils.isEmpty(request.getId())) {
             entity.setCreatedTime(LocalDateTime.now());
             entity.setCreatedBy(user.getId());
@@ -97,8 +97,8 @@ public class AdminOrderService {
 
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
-        iYqmOrderService.saveOrUpdate(entity);
-        return YqmOrderToDTO.toYqmOrderDTO(entity);
+        iYqmOrderItemService.saveOrUpdate(entity);
+        return YqmOrderItemToDTO.toYqmOrderItemDTO(entity);
     }
 
     /**
@@ -108,12 +108,12 @@ public class AdminOrderService {
      * @return
      */
     public String deleteById(String id) {
-        YqmOrder brand = iYqmOrderService.getById(id);
+        YqmOrderItem brand = iYqmOrderItemService.getById(id);
         if (Objects.isNull(brand)) {
             return id;
         }
         brand.setStatus(YqmDefine.StatusType.delete.getValue());
-        this.save(YqmOrderToDTO.toYqmOrderRequest(brand));
+        this.save(YqmOrderItemToDTO.toYqmOrderItemRequest(brand));
         return id;
     }
 

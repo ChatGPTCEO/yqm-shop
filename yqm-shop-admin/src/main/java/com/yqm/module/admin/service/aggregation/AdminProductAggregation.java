@@ -159,25 +159,41 @@ public class AdminProductAggregation {
         storeSkuRequest.setInStatusList(YqmDefine.includeStatus);
         List<YqmStoreSkuDTO> storeSkuDTOS = adminStoreSkuService.list(storeSkuRequest);
         storeSkuDTOS.forEach(e -> {
-            String specIds = e.getSpecIds();
-            String[] specIdsArr = specIds.split(",");
-            List<YqmStoreSpecDTO> chilSkuList = new ArrayList<>();
-            for (String spec : specIdsArr) {
-                if (StringUtils.isNotBlank(spec)) {
-                    String[] chilSpecIdArr = spec.split(":");
-                    for (String chilSpec : chilSpecIdArr) {
-                        YqmStoreSpecDTO storeSpecDTO = storeSpecDTOMap.get(chilSpec);
-                        if (Objects.nonNull(storeSpecDTO)) {
-                            storeSpecDTO.setPrentSpecName(storeSpecDTOMap.get(storeSpecDTO.getPid()).getSpecName());
-                        }
-                        chilSkuList.add(storeSpecDTO);
-                    }
-                }
-            }
-            e.setSpec(chilSkuList);
+            // 组装属性
+            this.getSkuSpec(e);
         });
         storeProductDTO.setSkuList(storeSkuDTOS);
 
         return storeProductDTO;
+    }
+
+    private YqmStoreSkuDTO getSkuSpec(YqmStoreSkuDTO e) {
+
+        YqmStoreSpecRequest storeSpecRequest = new YqmStoreSpecRequest();
+        storeSpecRequest.setProductId(e.getProductId());
+        storeSpecRequest.setInStatusList(YqmDefine.includeStatus);
+        List<YqmStoreSpecDTO> storeSpecDTOList = adminStoreSpecService.list(storeSpecRequest);
+
+        Map<String, YqmStoreSpecDTO> storeSpecDTOMap = storeSpecDTOList.stream().collect(Collectors.toMap(storeSpec -> storeSpec.getId(), storeSpec -> storeSpec));
+
+
+        String specIds = e.getSpecIds();
+        String[] specIdsArr = specIds.split(",");
+        List<YqmStoreSpecDTO> chilSkuList = new ArrayList<>();
+        for (String spec : specIdsArr) {
+            if (StringUtils.isNotBlank(spec)) {
+                String[] chilSpecIdArr = spec.split(":");
+                for (String chilSpec : chilSpecIdArr) {
+                    YqmStoreSpecDTO storeSpecDTO = storeSpecDTOMap.get(chilSpec);
+                    if (Objects.nonNull(storeSpecDTO)) {
+                        storeSpecDTO.setPrentSpecName(storeSpecDTOMap.get(storeSpecDTO.getPid()).getSpecName());
+                    }
+                    chilSkuList.add(storeSpecDTO);
+                }
+            }
+        }
+        e.setSpec(chilSkuList);
+
+        return e;
     }
 }

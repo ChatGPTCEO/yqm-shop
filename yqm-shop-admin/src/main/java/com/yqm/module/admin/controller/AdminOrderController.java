@@ -19,6 +19,7 @@ import com.yqm.common.dto.YqmOrderDTO;
 import com.yqm.common.request.YqmOrderRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminOrderService;
+import com.yqm.module.admin.service.aggregation.AdminOrderAggregation;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -35,9 +36,11 @@ import org.springframework.web.bind.annotation.*;
 public class AdminOrderController {
 
     private final AdminOrderService adminOrderService;
+    private final AdminOrderAggregation adminOrderAggregation;
 
-    public AdminOrderController(AdminOrderService adminOrderService) {
+    public AdminOrderController(AdminOrderService adminOrderService, AdminOrderAggregation adminOrderAggregation) {
         this.adminOrderService = adminOrderService;
+        this.adminOrderAggregation = adminOrderAggregation;
     }
 
     /**
@@ -83,7 +86,7 @@ public class AdminOrderController {
      */
     @GetMapping("/info/{id}")
     public ResponseBean info(@PathVariable String id) {
-        YqmOrderDTO dto = adminOrderService.orderInfo(id);
+        YqmOrderDTO dto = adminOrderAggregation.orderInfo(id);
         return ResponseBean.success(dto);
     }
 

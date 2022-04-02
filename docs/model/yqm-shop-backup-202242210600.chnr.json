@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-2 21:06:00",
+  "updatedTime": "2022-4-2 21:05:42",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5028,14 +5028,14 @@
         {
           "defKey": "freight",
           "defName": "运费",
-          "comment": "0 包邮",
+          "comment": "",
           "type": "VARCHAR",
           "len": 255,
           "scale": "",
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "0 包邮",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"

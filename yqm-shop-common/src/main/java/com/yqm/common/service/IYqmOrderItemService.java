@@ -1,7 +1,9 @@
 package com.yqm.common.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yqm.common.entity.YqmOrderItem;
+import com.yqm.common.request.YqmOrderItemRequest;
 
 /**
  * <p>
@@ -13,4 +15,5 @@ import com.yqm.common.entity.YqmOrderItem;
  */
 public interface IYqmOrderItemService extends IService<YqmOrderItem> {
 
+    QueryWrapper<YqmOrderItem> getQuery(YqmOrderItemRequest request);
 }

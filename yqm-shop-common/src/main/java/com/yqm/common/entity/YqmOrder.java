@@ -116,5 +116,35 @@ public class YqmOrder extends BaseEntity implements Serializable {
      */
     private String zipCode;
 
+    /**
+     * 物流轨迹
+     */
+    private String expressLogistics;
+
+    /**
+     * 自动收货天数
+     */
+    private Integer automaticDay;
+
+
+    /**
+     * 自动收货天数
+     */
+    private LocalDateTime automaticDate;
+
+    /**
+     * 订单类型;ordinary 普通
+     */
+    private String orderType;
+
+    /**
+     * 配送方式;express 快递
+     */
+    private String distributionMode;
+
+    /**
+     * 运费
+     */
+    private String freight;
 
 }
