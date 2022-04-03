@@ -75,5 +75,10 @@ public class YqmOrderLogRequest extends BaseRequest implements Serializable {
      */
     private String note;
 
+    /**
+     * 操作名称
+     */
+    private String userName;
+
 
 }

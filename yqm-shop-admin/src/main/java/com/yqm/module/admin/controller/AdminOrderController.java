@@ -74,7 +74,7 @@ public class AdminOrderController {
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable String id) {
-        YqmOrderDTO dto = adminOrderService.getById(id);
+        YqmOrderDTO dto = adminOrderAggregation.orderInfo(id);
         return ResponseBean.success(dto);
     }
 

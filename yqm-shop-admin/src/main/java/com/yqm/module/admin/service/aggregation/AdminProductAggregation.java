@@ -126,6 +126,11 @@ public class AdminProductAggregation {
 
     }
 
+    public YqmStoreProductDTO getInfo(String id) {
+        YqmStoreProductDTO storeProductDTO = adminStoreProductService.getById(id);
+        return storeProductDTO;
+    }
+
     /**
      * 根据id查询
      *
@@ -167,7 +172,7 @@ public class AdminProductAggregation {
         return storeProductDTO;
     }
 
-    private YqmStoreSkuDTO getSkuSpec(YqmStoreSkuDTO e) {
+    public YqmStoreSkuDTO getSkuSpec(YqmStoreSkuDTO e) {
 
         YqmStoreSpecRequest storeSpecRequest = new YqmStoreSpecRequest();
         storeSpecRequest.setProductId(e.getProductId());

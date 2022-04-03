@@ -76,5 +76,11 @@ public class YqmOrderItemDTO extends BaseEntity implements Serializable {
      */
     private String price;
 
+    // 额外
+
+    /**
+     * 商品
+     */
+    private YqmStoreProductDTO storeProductDTO;
 
 }

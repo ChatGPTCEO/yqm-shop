@@ -151,9 +151,14 @@ public class YqmOrderDTO extends BaseEntity implements Serializable {
     // 额外
 
     /**
-     * 商品
+     * 子单
      */
-    private List<YqmStoreProductDTO> storeProductDTO;
+    private List<YqmOrderItemDTO> orderItemDTOS;
+
+    /**
+     * 操作日志
+     */
+    private List<YqmOrderLogDTO> orderLogDTOS;
 
 
 }

@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-3 16:38:40",
+  "updatedTime": "2022-4-3 15:31:51",
   "dbConns": [],
   "profile": {
     "default": {
@@ -4848,7 +4848,7 @@
         {
           "defKey": "order_status",
           "defName": "订单状态",
-          "comment": "0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭 5 已发货 6 完成收货 7 完成评价 8 退款",
+          "comment": "0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭 5 已发货 6 完成收货 7 完成评价",
           "type": "INT",
           "len": "",
           "scale": "",
@@ -5526,21 +5526,6 @@
         {
           "defKey": "user_id",
           "defName": "用户id",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "user_name",
-          "defName": "操作名称",
           "comment": "",
           "type": "VARCHAR",
           "len": 255,
