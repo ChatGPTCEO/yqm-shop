@@ -147,4 +147,35 @@ public class YqmOrder extends BaseEntity implements Serializable {
      */
     private String freight;
 
+    /**
+     * 省id
+     */
+    private String provinceId;
+
+    /**
+     * 省
+     */
+    private String provinceName;
+
+
+    /**
+     * 市id
+     */
+    private String cityId;
+
+    /**
+     * 市
+     */
+    private String cityName;
+
+    /**
+     * 区id
+     */
+    private String areaId;
+
+    /**
+     * 区
+     */
+    private String areaName;
+
 }

@@ -146,5 +146,16 @@ public class YqmOrderRequest extends BaseRequest implements Serializable {
      */
     private String freight;
 
+    private String provinceId;
+
+    private String provinceName;
+
+    private String cityId;
+
+    private String cityName;
+
+    private String areaId;
+
+    private String areaName;
 
 }
