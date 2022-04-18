@@ -131,4 +131,19 @@ public class OrderLogService {
         return id;
     }
 
+    /**
+     * 写入日志
+     *
+     * @param request
+     * @return
+     */
+    public YqmOrderLogDTO insertLog(YqmOrderLogRequest request) {
+        request.setId(null);
+        User user = UserInfoService.getUser();
+        request.setUserId(user.getId());
+        request.setStatus(YqmDefine.StatusType.effective.getValue());
+        request.setUserType(user.getUserType());
+        request.setUserName(user.getUserName());
+        return this.save(request);
+    }
 }

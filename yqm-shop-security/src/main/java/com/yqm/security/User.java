@@ -23,11 +23,11 @@
 package com.yqm.security;
 
 import com.yqm.common.entity.TpUser;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -38,15 +38,20 @@ import java.util.List;
  * @QQ: 907147608
  * @Email: 907147608@qq.com
  */
+@AllArgsConstructor
 @Data
 public class User extends TpUser implements UserDetails {
 
     private List<GrantedAuthority> authorities;
 
-
+    /**
+     * 用户类型: system 系统 admin 管理用户 client 客户端
+     */
+    private String userType;
 
     /**
      * 用户权限
+     *
      * @return
      */
     @Override
@@ -61,6 +66,7 @@ public class User extends TpUser implements UserDetails {
 
     /**
      * 账户是否过期
+     *
      * @return
      */
     @Override
@@ -70,6 +76,7 @@ public class User extends TpUser implements UserDetails {
 
     /**
      * 账户是否锁定，或者说是冻结了，也就是账户是否被锁了
+     *
      * @return
      */
     @Override
@@ -79,6 +86,7 @@ public class User extends TpUser implements UserDetails {
 
     /**
      * 密码是否过期
+     *
      * @return
      */
     @Override
@@ -88,6 +96,7 @@ public class User extends TpUser implements UserDetails {
 
     /**
      * 是否可用
+     *
      * @return
      */
     @Override

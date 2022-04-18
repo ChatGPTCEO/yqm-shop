@@ -102,28 +102,28 @@ public class AdminOrderController {
         return ResponseBean.success(removeId);
     }
 
-    /**
-     * 保存
-     *
-     * @param request
-     * @return
-     */
-    @PostMapping("")
-    public ResponseBean save(@RequestBody YqmOrderRequest request) {
-        YqmOrderDTO dto = adminOrderService.save(request);
-        return ResponseBean.success(dto);
-    }
-
-    /**
-     * 修改
-     *
-     * @param request
-     * @return
-     */
-    @PutMapping("")
-    public ResponseBean update(@RequestBody YqmOrderRequest request) {
-        YqmOrderDTO dto = adminOrderService.save(request);
-        return ResponseBean.success(dto);
-    }
+//    /**
+//     * 保存
+//     *
+//     * @param request
+//     * @return
+//     */
+//    @PostMapping("")
+//    public ResponseBean save(@RequestBody YqmOrderRequest request) {
+//        YqmOrderDTO dto = adminOrderService.save(request);
+//        return ResponseBean.success(dto);
+//    }
+//
+//    /**
+//     * 修改
+//     *
+//     * @param request
+//     * @return
+//     */
+//    @PutMapping("")
+//    public ResponseBean update(@RequestBody YqmOrderRequest request) {
+//        YqmOrderDTO dto = adminOrderService.save(request);
+//        return ResponseBean.success(dto);
+//    }
 
 }

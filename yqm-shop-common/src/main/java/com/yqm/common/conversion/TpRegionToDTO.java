@@ -24,6 +24,7 @@ package com.yqm.common.conversion;
 
 import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.entity.TpRegion;
+import com.yqm.common.request.TpRegionRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.BeanUtils;
 
@@ -43,6 +44,18 @@ public class TpRegionToDTO {
         TpRegionDTO dto = new TpRegionDTO();
         BeanUtils.copyProperties(entity, dto);
         return dto;
+    }
+
+    public static TpRegionRequest toTpCompanyRequest(TpRegionDTO dto) {
+        TpRegionRequest request = new TpRegionRequest();
+        BeanUtils.copyProperties(dto, request);
+        return request;
+    }
+
+    public static TpRegionRequest toTpCompanyRequest(TpRegion entity) {
+        TpRegionRequest request = new TpRegionRequest();
+        BeanUtils.copyProperties(entity, request);
+        return request;
     }
 
     public static List<TpRegionDTO> toTpCompanyDTOList(List<TpRegion> entityList) {

@@ -34,6 +34,10 @@ import java.util.List;
  */
 public class YqmDefine {
 
+
+    public final static String order_update_address = "";
+
+
     // 有效
     public final static List<String> includeStatus = Arrays.asList(StatusType.failure.getValue(), StatusType.effective.getValue());
 

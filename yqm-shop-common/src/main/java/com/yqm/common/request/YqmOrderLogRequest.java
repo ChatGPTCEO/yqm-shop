@@ -1,5 +1,6 @@
 package com.yqm.common.request;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
  * @author weiximei
  * @since 2022-03-31
  */
+@Builder
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class YqmOrderLogRequest extends BaseRequest implements Serializable {

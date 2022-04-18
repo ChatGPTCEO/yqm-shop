@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
-* <p>
-    * 地区表 服务实现类
-    * </p>
-*
-* @author weiximei
-* @since 2021-10-24
-*/
+ * <p>
+ * 地区表 服务实现类
+ * </p>
+ *
+ * @author weiximei
+ * @since 2021-10-24
+ */
 @Service
 public class TpRegionServiceImpl extends ServiceImpl<TpRegionMapper, TpRegion> implements ITpRegionService {
 
@@ -31,7 +31,9 @@ public class TpRegionServiceImpl extends ServiceImpl<TpRegionMapper, TpRegion> i
         if (null != request.getPid()) {
             queryWrapper.eq("pid", request.getPid());
         }
-
+        if (CollectionUtils.isNotEmpty(request.getInIdList())) {
+            queryWrapper.in("id", request.getInIdList());
+        }
         return queryWrapper;
     }
 
@@ -59,5 +61,13 @@ public class TpRegionServiceImpl extends ServiceImpl<TpRegionMapper, TpRegion> i
 
         }
         return dtoList;
+    }
+
+    @Override
+    public List<TpRegionDTO> getIdList(List<String> idList) {
+        TpRegionRequest request = new TpRegionRequest();
+        request.setInIdList(idList);
+        List<TpRegion> regionList = this.list(this.queryWrapper(request));
+        return TpRegionToDTO.toTpCompanyDTOList(regionList);
     }
 }
