@@ -11,11 +11,11 @@ CREATE TABLE SPRING_SESSION
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
 CREATE
-UNIQUE INDEX SPRING_SESSION_IX1 ON SPRING_SESSION (SESSION_ID);
+    UNIQUE INDEX SPRING_SESSION_IX1 ON SPRING_SESSION (SESSION_ID);
 CREATE
-INDEX SPRING_SESSION_IX2 ON SPRING_SESSION (EXPIRY_TIME);
+    INDEX SPRING_SESSION_IX2 ON SPRING_SESSION (EXPIRY_TIME);
 CREATE
-INDEX SPRING_SESSION_IX3 ON SPRING_SESSION (PRINCIPAL_NAME);
+    INDEX SPRING_SESSION_IX3 ON SPRING_SESSION (PRINCIPAL_NAME);
 
 CREATE TABLE SPRING_SESSION_ATTRIBUTES
 (
@@ -212,6 +212,9 @@ CREATE TABLE yqm_store_sku
     img               VARCHAR(255) COMMENT '图片',
     product_id        VARCHAR(32) NOT NULL COMMENT '商品id',
     `status`          VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效',
+    spec_ids          VARCHAR(900) COMMENT 'spec;组合属性',
+    pspec_ids         VARCHAR(900) COMMENT '父spec;组合父属性',
+    is_shelves        VARCHAR(255)         DEFAULT 'not_shelves' COMMENT '是否上架;shelves 上架 not_shelves 下架',
     PRIMARY KEY (id)
 ) COMMENT = '商品sku';
 
@@ -399,7 +402,29 @@ CREATE TABLE yqm_store_attribute
     input_type    VARCHAR(255) COMMENT '录入方式',
     input_value   text COMMENT '值',
     PRIMARY KEY (id)
-) COMMENT = '商品属性';
+) COMMENT = '商品属性模板';
+
+
+
+DROP TABLE IF EXISTS yqm_store_spec;
+CREATE TABLE yqm_store_spec
+(
+    id           VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32) COMMENT '创建人',
+    created_time DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`       INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    pid          INT         NOT NULL DEFAULT 0 COMMENT '父id',
+    spec_name    VARCHAR(255) COMMENT '名称',
+    is_parent    INT                  DEFAULT 0 COMMENT '0属性 1规格',
+    product_id   VARCHAR(32) COMMENT '商品id',
+    attrbute_id  VARCHAR(32) COMMENT '属性模板id',
+    type_id      VARCHAR(255) COMMENT '商品类型id',
+    PRIMARY KEY (id)
+) COMMENT = '规格属性';
+
 
 DROP TABLE IF EXISTS yqm_user;
 CREATE TABLE yqm_user
@@ -429,25 +454,38 @@ CREATE TABLE yqm_user
 DROP TABLE IF EXISTS yqm_order;
 CREATE TABLE yqm_order
 (
-    id               VARCHAR(32) NOT NULL COMMENT '编号',
-    created_by       VARCHAR(32) COMMENT '创建人',
-    created_time     DATETIME             DEFAULT now() COMMENT '创建时间',
-    updated_by       VARCHAR(32) COMMENT '更新人',
-    updated_time     DATETIME             DEFAULT now() COMMENT '更新时间',
-    `sort`           INT         NOT NULL DEFAULT 1 COMMENT '排序',
-    `status`         VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
-    user_id          VARCHAR(32) NOT NULL COMMENT '用户编号',
-    amount_payable   VARCHAR(255) COMMENT '应付金额',
-    amount           VARCHAR(255) COMMENT '订单总额',
-    pay_type         VARCHAR(255) COMMENT '支付方式;alipay 支付宝 wxpay 微信支付',
-    order_source     VARCHAR(255) COMMENT '订单来源;app APP miniapp 小程序',
-    order_status     INT COMMENT '订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭',
-    shipping_address VARCHAR(900) COMMENT '收货地址',
-    shipping_phone   VARCHAR(255) COMMENT '收货电话',
-    shipping_name    VARCHAR(255) COMMENT '收货人姓名',
-    note             VARCHAR(255) COMMENT '备注',
-    express_single   VARCHAR(255) COMMENT '快递单号',
-    zip_code         VARCHAR(255) COMMENT '邮编',
+    id                VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by        VARCHAR(32) COMMENT '创建人',
+    created_time      DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by        VARCHAR(32) COMMENT '更新人',
+    updated_time      DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`            INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`          VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    user_account      VARCHAR(255) NOT NULL COMMENT '用户账号',
+    user_id           VARCHAR(32)  NOT NULL COMMENT '用户编号',
+    amount_payable    VARCHAR(255) COMMENT '应付金额',
+    amount            VARCHAR(255) COMMENT '订单总额',
+    pay_type          VARCHAR(255) COMMENT '支付方式;alipay 支付宝 wxpay 微信支付',
+    order_source      VARCHAR(255) COMMENT '订单来源;app APP miniapp 小程序',
+    order_status      INT COMMENT '订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭',
+    shipping_address  VARCHAR(900) COMMENT '收货地址',
+    shipping_phone    VARCHAR(255) COMMENT '收货电话',
+    shipping_name     VARCHAR(255) COMMENT '收货人姓名',
+    note              VARCHAR(255) COMMENT '备注',
+    express_single    VARCHAR(255) COMMENT '快递单号',
+    zip_code          VARCHAR(255) COMMENT '邮编',
+    express_logistics text COMMENT '物流轨迹',
+    automatic_day     INT COMMENT '自动收货天数',
+    automatic_date    VARCHAR(255) COMMENT '自动收货时间',
+    order_type        VARCHAR(255)          DEFAULT 'ordinary' COMMENT '订单类型;ordinary 普通',
+    distribution_mode VARCHAR(255)          DEFAULT 'express' COMMENT '配送方式;express 快递',
+    freight           VARCHAR(255) COMMENT '运费;0 包邮',
+    province_id       VARCHAR(255) COMMENT '省id',
+    province_name     VARCHAR(255) COMMENT '省',
+    city_id           VARCHAR(255) COMMENT '市id',
+    city_name         VARCHAR(255) COMMENT '市',
+    area_id           VARCHAR(255) COMMENT '区id',
+    area_name         VARCHAR(255) COMMENT '区',
     PRIMARY KEY (id)
 ) COMMENT = '订单';
 
@@ -473,18 +511,20 @@ CREATE TABLE yqm_order_item
 DROP TABLE IF EXISTS yqm_order_log;
 CREATE TABLE yqm_order_log
 (
-    id           VARCHAR(32) NOT NULL COMMENT '编号',
-    created_by   VARCHAR(32) COMMENT '创建人',
-    created_time DATETIME             DEFAULT now() COMMENT '创建时间',
-    updated_by   VARCHAR(32) COMMENT '更新人',
-    updated_time DATETIME             DEFAULT now() COMMENT '更新时间',
-    `sort`       INT         NOT NULL DEFAULT 1 COMMENT '排序',
-    `status`     VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
-    order_id     VARCHAR(32) COMMENT '订单id',
-    user_type    VARCHAR(255) COMMENT '用户类型',
-    user_id      VARCHAR(255) COMMENT '用户id',
-    order_status INT COMMENT '订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭',
+    id           VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32)  NOT NULL COMMENT '创建人',
+    created_time DATETIME     NOT NULL DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32)  NOT NULL COMMENT '更新人',
+    updated_time DATETIME     NOT NULL DEFAULT now() COMMENT '更新时间',
+    `sort`       INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255) NOT NULL DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    order_id     VARCHAR(32)  NOT NULL COMMENT '订单id',
+    user_type    VARCHAR(255) NOT NULL COMMENT '用户类型;system 系统 admin 管理用户 client 客户端',
+    user_id      VARCHAR(255) NOT NULL COMMENT '用户id',
+    user_name    VARCHAR(255) NOT NULL COMMENT '操作名称',
+    order_status INT          NOT NULL COMMENT '订单状态;0 待付款 1 已付款 2 待发货 3 已完成 4 已关闭',
     note         VARCHAR(900) COMMENT '备注',
     PRIMARY KEY (id)
 ) COMMENT = '订单日志';
+
 
