@@ -154,6 +154,9 @@ public class AdminClassificationService {
     public List<YqmClassificationDTO> listChild(YqmClassificationRequest request) {
         request.setLevel(1);
         List<YqmClassificationDTO> list = this.list(request);
+        if (CollectionUtils.isEmpty(list)) {
+            return null;
+        }
         for (YqmClassificationDTO dto : list) {
             YqmClassificationRequest requestChild = new YqmClassificationRequest();
             requestChild.setPid(dto.getId());
