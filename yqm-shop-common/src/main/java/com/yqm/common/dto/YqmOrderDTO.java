@@ -1,5 +1,6 @@
 package com.yqm.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,6 +31,7 @@ public class YqmOrderDTO extends BaseEntity implements Serializable {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdTime;
 
     /**
@@ -40,6 +42,7 @@ public class YqmOrderDTO extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedTime;
 
     /**
@@ -131,6 +134,7 @@ public class YqmOrderDTO extends BaseEntity implements Serializable {
     /**
      * 自动收货天数
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime automaticDate;
 
     /**

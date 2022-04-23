@@ -35,6 +35,12 @@ public class YqmOrderServiceImpl extends ServiceImpl<YqmOrderMapper, YqmOrder> i
         if (Objects.nonNull(request.getOrderStatus())) {
             queryWrapper.eq("order_status", request.getOrderStatus());
         }
+        if (StringUtils.isNotEmpty(request.getPersonKeyword())) {
+            queryWrapper.like("shipping_name", request.getPersonKeyword()).or().like("shipping_phone", request.getPersonKeyword());
+        }
+        if (StringUtils.isNotEmpty(request.getKeyword())) {
+            queryWrapper.like("id", request.getKeyword());
+        }
         return queryWrapper;
     }
 }

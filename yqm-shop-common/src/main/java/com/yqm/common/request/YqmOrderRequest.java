@@ -162,6 +162,15 @@ public class YqmOrderRequest extends BaseRequest implements Serializable {
      * 折扣金额
      */
     private String discountAmount;
-    
+
+    private LocalDateTime startDate;
+
+    private LocalDateTime endDate;
+
+    /**
+     * 收货人姓名/手机号码
+     */
+    private String personKeyword;
+
 
 }
