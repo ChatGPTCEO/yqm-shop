@@ -251,7 +251,7 @@ public class AdminOrderService {
                 .orderId(entity.getId())
                 .orderStatus(entity.getOrderStatus())
                 .userType(YqmDefine.UserType.admin.getValue())
-                .note(YqmDefine.OrderLogNote.update_amount.getValue())
+                .note(String.format(YqmDefine.OrderLogNote.update_amount.getValue(), request.getFreight(), request.getDiscountAmount()))
                 .build();
         orderLogService.insertLog(orderLogRequest);
         return request.getId();
@@ -289,6 +289,36 @@ public class AdminOrderService {
                 .orderStatus(entity.getOrderStatus())
                 .userType(YqmDefine.UserType.admin.getValue())
                 .note(String.format(YqmDefine.OrderLogNote.close.getValue(), request.getNote()))
+                .build();
+        orderLogService.insertLog(orderLogRequest);
+        return request.getId();
+    }
+
+    /**
+     * 关闭订单
+     *
+     * @param request
+     * @return
+     */
+    public String orderNote(YqmOrderRequest request) {
+        if (StringUtils.isEmpty(request.getId())) {
+            throw new YqmException("订单id不能为空");
+        }
+        if (StringUtils.isEmpty(request.getNote())) {
+            throw new YqmException("订单备注不能为空");
+        }
+        YqmOrder entity = iYqmOrderService.getById(request.getId());
+        if (Objects.isNull(entity)) {
+            throw new YqmException("订单不存在");
+        }
+
+//        this.save(YqmOrderToDTO.toYqmOrderRequest(entity));
+
+        YqmOrderLogRequest orderLogRequest = YqmOrderLogRequest.builder()
+                .orderId(entity.getId())
+                .orderStatus(entity.getOrderStatus())
+                .userType(YqmDefine.UserType.admin.getValue())
+                .note(String.format(YqmDefine.OrderLogNote.note.getValue(), request.getNote()))
                 .build();
         orderLogService.insertLog(orderLogRequest);
         return request.getId();

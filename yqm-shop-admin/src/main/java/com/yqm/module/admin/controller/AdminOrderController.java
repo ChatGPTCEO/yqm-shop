@@ -139,6 +139,17 @@ public class AdminOrderController {
         return ResponseBean.success(id);
     }
 
+    /**
+     * 订单备注
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/orderNote")
+    public ResponseBean orderNote(@RequestBody YqmOrderRequest request) {
+        String id = adminOrderService.orderNote(request);
+        return ResponseBean.success(id);
+    }
 
 //    /**
 //     * 保存

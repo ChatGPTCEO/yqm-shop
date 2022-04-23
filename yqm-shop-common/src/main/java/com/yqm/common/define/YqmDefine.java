@@ -382,8 +382,9 @@ public class YqmDefine {
      */
     public enum OrderLogNote {
         update_address("修改收件人信息", "修改收件人信息"),
-        update_amount("修改费用信息", "修改费用信息"),
-        close("关闭订单", "关闭订单: %s"),
+        update_amount("修改费用信息", "修改费用信息 (运费：%s、折扣金额：%s) "),
+        close("关闭订单", "关闭订单 (操作备注：%s) "),
+        note("备注订单", "备注订单 (操作备注：%s) "),
         ;
 
         private String desc;
