@@ -29,6 +29,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -42,7 +43,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class User extends TpUser implements UserDetails {
+public class User extends TpUser implements UserDetails, Serializable {
+
+    private final static long serialVersionUID = 1024002317522313047L;
 
     private List<GrantedAuthority> authorities;
 

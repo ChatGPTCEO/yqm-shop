@@ -2,6 +2,7 @@ package com.yqm.module.admin.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.collect.Lists;
 import com.yqm.common.conversion.YqmOrderToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.TpRegionDTO;
@@ -12,6 +13,7 @@ import com.yqm.common.request.YqmOrderLogRequest;
 import com.yqm.common.request.YqmOrderRequest;
 import com.yqm.common.service.ITpRegionService;
 import com.yqm.common.service.IYqmOrderService;
+import com.yqm.common.utils.BigDecimalUtils;
 import com.yqm.module.common.service.OrderLogService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
@@ -21,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -146,6 +149,11 @@ public class AdminOrderService {
             throw new YqmException("订单不存在");
         }
 
+        List<Integer> orderStatusList = Lists.newArrayList(YqmDefine.OrderStatus.wait_delivery.getValue(), YqmDefine.OrderStatus.already_payment.getValue(), YqmDefine.OrderStatus.wait_payment.getValue());
+        if (!orderStatusList.contains(entity.getOrderStatus())) {
+            throw new YqmException("订单状态错误");
+        }
+
         entity.setProvinceId(request.getProvinceId());
         entity.setAreaId(request.getAreaId());
         entity.setCityId(request.getCityId());
@@ -176,7 +184,111 @@ public class AdminOrderService {
         YqmOrderLogRequest orderLogRequest = YqmOrderLogRequest.builder()
                 .orderId(entity.getId())
                 .orderStatus(entity.getOrderStatus())
-                .note("")
+                .userType(YqmDefine.UserType.admin.getValue())
+                .note(YqmDefine.OrderLogNote.update_address.getValue())
+                .build();
+        orderLogService.insertLog(orderLogRequest);
+        return request.getId();
+    }
+
+    /**
+     * 更新订单金额
+     *
+     * @param request
+     * @return
+     */
+    public String updateAmount(YqmOrderRequest request) {
+        if (StringUtils.isEmpty(request.getId())) {
+            throw new YqmException("订单id不能为空");
+        }
+        YqmOrder entity = iYqmOrderService.getById(request.getId());
+        if (Objects.isNull(entity)) {
+            throw new YqmException("订单不存在");
+        }
+
+        List<Integer> orderStatusList = Lists.newArrayList(YqmDefine.OrderStatus.wait_delivery.getValue(), YqmDefine.OrderStatus.already_payment.getValue(), YqmDefine.OrderStatus.wait_payment.getValue());
+        if (!orderStatusList.contains(entity.getOrderStatus())) {
+            throw new YqmException("订单状态错误");
+        }
+
+
+        // 抵扣金额
+        if (StringUtils.isNotEmpty(request.getDiscountAmount())) {
+            BigDecimal newDiscountAmount = new BigDecimal(request.getDiscountAmount());
+            BigDecimal oldDiscountAmount = new BigDecimal(entity.getDiscountAmount());
+            BigDecimal amountPayable = new BigDecimal(entity.getAmountPayable());
+
+            if (newDiscountAmount.compareTo(BigDecimal.ZERO) == 0) {
+                entity.setAmountPayable(BigDecimalUtils.addRoundHalfUp(amountPayable, oldDiscountAmount).toString());
+            } else {
+                BigDecimal discountAmount = BigDecimalUtils.subtractionRoundHalfUp(newDiscountAmount, oldDiscountAmount);
+                entity.setAmountPayable(BigDecimalUtils.subtractionRoundHalfUp(amountPayable, discountAmount).toString());
+            }
+
+        }
+
+        // 运费
+        if (StringUtils.isNotEmpty(request.getFreight())) {
+            BigDecimal newFreight = new BigDecimal(request.getFreight());
+            BigDecimal oldFreight = new BigDecimal(entity.getFreight());
+            BigDecimal amountPayable = new BigDecimal(entity.getAmountPayable());
+
+            if (newFreight.compareTo(BigDecimal.ZERO) == 0) {
+                entity.setAmountPayable(BigDecimalUtils.subtractionRoundHalfUp(amountPayable, oldFreight).toString());
+            } else {
+                BigDecimal freight = BigDecimalUtils.subtractionRoundHalfUp(newFreight, oldFreight);
+                entity.setAmountPayable(BigDecimalUtils.addRoundHalfUp(amountPayable, freight).toString());
+            }
+
+        }
+
+        entity.setDiscountAmount(request.getDiscountAmount());
+        entity.setFreight(request.getFreight());
+        this.save(YqmOrderToDTO.toYqmOrderRequest(entity));
+
+
+        YqmOrderLogRequest orderLogRequest = YqmOrderLogRequest.builder()
+                .orderId(entity.getId())
+                .orderStatus(entity.getOrderStatus())
+                .userType(YqmDefine.UserType.admin.getValue())
+                .note(YqmDefine.OrderLogNote.update_amount.getValue())
+                .build();
+        orderLogService.insertLog(orderLogRequest);
+        return request.getId();
+    }
+
+    /**
+     * 关闭订单
+     *
+     * @param request
+     * @return
+     */
+    public String closeOrder(YqmOrderRequest request) {
+        if (StringUtils.isEmpty(request.getId())) {
+            throw new YqmException("订单id不能为空");
+        }
+        if (StringUtils.isEmpty(request.getNote())) {
+            throw new YqmException("订单备注不能为空");
+        }
+        YqmOrder entity = iYqmOrderService.getById(request.getId());
+        if (Objects.isNull(entity)) {
+            throw new YqmException("订单不存在");
+        }
+
+        List<Integer> orderStatusList = Lists.newArrayList(YqmDefine.OrderStatus.close.getValue());
+        if (orderStatusList.contains(entity.getOrderStatus())) {
+            throw new YqmException("订单状态错误");
+        }
+
+
+        entity.setOrderStatus(YqmDefine.OrderStatus.close.getValue());
+        this.save(YqmOrderToDTO.toYqmOrderRequest(entity));
+
+        YqmOrderLogRequest orderLogRequest = YqmOrderLogRequest.builder()
+                .orderId(entity.getId())
+                .orderStatus(entity.getOrderStatus())
+                .userType(YqmDefine.UserType.admin.getValue())
+                .note(String.format(YqmDefine.OrderLogNote.close.getValue(), request.getNote()))
                 .build();
         orderLogService.insertLog(orderLogRequest);
         return request.getId();

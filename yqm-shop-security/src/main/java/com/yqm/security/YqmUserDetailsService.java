@@ -21,9 +21,9 @@
  */
 package com.yqm.security;
 
+import com.yqm.common.define.YqmDefine;
 import com.yqm.common.entity.TpUser;
 import com.yqm.common.mapper.TpUserMapper;
-import com.yqm.security.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +55,7 @@ public class YqmUserDetailsService implements UserDetailsService {
 
     /**
      * 根据用户名查询用户
+     *
      * @param username
      * @return
      * @throws UsernameNotFoundException
@@ -70,6 +71,7 @@ public class YqmUserDetailsService implements UserDetailsService {
         User user = new User();
         BeanUtils.copyProperties(tpUser, user);
         user.setAuthorities(Arrays.asList(new SimpleGrantedAuthority("admin")));
+        user.setUserType(YqmDefine.UserType.admin.getValue());
         return user;
     }
 }

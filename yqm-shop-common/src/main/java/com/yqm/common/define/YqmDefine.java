@@ -304,4 +304,111 @@ public class YqmDefine {
         }
     }
 
+    /**
+     * 订单状态
+     */
+    public enum OrderStatus {
+        wait_payment("待付款", 0),
+        already_payment("已付款", 1),
+        wait_delivery("待发货", 2),
+        completed("已完成", 3),
+        close("已关闭", 4),
+        already_delivery("已发货", 5),
+        completed_delivery("完成收货", 6),
+        completed_evaluation("完成评价", 6),
+        ;
+
+        private String desc;
+        private Integer value;
+
+        OrderStatus(String desc, Integer value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        public void setValue(Integer value) {
+            this.value = value;
+        }
+    }
+
+    /**
+     * 用户信息
+     */
+    public enum UserType {
+        system("系统", "system"),
+        admin("管理用户", "admin"),
+        client("客户端", "client"),
+        ;
+
+        private String desc;
+        private String value;
+
+        UserType(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
+    /**
+     * 订单日志信息模板
+     */
+    public enum OrderLogNote {
+        update_address("修改收件人信息", "修改收件人信息"),
+        update_amount("修改费用信息", "修改费用信息"),
+        close("关闭订单", "关闭订单: %s"),
+        ;
+
+        private String desc;
+        private String value;
+
+        OrderLogNote(String desc, String value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+    }
+
 }

@@ -157,8 +157,13 @@ public class YqmOrderDTO extends BaseEntity implements Serializable {
     private String cityName;
 
     private String areaId;
-    
+
     private String areaName;
+
+    /**
+     * 折扣金额
+     */
+    private String discountAmount;
 
     // 额外
 

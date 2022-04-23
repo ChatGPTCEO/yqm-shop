@@ -102,6 +102,44 @@ public class AdminOrderController {
         return ResponseBean.success(removeId);
     }
 
+
+    /**
+     * 修改收货人
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/updateAddress")
+    public ResponseBean updateAddress(@RequestBody YqmOrderRequest request) {
+        String id = adminOrderService.updateAddress(request);
+        return ResponseBean.success(id);
+    }
+
+    /**
+     * 修改订单金额
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/updateAmount")
+    public ResponseBean updateAmount(@RequestBody YqmOrderRequest request) {
+        String id = adminOrderService.updateAmount(request);
+        return ResponseBean.success(id);
+    }
+
+    /**
+     * 修改订单金额
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/closeOrder")
+    public ResponseBean closeOrder(@RequestBody YqmOrderRequest request) {
+        String id = adminOrderService.closeOrder(request);
+        return ResponseBean.success(id);
+    }
+
+
 //    /**
 //     * 保存
 //     *

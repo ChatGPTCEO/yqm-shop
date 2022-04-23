@@ -158,4 +158,10 @@ public class YqmOrderRequest extends BaseRequest implements Serializable {
 
     private String areaName;
 
+    /**
+     * 折扣金额
+     */
+    private String discountAmount;
+    
+
 }

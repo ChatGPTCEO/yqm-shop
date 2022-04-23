@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.math.BigDecimal;
+
 @Slf4j
 @SpringBootTest
 class YqmSiteAdminApplicationTests {
@@ -53,6 +55,20 @@ class YqmSiteAdminApplicationTests {
     @Test
     public void region() {
 
+    }
+
+    @Test
+    public void bigDecimal() {
+//        BigDecimal a = new BigDecimal("100");
+//        BigDecimal b = new BigDecimal("-10");
+//        log.info("计算金额： {}", a.subtract(b).toString());
+
+//        BigDecimal a = new BigDecimal("0");
+//        BigDecimal b = new BigDecimal("0.00");
+//        log.info("判断： {}", a.compareTo(b)); // 0
+
+        BigDecimal a = new BigDecimal("0.00");
+        log.info("判断： {}", a.compareTo(BigDecimal.ZERO)); // 0
     }
 
 }

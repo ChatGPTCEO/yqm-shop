@@ -142,7 +142,7 @@ public class OrderLogService {
         User user = UserInfoService.getUser();
         request.setUserId(user.getId());
         request.setStatus(YqmDefine.StatusType.effective.getValue());
-        request.setUserType(user.getUserType());
+        request.setUserType(StringUtils.isNotBlank(request.getUserType()) ? request.getUserType() : user.getUserType());
         request.setUserName(user.getUserName());
         return this.save(request);
     }

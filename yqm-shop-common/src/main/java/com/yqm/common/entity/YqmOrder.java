@@ -178,4 +178,9 @@ public class YqmOrder extends BaseEntity implements Serializable {
      */
     private String areaName;
 
+    /**
+     * 折扣金额
+     */
+    private String discountAmount;
+
 }

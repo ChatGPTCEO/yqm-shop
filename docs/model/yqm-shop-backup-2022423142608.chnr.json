@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-23 14:52:19",
+  "updatedTime": "2022-4-18 20:28:48",
   "dbConns": [],
   "profile": {
     "default": {
@@ -4795,7 +4795,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'0'",
+          "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -4810,7 +4810,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'0'",
+          "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
@@ -5126,21 +5126,6 @@
           "notNull": false,
           "autoIncrement": false,
           "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "DefaultString"
-        },
-        {
-          "defKey": "discount_amount",
-          "defName": "折扣金额",
-          "comment": "",
-          "type": "VARCHAR",
-          "len": 255,
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "'0'",
           "hideInGraph": false,
           "refDict": "",
           "domain": "DefaultString"
