@@ -22,17 +22,20 @@
 
 package com.yqm.module.common.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.cache.Cache;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.entity.SysConfig;
 import com.yqm.common.request.SysConfigRequest;
 import com.yqm.common.service.ISysConfigService;
+import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -79,10 +82,25 @@ public class SysConfigService {
         request.setConfigName(key);
         SysConfig sysConfig = iSysConfigService.getOne(iSysConfigService.queryWrapper(request));
         if (Objects.isNull(sysConfig)) {
-            log.error("本地缓存未找到 [key={}]， 请检查数据库!", key);
+            log.error("本地数据库未找到 [key={}]， 请检查数据库!", key);
             return null;
         }
         return sysConfig.getConfigValue();
+    }
+
+    public Boolean updateDB(String key, String value) {
+        QueryWrapper<SysConfig> sysConfigQueryWrapper = new QueryWrapper<>();
+        sysConfigQueryWrapper.eq("config_name", key);
+        SysConfig sysConfig = iSysConfigService.getOne(sysConfigQueryWrapper);
+        if (Objects.nonNull(sysConfig)) {
+            sysConfig.setConfigValue(value);
+            sysConfig.setUpdatedBy(UserInfoService.getUser().getId());
+            sysConfig.setUpdatedTime(LocalDateTime.now());
+            iSysConfigService.updateById(sysConfig);
+            return true;
+        }
+
+        return false;
     }
 
 }

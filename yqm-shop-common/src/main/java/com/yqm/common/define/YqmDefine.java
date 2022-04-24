@@ -115,6 +115,10 @@ public class YqmDefine {
         domain("域名", "domain"),
         sys_phone("联系方式", "sys_phone"),
         dns("dns服务器", "dns"),
+        order_overtime_close("正常订单超时，未付款，订单自动关闭", "order-overtime-close"),
+        order_delivery_overtime_completed("发货超时，未收货，订单自动完成", "order-delivery-overtime-completed"),
+        order_completed_overtime_refund("订单完成超时，自动结束交易，不能申请售后", "order-completed-overtime-refund"),
+        order_completed_overtime_evaluation("订单完成超时，自动五星好评", "order-completed-overtime-evaluation"),
         ;
 
         private String desc;

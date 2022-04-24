@@ -5,16 +5,19 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import com.yqm.common.conversion.YqmOrderToDTO;
 import com.yqm.common.define.YqmDefine;
+import com.yqm.common.dto.OrderConfigDTO;
 import com.yqm.common.dto.TpRegionDTO;
 import com.yqm.common.dto.YqmOrderDTO;
 import com.yqm.common.entity.YqmOrder;
 import com.yqm.common.exception.YqmException;
+import com.yqm.common.request.OrderConfigRequest;
 import com.yqm.common.request.YqmOrderLogRequest;
 import com.yqm.common.request.YqmOrderRequest;
 import com.yqm.common.service.ITpRegionService;
 import com.yqm.common.service.IYqmOrderService;
 import com.yqm.common.utils.BigDecimalUtils;
 import com.yqm.module.common.service.OrderLogService;
+import com.yqm.module.common.service.SysConfigService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -49,11 +52,13 @@ public class AdminOrderService {
     private final IYqmOrderService iYqmOrderService;
     private final ITpRegionService iTpRegionService;
     private final OrderLogService orderLogService;
+    private final SysConfigService sysConfigService;
 
-    public AdminOrderService(IYqmOrderService iYqmOrderService, ITpRegionService iTpRegionService, OrderLogService orderLogService) {
+    public AdminOrderService(IYqmOrderService iYqmOrderService, ITpRegionService iTpRegionService, OrderLogService orderLogService, SysConfigService sysConfigService) {
         this.iYqmOrderService = iYqmOrderService;
         this.iTpRegionService = iTpRegionService;
         this.orderLogService = orderLogService;
+        this.sysConfigService = sysConfigService;
     }
 
     /**
@@ -377,5 +382,36 @@ public class AdminOrderService {
         this.saveList(orderRequests);
 
         return request.getInIdList();
+    }
+
+    /**
+     * 更新订单配置
+     * @param request
+     * @return
+     */
+    public Boolean orderConfigUpdate(OrderConfigRequest request) {
+        sysConfigService.updateDB(YqmDefine.SysConfigType.order_overtime_close.getValue(), request.getOrderOvertimeClose());
+        sysConfigService.updateDB(YqmDefine.SysConfigType.order_completed_overtime_evaluation.getValue(), request.getOrderCompletedOvertimeEvaluation());
+        sysConfigService.updateDB(YqmDefine.SysConfigType.order_completed_overtime_refund.getValue(), request.getOrderCompletedOvertimeRefund());
+        sysConfigService.updateDB(YqmDefine.SysConfigType.order_delivery_overtime_completed.getValue(), request.getOrderDeliveryOvertimeCompleted());
+        return true;
+    }
+
+    /**
+     * 获取订单配置
+     * @return
+     */
+    public OrderConfigDTO getOrderConfig() {
+        String orderOvertimeClose = sysConfigService.getValue(YqmDefine.SysConfigType.order_overtime_close.getValue());
+        String orderCompletedOvertimeEvaluation = sysConfigService.getValue(YqmDefine.SysConfigType.order_completed_overtime_evaluation.getValue());
+        String orderCompletedOvertimeRefund = sysConfigService.getValue(YqmDefine.SysConfigType.order_completed_overtime_refund.getValue());
+        String orderDeliveryOvertimeCompleted = sysConfigService.getValue(YqmDefine.SysConfigType.order_delivery_overtime_completed.getValue());
+
+        OrderConfigDTO configDTO = new OrderConfigDTO();
+        configDTO.setOrderOvertimeClose(orderOvertimeClose);
+        configDTO.setOrderCompletedOvertimeEvaluation(orderCompletedOvertimeEvaluation);
+        configDTO.setOrderCompletedOvertimeRefund(orderCompletedOvertimeRefund);
+        configDTO.setOrderDeliveryOvertimeCompleted(orderDeliveryOvertimeCompleted);
+        return configDTO;
     }
 }

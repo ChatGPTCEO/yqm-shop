@@ -15,7 +15,9 @@
 package com.yqm.module.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.yqm.common.dto.OrderConfigDTO;
 import com.yqm.common.dto.YqmOrderDTO;
+import com.yqm.common.request.OrderConfigRequest;
 import com.yqm.common.request.YqmOrderRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminOrderService;
@@ -165,7 +167,28 @@ public class AdminOrderController {
         return ResponseBean.success(idList);
     }
 
+    /**
+     * 更新订单配置
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/orderConfigUpdate")
+    public ResponseBean confirmOrder(@RequestBody OrderConfigRequest request) {
+        Boolean bool = adminOrderService.orderConfigUpdate(request);
+        return ResponseBean.success(bool);
+    }
 
+    /**
+     * 获取订单配置
+     *
+     * @return
+     */
+    @GetMapping("/getOrderConfig")
+    public ResponseBean confirmOrder() {
+        OrderConfigDTO configDTO = adminOrderService.getOrderConfig();
+        return ResponseBean.success(configDTO);
+    }
 
 //    /**
 //     * 保存
