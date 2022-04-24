@@ -25,6 +25,7 @@ import com.yqm.module.admin.service.aggregation.AdminOrderAggregation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 管理端-订单
@@ -188,6 +189,17 @@ public class AdminOrderController {
     public ResponseBean confirmOrder() {
         OrderConfigDTO configDTO = adminOrderService.getOrderConfig();
         return ResponseBean.success(configDTO);
+    }
+
+    /**
+     * 状态统计
+     *
+     * @return
+     */
+    @GetMapping("/getOrderListStatistics")
+    public ResponseBean getOrderListStatistics() {
+        Map<String, Long> map = adminOrderService.getOrderListStatistics();
+        return ResponseBean.success(map);
     }
 
 //    /**

@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -174,6 +175,11 @@ public class YqmOrderRequest extends BaseRequest implements Serializable {
      * 收货人姓名/手机号码
      */
     private String personKeyword;
+
+    /**
+     * 订单状态集合
+     */
+    private List<Integer> inOrderStatus;
 
 
 }

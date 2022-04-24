@@ -3,6 +3,7 @@ package com.yqm.module.admin.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.yqm.common.conversion.YqmOrderToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.OrderConfigDTO;
@@ -413,5 +414,66 @@ public class AdminOrderService {
         configDTO.setOrderCompletedOvertimeRefund(orderCompletedOvertimeRefund);
         configDTO.setOrderDeliveryOvertimeCompleted(orderDeliveryOvertimeCompleted);
         return configDTO;
+    }
+
+    /**
+     * 状态统计
+     * @return
+     */
+    public Map<String, Long> getOrderListStatistics() {
+
+        // 所有
+        YqmOrderRequest allRequest = new YqmOrderRequest();
+        allRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        Long all = iYqmOrderService.count(iYqmOrderService.getQuery(allRequest));
+
+        //待支付
+        YqmOrderRequest waitPayRequest = new YqmOrderRequest();
+        waitPayRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        waitPayRequest.setOrderStatus(YqmDefine.OrderStatus.wait_payment.getValue());
+        Long waitPay = iYqmOrderService.count(iYqmOrderService.getQuery(waitPayRequest));
+
+        // 待发货
+        YqmOrderRequest waitDeliveryRequest = new YqmOrderRequest();
+        waitDeliveryRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        waitDeliveryRequest.setOrderStatus(YqmDefine.OrderStatus.wait_delivery.getValue());
+        Long waitDelivery = iYqmOrderService.count(iYqmOrderService.getQuery(waitDeliveryRequest));
+
+        // 已发货
+        YqmOrderRequest alreadyDeliveryRequest = new YqmOrderRequest();
+        alreadyDeliveryRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        alreadyDeliveryRequest.setInOrderStatus(Lists.newArrayList(YqmDefine.OrderStatus.already_delivery.getValue(),YqmDefine.OrderStatus.completed_delivery.getValue(),YqmDefine.OrderStatus.completed_evaluation.getValue()));
+        Long alreadyDelivery = iYqmOrderService.count(iYqmOrderService.getQuery(alreadyDeliveryRequest));
+
+
+        // 已完成
+        YqmOrderRequest completedRequest = new YqmOrderRequest();
+        completedRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        completedRequest.setOrderStatus(YqmDefine.OrderStatus.completed.getValue());
+        Long completed = iYqmOrderService.count(iYqmOrderService.getQuery(completedRequest));
+
+        // 已关闭
+        YqmOrderRequest closeRequest = new YqmOrderRequest();
+        closeRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        closeRequest.setOrderStatus(YqmDefine.OrderStatus.close.getValue());
+        Long close = iYqmOrderService.count(iYqmOrderService.getQuery(closeRequest));
+
+        // 退款
+        YqmOrderRequest refundRequest = new YqmOrderRequest();
+        refundRequest.setStatus(YqmDefine.StatusType.effective.getValue());
+        refundRequest.setOrderStatus(YqmDefine.OrderStatus.refund.getValue());
+        Long refund = iYqmOrderService.count(iYqmOrderService.getQuery(refundRequest));
+
+        Map<String, Long> returnMap = Maps.newHashMap();
+        returnMap.put("all", all);
+        returnMap.put("waitPay", waitPay);
+        returnMap.put("waitDelivery", waitDelivery);
+        returnMap.put("alreadyDelivery", alreadyDelivery);
+        returnMap.put("completed", completed);
+        returnMap.put("close", close);
+        returnMap.put("refund", refund);
+
+
+        return returnMap;
     }
 }
