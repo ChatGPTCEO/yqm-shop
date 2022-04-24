@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-24 22:06:14",
+  "updatedTime": "2022-4-24 22:01:51",
   "dbConns": [],
   "profile": {
     "default": {
@@ -6867,8 +6867,8 @@
           "id": "5FC15689-8459-4A1C-9CA1-15D31390F6DC"
         },
         {
-          "defKey": "user_shipping_address",
-          "defName": "用户收货地址",
+          "defKey": "shipping_address",
+          "defName": "收货地址",
           "comment": "",
           "type": "",
           "len": "",
@@ -6883,8 +6883,8 @@
           "id": "3DF415C5-5955-4B89-A4D3-CC971AB9E68D"
         },
         {
-          "defKey": "user_shipping_phone",
-          "defName": "用户收货电话",
+          "defKey": "shipping_phone",
+          "defName": "收货电话",
           "comment": "",
           "type": "",
           "len": "",
@@ -6899,8 +6899,8 @@
           "id": "34D2F6CD-2A2B-4D96-AD2F-381C1941A42C"
         },
         {
-          "defKey": "user_shipping_name",
-          "defName": "用户收货人姓名",
+          "defKey": "shipping_name",
+          "defName": "收货人姓名",
           "comment": "",
           "type": "",
           "len": "",
@@ -6913,6 +6913,22 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "14ECE69A-A76C-4B3B-8BB5-12028315A464"
+        },
+        {
+          "defKey": "shipping_note",
+          "defName": "收货备注",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "0C5BD95E-A7E0-4678-A1F2-D8471A353C46"
         },
         {
           "defKey": "province_id",
@@ -7105,70 +7121,6 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "B44BB6E2-663D-458A-B3D9-A66F9ED493CD"
-        },
-        {
-          "defKey": "admin_user_id",
-          "defName": "系统人员用户id",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
-          "id": "6A25690A-4018-4027-BD45-DED2BF9BBAD0"
-        },
-        {
-          "defKey": "admin_shipping_note",
-          "defName": "系统人员收货备注",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
-          "id": "0C5BD95E-A7E0-4678-A1F2-D8471A353C46"
-        },
-        {
-          "defKey": "admin_shipping_time",
-          "defName": "系统人员收货时间",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
-          "id": "0009B84C-950C-4FB0-9D32-91AA25DE684A"
-        },
-        {
-          "defKey": "admin_shipping_name",
-          "defName": "系统人员收货名称",
-          "comment": "",
-          "type": "",
-          "len": "",
-          "scale": "",
-          "primaryKey": false,
-          "notNull": false,
-          "autoIncrement": false,
-          "defaultValue": "",
-          "hideInGraph": false,
-          "refDict": "",
-          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
-          "id": "F69C7542-4E7B-423B-9BEC-72A0AE8CDD1E"
         }
       ],
       "correlations": [],
