@@ -71,7 +71,7 @@ public class AdminProductAggregation {
         // spec
         if (CollectionUtils.isNotEmpty(request.getSpecList())) {
             for (YqmStoreSpecRequest storeSpecRequest : request.getSpecList()) {
-                storeSpecRequest.setProductId(request.getId());
+                storeSpecRequest.setProductId(storeProductDTO.getId());
                 YqmStoreSpecDTO storeSpecDTO = adminStoreSpecService.saveSpecChild(storeSpecRequest);
                 storeSpecDTOList.add(storeSpecDTO);
             }

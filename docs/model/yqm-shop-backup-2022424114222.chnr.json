@@ -2,9 +2,9 @@
   "name": "yqm-shop",
   "describe": "商城",
   "avatar": "",
-  "version": "3.5.7",
+  "version": "3.2.1",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-24 11:42:22",
+  "updatedTime": "2022-4-23 14:52:19",
   "dbConns": [],
   "profile": {
     "default": {
@@ -5655,7 +5655,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "'0'",
+          "defaultValue": "",
           "hideInGraph": false,
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",

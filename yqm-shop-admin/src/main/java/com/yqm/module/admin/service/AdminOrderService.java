@@ -119,6 +119,33 @@ public class AdminOrderService {
     }
 
     /**
+     * 保存/修改
+     *
+     * @param requestList
+     * @return
+     */
+    public List<YqmOrderDTO> saveList(List<YqmOrderRequest> requestList) {
+        User user = UserInfoService.getUser();
+
+        List<YqmOrder> entityList = requestList.stream().map(request -> {
+            YqmOrder entity = YqmOrderToDTO.toYqmOrder(request);
+            if (StringUtils.isEmpty(request.getId())) {
+                entity.setCreatedTime(LocalDateTime.now());
+                entity.setCreatedBy(user.getId());
+            }
+
+            entity.setUpdatedBy(user.getId());
+            entity.setUpdatedTime(LocalDateTime.now());
+
+            return entity;
+        }).collect(Collectors.toList());
+
+
+        iYqmOrderService.saveOrUpdateBatch(entityList);
+        return YqmOrderToDTO.toYqmOrderDTOList(entityList);
+    }
+
+    /**
      * 删除
      *
      * @param id
@@ -322,5 +349,33 @@ public class AdminOrderService {
                 .build();
         orderLogService.insertLog(orderLogRequest);
         return request.getId();
+    }
+
+    /**
+     * 确认订单
+     * @param request
+     * @return
+     */
+    public List<String> confirmOrder(YqmOrderRequest request) {
+        if (CollectionUtils.isEmpty(request.getInIdList())) {
+            throw new YqmException("订单Id不能为空");
+        }
+
+        List<YqmOrder> orderList = iYqmOrderService.list(iYqmOrderService.getQuery(request));
+        if (CollectionUtils.isEmpty(orderList)) {
+            throw new YqmException("订单不存在");
+        }
+
+        List<YqmOrderRequest> orderRequests = orderList.stream().map(e -> {
+            if (YqmDefine.OrderStatus.already_delivery.getValue().equals(e.getOrderStatus())) {
+                throw new YqmException("订单状态错误，请刷新重试");
+            }
+            e.setOrderStatus(YqmDefine.OrderStatus.completed_delivery.getValue());
+            return YqmOrderToDTO.toYqmOrderRequest(e);
+        }).collect(Collectors.toList());
+
+        this.saveList(orderRequests);
+
+        return request.getInIdList();
     }
 }

@@ -315,7 +315,8 @@ public class YqmDefine {
         close("已关闭", 4),
         already_delivery("已发货", 5),
         completed_delivery("完成收货", 6),
-        completed_evaluation("完成评价", 6),
+        completed_evaluation("完成评价", 7),
+        refund("退款", 8),
         ;
 
         private String desc;

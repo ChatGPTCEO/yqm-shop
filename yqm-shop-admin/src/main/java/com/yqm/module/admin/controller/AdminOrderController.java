@@ -22,6 +22,8 @@ import com.yqm.module.admin.service.AdminOrderService;
 import com.yqm.module.admin.service.aggregation.AdminOrderAggregation;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 管理端-订单
  *
@@ -150,6 +152,20 @@ public class AdminOrderController {
         String id = adminOrderService.orderNote(request);
         return ResponseBean.success(id);
     }
+
+    /**
+     * 确认订单（收货）
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/confirmOrder")
+    public ResponseBean confirmOrder(@RequestBody YqmOrderRequest request) {
+        List<String> idList = adminOrderService.confirmOrder(request);
+        return ResponseBean.success(idList);
+    }
+
+
 
 //    /**
 //     * 保存

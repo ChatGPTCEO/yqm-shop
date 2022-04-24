@@ -2,6 +2,7 @@ package com.yqm.common.request;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -163,8 +164,10 @@ public class YqmOrderRequest extends BaseRequest implements Serializable {
      */
     private String discountAmount;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startDate;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endDate;
 
     /**

@@ -41,6 +41,12 @@ public class YqmOrderServiceImpl extends ServiceImpl<YqmOrderMapper, YqmOrder> i
         if (StringUtils.isNotEmpty(request.getKeyword())) {
             queryWrapper.like("id", request.getKeyword());
         }
+        if (Objects.nonNull(request.getStartDate()) && Objects.nonNull(request.getEndDate())) {
+            queryWrapper.between("created_time", request.getStartDate(), request.getEndDate());
+        }
+        if (CollectionUtils.isNotEmpty(request.getInIdList())) {
+            queryWrapper.in("id", request.getInIdList());
+        }
         return queryWrapper;
     }
 }

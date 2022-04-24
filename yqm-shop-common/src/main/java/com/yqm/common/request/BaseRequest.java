@@ -52,8 +52,9 @@ public class BaseRequest {
     private List<String> inStatusList;
 
     /**
-     * id 集合
+     * 包含 id 集合
      */
     private List<String> inIdList;
+
 
 }
