@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-24 22:05:39",
+  "updatedTime": "2022-4-24 22:06:14",
   "dbConns": [],
   "profile": {
     "default": {
@@ -7169,6 +7169,220 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "F69C7542-4E7B-423B-9BEC-72A0AE8CDD1E"
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "id": "3CB6EBE5-AF3F-41D3-A350-F626B78A8321",
+      "env": {
+        "base": {
+          "nameSpace": "",
+          "codeRoot": ""
+        }
+      },
+      "defKey": "yqm_refund_why",
+      "defName": "退货原因",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "id",
+          "defName": "编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "uiHint": "",
+          "id": "2549435A-F37B-4FB6-858B-CF98C7273B86"
+        },
+        {
+          "defKey": "created_by",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "17DD8B61-1918-46B7-9017-CBB6239DA70C"
+        },
+        {
+          "defKey": "created_time",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "0E9BE5DD-0AF5-424B-AF0B-B6E8B14C659D"
+        },
+        {
+          "defKey": "updated_by",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "31F79893-B3FE-4532-B45B-4045CC9F74D7"
+        },
+        {
+          "defKey": "updated_time",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "302EAD62-7A74-4A2B-995A-D4B3AED1091A"
+        },
+        {
+          "defKey": "`sort`",
+          "defName": "排序",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
+          "uiHint": "",
+          "id": "9242D1C8-8E87-4D75-A6B9-2712AC916423"
+        },
+        {
+          "defKey": "`status`",
+          "defName": "状态",
+          "comment": "delete 删除 success 有效 failure 失效",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'success'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "uiHint": "",
+          "id": "F4044CE9-85F4-4E2E-A2A8-D6EC06BA71E5"
         }
       ],
       "correlations": [],
