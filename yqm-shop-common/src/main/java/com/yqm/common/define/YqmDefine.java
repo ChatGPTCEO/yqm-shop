@@ -417,4 +417,40 @@ public class YqmDefine {
         }
     }
 
+
+    /**
+     * 退款申请状态
+     */
+    public enum RefundPayType {
+        wait_processing("待处理", 0),
+        complete_processing("已处理", 1),
+        refused("已拒绝", 1),
+        ;
+
+        private String desc;
+        private Integer value;
+
+        RefundPayType(String desc, Integer value) {
+            this.desc = desc;
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+
+        public void setValue(Integer value) {
+            this.value = value;
+        }
+    }
+
+
 }

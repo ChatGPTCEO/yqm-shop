@@ -23,7 +23,9 @@
 package com.yqm.common.request;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -55,6 +57,13 @@ public class BaseRequest {
      * 包含 id 集合
      */
     private List<String> inIdList;
+
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime startDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime endDate;
 
 
 }

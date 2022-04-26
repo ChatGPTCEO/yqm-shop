@@ -529,3 +529,93 @@ CREATE TABLE yqm_order_log
 ) COMMENT = '订单日志';
 
 
+
+DROP TABLE IF EXISTS yqm_refund_goods;
+CREATE TABLE yqm_refund_goods
+(
+    id                    VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by            VARCHAR(32) COMMENT '创建人',
+    created_time          DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by            VARCHAR(32) COMMENT '更新人',
+    updated_time          DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`                INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`              VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    refund_status         INT COMMENT '退状态;0 待处理 1 退货中 2 已完成 3 已拒绝',
+    order_id              VARCHAR(32)  NOT NULL COMMENT '订单编号',
+    user_account          VARCHAR(255) NOT NULL COMMENT '用户账号',
+    user_id               VARCHAR(255) NOT NULL COMMENT '用户id',
+    user_name             VARCHAR(255) NOT NULL COMMENT '申请人',
+    user_phone            VARCHAR(255) NOT NULL COMMENT '申请人联系方式',
+    why                   VARCHAR(255) COMMENT '原因',
+    refund_describe       text COMMENT '描述',
+    imgs                  text COMMENT '图片集',
+    amount_payable        VARCHAR(255) NOT NULL COMMENT '订单金额',
+    is_freight            VARCHAR(255) COMMENT '是否退运费;0 不退运费 1 退运费',
+    refund_amount         VARCHAR(255) NOT NULL COMMENT '退款金额',
+    user_shipping_address VARCHAR(255) COMMENT '用户收货地址',
+    user_shipping_phone   VARCHAR(255) COMMENT '用户收货电话',
+    user_shipping_name    VARCHAR(255) COMMENT '用户收货人姓名',
+    province_id           VARCHAR(255) COMMENT '省id',
+    province_name         VARCHAR(255) COMMENT '省',
+    city_id               VARCHAR(255) COMMENT '市id',
+    city_name             VARCHAR(255) COMMENT '市',
+    area_id               VARCHAR(255) COMMENT '区id',
+    area_name             VARCHAR(255) COMMENT '区',
+    express_single        VARCHAR(255) COMMENT '快递单号',
+    express_logistics     text COMMENT '物流轨迹',
+    processing_time       DATETIME COMMENT '处理时间',
+    processing_user_name  VARCHAR(255) COMMENT '处理人姓名',
+    processing_user_id    VARCHAR(255) COMMENT '处理人id',
+    processing_note       VARCHAR(255) COMMENT '处理备注',
+    admin_user_id         VARCHAR(32) COMMENT '系统人员用户id',
+    admin_shipping_note   VARCHAR(255) COMMENT '系统人员收货备注',
+    admin_shipping_time   DATETIME COMMENT '系统人员收货时间',
+    admin_shipping_name   VARCHAR(255) COMMENT '系统人员收货名称',
+    PRIMARY KEY (id)
+) COMMENT = '退货';
+
+
+
+DROP TABLE IF EXISTS yqm_refund_why;
+CREATE TABLE yqm_refund_why
+(
+    id           VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by   VARCHAR(32) COMMENT '创建人',
+    created_time DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by   VARCHAR(32) COMMENT '更新人',
+    updated_time DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`       INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`     VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    why_name     VARCHAR(255) NOT NULL COMMENT '标题',
+    PRIMARY KEY (id)
+) COMMENT = '退货原因';
+
+
+
+DROP TABLE IF EXISTS yqm_refund_pay;
+CREATE TABLE yqm_refund_pay
+(
+    id                   VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by           VARCHAR(32) COMMENT '创建人',
+    created_time         DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by           VARCHAR(32) COMMENT '更新人',
+    updated_time         DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`               INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`             VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    order_id             VARCHAR(255) NOT NULL COMMENT '订单编号',
+    refund_status        VARCHAR(255) COMMENT '申请状态;0 待处理 1已处理 2已拒绝',
+    user_account         VARCHAR(255) COMMENT '用户账号',
+    user_id              VARCHAR(255) COMMENT '用户id',
+    user_name            VARCHAR(255) COMMENT '用户姓名',
+    amount_payable       VARCHAR(255) COMMENT '订单金额',
+    refund_amount        VARCHAR(255) COMMENT '退款金额',
+    refund_way           VARCHAR(255)          DEFAULT 'return_pay' COMMENT '退款方式;return_pay 退回到原支付渠道',
+    refund_type          VARCHAR(255) COMMENT '退款类型;cancel_order 取消订单',
+    refund_why           text COMMENT '退款描述',
+    processing_time      DATETIME COMMENT '处理时间',
+    processing_user_name VARCHAR(255) COMMENT '处理人员姓名',
+    processing_user_id   VARCHAR(255) COMMENT '处理人员id',
+    processing_note      VARCHAR(255) COMMENT '处理备注',
+    PRIMARY KEY (id)
+) COMMENT = '退款';
+

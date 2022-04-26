@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-25 21:17:21",
+  "updatedTime": "2022-4-26 22:42:46",
   "dbConns": [],
   "profile": {
     "default": {
@@ -6787,7 +6787,7 @@
           "id": "FC653CC3-DD9A-4482-9C7A-0091D726AE90"
         },
         {
-          "defKey": "describe",
+          "defKey": "refund_describe",
           "defName": "描述",
           "comment": "",
           "type": "text",
@@ -7633,17 +7633,17 @@
         {
           "defKey": "refund_status",
           "defName": "申请状态",
-          "comment": "",
+          "comment": "0 待处理 1已处理 2已拒绝",
           "type": "",
           "len": "",
           "scale": "",
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "0",
           "hideInGraph": false,
           "refDict": "",
-          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
           "id": "EC7EF0AC-F560-4E64-8DC7-207CE97EED92"
         },
         {
@@ -7736,7 +7736,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "'return_pay'",
           "hideInGraph": false,
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
