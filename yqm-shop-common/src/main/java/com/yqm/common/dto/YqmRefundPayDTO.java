@@ -1,5 +1,6 @@
 package com.yqm.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -29,6 +30,7 @@ public class YqmRefundPayDTO extends BaseEntity implements Serializable {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdTime;
 
     /**
@@ -39,6 +41,7 @@ public class YqmRefundPayDTO extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedTime;
 
     /**
@@ -104,6 +107,7 @@ public class YqmRefundPayDTO extends BaseEntity implements Serializable {
     /**
      * 处理时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime processingTime;
 
     /**
