@@ -21,6 +21,9 @@ import com.yqm.common.conversion.YqmRefundPayToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmRefundPayDTO;
 import com.yqm.common.entity.YqmRefundPay;
+import com.yqm.common.event.refundPay.ConfirmRefundPayEvent;
+import com.yqm.common.event.refundPay.RefusedRefundPayEvent;
+import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.YqmRefundPayRequest;
 import com.yqm.common.service.IYqmRefundPayService;
 import com.yqm.security.User;
@@ -28,6 +31,7 @@ import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,8 +57,11 @@ public class AdminRefundPayService {
 
     private final IYqmRefundPayService iYqmRefundPayService;
 
-    public AdminRefundPayService(IYqmRefundPayService iYqmRefundPayService) {
+    private final ApplicationContext applicationContext;
+
+    public AdminRefundPayService(IYqmRefundPayService iYqmRefundPayService, ApplicationContext applicationContext) {
         this.iYqmRefundPayService = iYqmRefundPayService;
+        this.applicationContext = applicationContext;
     }
 
     /**
@@ -126,12 +133,12 @@ public class AdminRefundPayService {
      * @return
      */
     public String deleteById(String id) {
-        YqmRefundPay brand = iYqmRefundPayService.getById(id);
-        if (Objects.isNull(brand)) {
+        YqmRefundPay refundPay = iYqmRefundPayService.getById(id);
+        if (Objects.isNull(refundPay)) {
             return id;
         }
-        brand.setStatus(YqmDefine.StatusType.delete.getValue());
-        this.save(YqmRefundPayToDTO.toYqmRefundPayRequest(brand));
+        refundPay.setStatus(YqmDefine.StatusType.delete.getValue());
+        this.save(YqmRefundPayToDTO.toYqmRefundPayRequest(refundPay));
         return id;
     }
 
@@ -175,5 +182,60 @@ public class AdminRefundPayService {
 
         return returnMap;
     }
+
+    /**
+     * 确认退款
+     *
+     * @param request
+     * @return
+     */
+    public YqmRefundPayDTO confirmRefundPay(YqmRefundPayRequest request) {
+        User user = UserInfoService.getUser();
+        YqmRefundPay refundPay = iYqmRefundPayService.getById(request.getId());
+        if (Objects.isNull(refundPay)) {
+            throw new YqmException("订单不存在");
+        }
+        // TODO: 退款逻辑
+
+        refundPay.setRefundStatus(YqmDefine.RefundPayType.complete_processing.getValue());
+        refundPay.setProcessingNote(request.getProcessingNote());
+        refundPay.setProcessingTime(LocalDateTime.now());
+        refundPay.setProcessingUserId(user.getId());
+        refundPay.setProcessingUserName(user.getUserName());
+
+        iYqmRefundPayService.saveOrUpdate(refundPay);
+
+        YqmRefundPayDTO dto = YqmRefundPayToDTO.toYqmRefundPayDTO(refundPay);
+        applicationContext.publishEvent(new ConfirmRefundPayEvent(dto));
+        return dto;
+    }
+
+    /**
+     * 拒绝退款
+     *
+     * @param request
+     * @return
+     */
+    public YqmRefundPayDTO refusedRefundPay(YqmRefundPayRequest request) {
+        User user = UserInfoService.getUser();
+        YqmRefundPay refundPay = iYqmRefundPayService.getById(request.getId());
+        if (Objects.isNull(refundPay)) {
+            throw new YqmException("订单不存在");
+        }
+        // TODO: 拒绝退款逻辑
+
+        refundPay.setRefundStatus(YqmDefine.RefundPayType.refused.getValue());
+        refundPay.setProcessingNote(request.getProcessingNote());
+        refundPay.setProcessingTime(LocalDateTime.now());
+        refundPay.setProcessingUserId(user.getId());
+        refundPay.setProcessingUserName(user.getUserName());
+
+        iYqmRefundPayService.saveOrUpdate(refundPay);
+
+        YqmRefundPayDTO dto = YqmRefundPayToDTO.toYqmRefundPayDTO(refundPay);
+        applicationContext.publishEvent(new RefusedRefundPayEvent(dto));
+        return dto;
+    }
+
 
 }

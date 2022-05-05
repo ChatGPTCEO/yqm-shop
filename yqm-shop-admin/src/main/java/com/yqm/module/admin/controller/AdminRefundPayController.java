@@ -125,4 +125,28 @@ public class AdminRefundPayController {
         return ResponseBean.success(dto);
     }
 
+    /**
+     * 确认退款
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/confirmRefundPay")
+    public ResponseBean confirmRefundPay(@RequestBody YqmRefundPayRequest request) {
+        YqmRefundPayDTO dto = adminRefundPayService.confirmRefundPay(request);
+        return ResponseBean.success(dto);
+    }
+
+    /**
+     * 拒绝退款
+     *
+     * @param request
+     * @return
+     */
+    @PutMapping("/refusedRefundPay")
+    public ResponseBean refusedRefundPay(@RequestBody YqmRefundPayRequest request) {
+        YqmRefundPayDTO dto = adminRefundPayService.refusedRefundPay(request);
+        return ResponseBean.success(dto);
+    }
+
 }

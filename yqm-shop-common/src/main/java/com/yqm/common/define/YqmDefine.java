@@ -424,7 +424,7 @@ public class YqmDefine {
     public enum RefundPayType {
         wait_processing("待处理", 0),
         complete_processing("已处理", 1),
-        refused("已拒绝", 1),
+        refused("已拒绝", 2),
         ;
 
         private String desc;
