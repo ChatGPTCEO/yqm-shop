@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-4-26 22:06:19",
+  "updatedTime": "2022-5-11 20:24:55",
   "dbConns": [],
   "profile": {
     "default": {
@@ -7736,7 +7736,7 @@
           "primaryKey": false,
           "notNull": false,
           "autoIncrement": false,
-          "defaultValue": "",
+          "defaultValue": "'return_pay'",
           "hideInGraph": false,
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
@@ -7837,6 +7837,380 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "AA573C5C-E29E-4171-928B-E83EBD95CDF3"
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "id": "AB93AB08-CDD2-4BD1-8ACB-C4A2C5B4B165",
+      "env": {
+        "base": {
+          "nameSpace": "",
+          "codeRoot": ""
+        }
+      },
+      "defKey": "yqm_store_sku_log",
+      "defName": "商品sku日志",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "id",
+          "defName": "编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "uiHint": "",
+          "id": "46EDA057-3A10-4E67-BE18-72F3854823CE"
+        },
+        {
+          "defKey": "created_by",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "BDCD5389-6066-45C4-A2B4-814A9FE3BFB1"
+        },
+        {
+          "defKey": "created_time",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "CDC1BA31-1794-427D-BD6E-F5902BB5099F"
+        },
+        {
+          "defKey": "updated_by",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "33342436-0097-458F-B3B1-EE22A5D55147"
+        },
+        {
+          "defKey": "updated_time",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "28D8D3BC-0E4E-46EB-89F6-B36FC5FF9ACD"
+        },
+        {
+          "defKey": "`sort`",
+          "defName": "排序",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
+          "uiHint": "",
+          "id": "66FDE14A-DA11-4BB6-93A7-2D5599EED005"
+        },
+        {
+          "defKey": "`status`",
+          "defName": "状态",
+          "comment": "delete 删除 success 有效 failure 失效",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'success'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "uiHint": "",
+          "id": "6741C696-0798-4014-B648-F175B37B7585"
+        },
+        {
+          "defKey": "product_id",
+          "defName": "商品id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "id": "9A61CD95-1AE0-4C99-B343-2E5E36455232"
+        },
+        {
+          "defKey": "sku_id",
+          "defName": "sku编号",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "A3C0D58A-9F23-4A5B-830F-5EFC5075B491"
+        },
+        {
+          "defKey": "order_id",
+          "defName": "订单编号",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "414B3A4E-CC9D-44A8-9AD6-6753C8216D64"
+        },
+        {
+          "defKey": "num",
+          "defName": "数量",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "D7E8D9A6-DDCE-4F4E-AB6C-DE8642AACD65"
+        },
+        {
+          "defKey": "inventory",
+          "defName": "库存",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
+          "id": "EC000D19-A542-4143-ACB3-0D3FB3773E80"
+        },
+        {
+          "defKey": "inventory_type",
+          "defName": "库存类型",
+          "comment": "product 商品库存",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'product'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "B705307E-1FA3-4D97-85F0-21DF3B2E10EC"
+        },
+        {
+          "defKey": "operation_type",
+          "defName": "操作类型",
+          "comment": "return_product 退货商品 add_product 添加商品 edi_product 编辑商品 order_close 订单关闭 order_cancel 订单取消 order_return_product 订单退货",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "1F6CA7E4-99F9-4C19-B651-281E672765DE"
+        },
+        {
+          "defKey": "operation_user_name",
+          "defName": "操作人员名称",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "071A0490-1C20-4B1C-9F21-E00CF2D85E1A"
+        },
+        {
+          "defKey": "operation_user_id",
+          "defName": "操作人员编号",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "id": "52B11468-0CFF-4A15-88C0-1F5E844A1F07"
+        },
+        {
+          "defKey": "log_type",
+          "defName": "类型",
+          "comment": "put_in_storage 入库 outbound 出库",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "id": "BC153418-45D7-45F8-9FC9-D325D991047B"
         }
       ],
       "correlations": [],
