@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-11 20:28:11",
+  "updatedTime": "2022-5-13 14:34:57",
   "dbConns": [],
   "profile": {
     "default": {
@@ -7633,7 +7633,7 @@
         {
           "defKey": "refund_status",
           "defName": "申请状态",
-          "comment": "0 待处理 1已处理 2已拒绝",
+          "comment": "0 待处理 1已处理 2已拒绝 3处理中",
           "type": "",
           "len": "",
           "scale": "",

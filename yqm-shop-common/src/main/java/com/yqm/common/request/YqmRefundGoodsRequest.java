@@ -2,6 +2,7 @@ package com.yqm.common.request;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -205,5 +206,11 @@ public class YqmRefundGoodsRequest extends BaseRequest implements Serializable {
      */
     private String adminShippingName;
 
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime processingStartDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime processingEndDate;
 
 }
