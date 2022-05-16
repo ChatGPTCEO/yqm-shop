@@ -19,6 +19,7 @@ import com.yqm.common.dto.YqmRefundGoodsDTO;
 import com.yqm.common.request.YqmRefundGoodsRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminRefundGoodsService;
+import com.yqm.module.admin.service.aggregation.AdminRefundGoodsAggregation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -38,8 +39,11 @@ public class AdminRefundGoodsController {
 
     private final AdminRefundGoodsService adminRefundGoodsService;
 
-    public AdminRefundGoodsController(AdminRefundGoodsService adminRefundGoodsService) {
+    private final AdminRefundGoodsAggregation adminRefundGoodsAggregation;
+
+    public AdminRefundGoodsController(AdminRefundGoodsService adminRefundGoodsService, AdminRefundGoodsAggregation adminRefundGoodsAggregation) {
         this.adminRefundGoodsService = adminRefundGoodsService;
+        this.adminRefundGoodsAggregation = adminRefundGoodsAggregation;
     }
 
     /**
@@ -73,7 +77,7 @@ public class AdminRefundGoodsController {
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable String id) {
-        YqmRefundGoodsDTO dto = adminRefundGoodsService.getById(id);
+        YqmRefundGoodsDTO dto = adminRefundGoodsAggregation.getById(id);
         return ResponseBean.success(dto);
     }
 

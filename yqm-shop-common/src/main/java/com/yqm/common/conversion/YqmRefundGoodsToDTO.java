@@ -22,10 +22,12 @@
 
 package com.yqm.common.conversion;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yqm.common.dto.YqmRefundGoodsDTO;
 import com.yqm.common.entity.YqmRefundGoods;
 import com.yqm.common.request.YqmRefundGoodsRequest;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 
 import java.util.List;
@@ -47,6 +49,9 @@ public class YqmRefundGoodsToDTO {
         }
         YqmRefundGoodsDTO dto = new YqmRefundGoodsDTO();
         BeanUtils.copyProperties(entity, dto);
+        if (StringUtils.isNotBlank(entity.getImgs())) {
+            dto.setImgList(JSONObject.parseArray(entity.getImgs(), String.class));
+        }
         return dto;
     }
 

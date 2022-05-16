@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -97,6 +98,11 @@ public class YqmRefundGoodsDTO extends BaseEntity implements Serializable {
      * 图片集
      */
     private String imgs;
+
+    /**
+     * 图片集
+     */
+    private List<String> imgList;
 
     /**
      * 订单金额
@@ -208,6 +214,11 @@ public class YqmRefundGoodsDTO extends BaseEntity implements Serializable {
      * 系统人员收货名称
      */
     private String adminShippingName;
+
+    /**
+     * 订单数据
+     */
+    private YqmOrderDTO orderDTO;
 
 
 }

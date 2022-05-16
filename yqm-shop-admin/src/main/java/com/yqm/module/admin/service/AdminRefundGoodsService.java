@@ -26,6 +26,7 @@ import com.yqm.common.event.refundGoods.RefusedRefundGoodsEvent;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.YqmRefundGoodsRequest;
 import com.yqm.common.service.IYqmRefundGoodsService;
+import com.yqm.module.admin.service.aggregation.AdminProductAggregation;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -59,9 +60,12 @@ public class AdminRefundGoodsService {
 
     private final ApplicationContext applicationContext;
 
-    public AdminRefundGoodsService(IYqmRefundGoodsService iYqmRefundGoodsService, ApplicationContext applicationContext) {
+    private final AdminProductAggregation adminProductAggregation;
+
+    public AdminRefundGoodsService(IYqmRefundGoodsService iYqmRefundGoodsService, ApplicationContext applicationContext, AdminProductAggregation adminProductAggregation) {
         this.iYqmRefundGoodsService = iYqmRefundGoodsService;
         this.applicationContext = applicationContext;
+        this.adminProductAggregation = adminProductAggregation;
     }
 
     /**
@@ -103,7 +107,8 @@ public class AdminRefundGoodsService {
      */
     public YqmRefundGoodsDTO getById(String id) {
         YqmRefundGoods entity = iYqmRefundGoodsService.getById(id);
-        return YqmRefundGoodsToDTO.toYqmRefundGoodsDTO(entity);
+        YqmRefundGoodsDTO refundGoodsDTO = YqmRefundGoodsToDTO.toYqmRefundGoodsDTO(entity);
+        return refundGoodsDTO;
     }
 
     /**
