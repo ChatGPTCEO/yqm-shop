@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-11 20:22:52",
+  "updatedTime": "2022-5-23 20:17:36",
   "dbConns": [],
   "profile": {
     "default": {
@@ -7633,7 +7633,7 @@
         {
           "defKey": "refund_status",
           "defName": "申请状态",
-          "comment": "0 待处理 1已处理 2已拒绝",
+          "comment": "0 待处理 1已处理 2已拒绝 3处理中",
           "type": "",
           "len": "",
           "scale": "",
@@ -8195,6 +8195,760 @@
           "refDict": "",
           "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
           "id": "52B11468-0CFF-4A15-88C0-1F5E844A1F07"
+        },
+        {
+          "defKey": "log_type",
+          "defName": "类型",
+          "comment": "put_in_storage 入库 outbound 出库",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "id": "BC153418-45D7-45F8-9FC9-D325D991047B"
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "id": "86EDAF6F-B43C-44F9-90BC-E1D4D8AD807B",
+      "env": {
+        "base": {
+          "nameSpace": "",
+          "codeRoot": ""
+        }
+      },
+      "defKey": "yam_project_classification",
+      "defName": "专题分类",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "id",
+          "defName": "编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "uiHint": "",
+          "id": "7D7AEE4B-6E0D-4C42-8992-CE641FF397DF"
+        },
+        {
+          "defKey": "created_by",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "E6840BF3-FA75-4B2C-B483-70752ED18E73"
+        },
+        {
+          "defKey": "created_time",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "A55360A7-10FA-49B7-A6B4-58A726877F7A"
+        },
+        {
+          "defKey": "updated_by",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "75215F87-0CAE-480A-9D84-DD36DB700DBC"
+        },
+        {
+          "defKey": "updated_time",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "D4BFE38B-6825-4356-A850-24F1A9514FB4"
+        },
+        {
+          "defKey": "`sort`",
+          "defName": "排序",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
+          "uiHint": "",
+          "id": "2C929784-C320-410E-A1A6-424DE21F3039"
+        },
+        {
+          "defKey": "`status`",
+          "defName": "状态",
+          "comment": "delete 删除 success 有效 failure 失效",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'success'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "uiHint": "",
+          "id": "7D363035-61F1-4C7F-BE25-1F79FDC1628F"
+        },
+        {
+          "defKey": "icon",
+          "defName": "图标",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "2308FDD7-391B-457D-88A0-E2B66B553D89"
+        },
+        {
+          "defKey": "classification_name",
+          "defName": "分类名称",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "80C9CF9F-88D0-40E0-9720-6D2CDD57CDEE"
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "id": "E6851DA7-781A-4671-813A-46728A5EE803",
+      "env": {
+        "base": {
+          "nameSpace": "",
+          "codeRoot": ""
+        }
+      },
+      "defKey": "yam_project",
+      "defName": "专题",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "id",
+          "defName": "编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "uiHint": "",
+          "id": "90E2A7A2-23DD-4455-B195-EA09BA231440"
+        },
+        {
+          "defKey": "created_by",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "04CDE1AD-8857-4BD1-8C15-9021B6C24472"
+        },
+        {
+          "defKey": "created_time",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "6BC05012-20DB-4844-A7F1-30B7155B82B7"
+        },
+        {
+          "defKey": "updated_by",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "37A66A51-CCAD-4C7C-B4D3-BA1DED0BA73F"
+        },
+        {
+          "defKey": "updated_time",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "854A75B5-8D09-48EF-B537-DC4D79EDA016"
+        },
+        {
+          "defKey": "`sort`",
+          "defName": "排序",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
+          "uiHint": "",
+          "id": "73BBF107-BA8A-4619-9E52-DEEDBBA16BCD"
+        },
+        {
+          "defKey": "`status`",
+          "defName": "状态",
+          "comment": "delete 删除 success 有效 failure 失效",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'success'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "uiHint": "",
+          "id": "02322937-3638-486E-80AE-37D7BD6E6FB0"
+        },
+        {
+          "defKey": "classification_id",
+          "defName": "分类id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "C5DD2D97-A94C-4AC2-8930-26F44D9B67C1"
+        },
+        {
+          "defKey": "title",
+          "defName": "标题",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "0C34E08A-C4D3-4968-BDE4-992D71FFC2AD"
+        }
+      ],
+      "correlations": [],
+      "indexes": []
+    },
+    {
+      "id": "0F4FB005-57B1-4569-BB70-F81679AFAF21",
+      "env": {
+        "base": {
+          "nameSpace": "",
+          "codeRoot": ""
+        }
+      },
+      "defKey": "yqm_project_goods",
+      "defName": "专题关联商品",
+      "comment": "",
+      "properties": {},
+      "nameTemplate": "{defKey}[{defName}]",
+      "headers": [
+        {
+          "freeze": false,
+          "refKey": "hideInGraph",
+          "hideInGraph": true
+        },
+        {
+          "freeze": true,
+          "refKey": "defKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": true,
+          "refKey": "defName",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "primaryKey",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "notNull",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "autoIncrement",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "domain",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "type",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "len",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "scale",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "comment",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "refDict",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "defaultValue",
+          "hideInGraph": true
+        },
+        {
+          "freeze": false,
+          "refKey": "isStandard",
+          "hideInGraph": false
+        },
+        {
+          "freeze": false,
+          "refKey": "uiHint",
+          "hideInGraph": true
+        }
+      ],
+      "fields": [
+        {
+          "defKey": "id",
+          "defName": "编号",
+          "comment": "",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": true,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "uiHint": "",
+          "id": "9608083F-BCBF-4125-B490-58FA9F0114D1"
+        },
+        {
+          "defKey": "created_by",
+          "defName": "创建人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "111B203A-1728-46E4-AD0E-97D02EA743D2"
+        },
+        {
+          "defKey": "created_time",
+          "defName": "创建时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "1E13393B-1671-4FCE-A421-9CB9A2D53187"
+        },
+        {
+          "defKey": "updated_by",
+          "defName": "更新人",
+          "comment": "",
+          "domain": "9B1E75CB-54A0-4419-93D2-41BAC29E9A73",
+          "type": "VARCHAR",
+          "len": 32,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "86836C2D-5AF5-44B3-A335-865EC7840698"
+        },
+        {
+          "defKey": "updated_time",
+          "defName": "更新时间",
+          "comment": "",
+          "domain": "989B73BE-97B7-472B-A65B-41AAA5264765",
+          "type": "DATETIME",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "now()",
+          "hideInGraph": true,
+          "refDict": "",
+          "uiHint": "",
+          "id": "751428B9-2445-437D-9827-2CC9EB62F837"
+        },
+        {
+          "defKey": "`sort`",
+          "defName": "排序",
+          "comment": "",
+          "type": "INT",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": true,
+          "autoIncrement": false,
+          "defaultValue": "1",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "FE0CD7E8-5D9E-4924-81E7-F34CC640427E",
+          "uiHint": "",
+          "id": "DBA1D272-0461-40EA-A0FC-08ACC565101F"
+        },
+        {
+          "defKey": "`status`",
+          "defName": "状态",
+          "comment": "delete 删除 success 有效 failure 失效",
+          "type": "VARCHAR",
+          "len": 255,
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "'success'",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "uiHint": "",
+          "id": "A7D6DDCC-CC42-40CE-B0E0-E93EE9B6E597"
+        },
+        {
+          "defKey": "project_id",
+          "defName": "专题id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "112A707D-47CA-4EA4-B8A2-686F55F839A1"
+        },
+        {
+          "defKey": "project_goods_id",
+          "defName": "商品id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "9E299639-7035-4217-BB01-DA6413C44A67"
         }
       ],
       "correlations": [],
@@ -8316,6 +9070,18 @@
           "attr2": "",
           "attr3": "",
           "id": "2B297C96-3825-44DA-A771-BCB740AD32F9"
+        },
+        {
+          "defKey": "inventory_order_operation_type",
+          "defName": "操作类型",
+          "sort": "",
+          "parentKey": "",
+          "intro": "库存出入操作类型",
+          "enabled": true,
+          "attr1": "",
+          "attr2": "",
+          "attr3": "",
+          "id": "B0A04D46-DDE5-4311-8E2D-48FA215F0778"
         }
       ],
       "id": "29487160-4E13-4B54-BB81-FDF8B7E3B175"
