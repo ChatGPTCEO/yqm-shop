@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 专题
+ * 专题分类
  * </p>
  *
  * @author weiximei
@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YamProjectRequest extends BaseRequest implements Serializable {
+public class YqmProjectClassificationRequest extends BaseRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -51,19 +51,14 @@ public class YamProjectRequest extends BaseRequest implements Serializable {
     private String status;
 
     /**
-     * 分类id
+     * 图标
      */
-    private String classificationId;
+    private String icon;
 
     /**
-     * 标题
+     * 分类名称
      */
-    private String title;
-
-    /**
-     * 图片
-     */
-    private String imgs;
+    private String classificationName;
 
 
 }

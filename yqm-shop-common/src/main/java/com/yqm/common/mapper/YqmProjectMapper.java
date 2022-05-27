@@ -1,7 +1,7 @@
 package com.yqm.common.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yqm.common.entity.YamProject;
+import com.yqm.common.entity.YqmProject;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.yqm.common.entity.YamProject;
  * @author weiximei
  * @since 2022-05-26
  */
-public interface YamProjectMapper extends BaseMapper<YamProject> {
+public interface YqmProjectMapper extends BaseMapper<YqmProject> {
 
 }

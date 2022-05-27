@@ -1,7 +1,7 @@
 package com.yqm.common.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.yqm.common.entity.YamProjectClassification;
+import com.yqm.common.entity.YqmProjectClassification;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.yqm.common.entity.YamProjectClassification;
  * @author weiximei
  * @since 2022-05-26
  */
-public interface YamProjectClassificationMapper extends BaseMapper<YamProjectClassification> {
+public interface YqmProjectClassificationMapper extends BaseMapper<YqmProjectClassification> {
 
 }

@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-23 20:15:19",
+  "updatedTime": "2022-5-23 23:00:37",
   "dbConns": [],
   "profile": {
     "default": {
@@ -8703,6 +8703,22 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "0C34E08A-C4D3-4968-BDE4-992D71FFC2AD"
+        },
+        {
+          "defKey": "imgs",
+          "defName": "图片",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "5A6E47E7-315F-4F54-A984-AF0767C1FAE1"
         }
       ],
       "correlations": [],
@@ -8917,6 +8933,38 @@
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "uiHint": "",
           "id": "A7D6DDCC-CC42-40CE-B0E0-E93EE9B6E597"
+        },
+        {
+          "defKey": "project_id",
+          "defName": "专题id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "112A707D-47CA-4EA4-B8A2-686F55F839A1"
+        },
+        {
+          "defKey": "project_goods_id",
+          "defName": "商品id",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "9E299639-7035-4217-BB01-DA6413C44A67"
         }
       ],
       "correlations": [],

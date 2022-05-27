@@ -1,6 +1,5 @@
-package com.yqm.common.dto;
+package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YamProjectDTO extends BaseEntity implements Serializable {
+public class YqmProjectRequest extends BaseRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -66,5 +65,10 @@ public class YamProjectDTO extends BaseEntity implements Serializable {
      */
     private String imgs;
 
+
+    /**
+     * 主图
+     */
+    private String headerImg;
 
 }

@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-23 20:17:36",
+  "updatedTime": "2022-5-27 20:17:01",
   "dbConns": [],
   "profile": {
     "default": {
@@ -8224,7 +8224,7 @@
           "codeRoot": ""
         }
       },
-      "defKey": "yam_project_classification",
+      "defKey": "yqm_project_classification",
       "defName": "专题分类",
       "comment": "",
       "properties": {},
@@ -8703,6 +8703,22 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "0C34E08A-C4D3-4968-BDE4-992D71FFC2AD"
+        },
+        {
+          "defKey": "imgs",
+          "defName": "图片",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "5A6E47E7-315F-4F54-A984-AF0767C1FAE1"
         }
       ],
       "correlations": [],

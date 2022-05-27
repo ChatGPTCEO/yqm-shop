@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-23 20:18:27",
+  "updatedTime": "2022-5-27 20:17:06",
   "dbConns": [],
   "profile": {
     "default": {
@@ -8224,7 +8224,7 @@
           "codeRoot": ""
         }
       },
-      "defKey": "yam_project_classification",
+      "defKey": "yqm_project_classification",
       "defName": "专题分类",
       "comment": "",
       "properties": {},
@@ -8470,7 +8470,7 @@
           "codeRoot": ""
         }
       },
-      "defKey": "yam_project",
+      "defKey": "yqm_project",
       "defName": "专题",
       "comment": "",
       "properties": {},
