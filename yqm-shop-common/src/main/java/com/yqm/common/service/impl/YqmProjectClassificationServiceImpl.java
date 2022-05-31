@@ -31,6 +31,9 @@ public class YqmProjectClassificationServiceImpl extends ServiceImpl<YqmProjectC
         if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
             queryWrapper.in("status", request.getInStatusList());
         }
+        if (CollectionUtils.isNotEmpty(request.getInIdList())) {
+            queryWrapper.in("id", request.getInIdList());
+        }
         return queryWrapper;
     }
 }

@@ -52,7 +52,8 @@ public class AdminProjectService {
         request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmProjectService.page(page, iYqmProjectService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
-            pageList.setRecords(YqmProjectToDTO.toYqmProjectDTOList(pageList.getRecords()));
+            List<YqmProjectDTO> projectDTOS = YqmProjectToDTO.toYqmProjectDTOList(pageList.getRecords());
+            pageList.setRecords(projectDTOS);
         }
         return pageList;
     }

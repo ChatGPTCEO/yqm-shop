@@ -21,6 +21,8 @@ import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminProjectClassificationService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 管理端-专题分类
  *
@@ -50,6 +52,18 @@ public class AdminProjectClassificationController {
     public ResponseBean getPage(YqmProjectClassificationRequest request) {
         IPage page = adminProjectClassificationService.page(request);
         return ResponseBean.success(page);
+    }
+
+    /**
+     * 查询集合
+     *
+     * @param request
+     * @return
+     */
+    @GetMapping("/list")
+    public ResponseBean list(YqmProjectClassificationRequest request) {
+        List<YqmProjectClassificationDTO> projectClassificationDTOS = adminProjectClassificationService.list(request);
+        return ResponseBean.success(projectClassificationDTOS);
     }
 
     /**

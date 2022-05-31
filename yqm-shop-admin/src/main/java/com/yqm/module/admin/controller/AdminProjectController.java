@@ -19,6 +19,7 @@ import com.yqm.common.dto.YqmProjectDTO;
 import com.yqm.common.request.YqmProjectRequest;
 import com.yqm.common.response.ResponseBean;
 import com.yqm.module.admin.service.AdminProjectService;
+import com.yqm.module.admin.service.aggregation.AdminProjectAggregation;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -35,9 +36,11 @@ import org.springframework.web.bind.annotation.*;
 public class AdminProjectController {
 
     private final AdminProjectService adminProjectService;
+    private final AdminProjectAggregation adminProjectAggregation;
 
-    public AdminProjectController(AdminProjectService adminProjectService) {
+    public AdminProjectController(AdminProjectService adminProjectService, AdminProjectAggregation adminProjectAggregation) {
         this.adminProjectService = adminProjectService;
+        this.adminProjectAggregation = adminProjectAggregation;
     }
 
     /**
@@ -48,7 +51,7 @@ public class AdminProjectController {
      */
     @GetMapping("")
     public ResponseBean getPage(YqmProjectRequest request) {
-        IPage page = adminProjectService.page(request);
+        IPage page = adminProjectAggregation.page(request);
         return ResponseBean.success(page);
     }
 
