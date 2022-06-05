@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-23 23:00:37",
+  "updatedTime": "2022-6-5 20:13:45",
   "dbConns": [],
   "profile": {
     "default": {
@@ -8224,7 +8224,7 @@
           "codeRoot": ""
         }
       },
-      "defKey": "yam_project_classification",
+      "defKey": "yqm_project_classification",
       "defName": "专题分类",
       "comment": "",
       "properties": {},
@@ -8470,7 +8470,7 @@
           "codeRoot": ""
         }
       },
-      "defKey": "yam_project",
+      "defKey": "yqm_project",
       "defName": "专题",
       "comment": "",
       "properties": {},
@@ -8719,6 +8719,38 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "5A6E47E7-315F-4F54-A984-AF0767C1FAE1"
+        },
+        {
+          "defKey": "header_img",
+          "defName": "主图",
+          "comment": "",
+          "type": "",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
+          "id": "C4051EDD-6C89-429A-92D2-BB7B63CD4984"
+        },
+        {
+          "defKey": "describe",
+          "defName": "描述",
+          "comment": "",
+          "type": "text",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "id": "39FCD225-CA09-458C-9C7B-F16D88D9B35B"
         }
       ],
       "correlations": [],

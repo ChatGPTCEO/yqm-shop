@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -70,5 +71,21 @@ public class YqmProjectRequest extends BaseRequest implements Serializable {
      * 主图
      */
     private String headerImg;
+
+    /**
+     * 描述
+     */
+    private String describe;
+
+
+    /**
+     * 正文内容
+     */
+    private String content;
+
+    /**
+     * 商品id
+     */
+    private List<String> goodsIdList;
 
 }

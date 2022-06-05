@@ -6,7 +6,10 @@ import com.yqm.common.conversion.YqmProjectToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmProjectDTO;
 import com.yqm.common.entity.YqmProject;
+import com.yqm.common.entity.YqmProjectGoods;
+import com.yqm.common.request.YqmProjectGoodsRequest;
 import com.yqm.common.request.YqmProjectRequest;
+import com.yqm.common.service.IYqmProjectGoodsService;
 import com.yqm.common.service.IYqmProjectService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
@@ -18,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * 管理端-专题
@@ -34,8 +38,12 @@ public class AdminProjectService {
 
     private final IYqmProjectService iYqmProjectService;
 
-    public AdminProjectService(IYqmProjectService iYqmProjectService) {
+    private final IYqmProjectGoodsService iYqmProjectGoodsService;
+
+
+    public AdminProjectService(IYqmProjectService iYqmProjectService, IYqmProjectGoodsService iYqmProjectGoodsService) {
         this.iYqmProjectService = iYqmProjectService;
+        this.iYqmProjectGoodsService = iYqmProjectGoodsService;
     }
 
     /**
@@ -85,6 +93,24 @@ public class AdminProjectService {
 
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
+
+        if (CollectionUtils.isNotEmpty(request.getGoodsIdList())) {
+            YqmProjectGoodsRequest goodsRequest = new YqmProjectGoodsRequest();
+            goodsRequest.setProjectId(entity.getId());
+            List<YqmProjectGoods> projectGoods = iYqmProjectGoodsService.list(iYqmProjectGoodsService.getQuery(goodsRequest));
+
+            List<YqmProjectGoods> notProjectGoodsList = projectGoods.stream().filter(e -> !request.getGoodsIdList().contains(e.getId())).map(e -> {
+                e.setStatus(YqmDefine.StatusType.delete.getValue());
+                return e;
+            }).collect(Collectors.toList());
+            iYqmProjectGoodsService.saveOrUpdateBatch(notProjectGoodsList);
+        } else {
+            YqmProjectGoodsRequest goodsRequest = new YqmProjectGoodsRequest();
+            goodsRequest.setProjectId(entity.getId());
+            List<YqmProjectGoods> projectGoods = iYqmProjectGoodsService.list(iYqmProjectGoodsService.getQuery(goodsRequest));
+            iYqmProjectGoodsService.saveOrUpdateBatch(projectGoods);
+        }
+
         iYqmProjectService.saveOrUpdate(entity);
         return YqmProjectToDTO.toYqmProjectDTO(entity);
     }

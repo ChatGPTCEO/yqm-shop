@@ -73,6 +73,16 @@ public class YqmProjectDTO extends BaseEntity implements Serializable {
     private String headerImg;
 
     /**
+     * 描述
+     */
+    private String describe;
+
+    /**
+     * 正文内容
+     */
+    private String content;
+
+    /**
      * 分类
      */
     private YqmProjectClassificationDTO classificationDTO;

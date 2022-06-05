@@ -39,7 +39,7 @@ public class YqmStoreProductServiceImpl extends ServiceImpl<YqmStoreProductMappe
             queryWrapper.orderByAsc("sort");
         }
         if (StringUtils.isNotBlank(request.getKeyword())) {
-            queryWrapper.like("product_name", request.getKeyword());
+            queryWrapper.like("product_name", request.getKeyword()).or().like("article_number", request.getKeyword());
         }
         if (StringUtils.isNotBlank(request.getIsShelves())) {
             queryWrapper.like("is_shelves", request.getIsShelves());

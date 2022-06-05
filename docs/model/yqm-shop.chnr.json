@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-1-27 19:44:42",
-  "updatedTime": "2022-5-27 22:15:42",
+  "updatedTime": "2022-6-5 20:45:35",
   "dbConns": [],
   "profile": {
     "default": {
@@ -8735,6 +8735,38 @@
           "refDict": "",
           "domain": "E1CFCE0D-D59F-4151-BC3D-45B5FB1EF08E",
           "id": "C4051EDD-6C89-429A-92D2-BB7B63CD4984"
+        },
+        {
+          "defKey": "`describe`",
+          "defName": "描述",
+          "comment": "",
+          "type": "text",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "id": "39FCD225-CA09-458C-9C7B-F16D88D9B35B"
+        },
+        {
+          "defKey": "`content`",
+          "defName": "内容",
+          "comment": "",
+          "type": "text",
+          "len": "",
+          "scale": "",
+          "primaryKey": false,
+          "notNull": false,
+          "autoIncrement": false,
+          "defaultValue": "",
+          "hideInGraph": false,
+          "refDict": "",
+          "domain": "",
+          "id": "B73E7A28-BA30-4564-A99C-C01BF722D1A3"
         }
       ],
       "correlations": [],

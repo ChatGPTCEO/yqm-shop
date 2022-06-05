@@ -1,5 +1,6 @@
 package com.yqm.common.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -70,5 +71,18 @@ public class YqmProject extends BaseEntity implements Serializable {
      * 主图
      */
     private String headerImg;
+
+    /**
+     * 描述
+     */
+    @TableField("`describe`")
+    private String describe;
+
+
+    /**
+     * 正文内容
+     */
+    @TableField("`content`")
+    private String content;
 
 }
