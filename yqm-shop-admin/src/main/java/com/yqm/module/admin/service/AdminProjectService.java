@@ -7,6 +7,7 @@ import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmProjectDTO;
 import com.yqm.common.entity.YqmProject;
 import com.yqm.common.entity.YqmProjectGoods;
+import com.yqm.common.request.BaseRequest;
 import com.yqm.common.request.YqmProjectGoodsRequest;
 import com.yqm.common.request.YqmProjectRequest;
 import com.yqm.common.service.IYqmProjectGoodsService;
@@ -94,16 +95,19 @@ public class AdminProjectService {
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
 
-        if (CollectionUtils.isNotEmpty(request.getGoodsIdList())) {
+        if (CollectionUtils.isNotEmpty(request.getProductList())) {
             YqmProjectGoodsRequest goodsRequest = new YqmProjectGoodsRequest();
             goodsRequest.setProjectId(entity.getId());
             List<YqmProjectGoods> projectGoods = iYqmProjectGoodsService.list(iYqmProjectGoodsService.getQuery(goodsRequest));
 
-            List<YqmProjectGoods> notProjectGoodsList = projectGoods.stream().filter(e -> !request.getGoodsIdList().contains(e.getId())).map(e -> {
+            List<String> productIdList = request.getProductList().stream().map(BaseRequest::getId).collect(Collectors.toList());
+
+            List<YqmProjectGoods> notProjectGoodsList = projectGoods.stream().filter(e -> !productIdList.contains(e.getId())).map(e -> {
                 e.setStatus(YqmDefine.StatusType.delete.getValue());
                 return e;
             }).collect(Collectors.toList());
             iYqmProjectGoodsService.saveOrUpdateBatch(notProjectGoodsList);
+            
         } else {
             YqmProjectGoodsRequest goodsRequest = new YqmProjectGoodsRequest();
             goodsRequest.setProjectId(entity.getId());

@@ -95,6 +95,14 @@ public class YqmStoreProductToDTO {
         return dtoList;
     }
 
+    public static List<YqmStoreProduct> toYqmStoreProduct(List<YqmStoreProductRequest> requests) {
+        if (CollectionUtils.isEmpty(requests)) {
+            return null;
+        }
+        List<YqmStoreProduct> entityList = requests.stream().map(e -> toYqmStoreProduct(e)).collect(Collectors.toList());
+        return entityList;
+    }
+
     public static List<YqmStoreProduct> toYqmStoreProductList(List<YqmStoreProductDTO> dtoList) {
         if (CollectionUtils.isEmpty(dtoList)) {
             return null;

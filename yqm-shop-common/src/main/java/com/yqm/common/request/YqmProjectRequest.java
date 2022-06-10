@@ -84,8 +84,8 @@ public class YqmProjectRequest extends BaseRequest implements Serializable {
     private String content;
 
     /**
-     * 商品id
+     * 商品集合
      */
-    private List<String> goodsIdList;
+    private List<YqmStoreProductRequest> productList;
 
 }
