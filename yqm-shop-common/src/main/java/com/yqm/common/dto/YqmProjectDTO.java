@@ -1,11 +1,13 @@
 package com.yqm.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <p>
@@ -29,6 +31,7 @@ public class YqmProjectDTO extends BaseEntity implements Serializable {
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdTime;
 
     /**
@@ -39,6 +42,7 @@ public class YqmProjectDTO extends BaseEntity implements Serializable {
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedTime;
 
     /**
@@ -86,5 +90,10 @@ public class YqmProjectDTO extends BaseEntity implements Serializable {
      * 分类
      */
     private YqmProjectClassificationDTO classificationDTO;
+
+    /**
+     * 商品集合
+     */
+    private List<YqmStoreProductDTO> productList;
 
 }

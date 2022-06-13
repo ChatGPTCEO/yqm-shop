@@ -63,7 +63,7 @@ public class AdminProjectController {
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable String id) {
-        YqmProjectDTO dto = adminProjectService.getById(id);
+        YqmProjectDTO dto = adminProjectAggregation.getById(id);
         return ResponseBean.success(dto);
     }
 

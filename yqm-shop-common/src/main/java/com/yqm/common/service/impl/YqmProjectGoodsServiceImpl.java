@@ -6,6 +6,7 @@ import com.yqm.common.entity.YqmProjectGoods;
 import com.yqm.common.mapper.YqmProjectGoodsMapper;
 import com.yqm.common.request.YqmProjectGoodsRequest;
 import com.yqm.common.service.IYqmProjectGoodsService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,9 @@ public class YqmProjectGoodsServiceImpl extends ServiceImpl<YqmProjectGoodsMappe
         }
         if (StringUtils.isNotBlank(request.getProjectGoodsId())) {
             queryWrapper.eq("project_goods_id", request.getProjectGoodsId());
+        }
+        if (CollectionUtils.isNotEmpty(request.getInStatusList())) {
+            queryWrapper.in("status", request.getInStatusList());
         }
         return queryWrapper;
     }

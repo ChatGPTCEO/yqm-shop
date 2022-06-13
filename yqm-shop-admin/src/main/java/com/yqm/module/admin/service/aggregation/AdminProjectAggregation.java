@@ -20,17 +20,25 @@ import com.yqm.common.conversion.YqmProjectToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmProjectClassificationDTO;
 import com.yqm.common.dto.YqmProjectDTO;
+import com.yqm.common.dto.YqmStoreProductDTO;
 import com.yqm.common.entity.YqmProject;
+import com.yqm.common.entity.YqmProjectGoods;
+import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.YqmProjectClassificationRequest;
+import com.yqm.common.request.YqmProjectGoodsRequest;
 import com.yqm.common.request.YqmProjectRequest;
+import com.yqm.common.request.YqmStoreProductRequest;
+import com.yqm.common.service.IYqmProjectGoodsService;
 import com.yqm.common.service.IYqmProjectService;
 import com.yqm.module.admin.service.AdminProjectClassificationService;
+import com.yqm.module.admin.service.AdminStoreProductService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -46,10 +54,14 @@ public class AdminProjectAggregation {
 
     private final IYqmProjectService iYqmProjectService;
     private final AdminProjectClassificationService adminProjectClassificationService;
+    private final AdminStoreProductService adminStoreProductService;
+    private final IYqmProjectGoodsService iYqmProjectGoodsService;
 
-    public AdminProjectAggregation(IYqmProjectService iYqmProjectService, AdminProjectClassificationService adminProjectClassificationService) {
+    public AdminProjectAggregation(IYqmProjectService iYqmProjectService, AdminProjectClassificationService adminProjectClassificationService, AdminStoreProductService adminStoreProductService, IYqmProjectGoodsService iYqmProjectGoodsService) {
         this.iYqmProjectService = iYqmProjectService;
         this.adminProjectClassificationService = adminProjectClassificationService;
+        this.adminStoreProductService = adminStoreProductService;
+        this.iYqmProjectGoodsService = iYqmProjectGoodsService;
     }
 
     /**
@@ -85,4 +97,40 @@ public class AdminProjectAggregation {
         return pageList;
     }
 
+
+    /**
+     * 集合
+     *
+     * @return
+     */
+    public YqmProjectDTO getById(String id) {
+        YqmProject info = iYqmProjectService.getById(id);
+        if (Objects.isNull(info)) {
+            throw new YqmException("数据错误！");
+        }
+
+        YqmProjectDTO projectDTO = YqmProjectToDTO.toYqmProjectDTO(info);
+
+        YqmProjectGoodsRequest projectGoodsRequest = new YqmProjectGoodsRequest();
+        projectGoodsRequest.setProjectId(id);
+        projectGoodsRequest.setInStatusList(YqmDefine.includeStatus);
+        List<YqmProjectGoods> projectGoodsList = iYqmProjectGoodsService.list(iYqmProjectGoodsService.getQuery(projectGoodsRequest));
+
+        List<String> goodsIdList = projectGoodsList.stream().map(YqmProjectGoods::getProjectGoodsId).collect(Collectors.toList());
+
+        YqmProjectClassificationDTO classificationDTO = adminProjectClassificationService.getById(info.getClassificationId());
+        if (Objects.nonNull(classificationDTO)) {
+            projectDTO.setClassificationDTO(classificationDTO);
+        }
+
+        if (CollectionUtils.isNotEmpty(goodsIdList)) {
+            YqmStoreProductRequest storeProductRequest = new YqmStoreProductRequest();
+            storeProductRequest.setInIdList(goodsIdList);
+            List<YqmStoreProductDTO> storeProductDTOList = adminStoreProductService.list(storeProductRequest);
+
+            projectDTO.setProductList(storeProductDTOList);
+        }
+
+        return projectDTO;
+    }
 }

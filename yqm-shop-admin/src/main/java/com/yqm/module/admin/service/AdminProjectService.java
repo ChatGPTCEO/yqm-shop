@@ -95,19 +95,40 @@ public class AdminProjectService {
         entity.setUpdatedBy(user.getId());
         entity.setUpdatedTime(LocalDateTime.now());
 
+        iYqmProjectService.saveOrUpdate(entity);
+
         if (CollectionUtils.isNotEmpty(request.getProductList())) {
             YqmProjectGoodsRequest goodsRequest = new YqmProjectGoodsRequest();
             goodsRequest.setProjectId(entity.getId());
+            goodsRequest.setInStatusList(YqmDefine.includeStatus);
             List<YqmProjectGoods> projectGoods = iYqmProjectGoodsService.list(iYqmProjectGoodsService.getQuery(goodsRequest));
+            List<String> oldProductIdList = projectGoods.stream().map(YqmProjectGoods::getProjectGoodsId).collect(Collectors.toList());
+
 
             List<String> productIdList = request.getProductList().stream().map(BaseRequest::getId).collect(Collectors.toList());
 
-            List<YqmProjectGoods> notProjectGoodsList = projectGoods.stream().filter(e -> !productIdList.contains(e.getId())).map(e -> {
+            // 删除的
+            List<YqmProjectGoods> notProjectGoodsList = projectGoods.stream().filter(e -> !productIdList.contains(e.getProjectGoodsId())).map(e -> {
                 e.setStatus(YqmDefine.StatusType.delete.getValue());
                 return e;
             }).collect(Collectors.toList());
             iYqmProjectGoodsService.saveOrUpdateBatch(notProjectGoodsList);
-            
+
+            // 新增的
+            List<String> newProductList = productIdList.stream().filter(e -> !oldProductIdList.contains(e)).collect(Collectors.toList());
+
+            List<YqmProjectGoods> newProjectGoods = newProductList.stream().map(e -> {
+                YqmProjectGoods yqmProjectGoods = new YqmProjectGoods();
+                yqmProjectGoods.setProjectGoodsId(e);
+                yqmProjectGoods.setProjectId(entity.getId());
+                yqmProjectGoods.setCreatedBy(user.getId());
+                yqmProjectGoods.setCreatedTime(LocalDateTime.now());
+                yqmProjectGoods.setUpdatedBy(user.getId());
+                yqmProjectGoods.setUpdatedTime(LocalDateTime.now());
+                return yqmProjectGoods;
+            }).collect(Collectors.toList());
+            iYqmProjectGoodsService.saveOrUpdateBatch(newProjectGoods);
+
         } else {
             YqmProjectGoodsRequest goodsRequest = new YqmProjectGoodsRequest();
             goodsRequest.setProjectId(entity.getId());
@@ -115,7 +136,6 @@ public class AdminProjectService {
             iYqmProjectGoodsService.saveOrUpdateBatch(projectGoods);
         }
 
-        iYqmProjectService.saveOrUpdate(entity);
         return YqmProjectToDTO.toYqmProjectDTO(entity);
     }
 
