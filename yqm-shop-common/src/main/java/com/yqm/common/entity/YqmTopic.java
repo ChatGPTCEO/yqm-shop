@@ -1,4 +1,4 @@
-package com.yqm.common.dto;
+package com.yqm.common.entity;
 
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
@@ -9,15 +9,15 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 专题分类
+ * 话题
  * </p>
  *
  * @author weiximei
- * @since 2022-05-26
+ * @since 2022-06-14
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmProjectClassificationDTO extends BaseEntity implements Serializable {
+public class YqmTopic extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,19 +52,24 @@ public class YqmProjectClassificationDTO extends BaseEntity implements Serializa
     private String status;
 
     /**
-     * 图标
+     * 分类id
      */
-    private String icon;
+    private String classificationId;
 
     /**
-     * 分类名称
+     * 标题
      */
-    private String classificationName;
+    private String title;
 
     /**
-     * 专题数量
+     * 内容
      */
-    private Long projectNum;
+    private String content;
+
+    /**
+     * IP地址
+     */
+    private String ipHost;
 
 
 }

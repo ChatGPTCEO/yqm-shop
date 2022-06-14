@@ -619,3 +619,145 @@ CREATE TABLE yqm_refund_pay
     PRIMARY KEY (id)
 ) COMMENT = '退款';
 
+
+
+DROP TABLE IF EXISTS yqm_store_sku_log;
+CREATE TABLE yqm_store_sku_log
+(
+    id                  VARCHAR(32)  NOT NULL COMMENT '编号',
+    created_by          VARCHAR(32) COMMENT '创建人',
+    created_time        DATETIME              DEFAULT now() COMMENT '创建时间',
+    updated_by          VARCHAR(32) COMMENT '更新人',
+    updated_time        DATETIME              DEFAULT now() COMMENT '更新时间',
+    `sort`              INT          NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`            VARCHAR(255)          DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    product_id          VARCHAR(32)  NOT NULL COMMENT '商品id',
+    sku_id              VARCHAR(255) NOT NULL COMMENT 'sku编号',
+    order_id            VARCHAR(255) COMMENT '订单编号',
+    num                 VARCHAR(255) COMMENT '数量',
+    inventory           INT COMMENT '库存',
+    inventory_type      VARCHAR(255)          DEFAULT 'product' COMMENT '库存类型;product 商品库存',
+    operation_type      VARCHAR(255) COMMENT '操作类型;return_product 退货商品 add_product 添加商品 edi_product 编辑商品 order_close 订单关闭 order_cancel 订单取消 order_return_product 订单退货',
+    operation_user_name VARCHAR(255) COMMENT '操作人员名称',
+    operation_user_id   VARCHAR(32) COMMENT '操作人员编号',
+    log_type            VARCHAR(32) COMMENT '类型;put_in_storage 入库 outbound 出库',
+    PRIMARY KEY (id)
+) COMMENT = '商品sku日志';
+
+
+DROP TABLE IF EXISTS yqm_project_classification;
+CREATE TABLE yqm_project_classification
+(
+    id                  VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by          VARCHAR(32) COMMENT '创建人',
+    created_time        DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by          VARCHAR(32) COMMENT '更新人',
+    updated_time        DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`              INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`            VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    icon                VARCHAR(255) COMMENT '图标',
+    classification_name VARCHAR(255) COMMENT '分类名称',
+    PRIMARY KEY (id)
+) COMMENT = '专题分类';
+
+
+
+DROP TABLE IF EXISTS yqm_project;
+CREATE TABLE yqm_project
+(
+    id                VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by        VARCHAR(32) COMMENT '创建人',
+    created_time      DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by        VARCHAR(32) COMMENT '更新人',
+    updated_time      DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`            INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`          VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    classification_id VARCHAR(255) COMMENT '分类id',
+    title             VARCHAR(255) COMMENT '标题',
+    imgs              VARCHAR(255) COMMENT '图片',
+    header_img        VARCHAR(255) COMMENT '主图',
+    `describe`        text COMMENT '描述',
+    `content`         text COMMENT '内容',
+    PRIMARY KEY (id)
+) COMMENT = '专题';
+
+
+
+DROP TABLE IF EXISTS yqm_project_goods;
+CREATE TABLE yqm_project_goods
+(
+    id               VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by       VARCHAR(32) COMMENT '创建人',
+    created_time     DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by       VARCHAR(32) COMMENT '更新人',
+    updated_time     DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`           INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`         VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    project_id       VARCHAR(255) COMMENT '专题id',
+    project_goods_id VARCHAR(255) COMMENT '商品id',
+    PRIMARY KEY (id)
+) COMMENT = '专题关联商品';
+
+
+
+DROP TABLE IF EXISTS yqm_topic;
+CREATE TABLE yqm_topic
+(
+    id                VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by        VARCHAR(32) COMMENT '创建人',
+    created_time      DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by        VARCHAR(32) COMMENT '更新人',
+    updated_time      DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`            INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`          VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    classification_id VARCHAR(255) COMMENT '分类id',
+    title             VARCHAR(255) COMMENT '标题',
+    `content`         text COMMENT '内容',
+    ip_host           VARCHAR(255) COMMENT 'IP地址',
+    PRIMARY KEY (id)
+) COMMENT = '话题';
+
+
+
+DROP TABLE IF EXISTS yqm_topic_classification;
+CREATE TABLE yqm_topic_classification
+(
+    id                  VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by          VARCHAR(32) COMMENT '创建人',
+    created_time        DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by          VARCHAR(32) COMMENT '更新人',
+    updated_time        DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`              INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`            VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    icon                VARCHAR(255) COMMENT '图标',
+    classification_name VARCHAR(255) COMMENT '分类名称',
+    PRIMARY KEY (id)
+) COMMENT = '话题分类';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

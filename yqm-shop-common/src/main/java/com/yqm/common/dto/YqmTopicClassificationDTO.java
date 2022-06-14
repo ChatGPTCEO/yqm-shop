@@ -9,15 +9,15 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 专题分类
+ * 话题分类
  * </p>
  *
  * @author weiximei
- * @since 2022-05-26
+ * @since 2022-06-14
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmProjectClassificationDTO extends BaseEntity implements Serializable {
+public class YqmTopicClassificationDTO extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -61,10 +61,7 @@ public class YqmProjectClassificationDTO extends BaseEntity implements Serializa
      */
     private String classificationName;
 
-    /**
-     * 专题数量
-     */
-    private Long projectNum;
+    private Long topicNum;
 
 
 }

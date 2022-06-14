@@ -1,6 +1,5 @@
-package com.yqm.common.dto;
+package com.yqm.common.request;
 
-import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,15 +8,15 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 专题分类
+ * 话题分类
  * </p>
  *
  * @author weiximei
- * @since 2022-05-26
+ * @since 2022-06-14
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmProjectClassificationDTO extends BaseEntity implements Serializable {
+public class YqmTopicClassificationRequest extends BaseRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -60,11 +59,6 @@ public class YqmProjectClassificationDTO extends BaseEntity implements Serializa
      * 分类名称
      */
     private String classificationName;
-
-    /**
-     * 专题数量
-     */
-    private Long projectNum;
 
 
 }

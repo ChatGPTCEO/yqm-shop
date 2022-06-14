@@ -1,5 +1,6 @@
 package com.yqm.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yqm.common.base.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,15 +10,15 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 专题分类
+ * 话题
  * </p>
  *
  * @author weiximei
- * @since 2022-05-26
+ * @since 2022-06-14
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class YqmProjectClassificationDTO extends BaseEntity implements Serializable {
+public class YqmTopicDTO extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,6 +30,7 @@ public class YqmProjectClassificationDTO extends BaseEntity implements Serializa
     /**
      * 创建时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdTime;
 
     /**
@@ -39,6 +41,7 @@ public class YqmProjectClassificationDTO extends BaseEntity implements Serializa
     /**
      * 更新时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedTime;
 
     /**
@@ -52,19 +55,28 @@ public class YqmProjectClassificationDTO extends BaseEntity implements Serializa
     private String status;
 
     /**
-     * 图标
+     * 分类id
      */
-    private String icon;
+    private String classificationId;
 
     /**
-     * 分类名称
+     * 标题
      */
-    private String classificationName;
+    private String title;
 
     /**
-     * 专题数量
+     * 内容
      */
-    private Long projectNum;
+    private String content;
+
+    /**
+     * IP地址
+     */
+    private String ipHost;
+
+    private YqmTopicClassificationDTO topicClassificationDTO;
+
+    private YqmUserDTO userDTO;
 
 
 }

@@ -8,7 +8,9 @@ import com.yqm.common.dto.YqmProjectClassificationDTO;
 import com.yqm.common.entity.YqmProjectClassification;
 import com.yqm.common.exception.YqmException;
 import com.yqm.common.request.YqmProjectClassificationRequest;
+import com.yqm.common.request.YqmProjectRequest;
 import com.yqm.common.service.IYqmProjectClassificationService;
+import com.yqm.common.service.IYqmProjectService;
 import com.yqm.security.User;
 import com.yqm.security.UserInfoService;
 import org.apache.commons.collections4.CollectionUtils;
@@ -34,9 +36,11 @@ import java.util.Objects;
 public class AdminProjectClassificationService {
 
     private final IYqmProjectClassificationService iYqmProjectClassificationService;
+    private final IYqmProjectService iYqmProjectService;
 
-    public AdminProjectClassificationService(IYqmProjectClassificationService iYqmProjectClassificationService) {
+    public AdminProjectClassificationService(IYqmProjectClassificationService iYqmProjectClassificationService, IYqmProjectService iYqmProjectService) {
         this.iYqmProjectClassificationService = iYqmProjectClassificationService;
+        this.iYqmProjectService = iYqmProjectService;
     }
 
     /**
@@ -53,7 +57,22 @@ public class AdminProjectClassificationService {
         request.setInStatusList(YqmDefine.includeStatus);
         IPage pageList = iYqmProjectClassificationService.page(page, iYqmProjectClassificationService.getQuery(request));
         if (CollectionUtils.isNotEmpty(pageList.getRecords())) {
-            pageList.setRecords(YqmProjectClassificationToDTO.toYqmProjectClassificationDTOList(pageList.getRecords()));
+
+            List<YqmProjectClassificationDTO> projectClassificationDTOS = YqmProjectClassificationToDTO.toYqmProjectClassificationDTOList(pageList.getRecords());
+            pageList.setRecords(projectClassificationDTOS);
+
+            if (CollectionUtils.isNotEmpty(projectClassificationDTOS)) {
+                for (YqmProjectClassificationDTO dto : projectClassificationDTOS) {
+                    YqmProjectRequest projectRequest = new YqmProjectRequest();
+                    projectRequest.setClassificationId(dto.getId());
+                    projectRequest.setInStatusList(YqmDefine.includeStatus);
+                    long count = iYqmProjectService.count(iYqmProjectService.getQuery(projectRequest));
+                    dto.setProjectNum(count);
+                }
+
+            }
+
+
         }
         return pageList;
     }
