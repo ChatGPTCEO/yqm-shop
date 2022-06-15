@@ -63,7 +63,7 @@ public class AdminTopicController {
      */
     @GetMapping("/{id}")
     public ResponseBean getById(@PathVariable String id) {
-        YqmTopicDTO dto = adminTopicService.getById(id);
+        YqmTopicDTO dto = adminTopicAggregation.getById(id);
         return ResponseBean.success(dto);
     }
 

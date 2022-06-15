@@ -38,6 +38,9 @@ public class YqmUserServiceImpl extends ServiceImpl<YqmUserMapper, YqmUser> impl
         if (Objects.nonNull(request.getCreatedTime())) {
             queryWrapper.eq("created_time", request.getCreatedTime());
         }
+        if (CollectionUtils.isNotEmpty(request.getInIdList())) {
+            queryWrapper.in("id", request.getInIdList());
+        }
         return queryWrapper;
     }
 }

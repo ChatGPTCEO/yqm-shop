@@ -20,12 +20,14 @@ import com.yqm.common.conversion.YqmTopicToDTO;
 import com.yqm.common.define.YqmDefine;
 import com.yqm.common.dto.YqmTopicClassificationDTO;
 import com.yqm.common.dto.YqmTopicDTO;
+import com.yqm.common.dto.YqmUserDTO;
 import com.yqm.common.entity.YqmTopic;
 import com.yqm.common.request.YqmTopicClassificationRequest;
 import com.yqm.common.request.YqmTopicRequest;
+import com.yqm.common.request.YqmUserRequest;
 import com.yqm.common.service.IYqmTopicService;
+import com.yqm.module.admin.service.AdminClientUserService;
 import com.yqm.module.admin.service.AdminTopicClassificationService;
-import com.yqm.module.admin.service.AdminUserService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,10 +48,12 @@ import java.util.stream.Collectors;
 public class AdminTopicAggregation {
 
     private final IYqmTopicService iYqmTopicService;
+    private final AdminClientUserService adminClientUserService;
     private final AdminTopicClassificationService adminTopicClassificationService;
 
-    public AdminTopicAggregation(IYqmTopicService iYqmTopicService, AdminTopicClassificationService adminTopicClassificationService, AdminUserService adminUserService) {
+    public AdminTopicAggregation(IYqmTopicService iYqmTopicService, AdminClientUserService adminClientUserService, AdminTopicClassificationService adminTopicClassificationService) {
         this.iYqmTopicService = iYqmTopicService;
+        this.adminClientUserService = adminClientUserService;
         this.adminTopicClassificationService = adminTopicClassificationService;
     }
 
@@ -80,10 +84,41 @@ public class AdminTopicAggregation {
                 }
             }
 
+            List<String> userIdList = projectDTOS.stream().map(e -> e.getCreatedBy()).collect(Collectors.toList());
+            YqmUserRequest userRequest = new YqmUserRequest();
+            userRequest.setInStatusList(userIdList);
+            List<YqmUserDTO> userDTOList = adminClientUserService.list(userRequest);
+            if (CollectionUtils.isNotEmpty(userDTOList)) {
+                Map<String, YqmUserDTO> userDTOMap = userDTOList.stream().collect(Collectors.toMap(e -> e.getId(), e -> e));
+                for (YqmTopicDTO projectDTO : projectDTOS) {
+                    projectDTO.setUserDTO(userDTOMap.get(projectDTO.getCreatedBy()));
+                }
+            }
+
 
             pageList.setRecords(projectDTOS);
         }
         return pageList;
+    }
+
+
+    /**
+     * 详情
+     *
+     * @param id
+     * @return
+     */
+    public YqmTopicDTO getById(String id) {
+        YqmTopic entity = iYqmTopicService.getById(id);
+        YqmTopicClassificationDTO classificationDTO = adminTopicClassificationService.getById(entity.getClassificationId());
+        YqmUserDTO userDTO = adminClientUserService.getById(entity.getCreatedBy());
+
+
+        YqmTopicDTO topicDTO = YqmTopicToDTO.toYqmTopicDTO(entity);
+        topicDTO.setTopicClassificationDTO(classificationDTO);
+        topicDTO.setUserDTO(userDTO);
+
+        return topicDTO;
     }
 
 
