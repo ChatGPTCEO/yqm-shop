@@ -714,6 +714,7 @@ CREATE TABLE yqm_topic
     title             VARCHAR(255) COMMENT '标题',
     `content`         text COMMENT '内容',
     ip_host           VARCHAR(255) COMMENT 'IP地址',
+    header_img        VARCHAR(900) COMMENT '封面',
     PRIMARY KEY (id)
 ) COMMENT = '话题';
 
@@ -736,9 +737,39 @@ CREATE TABLE yqm_topic_classification
 
 
 
+DROP TABLE IF EXISTS yqm_help;
+CREATE TABLE yqm_help
+(
+    id                VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by        VARCHAR(32) COMMENT '创建人',
+    created_time      DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by        VARCHAR(32) COMMENT '更新人',
+    updated_time      DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`            INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`          VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    classification_id VARCHAR(255) COMMENT '分类id',
+    title             VARCHAR(255) COMMENT '标题',
+    `content`         text COMMENT '内容',
+    header_img        VARCHAR(900) COMMENT '封面',
+    PRIMARY KEY (id)
+) COMMENT = '帮助';
 
 
 
+DROP TABLE IF EXISTS yqm_help_classification;
+CREATE TABLE yqm_help_classification
+(
+    id                  VARCHAR(32) NOT NULL COMMENT '编号',
+    created_by          VARCHAR(32) COMMENT '创建人',
+    created_time        DATETIME             DEFAULT now() COMMENT '创建时间',
+    updated_by          VARCHAR(32) COMMENT '更新人',
+    updated_time        DATETIME             DEFAULT now() COMMENT '更新时间',
+    `sort`              INT         NOT NULL DEFAULT 1 COMMENT '排序',
+    `status`            VARCHAR(255)         DEFAULT 'success' COMMENT '状态;delete 删除 success 有效 failure 失效',
+    icon                VARCHAR(255) COMMENT '图标',
+    classification_name VARCHAR(255) COMMENT '分类名称',
+    PRIMARY KEY (id)
+) COMMENT = '帮助分类';
 
 
 
