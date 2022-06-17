@@ -1,46 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>yqm-shop</artifactId>
         <groupId>com.yqm</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>3.2</version>
     </parent>
-    <groupId>com.yqm</groupId>
+    <modelVersion>4.0.0</modelVersion>
+
     <artifactId>yqm-shop-admin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>管理端</name>
-    <description>Demo project for Spring Boot</description>
+    <name>后台管理模块</name>
+
     <properties>
-        <java.version>1.8</java.version>
+        <jjwt.version>0.10.6</jjwt.version>
     </properties>
+
     <dependencies>
+        <!--    代码生成模块    -->
         <dependency>
             <groupId>com.yqm</groupId>
-            <artifactId>yqm-shop-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>yqm-shop-generator</artifactId>
+            <version>3.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.yqm</groupId>
+                    <artifactId>yqm-shop-common</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.yqm</groupId>
-            <artifactId>yqm-shop-logging</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <artifactId>yqm-shop-shop</artifactId>
+            <version>3.2</version>
         </dependency>
         <dependency>
-            <groupId>com.yqm</groupId>
-            <artifactId>yqm-shop-logging</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.yqm</groupId>
-            <artifactId>yqm-shop-security</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
+
+        <!--jwt-->
         <dependency>
-            <groupId>com.qiniu</groupId>
-            <artifactId>qiniu-java-sdk</artifactId>
-            <version>[7.2.0, 7.2.99]</version>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>io.jsonwebtoken</groupId>-->
+        <!--            <artifactId>jjwt-api</artifactId>-->
+        <!--            <version>${jjwt.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.jsonwebtoken</groupId>-->
+        <!--            <artifactId>jjwt-impl</artifactId>-->
+        <!--            <version>${jjwt.version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.jsonwebtoken</groupId>-->
+        <!--            <artifactId>jjwt-jackson</artifactId>-->
+        <!--            <version>${jjwt.version}</version>-->
+        <!--        </dependency>-->
+
+        <!-- quartz -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
+        <!--weixinpay-->
+        <dependency>
+            <groupId>com.yqm</groupId>
+            <artifactId>yqm-shop-weixin</artifactId>
+            <version>3.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
         </dependency>
     </dependencies>
 
@@ -49,14 +98,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
             <!-- 跳过单元测试 -->
             <plugin>
@@ -68,5 +109,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
