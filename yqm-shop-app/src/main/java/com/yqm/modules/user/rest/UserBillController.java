@@ -11,7 +11,7 @@ package com.yqm.modules.user.rest;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.interceptor.AuthCheck;
@@ -121,11 +121,11 @@ public class UserBillController {
         YqmUser yqmUser = LocalUser.getUser();
         String siteUrl = systemConfigService.getData(SystemConfigConstants.SITE_URL);
         if(StrUtil.isEmpty(siteUrl)){
-            throw new yqm-shopException("未配置h5地址!");
+            throw new YqmShopException("未配置h5地址!");
         }
         String apiUrl = systemConfigService.getData(SystemConfigConstants.API_URL);
         if(StrUtil.isEmpty(apiUrl)){
-            throw new yqm-shopException("未配置api地址!");
+            throw new YqmShopException("未配置api地址!");
         }
 
         String spreadUrl = creatShareProductService.getSpreadUrl(from,yqmUser,siteUrl,apiUrl,path);

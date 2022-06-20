@@ -74,7 +74,7 @@ public class PermissionInterceptor extends HandlerInterceptorAdapter {
         String uName = map.get("uName").asString();
 
         //检测用户是否被踢出
-        if (redisUtils.get(ShopConstants.yqm-shop_APP_LOGIN_USER + uName + ":" + token) == null) {
+        if (redisUtils.get(ShopConstants.YQM_SHOP_APP_LOGIN_USER + uName + ":" + token) == null) {
             throw new UnAuthenticatedException(ApiCode.UNAUTHORIZED);
         }
         boolean valid = this.hasPermission(authCheck.get(), map);

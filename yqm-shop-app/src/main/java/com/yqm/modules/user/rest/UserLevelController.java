@@ -12,7 +12,7 @@ package com.yqm.modules.user.rest;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.interceptor.AuthCheck;
 import com.yqm.modules.user.service.YqmSystemUserLevelService;
@@ -64,7 +64,7 @@ public class UserLevelController {
     @ApiOperation(value = "获取等级任务",notes = "获取等级任务")
     public ApiResult<Object> getTask(@PathVariable String id){
         if(StrUtil.isBlank(id) || !NumberUtil.isNumber(id)){
-            throw new yqm-shopException("参数非法");
+            throw new YqmShopException("参数非法");
         }
         Long uid = LocalUser.getUser().getUid();
         return ApiResult.ok(systemUserTaskService.getTaskList(Integer.valueOf(id),uid));
@@ -82,7 +82,7 @@ public class UserLevelController {
         if(res){
             return ApiResult.ok("升级成功!");
         }else{
-            throw new yqm-shopException("还不符合升级条件哦!");
+            throw new YqmShopException("还不符合升级条件哦!");
         }
 
     }

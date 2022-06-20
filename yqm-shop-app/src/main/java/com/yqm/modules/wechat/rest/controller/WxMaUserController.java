@@ -12,7 +12,7 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.constant.ShopConstants;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.bean.LocalUser;
@@ -82,19 +82,19 @@ public class WxMaUserController {
     public ApiResult<Map<String,Object>> phone(@Validated @RequestBody WxPhoneParam param) {
         YqmUser user = LocalUser.getUser();
         if(StrUtil.isNotBlank(user.getPhone())){
-            throw new yqm-shopException("您的账号已经绑定过手机号码");
+            throw new YqmShopException("您的账号已经绑定过手机号码");
         }
 
         //读取redis配置
         String appId = redisUtils.getY(ShopKeyUtils.getWxAppAppId());
         String secret = redisUtils.getY(ShopKeyUtils.getWxAppSecret());
         if (StrUtil.isBlank(appId) || StrUtil.isBlank(secret)) {
-            throw new yqm-shopException("请先配置小程序");
+            throw new YqmShopException("请先配置小程序");
         }
         WxMaService wxMaService = WxMaConfiguration.getWxMaService();
         String phone = "";
         try {
-            String sessionKey = RedisUtil.get(ShopConstants.yqm-shop_MINI_SESSION_KET+ user.getUid()).toString();
+            String sessionKey = RedisUtil.get(ShopConstants.YQM_SHOP_MINI_SESSION_KET+ user.getUid()).toString();
             WxMaPhoneNumberInfo phoneNoInfo = wxMaService.getUserService()
                     .getPhoneNoInfo(sessionKey, param.getEncryptedData(), param.getIv());
             phone = phoneNoInfo.getPhoneNumber();
@@ -102,7 +102,7 @@ public class WxMaUserController {
             userService.updateById(user);
         } catch (Exception e) {
             e.printStackTrace();
-            throw new yqm-shopException("绑定失败");
+            throw new YqmShopException("绑定失败");
         }
         Map<String,Object> map = new LinkedHashMap<>();
         map.put("phone",phone);

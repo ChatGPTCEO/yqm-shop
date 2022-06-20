@@ -37,7 +37,7 @@ public class ForbidSubmitAspect {
     public Object around(ProceedingJoinPoint pjp, ForbidSubmit forbidSubmit) throws Throwable {
 
         //用于拦截演示环境一些禁止操作
-        //throw new yqm-shopException("演示环境禁止操作");
+        //throw new YqmShopException("演示环境禁止操作");
         return pjp.proceed();
 
 

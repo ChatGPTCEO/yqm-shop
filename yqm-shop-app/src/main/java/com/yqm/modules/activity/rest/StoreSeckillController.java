@@ -12,7 +12,7 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.interceptor.AuthCheck;
@@ -78,7 +78,7 @@ public class StoreSeckillController {
                                                        @RequestParam(value = "page",defaultValue = "1") int page,
                                                        @RequestParam(value = "limit",defaultValue = "10") int limit){
         if (StrUtil.isBlank(time) || !NumberUtil.isNumber(time)){
-            throw new yqm-shopException("参数错误");
+            throw new YqmShopException("参数错误");
         }
         return ApiResult.resultPage(yqmStoreSeckillService.getList(page, limit, Integer.valueOf(time)),limit);
 
@@ -112,7 +112,7 @@ public class StoreSeckillController {
         SeckillConfigVo seckillConfigVo = new SeckillConfigVo();
 
         YqmSystemGroupDataQueryCriteria queryCriteria = new YqmSystemGroupDataQueryCriteria();
-        queryCriteria.setGroupName(ShopConstants.yqm-shop_SECKILL_TIME);
+        queryCriteria.setGroupName(ShopConstants.YQM_SHOP_SECKILL_TIME);
         queryCriteria.setStatus(1);
         List<YqmSystemGroupData> yqmSystemGroupDataList = yqmSystemGroupDataService.queryAll(queryCriteria);
 

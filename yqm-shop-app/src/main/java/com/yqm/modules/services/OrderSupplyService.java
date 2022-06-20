@@ -11,7 +11,7 @@ package com.yqm.modules.services;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.enums.AppFromEnum;
 import com.yqm.enums.BillDetailEnum;
 import com.yqm.enums.OrderInfoEnum;
@@ -107,7 +107,7 @@ public class OrderSupplyService {
     public Map<String,Object> check(Long uid,String key, ComputeOrderParam param){
         Map<String,Object> map = Maps.newHashMap();
         if(StrUtil.isBlank(key)) {
-            throw new yqm-shopException("参数错误");
+            throw new YqmShopException("参数错误");
         }
         YqmStoreOrderQueryVo storeOrder = storeOrderService.getOrderInfo(key,uid);
         if(ObjectUtil.isNotNull(storeOrder)){
@@ -128,10 +128,10 @@ public class OrderSupplyService {
                 YqmStoreBargainUser storeBargainUser = storeBargainUserService
                         .getBargainUserInfo(bargainId,uid);
                 if(storeBargainUser == null) {
-                    throw new yqm-shopException("砍价失败");
+                    throw new YqmShopException("砍价失败");
                 }
                 if(OrderInfoEnum.BARGAIN_STATUS_3.getValue().equals(storeBargainUser.getStatus())) {
-                    throw new yqm-shopException("砍价已支付");
+                    throw new YqmShopException("砍价已支付");
                 }
             }
 

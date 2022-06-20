@@ -14,7 +14,7 @@ import com.yqm.api.ApiResult;
 import com.yqm.api.BusinessException;
 import com.yqm.api.DaoException;
 import com.yqm.api.UnAuthenticatedException;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.common.bean.RequestDetail;
 import com.yqm.common.util.RequestDetailThreadLocal;
 import com.yqm.exception.BadLimitRequestException;
@@ -91,11 +91,11 @@ public class GlobalExceptionHandler {
      * @param exception
      * @return
      */
-    @ExceptionHandler(value = {yqm-shopException.class})
+    @ExceptionHandler(value = {YqmShopException.class})
     @ResponseStatus(HttpStatus.OK)
-    public ApiResult<Boolean> yqm-shopException(yqm-shopException exception) {
+    public ApiResult<Boolean> YqmShopException(YqmShopException exception) {
         printRequestDetail();
-        log.error("yqm-shopException:", exception);
+        log.error("YqmShopException:", exception);
         int errorCode;
         if (exception instanceof BusinessException) {
             errorCode = ApiCode.BUSINESS_EXCEPTION.getCode();

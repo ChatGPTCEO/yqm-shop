@@ -17,7 +17,7 @@
 // * @author weiximei
 // * @date 2020-04-30
 // */
-//public class BusinessException extends yqm-shopException {
+//public class BusinessException extends YqmShopException {
 //	private static final long serialVersionUID = -2303357122330162359L;
 //
 //	public BusinessException(String message) {

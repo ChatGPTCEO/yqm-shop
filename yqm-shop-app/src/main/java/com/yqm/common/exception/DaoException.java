@@ -17,7 +17,7 @@
 // * @author weiximei
 // * @date 2020-04-30
 // */
-//public class DaoException extends yqm-shopException {
+//public class DaoException extends YqmShopException {
 //	private static final long serialVersionUID = -6912618737345878854L;
 //
 //	public DaoException(String message) {

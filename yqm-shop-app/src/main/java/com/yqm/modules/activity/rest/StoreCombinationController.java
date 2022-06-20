@@ -11,7 +11,7 @@ package com.yqm.modules.activity.rest;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.interceptor.AuthCheck;
@@ -93,7 +93,7 @@ public class StoreCombinationController {
     @ApiOperation(value = "拼团产品详情",notes = "拼团产品详情")
     public ApiResult<StoreCombinationVo> detail(@PathVariable Long id){
         if(ObjectUtil.isNull(id)) {
-            throw new yqm-shopException("参数错误");
+            throw new YqmShopException("参数错误");
         }
         Long uid = LocalUser.getUser().getUid();
         StoreCombinationVo storeCombinationVo = storeCombinationService.getDetail(id,uid);
@@ -111,7 +111,7 @@ public class StoreCombinationController {
     @ApiOperation(value = "拼团明细",notes = "拼团明细")
     public ApiResult<PinkInfoVo> pink(@PathVariable Long id){
         if(ObjectUtil.isNull(id)) {
-            throw new yqm-shopException("参数错误");
+            throw new YqmShopException("参数错误");
         }
         Long uid = LocalUser.getUser().getUid();
         return ApiResult.ok(storePinkService.pinkInfo(id,uid));
@@ -127,11 +127,11 @@ public class StoreCombinationController {
     public ApiResult<Object> poster(@Validated @RequestBody PinkShareParam param){
         String siteUrl = systemConfigService.getData(SystemConfigConstants.SITE_URL);
         if(StrUtil.isEmpty(siteUrl)){
-            throw new yqm-shopException("未配置h5地址");
+            throw new YqmShopException("未配置h5地址");
         }
         String apiUrl = systemConfigService.getData(SystemConfigConstants.API_URL);
         if(StrUtil.isEmpty(apiUrl)){
-            throw new yqm-shopException("未配置api地址");
+            throw new YqmShopException("未配置api地址");
         }
         YqmUser userInfo = LocalUser.getUser();
         Map<String,Object> map = Maps.newHashMap();

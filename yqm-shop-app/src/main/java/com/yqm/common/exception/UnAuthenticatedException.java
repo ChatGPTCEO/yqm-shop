@@ -15,7 +15,7 @@
 // * @author weiximei
 // * @date 2020-04-30
 // */
-//public class UnAuthenticatedException extends yqm-shopException {
+//public class UnAuthenticatedException extends YqmShopException {
 //    public UnAuthenticatedException(String message) {
 //        super(message);
 //    }

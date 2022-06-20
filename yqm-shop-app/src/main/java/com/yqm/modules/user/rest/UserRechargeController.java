@@ -10,7 +10,7 @@ package com.yqm.modules.user.rest;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.enums.ShopCommonEnum;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.bean.LocalUser;
@@ -73,7 +73,7 @@ public class UserRechargeController {
     @ApiOperation(value = "充值方案",notes = "充值方案",response = ApiResult.class)
     public ApiResult<Object> getWays(){
         YqmSystemGroupDataQueryCriteria queryCriteria = new YqmSystemGroupDataQueryCriteria();
-        queryCriteria.setGroupName(ShopConstants.yqm-shop_RECHARGE_PRICE_WAYS);
+        queryCriteria.setGroupName(ShopConstants.YQM_SHOP_RECHARGE_PRICE_WAYS);
         queryCriteria.setStatus(ShopCommonEnum.IS_STATUS_1.getValue());
         List<YqmSystemGroupData> yqmSystemGroupDataList = systemGroupDataService.queryAll(queryCriteria);
 
@@ -103,7 +103,7 @@ public class UserRechargeController {
         map.put("type",param.getFrom());
         YqmSystemGroupData systemGroupData = systemGroupDataService.getById(param.getRecharId());
         if(systemGroupData == null) {
-            throw new yqm-shopException("充值方案不存在");
+            throw new YqmShopException("充值方案不存在");
         }
 
         JSONObject jsonObject = JSON.parseObject(systemGroupData.getValue());

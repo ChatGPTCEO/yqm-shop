@@ -15,7 +15,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.qrcode.QrCodeUtil;
 import cn.hutool.http.HttpUtil;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.constant.ShopConstants;
 import com.yqm.constant.SystemConfigConstants;
 import com.yqm.enums.AppFromEnum;
@@ -86,11 +86,11 @@ public class CreatShareProductService {
         if(OrderInfoEnum.SHIPPIING_TYPE_2.getValue().equals(storeOrder.getShippingType())){
             String mapKey = RedisUtil.get(SystemConfigConstants.TENGXUN_MAP_KEY);
             if(StrUtil.isBlank(mapKey)) {
-                throw new yqm-shopException("请配置腾讯地图key");
+                throw new YqmShopException("请配置腾讯地图key");
             }
             String apiUrl = systemConfigService.getData(SystemConfigConstants.API_URL);
             if(StrUtil.isEmpty(apiUrl)){
-                throw new yqm-shopException("未配置api地址");
+                throw new YqmShopException("未配置api地址");
             }
             //生成二维码
             String name = storeOrder.getVerifyCode()+"_yqm-shop.jpg";
@@ -144,7 +144,7 @@ public class CreatShareProductService {
             }
         } catch (IOException e) {
             log.error(e.getMessage());
-            throw new yqm-shopException(e.getMessage());
+            throw new YqmShopException(e.getMessage());
         }
 
         if(StrUtil.isNotBlank(from) && AppFromEnum.APP.getValue().equals(from)){
@@ -291,7 +291,7 @@ public class CreatShareProductService {
                 .getBargainUserInfo(bargainId,uid);
 
         if(ObjectUtil.isNull(storeBargainQueryVo) || ObjectUtil.isNull(storeBargainUser)) {
-            throw new yqm-shopException("数据不存在");
+            throw new YqmShopException("数据不存在");
         }
         //用户可以砍掉的金额 好友砍价之前获取可以砍价金额
         double coverPrice = NumberUtil.sub(storeBargainUser.getBargainPrice()
@@ -361,7 +361,7 @@ public class CreatShareProductService {
             }
         } catch (IOException e) {
             log.error(e.getMessage());
-            throw new yqm-shopException(e.getMessage());
+            throw new YqmShopException(e.getMessage());
         }
         if(ObjectUtil.isNull(attachmentT)){
             try {
@@ -462,7 +462,7 @@ public class CreatShareProductService {
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error(e.getMessage());
-                throw new yqm-shopException("生成失败");
+                throw new YqmShopException("生成失败");
             }
         }else{
             spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();
@@ -486,11 +486,11 @@ public class CreatShareProductService {
         Long uid = userInfo.getUid();
         YqmStorePink storePink = storePinkService.getById(pinkId);
         if(ObjectUtil.isNull(storePink)) {
-            throw new yqm-shopException("拼团不存在");
+            throw new YqmShopException("拼团不存在");
         }
         YqmStoreCombination storeCombination = storeCombinationService.getById(storePink.getCid());
         if(ObjectUtil.isNull(storeCombination)) {
-            throw new yqm-shopException("拼团产品不存在");
+            throw new YqmShopException("拼团产品不存在");
         }
 
 
@@ -553,7 +553,7 @@ public class CreatShareProductService {
 
         } catch (IOException e) {
             log.error(e.getMessage());
-            throw new yqm-shopException(e.getMessage());
+            throw new YqmShopException(e.getMessage());
         }
         if(ObjectUtil.isNull(attachmentT)){
             try {
@@ -660,7 +660,7 @@ public class CreatShareProductService {
 
             } catch (Exception e) {
                 log.error(e.getMessage());
-                throw new yqm-shopException(e.getMessage());
+                throw new YqmShopException(e.getMessage());
             }
         }else{
             spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();

@@ -15,7 +15,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.common.util.IpUtil;
 import com.yqm.constant.ShopConstants;
 import com.yqm.enums.AppFromEnum;
@@ -87,7 +87,7 @@ public class AuthService {
         String appId = redisUtils.getY(ShopKeyUtils.getWxAppAppId());
         String secret = redisUtils.getY(ShopKeyUtils.getWxAppSecret());
         if (StrUtil.isBlank(appId) || StrUtil.isBlank(secret)) {
-            throw new yqm-shopException("请先配置小程序");
+            throw new YqmShopException("请先配置小程序");
         }
         WxMaService wxMaService = WxMaConfiguration.getWxMaService();
         //WxMaJscode2SessionResult session = wxMaService.getUserService().getSessionInfo(code);
@@ -137,7 +137,7 @@ public class AuthService {
             String appId = redisUtils.getY(ShopKeyUtils.getWxAppAppId());
             String secret = redisUtils.getY(ShopKeyUtils.getWxAppSecret());
             if (StrUtil.isBlank(appId) || StrUtil.isBlank(secret)) {
-                throw new yqm-shopException("请先配置小程序");
+                throw new YqmShopException("请先配置小程序");
             }
             WxMaService wxMaService = WxMaConfiguration.getWxMaService();
             WxMaJscode2SessionResult session = wxMaService.getUserService().getSessionInfo(code);
@@ -190,12 +190,12 @@ public class AuthService {
                 this.userService.updateById(yqmUser);
             }
             this.userService.setSpread(spread, yqmUser.getUid());
-            redisUtils.set(ShopConstants.yqm-shop_MINI_SESSION_KET + yqmUser.getUid(), session.getSessionKey());
+            redisUtils.set(ShopConstants.YQM_SHOP_MINI_SESSION_KET + yqmUser.getUid(), session.getSessionKey());
             return yqmUser;
         } catch (WxErrorException e) {
             e.printStackTrace();
             log.error(e.getMessage());
-            throw new yqm-shopException(e.toString());
+            throw new YqmShopException(e.toString());
         }
     }
 
@@ -279,7 +279,7 @@ public class AuthService {
         } catch (WxErrorException e) {
             e.printStackTrace();
             log.error(e.getMessage());
-            throw new yqm-shopException(e.toString());
+            throw new YqmShopException(e.toString());
         }
     }
 
@@ -299,7 +299,7 @@ public class AuthService {
                 .nickname(account)
                 .password(SecureUtil.md5(param.getPassword()))
                 .phone(account)
-                .avatar(ShopConstants.yqm-shop_DEFAULT_AVATAR)
+                .avatar(ShopConstants.YQM_SHOP_DEFAULT_AVATAR)
                 .addIp(ip)
                 .lastIp(ip)
                 .userType(AppFromEnum.H5.getValue())
@@ -327,7 +327,7 @@ public class AuthService {
      * @param request /
      */
     public void save(YqmUser yqmUser, String token, HttpServletRequest request) {
-        String job = "yqm-shop开发工程师";
+        String job = "yqm_shop开发工程师";
         String ip = StringUtils.getIp(request);
         String browser = StringUtils.getBrowser(request);
         String address = StringUtils.getCityInfo(ip);
@@ -338,7 +338,7 @@ public class AuthService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        redisUtils.set(ShopConstants.yqm-shop_APP_LOGIN_USER +onlineUser.getUserName() + ":" + token, onlineUser, AuthService.expiredTimeIn);
+        redisUtils.set(ShopConstants.YQM_SHOP_APP_LOGIN_USER +onlineUser.getUserName() + ":" + token, onlineUser, AuthService.expiredTimeIn);
     }
 
     /**
@@ -371,7 +371,7 @@ public class AuthService {
      * @param key /
      */
     public void kickOut(String userName, String key) throws Exception {
-        key = ShopConstants.yqm-shop_APP_LOGIN_USER + userName + ":" + EncryptUtils.desDecrypt(key);
+        key = ShopConstants.YQM_SHOP_APP_LOGIN_USER + userName + ":" + EncryptUtils.desDecrypt(key);
         redisUtils.del(key);
     }
 
@@ -381,7 +381,7 @@ public class AuthService {
      * @param token /
      */
     public void logout(String userName, String token) {
-        String key = ShopConstants.yqm-shop_APP_LOGIN_USER + userName + ":" + token;
+        String key = ShopConstants.YQM_SHOP_APP_LOGIN_USER + userName + ":" + token;
         redisUtils.del(key);
     }
 
@@ -393,7 +393,7 @@ public class AuthService {
      */
     private List<OnlineUser> getAll(String uName) {
         List<String> keys = null;
-        keys = redisUtils.scan(ShopConstants.yqm-shop_APP_LOGIN_USER + uName + ":" + "*");
+        keys = redisUtils.scan(ShopConstants.YQM_SHOP_APP_LOGIN_USER + uName + ":" + "*");
 
         Collections.reverse(keys);
         List<OnlineUser> onlineUsers = new ArrayList<>();

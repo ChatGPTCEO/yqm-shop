@@ -10,7 +10,7 @@ package com.yqm.modules.coupon.rest;
 
 import cn.hutool.core.util.NumberUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.aop.NoRepeatSubmit;
 import com.yqm.common.bean.LocalUser;
@@ -87,7 +87,7 @@ public class CouponController {
     public ApiResult<Boolean> receive(@Validated @RequestBody YqmStoreCouponQueryParam param){
         Long uid = LocalUser.getUser().getUid();
         if(!NumberUtil.isNumber(param.getCouponId())){
-           throw new yqm-shopException("参数非法");
+           throw new YqmShopException("参数非法");
         }
         Integer couponId = Integer.valueOf(param.getCouponId());
         couponIssueService.issueUserCoupon(couponId,uid);
