@@ -4,7 +4,7 @@
   "avatar": "",
   "version": "4.0.0",
   "createdTime": "2022-6-17 20:41:19",
-  "updatedTime": "2022-6-20 22:33:23",
+  "updatedTime": "2022-6-17 21:01:15",
   "dbConns": [],
   "profile": {
     "default": {
@@ -384,8 +384,7 @@
         "defName": "富文本输入",
         "id": "C134EB1F-4CFF-49E0-882F-2C6FB275CB20"
       }
-    ],
-    "menuWidth": "539px"
+    ]
   },
   "entities": [
     {
