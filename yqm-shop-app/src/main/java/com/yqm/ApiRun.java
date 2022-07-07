@@ -35,7 +35,7 @@ public class ApiRun {
                            "  __/ |   | |                           | |\n" +
                            " |___/    |_|                           |_|\n" +
 
-                    "\n亦秋yqm-shop电商系统移动端API启动成功 \n官网：https://www.yqmshop.com 提供技术支持ﾞ  \n");
+                    "\n亦秋yqm-shop电商系统移动端API启动成功 \n官网：https://www.yqmshop.cn 提供技术支持ﾞ  \n");
     }
 
     @Bean

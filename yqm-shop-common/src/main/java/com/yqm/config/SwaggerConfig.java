@@ -103,7 +103,7 @@ public class SwaggerConfig {
                 .termsOfServiceUrl(serverUrl)
                 .description(title)
                 .version(version)
-                .contact(new Contact("weiximei","https://www.yqmshop.com","guchengwuyue@163.com"))
+                .contact(new Contact("weiximei","https://www.yqmshop.cn","907147608@qq.com"))
                 .build();
     }
 
