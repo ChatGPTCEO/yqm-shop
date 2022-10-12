@@ -11,6 +11,9 @@ import lombok.Data;
 @Data
 public class AttrValueDto {
 
+    @ApiModelProperty(value = "编号")
+    private Long id;
+
     @ApiModelProperty(value = "属性")
     private String attr;
 
