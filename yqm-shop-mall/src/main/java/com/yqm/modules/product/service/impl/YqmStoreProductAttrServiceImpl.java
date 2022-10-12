@@ -243,7 +243,6 @@ public class YqmStoreProductAttrServiceImpl extends BaseServiceImpl<StoreProduct
             for (String str : stringList) {
                 AttrValueDto attrValueDTO = new AttrValueDto();
                 attrValueDTO.setAttr(str);
-                attrValueDTO.setId(attr.getId());
                 attrValueDTOS.add(attrValueDTO);
             }
             YqmStoreProductAttrQueryVo attrQueryVo = generator.convert(attr,YqmStoreProductAttrQueryVo.class);
