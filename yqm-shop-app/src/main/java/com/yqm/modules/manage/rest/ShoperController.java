@@ -1,8 +1,8 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
  * 注意：
- * 本软件为www.yqmshop.com开发研制，未经购买不得使用
+ * 本软件为www.yqmshop.cn开发研制，未经购买不得使用
  * 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
@@ -11,7 +11,7 @@ package com.yqm.modules.manage.rest;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.interceptor.AuthCheck;
 import com.yqm.modules.manage.param.OrderPriceParam;
@@ -112,11 +112,11 @@ public class ShoperController {
     @ApiOperation(value = "订单详情",notes = "订单详情")
     public ApiResult<YqmStoreOrderQueryVo> orderDetail(@PathVariable String key){
         if(StrUtil.isEmpty(key)) {
-            throw new yqm-shopException("参数错误");
+            throw new YqmShopException("参数错误");
         }
         YqmStoreOrderQueryVo storeOrder = storeOrderService.getOrderInfo(key,null);
         if(ObjectUtil.isNull(storeOrder)){
-            throw new yqm-shopException("订单不存在");
+            throw new YqmShopException("订单不存在");
         }
         return ApiResult.ok(storeOrderService.handleOrder(storeOrder));
     }

@@ -1,8 +1,8 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
  * 注意：
- * 本软件为www.yqmshop.com开发研制，未经购买不得使用
+ * 本软件为www.yqmshop.cn开发研制，未经购买不得使用
  * 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
@@ -48,7 +48,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.yqm.constant.SystemConfigConstants.yqm-shop_SHOW_RECHARGE;
+import static com.yqm.constant.SystemConfigConstants.YQM_SHOP_SHOW_RECHARGE;
 
 /**
  * <p>
@@ -91,7 +91,7 @@ public class UserController {
     @ApiOperation(value = "获取个人中心菜单",notes = "获取个人中心菜单")
     public ApiResult<Map<String,Object>> userMenu(){
         Map<String,Object> map = new LinkedHashMap<>();
-        map.put("routine_my_menus",systemGroupDataService.getDatas(ShopConstants.yqm-shop_MY_MENUES));
+        map.put("routine_my_menus",systemGroupDataService.getDatas(ShopConstants.YQM_SHOP_MY_MENUES));
         return ApiResult.ok(map);
     }
 
@@ -141,7 +141,7 @@ public class UserController {
         map.put("now_money",yqmUser.getNowMoney());
         map.put("orderStatusSum",userMoneys[0]);
         map.put("recharge",userMoneys[1]);
-        map.put("is_hide",systemConfigService.getData(yqm-shop_SHOW_RECHARGE));
+        map.put("is_hide",systemConfigService.getData(YQM_SHOP_SHOW_RECHARGE));
         return ApiResult.ok(map);
     }
 
@@ -164,7 +164,7 @@ public class UserController {
     @GetMapping("/sign/config")
     @ApiOperation(value = "签到配置",notes = "签到配置")
     public ApiResult<Object> signConfig(){
-        return ApiResult.ok(systemGroupDataService.getDatas(ShopConstants.yqm-shop_SIGN_DAY_NUM));
+        return ApiResult.ok(systemGroupDataService.getDatas(ShopConstants.YQM_SHOP_SIGN_DAY_NUM));
     }
 
     /**

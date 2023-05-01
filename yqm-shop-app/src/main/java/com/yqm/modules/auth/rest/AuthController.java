@@ -1,8 +1,8 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
  * 注意：
- * 本软件为www.yqmshop.com开发研制，未经购买不得使用
+ * 本软件为www.yqmshop.cn开发研制，未经购买不得使用
  * 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
@@ -13,7 +13,7 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.enums.SmsTypeEnum;
 import com.yqm.common.interceptor.AuthCheck;
@@ -109,7 +109,7 @@ public class AuthController {
     @ApiOperation(value = "小程序获取用户信息", notes = "小程序获取用户信息")
     public ApiResult<YqmUser> loginAuth(@Validated @RequestBody LoginParam loginParam) {
         Long uid = LocalUser.getUidByToken();
-        String sessionKey = RedisUtil.get(ShopConstants.yqm-shop_MINI_SESSION_KET+ uid).toString();
+        String sessionKey = RedisUtil.get(ShopConstants.YQM_SHOP_MINI_SESSION_KET+ uid).toString();
         YqmUser yqmUser = authService.loginAuth(loginParam, uid, sessionKey);
         return ApiResult.ok(yqmUser).setMsg("获取成功");
 
@@ -157,7 +157,7 @@ public class AuthController {
                 .eq(YqmUser::getPassword,SecureUtil.md5(loginDTO.getPassword())),false);
 
         if(yqmUser == null) {
-            throw new yqm-shopException("账号或者密码不正确");
+            throw new YqmShopException("账号或者密码不正确");
         }
 
         String token =  JwtToken.makeToken(yqmUser.getUid(),yqmUser.getUsername());
@@ -186,17 +186,17 @@ public class AuthController {
     public ApiResult<Map<String, Object>> loginVerify(@Validated @RequestBody LoginVerifyParam loginVerifyParam,HttpServletRequest request) {
         Object codeObj = redisUtil.get("code_" + loginVerifyParam.getAccount());
         if(codeObj == null){
-            throw new yqm-shopException("请先获取验证码");
+            throw new YqmShopException("请先获取验证码");
         }
         String code = codeObj.toString();
         if (!StrUtil.equals(code, loginVerifyParam.getCaptcha())) {
-            throw new yqm-shopException("验证码错误");
+            throw new YqmShopException("验证码错误");
         }
         YqmUser yqmUser = userService.getOne(Wrappers.<YqmUser>lambdaQuery()
                 .eq(YqmUser::getUsername,loginVerifyParam.getAccount()));
 
         if(yqmUser == null) {
-            throw new yqm-shopException("账号不存在");
+            throw new YqmShopException("账号不存在");
         }
 
         String token =  JwtToken.makeToken(yqmUser.getUid(),yqmUser.getUsername());
@@ -226,22 +226,22 @@ public class AuthController {
     public ApiResult<Boolean> updatePassword(@Validated @RequestBody UpdatePasswordParam updatePasswordParam,HttpServletRequest request) {
         Object codeObj = redisUtil.get("code_" + updatePasswordParam.getAccount());
         if(codeObj == null){
-            throw new yqm-shopException("请先获取验证码");
+            throw new YqmShopException("请先获取验证码");
         }
         String code = codeObj.toString();
         if (!StrUtil.equals(code, updatePasswordParam.getCaptcha())) {
-            throw new yqm-shopException("验证码错误");
+            throw new YqmShopException("验证码错误");
         }
         YqmUser yqmUser = userService.getOne(Wrappers.<YqmUser>lambdaQuery()
                 .eq(YqmUser::getUsername,updatePasswordParam.getAccount()));
 
         if(yqmUser == null) {
-            throw new yqm-shopException("账号不存在,数据错误");
+            throw new YqmShopException("账号不存在,数据错误");
         }
         yqmUser.setPassword(SecureUtil.md5(updatePasswordParam.getPassword()));
         boolean b = userService.updateById(yqmUser);
         if (!b) {
-            throw new yqm-shopException("修改失败");
+            throw new YqmShopException("修改失败");
         }
         String bearerToken = request.getHeader("Authorization");
         String[] tokens = bearerToken.split(" ");
@@ -289,10 +289,10 @@ public class AuthController {
         if (ObjectUtil.isNotNull(redisUtil.get(codeKey))) {
             return ApiResult.fail("10分钟内有效:" + redisUtil.get(codeKey).toString());
         }
-        String code = RandomUtil.randomNumbers(ShopConstants.yqm-shop_SMS_SIZE);
+        String code = RandomUtil.randomNumbers(ShopConstants.YQM_SHOP_SMS_SIZE);
 
         //redis存储
-        redisUtil.set(codeKey, code, ShopConstants.yqm-shop_SMS_REDIS_TIME);
+        redisUtil.set(codeKey, code, ShopConstants.YQM_SHOP_SMS_REDIS_TIME);
 
         String enable = redisUtil.getY("sms_enable");
         if (ShopCommonEnum.ENABLE_2.getValue().toString().equals(enable)) {

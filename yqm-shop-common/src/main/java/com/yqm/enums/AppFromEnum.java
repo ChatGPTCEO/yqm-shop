@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
 
  */
 package com.yqm.enums;
@@ -22,7 +22,9 @@ public enum AppFromEnum {
 	APP("app","APP"),
 	PC("pc","PC"),
 	ROUNTINE("routine","小程序"),
-	UNIAPPH5("uniappH5","uniappH5");
+	UNIAPPH5("uniappH5","uniappH5"),
+	TARO_H5("taroH5","taroH5"),
+	TARO_MINI("taroMINI","taro小程序");
 
 
 	private String value;

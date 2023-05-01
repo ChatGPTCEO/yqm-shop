@@ -60,7 +60,7 @@ public class YqmStoreCouponUserQueryVo implements Serializable {
     @ApiModelProperty(value = "是否有效")
     private Integer isFail;
 
-    @ApiModelProperty(value = "优惠券发放类型 0可用 1不可用")
+    @ApiModelProperty(value = "优惠券发放类型 0不可用 1可用")
     private Integer _type;
 
     @ApiModelProperty(value = "优惠券发放显示文字")

@@ -1,8 +1,8 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
  * 注意：
- * 本软件为www.yqmshop.com开发研制，未经购买不得使用
+ * 本软件为www.yqmshop.cn开发研制，未经购买不得使用
  * 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
@@ -12,7 +12,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.common.aop.NoRepeatSubmit;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.interceptor.AuthCheck;
@@ -155,7 +155,7 @@ public class StoreOrderController {
         YqmStoreOrder order = storeOrderService.createOrder(yqmUser, key, param);
 
         if (ObjectUtil.isNull(order)) {
-            throw new yqm-shopException("订单生成失败");
+            throw new YqmShopException("订单生成失败");
         }
 
         String orderId = order.getOrderId();
@@ -194,11 +194,11 @@ public class StoreOrderController {
         YqmStoreOrderQueryVo storeOrder = storeOrderService
                 .getOrderInfo(param.getUni(), uid);
         if (ObjectUtil.isNull(storeOrder)) {
-            throw new yqm-shopException("订单不存在");
+            throw new YqmShopException("订单不存在");
         }
 
         if (OrderInfoEnum.REFUND_STATUS_1.getValue().equals(storeOrder.getPaid())) {
-            throw new yqm-shopException("该订单已支付");
+            throw new YqmShopException("该订单已支付");
         }
 
         String orderId = storeOrder.getOrderId();
@@ -262,11 +262,11 @@ public class StoreOrderController {
     public ApiResult<YqmStoreOrderQueryVo> detail(@PathVariable String key) {
         Long uid = LocalUser.getUser().getUid();
         if (StrUtil.isEmpty(key)) {
-            throw new yqm-shopException("参数错误");
+            throw new YqmShopException("参数错误");
         }
         YqmStoreOrderQueryVo storeOrder = storeOrderService.getOrderInfo(key, uid);
         if (ObjectUtil.isNull(storeOrder)) {
-            throw new yqm-shopException("订单不存在");
+            throw new YqmShopException("订单不存在");
         }
         storeOrder = creatShareProductService.handleQrcode(storeOrder, path);
 
@@ -409,10 +409,10 @@ public class StoreOrderController {
         Long uid = LocalUser.getUser().getUid();
         YqmStoreOrderQueryVo orderInfo = storeOrderService.getOrderInfo(param.getId(), uid);
         if (ObjectUtil.isNull(orderInfo)) {
-            throw new yqm-shopException("订单不存在");
+            throw new YqmShopException("订单不存在");
         }
         if (orderInfo.getStatus() != 0) {
-            throw new yqm-shopException("订单不能取消");
+            throw new YqmShopException("订单不能取消");
         }
         if (orderInfo.getPaid() == 1) {
             BigDecimal bigDecimal = new BigDecimal("100");
@@ -447,7 +447,7 @@ public class StoreOrderController {
         ExpressInfo expressInfo = expressService.getExpressInfo(expressInfoDo.getOrderCode(),
                 expressInfoDo.getShipperCode(), expressInfoDo.getLogisticCode(), lastFourNumber);
         if (!expressInfo.isSuccess()) {
-            throw new yqm-shopException(expressInfo.getReason());
+            throw new YqmShopException(expressInfo.getReason());
         }
         return ApiResult.ok(expressInfo);
     }

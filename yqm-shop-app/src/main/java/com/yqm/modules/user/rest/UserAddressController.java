@@ -1,8 +1,8 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
  * 注意：
- * 本软件为www.yqmshop.com开发研制，未经购买不得使用
+ * 本软件为www.yqmshop.cn开发研制，未经购买不得使用
  * 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
@@ -11,7 +11,7 @@ package com.yqm.modules.user.rest;
 import cn.hutool.core.util.NumberUtil;
 import cn.hutool.core.util.StrUtil;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.logging.aop.log.AppLog;
 import com.yqm.common.bean.LocalUser;
 import com.yqm.common.interceptor.AuthCheck;
@@ -61,7 +61,7 @@ public class UserAddressController {
     private final YqmSystemCityService systemCityService;
 
 
-    @Cacheable(cacheNames = ShopConstants.yqm-shop_REDIS_CITY_KEY)
+    @Cacheable(cacheNames = ShopConstants.YQM_SHOP_REDIS_CITY_KEY)
     @GetMapping("/city_list")
     @ApiOperation(value = "城市列表",notes = "城市列表")
     public ApiResult<List<CityVo>> getTest() {
@@ -147,7 +147,7 @@ public class UserAddressController {
     @ApiOperation(value = "地址详情",notes = "地址详情")
     public ApiResult<YqmUserAddressQueryVo> addressDetail(@PathVariable String id){
         if(StrUtil.isBlank(id) || !NumberUtil.isNumber(id)){
-            throw new yqm-shopException("参数非法");
+            throw new YqmShopException("参数非法");
         }
         return ApiResult.ok(userAddressService.getDetail(Long.valueOf(id)));
     }

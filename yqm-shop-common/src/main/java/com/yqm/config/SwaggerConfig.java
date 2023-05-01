@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
 
  */
 package com.yqm.config;
@@ -103,7 +103,7 @@ public class SwaggerConfig {
                 .termsOfServiceUrl(serverUrl)
                 .description(title)
                 .version(version)
-                .contact(new Contact("weiximei","https://www.yqmshop.com","guchengwuyue@163.com"))
+                .contact(new Contact("weiximei","https://www.yqmshop.cn","907147608@qq.com"))
                 .build();
     }
 

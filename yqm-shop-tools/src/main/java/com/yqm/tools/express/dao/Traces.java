@@ -3,7 +3,7 @@
  */
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
 
  */
 package com.yqm.tools.express.dao;

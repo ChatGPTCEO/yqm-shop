@@ -1,8 +1,8 @@
 /**
  * Copyright (C) 2018-2022
- * All rights reserved, Designed By www.yqmshop.com
+ * All rights reserved, Designed By www.yqmshop.cn
  * 注意：
- * 本软件为www.yqmshop.com开发研制，未经购买不得使用
+ * 本软件为www.yqmshop.cn开发研制，未经购买不得使用
  * 购买后可获得全部源代码（禁止转卖、分享、上传到码云、github等开源平台）
  * 一经发现盗用、分享等行为，将追究法律责任，后果自负
  */
@@ -11,7 +11,7 @@ package com.yqm.modules.shop.rest;
 import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.io.resource.ClassPathResource;
 import com.yqm.api.ApiResult;
-import com.yqm.api.yqm-shopException;
+import com.yqm.api.YqmShopException;
 import com.yqm.constant.ShopConstants;
 import com.yqm.enums.ProductEnum;
 import com.yqm.modules.activity.service.YqmStoreCombinationService;
@@ -82,20 +82,20 @@ public class IndexController {
         return new ResponseEntity<>(canvas, HttpStatus.OK);
     }
 
-    @Cacheable(cacheNames = ShopConstants.yqm-shop_REDIS_INDEX_KEY)
+    @Cacheable(cacheNames = ShopConstants.YQM_SHOP_REDIS_INDEX_KEY)
     @GetMapping("/index")
     @ApiOperation(value = "首页数据",notes = "首页数据")
     public ApiResult<IndexVo> index(){
         IndexVo indexVo = IndexVo.builder()
-                .banner(systemGroupDataService.getDatas(ShopConstants.yqm-shop_HOME_BANNER))
+                .banner(systemGroupDataService.getDatas(ShopConstants.YQM_SHOP_HOME_BANNER))
                 .bastList(storeProductService.getList(1,6, ProductEnum.TYPE_1.getValue()))
                 .benefit(storeProductService.getList(1,10,ProductEnum.TYPE_4.getValue()))
                 .combinationList(storeCombinationService.getList(1,8).getStoreCombinationQueryVos())
                 .firstList(storeProductService.getList(1,6,ProductEnum.TYPE_3.getValue()))
                 .likeInfo(storeProductService.getList(1,8,ProductEnum.TYPE_2.getValue()))
                 .mapKey(RedisUtil.get(ShopKeyUtils.getTengXunMapKey()))
-                .menus(systemGroupDataService.getDatas(ShopConstants.yqm-shop_HOME_MENUS))
-                .roll(systemGroupDataService.getDatas(ShopConstants.yqm-shop_HOME_ROLL_NEWS))
+                .menus(systemGroupDataService.getDatas(ShopConstants.YQM_SHOP_HOME_MENUS))
+                .roll(systemGroupDataService.getDatas(ShopConstants.YQM_SHOP_HOME_ROLL_NEWS))
                 .seckillList(storeSeckillService.getList(1, 4))
                 .liveList(wechatLiveService.getList(1,4,0))
                 .build();
@@ -105,7 +105,7 @@ public class IndexController {
     @GetMapping("/search/keyword")
     @ApiOperation(value = "热门搜索关键字获取",notes = "热门搜索关键字获取")
     public ApiResult<List<String>> search(){
-        List<JSONObject> list = systemGroupDataService.getDatas(ShopConstants.yqm-shop_HOT_SEARCH);
+        List<JSONObject> list = systemGroupDataService.getDatas(ShopConstants.YQM_SHOP_HOT_SEARCH);
         List<String>  stringList = new ArrayList<>();
         for (JSONObject object : list) {
             stringList.add(object.getString("title"));
@@ -135,7 +135,7 @@ public class IndexController {
             return ApiResult.ok(jsonObject);
         } catch (Exception e) {
             log.error(e.getMessage());
-            throw new yqm-shopException("无数据");
+            throw new YqmShopException("无数据");
         }
 
     }
