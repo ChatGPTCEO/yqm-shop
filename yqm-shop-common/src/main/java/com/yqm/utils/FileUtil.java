@@ -167,6 +167,7 @@ public class FileUtil extends cn.hutool.core.io.FileUtil {
             }
             // 文件写入
             file.transferTo(dest);
+            //file.transferTo(dest.getAbsoluteFile());
             return dest;
         } catch (Exception e) {
             e.printStackTrace();

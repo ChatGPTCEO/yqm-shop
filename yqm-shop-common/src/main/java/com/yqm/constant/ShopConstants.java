@@ -179,4 +179,9 @@ public interface ShopConstants {
 	String WECHAT_FOLLOW_IMG="wechat_follow_img";
 	/**后台api地址*/
 	String ADMIN_API_URL="admin_api_url";
+
+	/**
+	 * 图片访问地址
+	 */
+	String IMG_URL="img_url";
 }

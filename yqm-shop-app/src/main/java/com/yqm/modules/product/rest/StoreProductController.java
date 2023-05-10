@@ -42,12 +42,14 @@ import com.yqm.modules.shop.domain.YqmSystemAttachment;
 import com.yqm.modules.shop.service.YqmSystemAttachmentService;
 import com.yqm.modules.shop.service.YqmSystemConfigService;
 import com.yqm.modules.user.domain.YqmUser;
+import com.yqm.utils.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
@@ -82,6 +84,7 @@ public class StoreProductController {
     private final CreatShareProductService creatShareProductService;
     @Value("${file.path}")
     private String path;
+    private RedisUtils redisUtils;
 
 
     /**
@@ -151,6 +154,10 @@ public class StoreProductController {
         if(StrUtil.isEmpty(siteUrl)){
             return ApiResult.fail("未配置h5地址");
         }
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
         String apiUrl = systemConfigService.getData(SystemConfigConstants.API_URL);
         if(StrUtil.isEmpty(apiUrl)){
             return ApiResult.fail("未配置api地址");
@@ -189,9 +196,9 @@ public class StoreProductController {
             systemAttachmentService.attachmentAdd(name,String.valueOf(FileUtil.size(file)),
                     fileDir+name,"qrcode/"+name);
 
-            qrcodeUrl = apiUrl + "/api/file/qrcode/"+name;
+            qrcodeUrl = apiUrl + "/api" + imgUrl + "qrcode/"+name;
         }else{
-            qrcodeUrl = apiUrl + "/api/file/" + attachment.getSattDir();
+            qrcodeUrl = apiUrl + "/api" + imgUrl + attachment.getSattDir();
         }
         String spreadPicName = id+"_"+uid + "_"+from+"_product_user_spread.jpg";
         String spreadPicPath = fileDir+spreadPicName;

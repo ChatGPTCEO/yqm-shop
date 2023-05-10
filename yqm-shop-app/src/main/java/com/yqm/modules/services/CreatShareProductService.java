@@ -37,9 +37,11 @@ import com.yqm.modules.shop.service.YqmSystemStoreService;
 import com.yqm.modules.user.domain.YqmUser;
 import com.yqm.utils.OrderUtil;
 import com.yqm.utils.RedisUtil;
+import com.yqm.utils.RedisUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -75,6 +77,7 @@ public class CreatShareProductService {
     private final YqmStoreCombinationService storeCombinationService;
     private final YqmSystemStoreService systemStoreService;
     private final YqmSystemConfigService systemConfigService;
+    private final RedisUtils redisUtils;
 
     /**
      * 返回门店信息与二维码
@@ -92,6 +95,10 @@ public class CreatShareProductService {
             if(StrUtil.isEmpty(apiUrl)){
                 throw new YqmShopException("未配置api地址");
             }
+            String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+            if (StringUtils.isNotBlank(imgUrl)) {
+                imgUrl = "/file/";
+            }
             //生成二维码
             String name = storeOrder.getVerifyCode()+"_yqm-shop.jpg";
             YqmSystemAttachment attachment = systemAttachmentService.getInfo(name);
@@ -104,9 +111,9 @@ public class CreatShareProductService {
                         FileUtil.file(fileDir+name));
                 systemAttachmentService.attachmentAdd(name,String.valueOf(FileUtil.size(file)),
                         fileDir+name,"qrcode/"+name);
-                qrcodeUrl = apiUrl + "/api/file/qrcode/"+name;
+                qrcodeUrl = apiUrl + "/api" + imgUrl + "qrcode/"+name;
             }else{
-                qrcodeUrl = apiUrl + "/api/file/" + attachment.getSattDir();
+                qrcodeUrl = apiUrl + "/api" + imgUrl + attachment.getSattDir();
             }
             storeOrder.setCode(qrcodeUrl);
             storeOrder.setMapKey(mapKey);
@@ -147,6 +154,11 @@ public class CreatShareProductService {
             throw new YqmShopException(e.getMessage());
         }
 
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
+
         if(StrUtil.isNotBlank(from) && AppFromEnum.APP.getValue().equals(from)){
             String spreadPicName = uid + "_"+from+"_user_spread.jpg";
             String fileDir = path+"qrcode"+File.separator;
@@ -184,12 +196,12 @@ public class CreatShareProductService {
                             String.valueOf(FileUtil.size(new File(spreadPicPath))),
                             spreadPicPath,"qrcode/"+spreadPicName,uid,inviteCode);
 
-                    spreadUrl = apiUrl + "/api/file/qrcode/"+spreadPicName;
+                    spreadUrl = apiUrl + "/api" + imgUrl + "qrcode/"+spreadPicName;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }else{
-                spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();
+                spreadUrl = apiUrl + "/api" + imgUrl + attachmentT.getSattDir();
             }
         }
         else{//其他
@@ -258,13 +270,13 @@ public class CreatShareProductService {
                             String.valueOf(FileUtil.size(new File(spreadPicPath))),
                             spreadPicPath,"qrcode/"+spreadPicName);
 
-                    spreadUrl = apiUrl + "/api/file/qrcode/"+spreadPicName;
+                    spreadUrl = apiUrl + "/api" + imgUrl + "qrcode/"+spreadPicName;
 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }else{
-                spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();
+                spreadUrl = apiUrl + "/api" + imgUrl + attachmentT.getSattDir();
             }
 
         }
@@ -289,6 +301,11 @@ public class CreatShareProductService {
                 .getById(bargainId);
         YqmStoreBargainUser storeBargainUser = storeBargainUserService
                 .getBargainUserInfo(bargainId,uid);
+
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
 
         if(ObjectUtil.isNull(storeBargainQueryVo) || ObjectUtil.isNull(storeBargainUser)) {
             throw new YqmShopException("数据不存在");
@@ -458,14 +475,14 @@ public class CreatShareProductService {
                         String.valueOf(FileUtil.size(new File(spreadPicPath))),
                         spreadPicPath,"qrcode/"+spreadPicName);
 
-                spreadUrl = apiUrl + "/api/file/qrcode/"+spreadPicName;
+                spreadUrl = apiUrl + "/api" + imgUrl + "qrcode/"+spreadPicName;
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error(e.getMessage());
                 throw new YqmShopException("生成失败");
             }
         }else{
-            spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();
+            spreadUrl = apiUrl + "/api" + imgUrl + attachmentT.getSattDir();
         }
 
         return  spreadUrl;
@@ -493,6 +510,10 @@ public class CreatShareProductService {
             throw new YqmShopException("拼团产品不存在");
         }
 
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
 
         String name = pinkId+"_"+uid + "_"+from+"_pink_share_wap.jpg";
         YqmSystemAttachment attachment = systemAttachmentService.getInfo(name);
@@ -656,14 +677,14 @@ public class CreatShareProductService {
                         String.valueOf(FileUtil.size(new File(spreadPicPath))),
                         spreadPicPath,"qrcode/"+spreadPicName);
 
-                spreadUrl = apiUrl + "/api/file/qrcode/"+spreadPicName;
+                spreadUrl = apiUrl + "/api" + imgUrl + "qrcode/"+spreadPicName;
 
             } catch (Exception e) {
                 log.error(e.getMessage());
                 throw new YqmShopException(e.getMessage());
             }
         }else{
-            spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();
+            spreadUrl = apiUrl + "/api" + imgUrl + attachmentT.getSattDir();
         }
 
         return  spreadUrl;
@@ -684,6 +705,10 @@ public class CreatShareProductService {
     public  String creatProductPic(YqmStoreProduct productDTO, String shareCode, String spreadPicName, String spreadPicPath, String apiUrl) throws IOException, FontFormatException {
         YqmSystemAttachment attachmentT = systemAttachmentService.getInfo(spreadPicName);
         String spreadUrl = "";
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
         if(ObjectUtil.isNull(attachmentT)){
             //创建图片
             BufferedImage img = new BufferedImage(750, 1334, BufferedImage.TYPE_INT_RGB);
@@ -847,10 +872,10 @@ public class CreatShareProductService {
             systemAttachmentService.attachmentAdd(spreadPicName,
                     String.valueOf(FileUtil.size(new File(spreadPicPath))),
                     spreadPicPath,"qrcode/"+spreadPicName);
-            spreadUrl = apiUrl + "/api/file/qrcode/"+spreadPicName;
+            spreadUrl = apiUrl + "/api" + imgUrl + "qrcode/"+spreadPicName;
             //保存到本地 生成文件名字
         }else {
-            spreadUrl = apiUrl + "/api/file/" + attachmentT.getSattDir();
+            spreadUrl = apiUrl + "/api" + imgUrl + attachmentT.getSattDir();
         }
 
         return spreadUrl;
