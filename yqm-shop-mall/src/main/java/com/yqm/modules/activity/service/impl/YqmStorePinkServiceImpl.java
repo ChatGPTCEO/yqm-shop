@@ -55,11 +55,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -655,8 +651,10 @@ public class YqmStorePinkServiceImpl extends BaseServiceImpl<YqmStorePinkMapper,
             i.setNickname(yqmUser.getNickname());
             i.setPhone(yqmUser.getPhone());
             i.setUserImg(yqmUser.getAvatar());
-            i.setProduct(storeCombination.getTitle());
-            i.setImage(storeCombination.getImage());
+            if (Objects.nonNull(storeCombination)) {
+                i.setProduct(storeCombination.getTitle());
+                i.setImage(storeCombination.getImage());
+            }
             i.setCountPeople( this.count(new LambdaQueryWrapper<YqmStorePink>().eq(YqmStorePink::getCid,i.getCid())));
         });
         map.put("content", yqmStorePinkDtos);
