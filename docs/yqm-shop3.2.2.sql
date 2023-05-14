@@ -860,36 +860,6 @@ CREATE TABLE `qiniu_content`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '七牛云文件存储' ROW_FORMAT = COMPACT;
 
--- ----------------------------
--- Records of qiniu_content
--- ----------------------------
-INSERT INTO `qiniu_content` VALUES (1, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-07 12:05:41', 'https://pic.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (2, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 12:11:15', 'https://pic.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (3, 'yqm', 'list_30', '28.57KB   ', '公开', '2020-01-07 12:13:26', 'https://image.dayouqiantu.cn/list_30.png', 'png');
-INSERT INTO `qiniu_content` VALUES (4, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-07 12:32:15', 'https://image.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (5, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 12:53:11', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (6, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-07 13:05:55', 'https://image.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (7, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 13:08:32', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (8, 'yqm', 'list_22', '28.23KB   ', '公开', '2020-01-07 13:08:38', 'https://image.dayouqiantu.cn/list_22.png', 'png');
-INSERT INTO `qiniu_content` VALUES (9, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 13:08:49', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (10, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-10 12:02:24', 'https://image.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (11, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-10 16:49:48', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (12, 'yqm', 'list_20', '22.92KB   ', '公开', '2020-01-10 22:43:47', 'https://image.dayouqiantu.cn/list_20.png', 'png');
-INSERT INTO `qiniu_content` VALUES (13, 'yqm', 'list_24', '27.31KB   ', '公开', '2020-01-10 22:44:21', 'https://image.dayouqiantu.cn/list_24.png', 'png');
-INSERT INTO `qiniu_content` VALUES (14, 'yqm', 'list_28', '28.38KB   ', '公开', '2020-01-11 17:06:00', 'https://image.dayouqiantu.cn/list_28.png', 'png');
-INSERT INTO `qiniu_content` VALUES (15, 'yqm', 'goods', '2.82KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/goods.png', 'png');
-INSERT INTO `qiniu_content` VALUES (16, 'yqm', 'coupon', '2.92KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/coupon.png', 'png');
-INSERT INTO `qiniu_content` VALUES (17, 'yqm', 'buy', '2.59KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/buy.png', 'png');
-INSERT INTO `qiniu_content` VALUES (18, 'yqm', 'collect', '3.65KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/collect.png', 'png');
-INSERT INTO `qiniu_content` VALUES (19, 'yqm', 'bargin', '3.39KB   ', '公开', '2020-06-26 18:24:51', 'https://image.dayouqiantu.cn/bargin.png', 'png');
-INSERT INTO `qiniu_content` VALUES (20, 'yqm', 'add', '3.17KB   ', '公开', '2020-06-26 18:24:51', 'https://image.dayouqiantu.cn/add.png', 'png');
-INSERT INTO `qiniu_content` VALUES (21, 'yqm', 'sign', '2.63KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/sign.png', 'png');
-INSERT INTO `qiniu_content` VALUES (22, 'yqm', 'sekill', '3.54KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/sekill.png', 'png');
-INSERT INTO `qiniu_content` VALUES (23, 'yqm', 'pink', '3.25KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/pink.png', 'png');
-INSERT INTO `qiniu_content` VALUES (24, 'yqm', 'news', '2.70KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/news.png', 'png');
-INSERT INTO `qiniu_content` VALUES (25, 'yqm', '5ca04fa9c08ef', '314.06KB   ', '公开', '2020-06-26 18:25:23', 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 'jpg');
-INSERT INTO `qiniu_content` VALUES (26, 'yqm', '5ca0786c5d2c1', '388.24KB   ', '公开', '2020-06-26 18:25:23', 'https://image.dayouqiantu.cn/5ca0786c5d2c1.jpg', 'jpg');
-INSERT INTO `qiniu_content` VALUES (27, 'yqm', '5ca081af6183f', '339.37KB   ', '公开', '2020-06-26 18:25:23', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'jpg');
 
 -- ----------------------------
 -- Table structure for quartz_job
@@ -936,213 +906,6 @@ CREATE TABLE `quartz_log`  (
   `is_del` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 204 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务日志' ROW_FORMAT = COMPACT;
-
--- ----------------------------
--- Records of quartz_log
--- ----------------------------
-INSERT INTO `quartz_log` VALUES (1, 'visitsTask', '2020-01-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 160, NULL, 0);
-INSERT INTO `quartz_log` VALUES (2, 'visitsTask', '2020-03-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 42, NULL, 0);
-INSERT INTO `quartz_log` VALUES (3, 'visitsTask', '2020-04-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 60, NULL, 0);
-INSERT INTO `quartz_log` VALUES (4, 'visitsTask', '2020-09-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 36, NULL, 0);
-INSERT INTO `quartz_log` VALUES (5, 'visitsTask', '2020-09-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 19, NULL, 0);
-INSERT INTO `quartz_log` VALUES (6, 'visitsTask', '2020-09-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 39, NULL, 0);
-INSERT INTO `quartz_log` VALUES (7, 'visitsTask', '2020-09-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 30, NULL, 0);
-INSERT INTO `quartz_log` VALUES (8, 'visitsTask', '2020-09-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 23, NULL, 0);
-INSERT INTO `quartz_log` VALUES (9, 'visitsTask', '2020-09-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 70, NULL, 0);
-INSERT INTO `quartz_log` VALUES (10, 'visitsTask', '2020-09-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 18, NULL, 0);
-INSERT INTO `quartz_log` VALUES (11, 'visitsTask', '2020-09-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 14, NULL, 0);
-INSERT INTO `quartz_log` VALUES (12, 'visitsTask', '2020-09-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 31, NULL, 0);
-INSERT INTO `quartz_log` VALUES (13, 'visitsTask', '2020-09-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 40, NULL, 0);
-INSERT INTO `quartz_log` VALUES (14, 'visitsTask', '2020-09-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 20, NULL, 0);
-INSERT INTO `quartz_log` VALUES (15, 'visitsTask', '2020-09-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 39, NULL, 0);
-INSERT INTO `quartz_log` VALUES (16, 'visitsTask', '2020-09-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 15, NULL, 0);
-INSERT INTO `quartz_log` VALUES (17, 'visitsTask', '2020-09-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 15, NULL, 0);
-INSERT INTO `quartz_log` VALUES (18, 'visitsTask', '2020-09-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 35, NULL, 0);
-INSERT INTO `quartz_log` VALUES (19, 'visitsTask', '2022-08-05 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 521, NULL, 0);
-INSERT INTO `quartz_log` VALUES (20, 'visitsTask', '2022-08-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 298, NULL, 0);
-INSERT INTO `quartz_log` VALUES (21, 'visitsTask', '2022-08-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 271, NULL, 0);
-INSERT INTO `quartz_log` VALUES (22, 'visitsTask', '2022-08-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 320, NULL, 0);
-INSERT INTO `quartz_log` VALUES (23, 'visitsTask', '2022-08-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 285, NULL, 0);
-INSERT INTO `quartz_log` VALUES (24, 'visitsTask', '2022-08-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 333, NULL, 0);
-INSERT INTO `quartz_log` VALUES (25, 'visitsTask', '2022-08-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 315, NULL, 0);
-INSERT INTO `quartz_log` VALUES (26, 'visitsTask', '2022-08-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 314, NULL, 0);
-INSERT INTO `quartz_log` VALUES (27, 'visitsTask', '2022-08-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 321, NULL, 0);
-INSERT INTO `quartz_log` VALUES (28, 'visitsTask', '2022-08-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 288, NULL, 0);
-INSERT INTO `quartz_log` VALUES (29, 'visitsTask', '2022-08-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 272, NULL, 0);
-INSERT INTO `quartz_log` VALUES (30, 'visitsTask', '2022-08-16 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 279, NULL, 0);
-INSERT INTO `quartz_log` VALUES (31, 'visitsTask', '2022-08-17 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 288, NULL, 0);
-INSERT INTO `quartz_log` VALUES (32, 'visitsTask', '2022-08-18 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 299, NULL, 0);
-INSERT INTO `quartz_log` VALUES (33, 'visitsTask', '2022-08-19 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 304, NULL, 0);
-INSERT INTO `quartz_log` VALUES (34, 'visitsTask', '2022-08-20 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 283, NULL, 0);
-INSERT INTO `quartz_log` VALUES (35, 'visitsTask', '2022-08-21 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 263, NULL, 0);
-INSERT INTO `quartz_log` VALUES (36, 'visitsTask', '2022-08-22 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 313, NULL, 0);
-INSERT INTO `quartz_log` VALUES (37, 'visitsTask', '2022-08-23 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 326, NULL, 0);
-INSERT INTO `quartz_log` VALUES (38, 'visitsTask', '2022-08-24 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 271, NULL, 0);
-INSERT INTO `quartz_log` VALUES (39, 'visitsTask', '2022-08-25 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 273, NULL, 0);
-INSERT INTO `quartz_log` VALUES (40, 'visitsTask', '2022-08-26 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 278, NULL, 0);
-INSERT INTO `quartz_log` VALUES (41, 'visitsTask', '2022-08-27 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 294, NULL, 0);
-INSERT INTO `quartz_log` VALUES (42, 'visitsTask', '2022-08-28 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 254, NULL, 0);
-INSERT INTO `quartz_log` VALUES (43, 'visitsTask', '2022-08-29 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 292, NULL, 0);
-INSERT INTO `quartz_log` VALUES (44, 'visitsTask', '2022-08-30 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 282, NULL, 0);
-INSERT INTO `quartz_log` VALUES (45, 'visitsTask', '2022-08-31 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 281, NULL, 0);
-INSERT INTO `quartz_log` VALUES (46, 'visitsTask', '2022-09-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 303, NULL, 0);
-INSERT INTO `quartz_log` VALUES (47, 'visitsTask', '2022-09-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 328, NULL, 0);
-INSERT INTO `quartz_log` VALUES (48, 'visitsTask', '2022-09-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 347, NULL, 0);
-INSERT INTO `quartz_log` VALUES (49, 'visitsTask', '2022-09-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 313, NULL, 0);
-INSERT INTO `quartz_log` VALUES (50, 'visitsTask', '2022-09-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 267, NULL, 0);
-INSERT INTO `quartz_log` VALUES (51, 'visitsTask', '2022-09-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 284, NULL, 0);
-INSERT INTO `quartz_log` VALUES (52, 'visitsTask', '2022-09-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 258, NULL, 0);
-INSERT INTO `quartz_log` VALUES (53, 'visitsTask', '2022-09-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 319, NULL, 0);
-INSERT INTO `quartz_log` VALUES (54, 'visitsTask', '2022-09-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 258, NULL, 0);
-INSERT INTO `quartz_log` VALUES (55, 'visitsTask', '2022-09-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 298, NULL, 0);
-INSERT INTO `quartz_log` VALUES (56, 'visitsTask', '2022-09-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 256, NULL, 0);
-INSERT INTO `quartz_log` VALUES (57, 'visitsTask', '2022-09-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 265, NULL, 0);
-INSERT INTO `quartz_log` VALUES (58, 'visitsTask', '2022-09-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 371, NULL, 0);
-INSERT INTO `quartz_log` VALUES (59, 'visitsTask', '2022-09-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 269, NULL, 0);
-INSERT INTO `quartz_log` VALUES (60, 'visitsTask', '2022-09-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 263, NULL, 0);
-INSERT INTO `quartz_log` VALUES (61, 'visitsTask', '2022-09-16 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 290, NULL, 0);
-INSERT INTO `quartz_log` VALUES (62, 'visitsTask', '2022-09-17 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 285, NULL, 0);
-INSERT INTO `quartz_log` VALUES (63, 'visitsTask', '2022-09-18 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 307, NULL, 0);
-INSERT INTO `quartz_log` VALUES (64, 'visitsTask', '2022-09-19 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 260, NULL, 0);
-INSERT INTO `quartz_log` VALUES (65, 'visitsTask', '2022-09-20 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 319, NULL, 0);
-INSERT INTO `quartz_log` VALUES (66, 'visitsTask', '2022-09-21 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 284, NULL, 0);
-INSERT INTO `quartz_log` VALUES (67, 'visitsTask', '2022-09-22 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 307, NULL, 0);
-INSERT INTO `quartz_log` VALUES (68, 'visitsTask', '2022-09-23 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 260, NULL, 0);
-INSERT INTO `quartz_log` VALUES (69, 'visitsTask', '2022-09-24 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 309, NULL, 0);
-INSERT INTO `quartz_log` VALUES (70, 'visitsTask', '2022-09-25 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 325, NULL, 0);
-INSERT INTO `quartz_log` VALUES (71, 'visitsTask', '2022-09-26 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 378, NULL, 0);
-INSERT INTO `quartz_log` VALUES (72, 'visitsTask', '2022-09-27 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 311, NULL, 0);
-INSERT INTO `quartz_log` VALUES (73, 'visitsTask', '2022-09-28 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 280, NULL, 0);
-INSERT INTO `quartz_log` VALUES (74, 'visitsTask', '2022-09-29 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 325, NULL, 0);
-INSERT INTO `quartz_log` VALUES (75, 'visitsTask', '2022-09-30 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 303, NULL, 0);
-INSERT INTO `quartz_log` VALUES (76, 'visitsTask', '2022-10-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 301, NULL, 0);
-INSERT INTO `quartz_log` VALUES (77, 'visitsTask', '2022-10-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 268, NULL, 0);
-INSERT INTO `quartz_log` VALUES (78, 'visitsTask', '2022-10-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 279, NULL, 0);
-INSERT INTO `quartz_log` VALUES (79, 'visitsTask', '2022-10-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 337, NULL, 0);
-INSERT INTO `quartz_log` VALUES (80, 'visitsTask', '2022-10-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 292, NULL, 0);
-INSERT INTO `quartz_log` VALUES (81, 'visitsTask', '2022-10-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 275, NULL, 0);
-INSERT INTO `quartz_log` VALUES (82, 'visitsTask', '2022-10-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 312, NULL, 0);
-INSERT INTO `quartz_log` VALUES (83, 'visitsTask', '2022-10-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 277, NULL, 0);
-INSERT INTO `quartz_log` VALUES (84, 'visitsTask', '2022-10-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 276, NULL, 0);
-INSERT INTO `quartz_log` VALUES (85, 'visitsTask', '2022-10-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 269, NULL, 0);
-INSERT INTO `quartz_log` VALUES (86, 'visitsTask', '2022-10-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 80, NULL, 0);
-INSERT INTO `quartz_log` VALUES (87, 'visitsTask', '2022-10-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 301, NULL, 0);
-INSERT INTO `quartz_log` VALUES (88, 'visitsTask', '2022-10-13 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 649, NULL, 0);
-INSERT INTO `quartz_log` VALUES (89, 'visitsTask', '2022-10-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 421, NULL, 0);
-INSERT INTO `quartz_log` VALUES (90, 'visitsTask', '2022-10-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 276, NULL, 0);
-INSERT INTO `quartz_log` VALUES (91, 'visitsTask', '2022-10-16 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 291, NULL, 0);
-INSERT INTO `quartz_log` VALUES (92, 'visitsTask', '2022-10-17 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 516, NULL, 0);
-INSERT INTO `quartz_log` VALUES (93, 'visitsTask', '2022-10-18 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 280, NULL, 0);
-INSERT INTO `quartz_log` VALUES (94, 'visitsTask', '2022-10-19 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 294, NULL, 0);
-INSERT INTO `quartz_log` VALUES (95, 'visitsTask', '2022-10-20 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 289, NULL, 0);
-INSERT INTO `quartz_log` VALUES (96, 'visitsTask', '2022-10-21 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 259, NULL, 0);
-INSERT INTO `quartz_log` VALUES (97, 'visitsTask', '2022-10-22 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 256, NULL, 0);
-INSERT INTO `quartz_log` VALUES (98, 'visitsTask', '2022-10-23 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 259, NULL, 0);
-INSERT INTO `quartz_log` VALUES (99, 'visitsTask', '2022-10-24 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 353, NULL, 0);
-INSERT INTO `quartz_log` VALUES (100, 'visitsTask', '2022-10-25 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 355, NULL, 0);
-INSERT INTO `quartz_log` VALUES (101, 'visitsTask', '2022-10-26 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 325, NULL, 0);
-INSERT INTO `quartz_log` VALUES (102, 'visitsTask', '2022-10-27 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 274, NULL, 0);
-INSERT INTO `quartz_log` VALUES (103, 'visitsTask', '2022-10-28 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 325, NULL, 0);
-INSERT INTO `quartz_log` VALUES (104, 'visitsTask', '2022-10-29 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 297, NULL, 0);
-INSERT INTO `quartz_log` VALUES (105, 'visitsTask', '2022-10-30 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 592, NULL, 0);
-INSERT INTO `quartz_log` VALUES (106, 'visitsTask', '2022-10-31 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 278, NULL, 0);
-INSERT INTO `quartz_log` VALUES (107, 'visitsTask', '2022-11-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 282, NULL, 0);
-INSERT INTO `quartz_log` VALUES (108, 'visitsTask', '2022-11-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 294, NULL, 0);
-INSERT INTO `quartz_log` VALUES (109, 'visitsTask', '2022-11-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 258, NULL, 0);
-INSERT INTO `quartz_log` VALUES (110, 'visitsTask', '2022-11-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 337, NULL, 0);
-INSERT INTO `quartz_log` VALUES (111, 'visitsTask', '2022-11-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 287, NULL, 0);
-INSERT INTO `quartz_log` VALUES (112, 'visitsTask', '2022-11-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 369, NULL, 0);
-INSERT INTO `quartz_log` VALUES (113, 'visitsTask', '2022-11-07 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 664, NULL, 0);
-INSERT INTO `quartz_log` VALUES (114, 'visitsTask', '2022-11-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 289, NULL, 0);
-INSERT INTO `quartz_log` VALUES (115, 'visitsTask', '2022-11-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 282, NULL, 0);
-INSERT INTO `quartz_log` VALUES (116, 'visitsTask', '2022-11-10 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 676, NULL, 0);
-INSERT INTO `quartz_log` VALUES (117, 'visitsTask', '2022-11-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 404, NULL, 0);
-INSERT INTO `quartz_log` VALUES (118, 'visitsTask', '2022-11-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 279, NULL, 0);
-INSERT INTO `quartz_log` VALUES (119, 'visitsTask', '2022-11-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 316, NULL, 0);
-INSERT INTO `quartz_log` VALUES (120, 'visitsTask', '2022-11-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 284, NULL, 0);
-INSERT INTO `quartz_log` VALUES (121, 'visitsTask', '2022-11-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 367, NULL, 0);
-INSERT INTO `quartz_log` VALUES (122, 'visitsTask', '2022-11-16 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 289, NULL, 0);
-INSERT INTO `quartz_log` VALUES (123, 'visitsTask', '2022-11-17 00:00:01', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 502, NULL, 0);
-INSERT INTO `quartz_log` VALUES (124, 'visitsTask', '2022-11-18 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 317, NULL, 0);
-INSERT INTO `quartz_log` VALUES (125, 'visitsTask', '2022-11-19 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 257, NULL, 0);
-INSERT INTO `quartz_log` VALUES (126, 'visitsTask', '2022-11-20 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 345, NULL, 0);
-INSERT INTO `quartz_log` VALUES (127, 'visitsTask', '2022-11-21 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 260, NULL, 0);
-INSERT INTO `quartz_log` VALUES (128, 'visitsTask', '2022-11-22 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 266, NULL, 0);
-INSERT INTO `quartz_log` VALUES (129, 'visitsTask', '2022-11-23 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 406, NULL, 0);
-INSERT INTO `quartz_log` VALUES (130, 'visitsTask', '2022-11-24 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 283, NULL, 0);
-INSERT INTO `quartz_log` VALUES (131, 'visitsTask', '2022-11-25 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 312, NULL, 0);
-INSERT INTO `quartz_log` VALUES (132, 'visitsTask', '2022-11-26 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 270, NULL, 0);
-INSERT INTO `quartz_log` VALUES (133, 'visitsTask', '2022-11-27 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 381, NULL, 0);
-INSERT INTO `quartz_log` VALUES (134, 'visitsTask', '2022-11-28 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 260, NULL, 0);
-INSERT INTO `quartz_log` VALUES (135, 'visitsTask', '2022-11-29 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 281, NULL, 0);
-INSERT INTO `quartz_log` VALUES (136, 'visitsTask', '2022-11-30 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 269, NULL, 0);
-INSERT INTO `quartz_log` VALUES (137, 'visitsTask', '2022-12-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 373, NULL, 0);
-INSERT INTO `quartz_log` VALUES (138, 'visitsTask', '2022-12-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 356, NULL, 0);
-INSERT INTO `quartz_log` VALUES (139, 'visitsTask', '2022-12-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 382, NULL, 0);
-INSERT INTO `quartz_log` VALUES (140, 'visitsTask', '2022-12-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 405, NULL, 0);
-INSERT INTO `quartz_log` VALUES (141, 'visitsTask', '2022-12-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 371, NULL, 0);
-INSERT INTO `quartz_log` VALUES (142, 'visitsTask', '2022-12-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 254, NULL, 0);
-INSERT INTO `quartz_log` VALUES (143, 'visitsTask', '2022-12-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 487, NULL, 0);
-INSERT INTO `quartz_log` VALUES (144, 'visitsTask', '2022-12-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 279, NULL, 0);
-INSERT INTO `quartz_log` VALUES (145, 'visitsTask', '2022-12-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 314, NULL, 0);
-INSERT INTO `quartz_log` VALUES (146, 'visitsTask', '2022-12-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 359, NULL, 0);
-INSERT INTO `quartz_log` VALUES (147, 'visitsTask', '2022-12-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 264, NULL, 0);
-INSERT INTO `quartz_log` VALUES (148, 'visitsTask', '2022-12-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 307, NULL, 0);
-INSERT INTO `quartz_log` VALUES (149, 'visitsTask', '2022-12-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 253, NULL, 0);
-INSERT INTO `quartz_log` VALUES (150, 'visitsTask', '2022-12-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 267, NULL, 0);
-INSERT INTO `quartz_log` VALUES (151, 'visitsTask', '2022-12-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 305, NULL, 0);
-INSERT INTO `quartz_log` VALUES (152, 'visitsTask', '2022-12-16 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 381, NULL, 0);
-INSERT INTO `quartz_log` VALUES (153, 'visitsTask', '2022-12-17 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 286, NULL, 0);
-INSERT INTO `quartz_log` VALUES (154, 'visitsTask', '2022-12-18 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 283, NULL, 0);
-INSERT INTO `quartz_log` VALUES (155, 'visitsTask', '2022-12-19 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 288, NULL, 0);
-INSERT INTO `quartz_log` VALUES (156, 'visitsTask', '2022-12-20 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 300, NULL, 0);
-INSERT INTO `quartz_log` VALUES (157, 'visitsTask', '2022-12-21 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 300, NULL, 0);
-INSERT INTO `quartz_log` VALUES (158, 'visitsTask', '2022-12-22 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 303, NULL, 0);
-INSERT INTO `quartz_log` VALUES (159, 'visitsTask', '2022-12-23 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 332, NULL, 0);
-INSERT INTO `quartz_log` VALUES (160, 'visitsTask', '2022-12-24 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 283, NULL, 0);
-INSERT INTO `quartz_log` VALUES (161, 'visitsTask', '2022-12-25 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 304, NULL, 0);
-INSERT INTO `quartz_log` VALUES (162, 'visitsTask', '2022-12-26 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 345, NULL, 0);
-INSERT INTO `quartz_log` VALUES (163, 'visitsTask', '2022-12-27 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 329, NULL, 0);
-INSERT INTO `quartz_log` VALUES (164, 'visitsTask', '2022-12-28 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 301, NULL, 0);
-INSERT INTO `quartz_log` VALUES (165, 'visitsTask', '2022-12-29 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 272, NULL, 0);
-INSERT INTO `quartz_log` VALUES (166, 'visitsTask', '2022-12-30 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 280, NULL, 0);
-INSERT INTO `quartz_log` VALUES (167, 'visitsTask', '2022-12-31 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 291, NULL, 0);
-INSERT INTO `quartz_log` VALUES (168, 'visitsTask', '2023-01-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 383, NULL, 0);
-INSERT INTO `quartz_log` VALUES (169, 'visitsTask', '2023-01-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 279, NULL, 0);
-INSERT INTO `quartz_log` VALUES (170, 'visitsTask', '2023-01-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 438, NULL, 0);
-INSERT INTO `quartz_log` VALUES (171, 'visitsTask', '2023-01-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 261, NULL, 0);
-INSERT INTO `quartz_log` VALUES (172, 'visitsTask', '2023-01-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 261, NULL, 0);
-INSERT INTO `quartz_log` VALUES (173, 'visitsTask', '2023-01-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 274, NULL, 0);
-INSERT INTO `quartz_log` VALUES (174, 'visitsTask', '2023-01-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 283, NULL, 0);
-INSERT INTO `quartz_log` VALUES (175, 'visitsTask', '2023-01-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 283, NULL, 0);
-INSERT INTO `quartz_log` VALUES (176, 'visitsTask', '2023-01-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 261, NULL, 0);
-INSERT INTO `quartz_log` VALUES (177, 'visitsTask', '2023-01-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 306, NULL, 0);
-INSERT INTO `quartz_log` VALUES (178, 'visitsTask', '2023-01-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 306, NULL, 0);
-INSERT INTO `quartz_log` VALUES (179, 'visitsTask', '2023-01-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 295, NULL, 0);
-INSERT INTO `quartz_log` VALUES (180, 'visitsTask', '2023-01-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 303, NULL, 0);
-INSERT INTO `quartz_log` VALUES (181, 'visitsTask', '2023-01-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 353, NULL, 0);
-INSERT INTO `quartz_log` VALUES (182, 'visitsTask', '2023-01-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 275, NULL, 0);
-INSERT INTO `quartz_log` VALUES (183, 'visitsTask', '2023-01-16 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 259, NULL, 0);
-INSERT INTO `quartz_log` VALUES (184, 'visitsTask', '2023-01-17 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 287, NULL, 0);
-INSERT INTO `quartz_log` VALUES (185, 'visitsTask', '2023-01-18 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 344, NULL, 0);
-INSERT INTO `quartz_log` VALUES (186, 'visitsTask', '2023-01-19 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 255, NULL, 0);
-INSERT INTO `quartz_log` VALUES (187, 'visitsTask', '2023-01-20 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 308, NULL, 0);
-INSERT INTO `quartz_log` VALUES (188, 'visitsTask', '2023-01-21 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 272, NULL, 0);
-INSERT INTO `quartz_log` VALUES (189, 'visitsTask', '2023-01-22 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 275, NULL, 0);
-INSERT INTO `quartz_log` VALUES (190, 'visitsTask', '2023-01-23 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 292, NULL, 0);
-INSERT INTO `quartz_log` VALUES (191, 'visitsTask', '2023-01-24 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 257, NULL, 0);
-INSERT INTO `quartz_log` VALUES (192, 'visitsTask', '2023-01-25 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 318, NULL, 0);
-INSERT INTO `quartz_log` VALUES (193, 'visitsTask', '2023-01-26 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 285, NULL, 0);
-INSERT INTO `quartz_log` VALUES (194, 'visitsTask', '2023-01-27 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 296, NULL, 0);
-INSERT INTO `quartz_log` VALUES (195, 'visitsTask', '2023-01-28 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 264, NULL, 0);
-INSERT INTO `quartz_log` VALUES (196, 'visitsTask', '2023-01-29 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 343, NULL, 0);
-INSERT INTO `quartz_log` VALUES (197, 'visitsTask', '2023-01-30 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 304, NULL, 0);
-INSERT INTO `quartz_log` VALUES (198, 'visitsTask', '2023-01-31 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 288, NULL, 0);
-INSERT INTO `quartz_log` VALUES (199, 'visitsTask', '2023-02-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 296, NULL, 0);
-INSERT INTO `quartz_log` VALUES (200, 'visitsTask', '2023-02-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 346, NULL, 0);
-INSERT INTO `quartz_log` VALUES (201, 'visitsTask', '2023-02-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 324, NULL, 0);
-INSERT INTO `quartz_log` VALUES (202, 'visitsTask', '2023-02-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 299, NULL, 0);
-INSERT INTO `quartz_log` VALUES (203, 'visitsTask', '2023-02-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 280, NULL, 0);
 
 -- ----------------------------
 -- Table structure for role
@@ -1437,10 +1200,6 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 1, 'yqm-shop@qq.com', 1, '$2a$10$fP.426qKaTmix50Oln8L.uav55gELhAd0Eg66Av4oG86u8km7D/Ky', 'admin', 2, '18888888888', 11, '2018-08-23 09:11:56', '2019-05-18 17:34:21', '管理员', '男', '2022-08-07 20:05:33', 0);
-INSERT INTO `user` VALUES (3, NULL, 'test@yqm-shopnet', 1, '$2a$10$HhxyGZy.ulf3RvAwaHUGb.k.2i9PBpv4YbLMJWp8pES7pPhTyRCF.', 'test', 2, '17777777777', 12, '2018-12-27 20:05:26', '2019-04-01 09:15:24', '测试', '男', NULL, 0);
-INSERT INTO `user` VALUES (4, NULL, 'test2@qq.com', 1, '$2a$10$IjehtV8MiXb8ni.Qz0wBteE7FjVn49cEcsSj2.ZBUqqHjnC3umSh.', 'test2', 2, '15136175247', 11, '2020-02-15 20:39:16', NULL, 'test2', '男', NULL, 0);
-INSERT INTO `user` VALUES (5, NULL, '444@qq.com', 0, '$2a$10$f/VH35NBOBszycV9KEA1HenQ0qVjazDm8LacQU9PO.A4UizFxLMuq', 'qqqqq', 11, '15136175249', 8, '2020-02-17 11:12:01', NULL, 'eeeeee', '男', NULL, 0);
-INSERT INTO `user` VALUES (6, NULL, '666@qq.com', 0, '$2a$10$3Vlo24eOmHHW7.3vAjqPSusfIINNo4JiujzxgqsaoWLx/d5de/jEm', '7777', 8, '15136175246', 8, '2020-05-18 19:43:30', NULL, '777', '男', NULL, 0);
 
 -- ----------------------------
 -- Table structure for user_avatar
@@ -1517,246 +1276,6 @@ CREATE TABLE `visits`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1266934639347151082 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '访客记录' ROW_FORMAT = COMPACT;
 
 -- ----------------------------
--- Records of visits
--- ----------------------------
-INSERT INTO `visits` VALUES (1265104717297319937, '2020-05-26 10:17:24', '2020-05-26', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1265104717297319938, '2020-05-27 16:32:32', '2020-05-27', 1, 2, 'Wed');
-INSERT INTO `visits` VALUES (1265104717297319939, '2020-05-29 14:18:55', '2020-05-29', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150849, '2020-05-31 11:28:51', '2020-05-31', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150850, '2020-06-01 15:37:07', '2020-06-01', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150851, '2020-06-09 11:52:36', '2020-06-09', 1, 2, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150852, '2020-06-12 16:23:50', '2020-06-12', 1, 2, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150853, '2020-06-13 16:49:12', '2020-06-13', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150854, '2020-06-25 16:12:58', '2020-06-25', 1, 8, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150855, '2020-06-26 10:15:43', '2020-06-26', 2, 7, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150856, '2020-06-27 11:38:14', '2020-06-27', 1, 5, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150857, '2020-06-28 15:59:08', '2020-06-28', 1, 6, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150858, '2020-06-29 09:19:53', '2020-06-29', 1, 4, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150859, '2020-06-30 09:55:25', '2020-06-30', 1, 5, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150860, '2020-07-01 10:02:51', '2020-07-01', 1, 9, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150861, '2020-07-02 10:55:09', '2020-07-02', 1, 7, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150862, '2020-07-03 10:40:46', '2020-07-03', 1, 8, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150863, '2020-07-04 10:03:30', '2020-07-04', 1, 4, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150864, '2020-07-05 09:56:06', '2020-07-05', 1, 4, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150865, '2020-07-06 14:35:25', '2020-07-06', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150866, '2020-09-01 00:00:00', '2020-09-01', 4, 4, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150867, '2020-09-02 00:00:00', '2020-09-02', 1, 4, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150868, '2020-09-03 00:00:00', '2020-09-03', 1, 2, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150869, '2020-09-04 00:00:00', '2020-09-04', 1, 3, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150870, '2020-09-05 00:00:00', '2020-09-05', 5, 2, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150871, '2020-09-06 00:00:00', '2020-09-06', 4, 2, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150872, '2020-09-07 00:00:00', '2020-09-07', 5, 3, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150873, '2020-09-08 00:00:00', '2020-09-08', 7, 15, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150874, '2020-09-09 00:00:00', '2020-09-09', 5, 3, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150875, '2020-09-10 00:00:00', '2020-09-10', 2, 4, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150876, '2020-09-11 00:00:00', '2020-09-11', 12, 5, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150877, '2020-09-12 00:00:00', '2020-09-12', 3, 4, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150878, '2020-09-13 00:00:00', '2020-09-13', 10, 4, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150879, '2020-09-14 00:00:00', '2020-09-14', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150880, '2020-09-15 00:00:00', '2020-09-15', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150881, '2022-06-24 17:37:11', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150882, '2022-07-03 11:14:35', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150883, '2022-07-05 19:40:42', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150884, '2022-07-05 21:31:21', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150885, '2022-07-06 19:25:07', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150886, '2022-07-07 22:06:54', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150887, '2022-07-14 20:20:15', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150888, '2022-07-16 19:42:07', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150889, '2022-07-18 21:51:48', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150890, '2022-08-03 21:31:49', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150891, '2022-08-03 21:33:25', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150892, '2022-08-03 21:33:32', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150893, '2022-08-03 21:44:20', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150894, '2022-08-04 20:17:13', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150895, '2022-08-04 23:04:33', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150896, '2022-08-04 23:04:47', NULL, 1, 1, NULL);
-INSERT INTO `visits` VALUES (1266934639347150897, '2022-08-05 00:00:00', '2022-08-05', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150898, '2022-08-06 00:00:00', '2022-08-06', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150899, '2022-08-07 00:00:00', '2022-08-07', 1, 4, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150900, '2022-08-08 00:00:00', '2022-08-08', 1, 5, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150901, '2022-08-09 00:00:00', '2022-08-09', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150902, '2022-08-10 00:00:00', '2022-08-10', 1, 2, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150903, '2022-08-11 00:00:00', '2022-08-11', 1, 3, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150904, '2022-08-12 00:00:00', '2022-08-12', 1, 3, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150905, '2022-08-13 00:00:00', '2022-08-13', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150906, '2022-08-14 00:00:00', '2022-08-14', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150907, '2022-08-15 00:00:00', '2022-08-15', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150908, '2022-08-16 00:00:00', '2022-08-16', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150909, '2022-08-17 00:00:00', '2022-08-17', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150910, '2022-08-18 00:00:00', '2022-08-18', 1, 2, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150911, '2022-08-19 00:00:00', '2022-08-19', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150912, '2022-08-20 00:00:00', '2022-08-20', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150913, '2022-08-21 00:00:00', '2022-08-21', 1, 2, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150914, '2022-08-22 00:00:00', '2022-08-22', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150915, '2022-08-23 00:00:00', '2022-08-23', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150916, '2022-08-24 00:00:00', '2022-08-24', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150917, '2022-08-25 00:00:00', '2022-08-25', 1, 4, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150918, '2022-08-26 00:00:00', '2022-08-26', 1, 2, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150919, '2022-08-27 00:00:00', '2022-08-27', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150920, '2022-08-28 00:00:00', '2022-08-28', 1, 2, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150921, '2022-08-29 00:00:00', '2022-08-29', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150922, '2022-08-30 00:00:00', '2022-08-30', 1, 2, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150923, '2022-08-31 00:00:00', '2022-08-31', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150924, '2022-09-01 00:00:00', '2022-09-01', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150925, '2022-09-02 00:00:00', '2022-09-02', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150926, '2022-09-03 00:00:00', '2022-09-03', 1, 2, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150927, '2022-09-04 00:00:00', '2022-09-04', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150928, '2022-09-05 00:00:00', '2022-09-05', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150929, '2022-09-06 00:00:00', '2022-09-06', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150930, '2022-09-07 00:00:00', '2022-09-07', 1, 2, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150931, '2022-09-08 00:00:00', '2022-09-08', 1, 5, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150932, '2022-09-09 00:00:00', '2022-09-09', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150933, '2022-09-10 00:00:00', '2022-09-10', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150934, '2022-09-11 00:00:00', '2022-09-11', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150935, '2022-09-12 00:00:00', '2022-09-12', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150936, '2022-09-13 00:00:00', '2022-09-13', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150937, '2022-09-14 00:00:00', '2022-09-14', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150938, '2022-09-15 00:00:00', '2022-09-15', 1, 3, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150939, '2022-09-16 00:00:00', '2022-09-16', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150940, '2022-09-17 00:00:00', '2022-09-17', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150941, '2022-09-18 00:00:00', '2022-09-18', 1, 2, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150942, '2022-09-19 00:00:00', '2022-09-19', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150943, '2022-09-20 00:00:00', '2022-09-20', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150944, '2022-09-21 00:00:00', '2022-09-21', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150945, '2022-09-22 00:00:00', '2022-09-22', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150946, '2022-09-23 00:00:00', '2022-09-23', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150947, '2022-09-24 00:00:00', '2022-09-24', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150948, '2022-09-25 00:00:00', '2022-09-25', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150949, '2022-09-26 00:00:00', '2022-09-26', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150950, '2022-09-27 00:00:00', '2022-09-27', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150951, '2022-09-28 00:00:00', '2022-09-28', 1, 3, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150952, '2022-09-29 00:00:00', '2022-09-29', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150953, '2022-09-30 00:00:00', '2022-09-30', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150954, '2022-10-01 00:00:00', '2022-10-01', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150955, '2022-10-02 00:00:00', '2022-10-02', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150956, '2022-10-03 00:00:00', '2022-10-03', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150957, '2022-10-04 00:00:00', '2022-10-04', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150958, '2022-10-05 00:00:00', '2022-10-05', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150959, '2022-10-06 00:00:00', '2022-10-06', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150960, '2022-10-07 00:00:00', '2022-10-07', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150961, '2022-10-08 00:00:00', '2022-10-08', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150962, '2022-10-09 00:00:00', '2022-10-09', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150963, '2022-10-10 00:00:00', '2022-10-10', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150964, '2022-10-11 00:00:00', '2022-10-11', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150965, '2022-10-12 00:00:00', '2022-10-12', 1, 2, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150966, '2022-10-13 00:00:01', '2022-10-13', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150967, '2022-10-14 00:00:00', '2022-10-14', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150968, '2022-10-15 00:00:00', '2022-10-15', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150969, '2022-10-16 00:00:00', '2022-10-16', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150970, '2022-10-17 00:00:00', '2022-10-17', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150971, '2022-10-18 00:00:00', '2022-10-18', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150972, '2022-10-19 00:00:00', '2022-10-19', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150973, '2022-10-20 00:00:00', '2022-10-20', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150974, '2022-10-21 00:00:00', '2022-10-21', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150975, '2022-10-22 00:00:00', '2022-10-22', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150976, '2022-10-23 00:00:00', '2022-10-23', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150977, '2022-10-24 00:00:00', '2022-10-24', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150978, '2022-10-25 00:00:00', '2022-10-25', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150979, '2022-10-26 00:00:00', '2022-10-26', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150980, '2022-10-27 00:00:00', '2022-10-27', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150981, '2022-10-28 00:00:00', '2022-10-28', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150982, '2022-10-29 00:00:00', '2022-10-29', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150983, '2022-10-30 00:00:01', '2022-10-30', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150984, '2022-10-31 00:00:00', '2022-10-31', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150985, '2022-11-01 00:00:00', '2022-11-01', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150986, '2022-11-02 00:00:00', '2022-11-02', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150987, '2022-11-03 00:00:00', '2022-11-03', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150988, '2022-11-04 00:00:00', '2022-11-04', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150989, '2022-11-05 00:00:00', '2022-11-05', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150990, '2022-11-06 00:00:00', '2022-11-06', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150991, '2022-11-07 00:00:01', '2022-11-07', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150992, '2022-11-08 00:00:00', '2022-11-08', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150993, '2022-11-09 00:00:00', '2022-11-09', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150994, '2022-11-10 00:00:01', '2022-11-10', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150995, '2022-11-11 00:00:00', '2022-11-11', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150996, '2022-11-12 00:00:00', '2022-11-12', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150997, '2022-11-13 00:00:00', '2022-11-13', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150998, '2022-11-14 00:00:00', '2022-11-14', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150999, '2022-11-15 00:00:00', '2022-11-15', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151000, '2022-11-16 00:00:00', '2022-11-16', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151001, '2022-11-17 00:00:00', '2022-11-17', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151002, '2022-11-18 00:00:00', '2022-11-18', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151003, '2022-11-19 00:00:00', '2022-11-19', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151004, '2022-11-20 00:00:00', '2022-11-20', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151005, '2022-11-21 00:00:00', '2022-11-21', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151006, '2022-11-22 00:00:00', '2022-11-22', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151007, '2022-11-23 00:00:00', '2022-11-23', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151008, '2022-11-24 00:00:00', '2022-11-24', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151009, '2022-11-25 00:00:00', '2022-11-25', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151010, '2022-11-26 00:00:00', '2022-11-26', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151011, '2022-11-27 00:00:00', '2022-11-27', 1, 2, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151012, '2022-11-28 00:00:00', '2022-11-28', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151013, '2022-11-29 00:00:00', '2022-11-29', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151014, '2022-11-30 00:00:00', '2022-11-30', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151015, '2022-12-01 00:00:00', '2022-12-01', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151016, '2022-12-02 00:00:00', '2022-12-02', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151017, '2022-12-03 00:00:00', '2022-12-03', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151018, '2022-12-04 00:00:00', '2022-12-04', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151019, '2022-12-05 00:00:00', '2022-12-05', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151020, '2022-12-06 00:00:00', '2022-12-06', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151021, '2022-12-07 00:00:00', '2022-12-07', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151022, '2022-12-08 00:00:00', '2022-12-08', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151023, '2022-12-09 00:00:00', '2022-12-09', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151024, '2022-12-10 00:00:00', '2022-12-10', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151025, '2022-12-11 00:00:00', '2022-12-11', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151026, '2022-12-12 00:00:00', '2022-12-12', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151027, '2022-12-13 00:00:00', '2022-12-13', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151028, '2022-12-14 00:00:00', '2022-12-14', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151029, '2022-12-15 00:00:00', '2022-12-15', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151030, '2022-12-16 00:00:00', '2022-12-16', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151031, '2022-12-17 00:00:00', '2022-12-17', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151032, '2022-12-18 00:00:00', '2022-12-18', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151033, '2022-12-19 00:00:00', '2022-12-19', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151034, '2022-12-20 00:00:00', '2022-12-20', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151035, '2022-12-21 00:00:00', '2022-12-21', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151036, '2022-12-22 00:00:00', '2022-12-22', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151037, '2022-12-23 00:00:00', '2022-12-23', 1, 2, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151038, '2022-12-24 00:00:00', '2022-12-24', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151039, '2022-12-25 00:00:00', '2022-12-25', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151040, '2022-12-26 00:00:00', '2022-12-26', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151041, '2022-12-27 00:00:00', '2022-12-27', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151042, '2022-12-28 00:00:00', '2022-12-28', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151043, '2022-12-29 00:00:00', '2022-12-29', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151044, '2022-12-30 00:00:00', '2022-12-30', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151045, '2022-12-31 00:00:00', '2022-12-31', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151046, '2023-01-01 00:00:00', '2023-01-01', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151047, '2023-01-02 00:00:00', '2023-01-02', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151048, '2023-01-03 00:00:00', '2023-01-03', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151049, '2023-01-04 00:00:00', '2023-01-04', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151050, '2023-01-05 00:00:00', '2023-01-05', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151051, '2023-01-06 00:00:00', '2023-01-06', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151052, '2023-01-07 00:00:00', '2023-01-07', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151053, '2023-01-08 00:00:00', '2023-01-08', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151054, '2023-01-09 00:00:00', '2023-01-09', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151055, '2023-01-10 00:00:00', '2023-01-10', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151056, '2023-01-11 00:00:00', '2023-01-11', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151057, '2023-01-12 00:00:00', '2023-01-12', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151058, '2023-01-13 00:00:00', '2023-01-13', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151059, '2023-01-14 00:00:00', '2023-01-14', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151060, '2023-01-15 00:00:00', '2023-01-15', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151061, '2023-01-16 00:00:00', '2023-01-16', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151062, '2023-01-17 00:00:00', '2023-01-17', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151063, '2023-01-18 00:00:00', '2023-01-18', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151064, '2023-01-19 00:00:00', '2023-01-19', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151065, '2023-01-20 00:00:00', '2023-01-20', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151066, '2023-01-21 00:00:00', '2023-01-21', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151067, '2023-01-22 00:00:00', '2023-01-22', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151068, '2023-01-23 00:00:00', '2023-01-23', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151069, '2023-01-24 00:00:00', '2023-01-24', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151070, '2023-01-25 00:00:00', '2023-01-25', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151071, '2023-01-26 00:00:00', '2023-01-26', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151072, '2023-01-27 00:00:00', '2023-01-27', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151073, '2023-01-28 00:00:00', '2023-01-28', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151074, '2023-01-29 00:00:00', '2023-01-29', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347151075, '2023-01-30 00:00:00', '2023-01-30', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347151076, '2023-01-31 00:00:00', '2023-01-31', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347151077, '2023-02-01 00:00:00', '2023-02-01', 1, 1, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347151078, '2023-02-02 00:00:00', '2023-02-02', 1, 1, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347151079, '2023-02-03 00:00:00', '2023-02-03', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347151080, '2023-02-04 00:00:00', '2023-02-04', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347151081, '2023-02-05 00:00:00', '2023-02-05', 1, 1, 'Sun');
-
--- ----------------------------
 -- Table structure for yqm_app_version
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_app_version`;
@@ -1812,8 +1331,6 @@ CREATE TABLE `yqm_article`  (
 -- Records of yqm_article
 -- ----------------------------
 INSERT INTO `yqm_article` VALUES (2, '', 'yqm-shop2版本上线了', 'yqm-shop', 'http://127.0.0.1:8000/file/pic/20200527164526793230.png', 'yqm-shop1.3版本上线了', '<h3 data-v-01881cfc=\"\" style=\"text-align: center;\"><p>yqm-shop1.3版本上线了</p></h3>', '', '', '9', NULL, '', NULL, '2019-08-22 12:26:00', '2020-06-25 19:12:53', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `yqm_article` VALUES (3, '', '44', '444', 'http://127.0.0.1:8000/file/pic/20200527164543489004.png', '4444', '<p>55555</p>', '', '', '', 0, '', NULL, '2020-06-25 19:12:35', NULL, 1, 0, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_article` VALUES (4, '', 'yqm-shop3.0', 'yqm-shop', 'https://image.dayouqiantu.cn/news.png', 'yqm-shop3.0', '<p><br/></p><p><img src=\"https://image.dayouqiantu.cn/add.png\"/></p><p>yqm-shop3.0</p>', '', '', '4', 0, '', NULL, '2020-07-02 12:15:13', '2020-07-03 17:58:19', 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for yqm_express
@@ -1859,39 +1376,6 @@ CREATE TABLE `yqm_material`  (
   `is_del` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '素材库' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_material
--- ----------------------------
-INSERT INTO `yqm_material` VALUES ('05bf470c271f73fe2f572cad60b356f4', '2020-09-03 17:13:52', 'admin', '1', NULL, '1.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171351713145.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('1888a13fdeca0d85dcc6bef413c531b9', '2020-06-26 17:22:21', 'admin', '1', NULL, 'list_16.png', 'http://127.0.0.1:8000/file/pic/20200626172220229003.png', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('353760137dad5526444c01074f9490e0', '2020-09-03 17:18:08', 'admin', '1', NULL, '3.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('3e2aa47438e059b06eea6327ae2260ec', '2020-06-26 18:25:07', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'news.png', 'https://image.dayouqiantu.cn/news.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('612f4f924840739f0ebdfbdce21d878b', '2020-06-26 18:25:07', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'sign.png', 'https://image.dayouqiantu.cn/sign.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('658cff7a98834617e46adfd105db0a3c', '2020-05-27 16:45:44', 'admin', '1', NULL, 'list_18.png', 'http://127.0.0.1:8000/file/pic/20200527164543489004.png', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('6d2c5511b87631ffa6c5eecb9e4d736f', '2020-06-26 18:25:23', 'admin', '1', '8cc5996f6c4b54fcf5c0f2845a5d9afa', '5ca04fa9c08ef.jpg', 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('6d4adf87cbb42bac277edf212dcbf2a7', '2020-06-26 18:20:58', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'collect.png', 'https://image.dayouqiantu.cn/collect.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('700a8cade3e6ff35a5e0d12b55849735', '2020-09-03 17:18:08', 'admin', '1', NULL, '7.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('7492896114a45879b88c08f02ef88a3e', '2020-06-26 18:25:07', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'pink.png', 'https://image.dayouqiantu.cn/pink.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('77b45342d9861a25323f284b155c4c9d', '2020-09-03 17:18:08', 'admin', '1', NULL, '6.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('7cc18f371ebcfaeb63d95f734251453b', '2020-06-26 18:25:24', 'admin', '1', '8cc5996f6c4b54fcf5c0f2845a5d9afa', '5ca0786c5d2c1.jpg', 'https://image.dayouqiantu.cn/5ca0786c5d2c1.jpg', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('80116a9fea6f899d4530e82bc4d9b97b', '2020-09-03 17:12:09', 'admin', '1', NULL, 'avatar_default.png', 'https://consoleapi.xinxintuan.co/file/pic/20200903171208889668.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('808cbc928e818b2c0d12f5919042cdc2', '2020-06-26 11:08:09', 'admin', '1', NULL, 'list_34.png', 'http://127.0.0.1:8000/file/pic/20200626110808157592.png', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('8a599a4721469bfcd1c313241c88bee0', '2020-06-26 18:20:58', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'buy.png', 'https://image.dayouqiantu.cn/buy.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('8e19af4d16b717574d863e6316cf15e4', '2020-06-26 18:24:51', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'add.png', 'https://image.dayouqiantu.cn/add.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('9ddc310b8b6e224cd1ee2f27f1d19017', '2020-06-26 18:25:07', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'sekill.png', 'https://image.dayouqiantu.cn/sekill.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('a0fc29a301a72712802ef38efe011fc4', '2020-09-11 09:39:13', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'avatar_default.png', 'https://consoleapi.xinxintuan.co/file/pic/20200911093912577832.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('a961d6c0f255083294c27bed47330ad9', '2020-05-27 16:45:27', 'admin', '1', '83ee56004ff88fd1ecdde5a43469ef2e', 'list_13.png', 'http://127.0.0.1:8000/file/pic/20200527164526793230.png', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('b36ab3797cd310a210f5d3dec2d05349', '2020-09-03 17:18:08', 'admin', '1', NULL, '5.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('bd6c9dc5a3373fe377b4aeb0579ed1bb', '2020-06-26 17:35:22', 'admin', '1', NULL, 'list_18.png', 'http://127.0.0.1:8009/api/api/file/pic/20200626173520849370.png', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('c246328a65ecb0170b67334e8ef4683e', '2020-06-26 18:20:58', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'goods.png', 'https://image.dayouqiantu.cn/goods.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('c48c27553f32321e5b5e6cdc2b934484', '2020-09-15 07:41:40', 'admin', '1', NULL, '1600126884(1).jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200915074139926178.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('c83bb0d55e101f6ab525acb1f524b10b', '2020-06-26 17:39:44', 'admin', '1', NULL, 'list_34.png', 'http://127.0.0.1:8000/file/pic/20200626173943611335.png', NULL, 1);
-INSERT INTO `yqm_material` VALUES ('d63a722c0a0e55e73126ff9411ae1224', '2020-06-26 18:20:58', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'coupon.png', 'https://image.dayouqiantu.cn/coupon.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('d98b9f8ad2daa9e9a7567b3ae31b81d7', '2020-06-26 18:24:51', 'admin', '1', 'd9b1b9d69f5b72cda63e26dc9f087623', 'bargin.png', 'https://image.dayouqiantu.cn/bargin.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('eb8aa8d0846009f5b685e9f07a05c836', '2020-09-03 17:10:04', 'admin', '1', NULL, 'avatar_default.png', 'https://consoleapi.xinxintuan.co/file/pic/20200903171003417769.png', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('f04dcbf4b61ab35d0f08f85a27ee92ff', '2020-06-26 18:25:24', 'admin', '1', '8cc5996f6c4b54fcf5c0f2845a5d9afa', '5ca081af6183f.jpg', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', NULL, 0);
-INSERT INTO `yqm_material` VALUES ('f0e8dddf88c587f638e5a7859d8cc7a3', '2020-09-03 17:18:08', 'admin', '1', NULL, '4.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', NULL, 0);
 
 -- ----------------------------
 -- Table structure for yqm_material_group
@@ -2139,11 +1623,6 @@ CREATE TABLE `yqm_store_bargain`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '砍价表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_bargain
--- ----------------------------
-INSERT INTO `yqm_store_bargain` VALUES (12, 7, '专属测试商品', 'https://consoleapi.xinxintuan.co/file/pic/20200903171208889668.png', '张', 7, 3, 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg', '2020-09-12 18:20:56', '2020-09-30 00:00:00', NULL, 100.00, 1.00, 1, 10.00, 1.00, 1, 1, '<p><br/></p><p><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\"/></p>', 0.00, '结算', 110.00, 0, 0, 0, '2020-09-12 18:22:14', NULL, 1, 0.00, '<p>1、规则1</p><p>2、规则2</p>', 40, 23);
-
--- ----------------------------
 -- Table structure for yqm_store_bargain_user
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_bargain_user`;
@@ -2236,84 +1715,6 @@ CREATE TABLE `yqm_store_cart`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 160 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '购物车表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_cart
--- ----------------------------
-INSERT INTO `yqm_store_cart` VALUES (86, 40, 'product', 6, '91d12632e2c047d7b34dab48cfc5a34e', 1, '2020-09-12 14:54:08', '2020-09-12 14:54:45', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (87, 43, 'product', 7, '789984b858bb489bb6313107e11fdc15', 1, '2020-09-12 17:04:12', '2020-09-12 17:06:04', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (88, 43, 'product', 7, '789984b858bb489bb6313107e11fdc15', 1, '2020-09-12 17:06:54', '2020-09-12 17:07:00', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (89, 43, 'product', 7, '789984b858bb489bb6313107e11fdc15', 1, '2020-09-12 17:07:53', '2020-09-12 17:07:57', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (90, 43, 'product', 8, '2f7ee7305cfe43f782ea28c0235256db', 1, '2020-09-12 17:27:03', '2020-09-12 17:27:24', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (91, 43, 'product', 8, '183fcbaffb3849c48de2e87a226209b9', 1, '2020-09-12 17:48:03', '2020-09-12 17:48:14', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (92, 43, 'product', 7, '789984b858bb489bb6313107e11fdc15', 1, '2020-09-12 17:54:50', NULL, 0, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (93, 43, 'product', 8, '67138eee0bed408abe7d32b0ab2060b0', 1, '2020-09-12 17:56:08', NULL, 0, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (94, 43, 'product', 7, '789984b858bb489bb6313107e11fdc15', 1, '2020-09-12 18:10:27', NULL, 0, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (95, 43, 'product', 8, '183fcbaffb3849c48de2e87a226209b9', 1, '2020-09-12 18:10:44', '2020-09-12 18:11:05', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (96, 43, 'product', 8, 'f25af180071742458622febf7dde528b', 1, '2020-09-12 18:18:27', '2020-09-12 18:18:37', 1, 0, 1, 10, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (97, 42, 'product', 3, 'b951f8e2ed4641f08be1bce99b716a6d', 1, '2020-09-12 19:27:31', NULL, 0, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (98, 42, 'product', 8, '013f89ec740f478d8144f052909c0807', 1, '2020-09-12 19:42:36', NULL, 0, 0, 1, 10, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (99, 40, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-12 23:18:58', '2020-09-13 15:01:09', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (100, 53, 'product', 5, '4dd9ea6fb9f1414aabf18b713f0f6832', 1, '2020-09-13 02:29:15', '2020-09-13 02:29:37', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (101, 53, 'product', 8, '013f89ec740f478d8144f052909c0807', 1, '2020-09-13 03:54:24', '2020-09-13 03:54:28', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (102, 42, 'product', 8, '8112da382da7420f961203372f7c1d31', 1, '2020-09-13 06:59:31', NULL, 0, 0, 1, 0, 7, 0);
-INSERT INTO `yqm_store_cart` VALUES (103, 44, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-13 10:15:35', '2020-09-13 10:18:02', 1, 0, 1, 0, 6, 0);
-INSERT INTO `yqm_store_cart` VALUES (104, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 10:41:44', '2020-09-13 10:41:49', 1, 0, 1, 5, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (105, 53, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-13 10:42:37', '2020-09-13 10:42:42', 1, 0, 1, 0, 6, 0);
-INSERT INTO `yqm_store_cart` VALUES (106, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 10:58:02', '2020-09-13 11:04:18', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (107, 42, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:04:15', '2020-09-14 10:59:22', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (108, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:05:22', '2020-09-13 11:05:26', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (109, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:06:59', '2020-09-13 11:07:03', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (110, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:07:24', '2020-09-13 11:07:29', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (111, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:08:49', '2020-09-13 11:08:53', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (112, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:09:01', '2020-09-13 11:09:05', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (113, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:11:33', '2020-09-13 11:11:38', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (114, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:18:03', '2020-09-13 11:18:06', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (115, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:42:10', '2020-09-13 11:42:13', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (116, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:43:03', '2020-09-13 11:43:09', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (117, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:46:23', '2020-09-13 11:46:28', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (118, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:56:22', '2020-09-13 11:56:24', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (119, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 11:57:35', '2020-09-13 11:57:38', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (120, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 12:00:39', '2020-09-13 12:00:42', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (121, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 20:00:13', '2020-09-13 20:00:16', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (122, 53, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 20:01:24', '2020-09-13 20:01:49', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (123, 42, 'product', 2, '04e9d586cef8464aaee0a45439f12520', 1, '2020-09-13 21:32:46', '2020-09-13 21:33:38', 1, 0, 1, 16, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (124, 42, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 21:33:49', '2020-09-13 21:33:51', 1, 0, 1, 5, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (125, 54, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-13 22:04:08', '2020-09-13 22:05:10', 1, 0, 1, 5, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (126, 50, 'product', 3, 'b951f8e2ed4641f08be1bce99b716a6d', 1, '2020-09-13 22:04:30', '2020-09-13 22:04:52', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (127, 50, 'product', 4, '6a1919d9178b48f3a75fe4640e51693e', 1, '2020-09-13 22:12:38', '2020-09-13 22:12:44', 1, 0, 1, 7, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (128, 49, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-13 23:59:44', '2020-09-14 00:01:07', 1, 0, 1, 6, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (129, 49, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-14 00:02:41', '2020-09-14 00:02:42', 1, 0, 1, 6, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (130, 49, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-14 00:02:48', '2020-09-14 00:02:50', 1, 0, 1, 6, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (131, 59, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-14 00:03:19', '2020-09-14 00:04:08', 1, 0, 1, 6, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (132, 49, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-14 00:03:36', '2020-09-14 00:03:39', 1, 0, 1, 6, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (133, 55, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-14 00:18:43', NULL, 0, 0, 1, 6, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (134, 42, 'product', 3, '43cdbd1043474b4e97a1cffffa18071c', 1, '2020-09-14 08:40:57', '2020-09-14 08:41:02', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (135, 42, 'product', 3, '43cdbd1043474b4e97a1cffffa18071c', 1, '2020-09-14 08:41:11', '2020-09-14 08:41:17', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (136, 42, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-14 09:56:15', NULL, 0, 0, 1, 5, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (137, 61, 'product', 2, '04e9d586cef8464aaee0a45439f12520', 1, '2020-09-14 10:01:46', '2020-09-14 10:02:55', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (138, 61, 'product', 2, '04e9d586cef8464aaee0a45439f12520', 1, '2020-09-14 10:08:05', '2020-09-14 10:08:07', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (139, 40, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-14 10:13:05', '2020-09-14 10:13:17', 1, 0, 1, 5, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (140, 42, 'product', 1, 'd4ce8cd4bda84d479c11348e060afb8e', 1, '2020-09-14 10:18:05', '2020-09-14 10:18:12', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (141, 42, 'product', 1, 'd4ce8cd4bda84d479c11348e060afb8e', 1, '2020-09-14 10:20:20', '2020-09-14 10:20:24', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (142, 42, 'product', 1, 'd4ce8cd4bda84d479c11348e060afb8e', 1, '2020-09-14 10:22:06', '2020-09-14 10:22:12', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (143, 42, 'product', 4, '6a1919d9178b48f3a75fe4640e51693e', 1, '2020-09-14 10:50:38', '2020-09-14 10:50:44', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (144, 42, 'product', 3, '43cdbd1043474b4e97a1cffffa18071c', 1, '2020-09-14 11:00:30', '2020-09-14 11:00:36', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (145, 71, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-14 12:52:02', '2020-09-14 12:53:06', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (146, 71, 'product', 5, '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1, '2020-09-14 13:16:45', '2020-09-14 13:16:46', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (147, 76, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-14 22:20:51', NULL, 0, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (148, 76, 'product', 6, '90babee9cea24645870c6027fc420d42', 1, '2020-09-14 22:20:55', '2020-09-14 22:21:11', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (149, 54, 'product', 2, '04e9d586cef8464aaee0a45439f12520', 1, '2020-09-14 22:34:54', '2020-09-14 22:34:59', 1, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (150, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 1, '2022-08-02 23:01:51', '2022-10-27 20:36:00', 0, 1, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (151, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 2, '2022-10-27 20:42:43', NULL, 0, 1, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (152, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 2, '2022-10-27 20:44:13', NULL, 0, 1, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (153, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 1, '2022-10-27 20:47:55', '2022-11-27 14:39:02', 1, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (154, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 1, '2022-11-28 20:36:19', '2023-01-18 21:29:18', 0, 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (155, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 2, '2022-11-28 20:36:24', '2022-11-28 20:37:05', 1, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (156, 565658, 'product', 1, 'b5c6e887b01749debec7fa5a3dc6f1fe', 1, '2022-11-28 20:36:57', '2022-11-28 20:37:05', 1, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (157, 565658, 'product', 7, 'ad9e9a677d04441d889209ed3ab555ef', 2, '2022-11-28 22:34:51', '2022-11-28 22:34:57', 1, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (158, 565658, 'product', 1, '734c8fc9527743b4a58608568ddd62c2', 2, '2023-01-18 21:19:05', '2023-01-18 21:20:59', 0, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_store_cart` VALUES (159, 565658, 'product', 1, 'b5c6e887b01749debec7fa5a3dc6f1fe', 1, '2023-01-18 21:43:32', NULL, 0, 0, 0, 0, 0, 0);
-
--- ----------------------------
 -- Table structure for yqm_store_category
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_category`;
@@ -2334,17 +1735,6 @@ CREATE TABLE `yqm_store_category`  (
   INDEX `add_time`(`create_time`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品分类表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of yqm_store_category
--- ----------------------------
-INSERT INTO `yqm_store_category` VALUES (1, 0, '图文广告', 1, '', 1, '2020-06-25 18:54:35', NULL, 0);
-INSERT INTO `yqm_store_category` VALUES (2, 1, '写真', 1, 'http://localhost:8000/file/pic/资讯-20200311043727918.png', 1, '2020-06-25 18:54:35', NULL, 1);
-INSERT INTO `yqm_store_category` VALUES (3, 1, '平面设计', 1, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 1, '2020-06-25 18:54:35', '2022-09-28 23:11:10', 0);
-INSERT INTO `yqm_store_category` VALUES (5, 1, '名片', 1, 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 1, '2020-06-25 18:54:35', '2022-09-28 23:11:19', 0);
-INSERT INTO `yqm_store_category` VALUES (6, 0, '666', 1, '', 1, '2020-06-25 18:54:35', NULL, 1);
-INSERT INTO `yqm_store_category` VALUES (7, 0, '99995', 1, '', 1, '2020-06-25 18:54:35', NULL, 1);
-INSERT INTO `yqm_store_category` VALUES (8, 7, '8888', 1, 'http://localhost:8000/file/pic/钻石-20200328094531898.jpg', 1, '2020-06-25 18:54:35', NULL, 1);
-INSERT INTO `yqm_store_category` VALUES (9, 0, '3333', 1, '', 1, '2020-06-25 17:11:45', NULL, 1);
 
 -- ----------------------------
 -- Table structure for yqm_store_combination
@@ -2384,10 +1774,6 @@ CREATE TABLE `yqm_store_combination`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '拼团产品表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of yqm_store_combination
--- ----------------------------
-INSERT INTO `yqm_store_combination` VALUES (1, 1, 0, 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', '照片打印', NULL, 1, '照片打印', 0.10, 1.00, 0, 8, 100, '2022-09-18 15:55:23', NULL, 0, 1, 0, 1, NULL, '<p><br/></p><p><img src=\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\"/></p>', '2022-09-01 00:00:00', '2024-12-25 00:00:00', 1, 3, 0, '张', 0, 34);
 
 -- ----------------------------
 -- Table structure for yqm_store_coupon
@@ -2601,13 +1987,6 @@ CREATE TABLE `yqm_store_order`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_order
--- ----------------------------
-INSERT INTO `yqm_store_order` VALUES (2, '1596755455646892032', NULL, 565658, '张三', '15871301059', '辽宁省 沈阳市 市辖区 测试地址', '153', 0.00, 1, 100.00, 0.00, 100.00, 0.00, 0.00, 0, 0.00, 0, NULL, 'yue', '2022-11-27 14:39:02', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, 0.00, '', NULL, NULL, NULL, 10.00, 0.00, 0.00, 0.00, '', 0, 'fa083fe048a44f9285ff09dc6e812372', NULL, 0, 0, 0, 0, 110.00, 0, 0, '', 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_order` VALUES (4, '1597207948721913856', NULL, 565658, '张三', '15871301059', '辽宁省 沈阳市 市辖区 测试地址', '156,155', 0.00, 3, 322.00, 0.00, 322.00, 0.00, 0.00, 0, 0.00, 0, NULL, 'yue', '2022-11-28 20:37:04', NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, 0.00, '', NULL, NULL, NULL, 20.00, 0.00, 0.00, 0.00, '', 0, '33f336feb30c420886e662f228e60ab6', NULL, 0, 0, 0, 0, 232.00, 0, 0, '', 0, 1, 0, 0, 0);
-INSERT INTO `yqm_store_order` VALUES (5, '1597237614463680512', NULL, 565658, '张三', '15871301059', '辽宁省 沈阳市 市辖区 测试地址', '157', 0.00, 2, 200.00, 0.00, 200.00, 0.00, 0.00, 0, 0.00, 0, NULL, 'yue', '2022-11-28 22:34:57', NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, 0.00, '', NULL, NULL, NULL, 20.00, 0.00, 0.00, 0.00, '', 1, '0d13177419504791b776acfae7e673b7', NULL, 0, 0, 0, 0, 220.00, 0, 0, '', 0, 1, 0, 0, 0);
-
--- ----------------------------
 -- Table structure for yqm_store_order_cart_info
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_order_cart_info`;
@@ -2627,14 +2006,6 @@ CREATE TABLE `yqm_store_order_cart_info`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单购物详情表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_order_cart_info
--- ----------------------------
-INSERT INTO `yqm_store_order_cart_info` VALUES (1, 2, '1596755455646892032', 153, 7, '{\"productId\":7,\"seckillId\":0,\"vipTruePrice\":100.0,\"combinationId\":0,\"costPrice\":110.0,\"trueStock\":10,\"truePrice\":100.0,\"type\":\"product\",\"cartNum\":1,\"productInfo\":{\"specType\":0,\"isIntegral\":0,\"otPrice\":120.00,\"userCollect\":false,\"description\":\"<p><br/></p><p><img style=\\\"max-width: 100%;\\\" src=\\\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\\\"/></p>\",\"isPostage\":0,\"isSub\":0,\"image_base\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"sales\":3,\"integral\":0,\"price\":100.00,\"userLike\":false,\"vipPrice\":0.00,\"storeName\":\"专属测试商品\",\"id\":7,\"keyword\":\"专属测试商品\",\"stock\":10,\"image\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"cost\":110.00,\"isGood\":0,\"unitName\":\"张\",\"giveIntegral\":10.00,\"sort\":0,\"sliderImageArr\":[\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"],\"sliderImage\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"isShow\":1,\"postage\":0.00,\"cateId\":\"3\",\"isSeckill\":0,\"merId\":0,\"ficti\":9,\"storeInfo\":\"\",\"tempId\":34,\"attrInfo\":{\"brokerage\":0.00,\"image\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"cost\":110.00,\"productId\":7,\"otPrice\":120.00,\"weight\":0.00,\"sales\":0,\"barCode\":\"\",\"brokerageTwo\":0.00,\"volume\":0.00,\"integral\":0,\"price\":100.00,\"pinkStock\":10,\"seckillPrice\":0.00,\"unique\":\"ad9e9a677d04441d889209ed3ab555ef\",\"id\":127,\"sku\":\"默认\",\"stock\":10,\"pinkPrice\":1.00,\"seckillStock\":0},\"browse\":311},\"uid\":565658,\"productAttrUnique\":\"ad9e9a677d04441d889209ed3ab555ef\",\"bargainId\":0,\"id\":153}', '045cc2b50dfb4e23bec3bce1ecc5861a', 1);
-INSERT INTO `yqm_store_order_cart_info` VALUES (2, 4, '1597207948721913856', 156, 1, '{\"productId\":1,\"seckillId\":0,\"vipTruePrice\":122.0,\"combinationId\":0,\"costPrice\":12.0,\"trueStock\":55,\"truePrice\":122.0,\"type\":\"product\",\"cartNum\":1,\"productInfo\":{\"specType\":1,\"isIntegral\":0,\"otPrice\":62.00,\"userCollect\":false,\"description\":\"<p><br/></p><p><img style=\\\"max-width: 100%;\\\" src=\\\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\\\"/></p>\",\"isPostage\":0,\"isSub\":0,\"image_base\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"sales\":8,\"integral\":2,\"price\":119.00,\"userLike\":false,\"vipPrice\":0.00,\"storeName\":\"照片打印\",\"id\":1,\"keyword\":\"照片打印\",\"stock\":206,\"image\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"cost\":9.00,\"isGood\":0,\"unitName\":\"张\",\"giveIntegral\":0.00,\"sort\":0,\"sliderImageArr\":[\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\"],\"sliderImage\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"isShow\":1,\"postage\":0.00,\"cateId\":\"5\",\"isSeckill\":0,\"merId\":0,\"ficti\":0,\"storeInfo\":\"照片打印\",\"tempId\":34,\"attrInfo\":{\"brokerage\":0.00,\"image\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"cost\":12.00,\"productId\":1,\"otPrice\":65.00,\"weight\":1.00,\"sales\":0,\"barCode\":\"562256656\",\"brokerageTwo\":0.00,\"volume\":1.00,\"integral\":2,\"price\":122.00,\"pinkStock\":0,\"seckillPrice\":0.00,\"unique\":\"b5c6e887b01749debec7fa5a3dc6f1fe\",\"id\":129,\"sku\":\"A4,白色\",\"stock\":55,\"pinkPrice\":0.00,\"seckillStock\":0},\"browse\":73},\"uid\":565658,\"productAttrUnique\":\"b5c6e887b01749debec7fa5a3dc6f1fe\",\"bargainId\":0,\"id\":156}', '6452a0acd9f74f4f8b9c86ab983490b2', 1);
-INSERT INTO `yqm_store_order_cart_info` VALUES (3, 4, '1597207948721913856', 155, 7, '{\"productId\":7,\"seckillId\":0,\"vipTruePrice\":100.0,\"combinationId\":0,\"costPrice\":110.0,\"trueStock\":9,\"truePrice\":100.0,\"type\":\"product\",\"cartNum\":2,\"productInfo\":{\"specType\":0,\"isIntegral\":0,\"otPrice\":120.00,\"userCollect\":false,\"description\":\"<p><br/></p><p><img style=\\\"max-width: 100%;\\\" src=\\\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\\\"/></p>\",\"isPostage\":0,\"isSub\":0,\"image_base\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"sales\":4,\"integral\":0,\"price\":100.00,\"userLike\":false,\"vipPrice\":0.00,\"storeName\":\"专属测试商品\",\"id\":7,\"keyword\":\"专属测试商品\",\"stock\":9,\"image\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"cost\":110.00,\"isGood\":0,\"unitName\":\"张\",\"giveIntegral\":10.00,\"sort\":0,\"sliderImageArr\":[\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"],\"sliderImage\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"isShow\":1,\"postage\":0.00,\"cateId\":\"3\",\"isSeckill\":0,\"merId\":0,\"ficti\":9,\"storeInfo\":\"\",\"tempId\":34,\"attrInfo\":{\"brokerage\":0.00,\"image\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"cost\":110.00,\"productId\":7,\"otPrice\":120.00,\"weight\":0.00,\"sales\":1,\"barCode\":\"\",\"brokerageTwo\":0.00,\"volume\":0.00,\"integral\":0,\"price\":100.00,\"pinkStock\":10,\"seckillPrice\":0.00,\"unique\":\"ad9e9a677d04441d889209ed3ab555ef\",\"id\":127,\"sku\":\"默认\",\"stock\":9,\"pinkPrice\":1.00,\"seckillStock\":0},\"browse\":315},\"uid\":565658,\"productAttrUnique\":\"ad9e9a677d04441d889209ed3ab555ef\",\"bargainId\":0,\"id\":155}', 'f11c6a3f61f148aa84e420dc1e062aa0', 1);
-INSERT INTO `yqm_store_order_cart_info` VALUES (4, 5, '1597237614463680512', 157, 7, '{\"productId\":7,\"seckillId\":0,\"vipTruePrice\":100.0,\"combinationId\":0,\"costPrice\":110.0,\"trueStock\":7,\"truePrice\":100.0,\"type\":\"product\",\"cartNum\":2,\"productInfo\":{\"specType\":0,\"isIntegral\":0,\"otPrice\":120.00,\"userCollect\":false,\"description\":\"<p><br/></p><p><img style=\\\"max-width: 100%;\\\" src=\\\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\\\"/></p>\",\"isPostage\":0,\"isSub\":0,\"image_base\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"sales\":6,\"integral\":0,\"price\":100.00,\"userLike\":false,\"vipPrice\":0.00,\"storeName\":\"专属测试商品\",\"id\":7,\"keyword\":\"专属测试商品\",\"stock\":7,\"image\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"cost\":110.00,\"isGood\":0,\"unitName\":\"张\",\"giveIntegral\":10.00,\"sort\":0,\"sliderImageArr\":[\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"],\"sliderImage\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"isShow\":1,\"postage\":0.00,\"cateId\":\"3\",\"isSeckill\":0,\"merId\":0,\"ficti\":9,\"storeInfo\":\"\",\"tempId\":34,\"attrInfo\":{\"brokerage\":0.00,\"image\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"cost\":110.00,\"productId\":7,\"otPrice\":120.00,\"weight\":0.00,\"sales\":3,\"barCode\":\"\",\"brokerageTwo\":0.00,\"volume\":0.00,\"integral\":0,\"price\":100.00,\"pinkStock\":10,\"seckillPrice\":0.00,\"unique\":\"ad9e9a677d04441d889209ed3ab555ef\",\"id\":127,\"sku\":\"默认\",\"stock\":7,\"pinkPrice\":1.00,\"seckillStock\":0},\"browse\":317},\"uid\":565658,\"productAttrUnique\":\"ad9e9a677d04441d889209ed3ab555ef\",\"bargainId\":0,\"id\":157}', 'edca0a9918584f46b0a59e6c048e8a9a', 1);
-
--- ----------------------------
 -- Table structure for yqm_store_order_status
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_order_status`;
@@ -2648,13 +2019,6 @@ CREATE TABLE `yqm_store_order_status`  (
   INDEX `oid`(`oid`) USING BTREE,
   INDEX `change_type`(`change_type`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单操作记录表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_store_order_status
--- ----------------------------
-INSERT INTO `yqm_store_order_status` VALUES (1, 2, 'yqm-shop_create_order', '订单生成', '2022-11-27 14:39:01');
-INSERT INTO `yqm_store_order_status` VALUES (2, 4, 'yqm-shop_create_order', '订单生成', '2022-11-28 20:37:04');
-INSERT INTO `yqm_store_order_status` VALUES (3, 5, 'yqm-shop_create_order', '订单生成', '2022-11-28 22:34:57');
 
 -- ----------------------------
 -- Table structure for yqm_store_pink
@@ -2748,17 +2112,6 @@ CREATE TABLE `yqm_store_product`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_product
--- ----------------------------
-INSERT INTO `yqm_store_product` VALUES (1, 0, 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', '照片打印', '照片打印', '照片打印', '', '5', 119.00, 0.00, 62.00, 0.00, '张', 0, 9, 205, 1, 0, 0, 0, 0, '<p><br/></p><p><img style=\"max-width: 100%;\" src=\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\"/></p>', '2020-09-04 17:41:30', '2022-10-12 19:55:33', 0, 0, 0, 0.00, 9.00, 0, NULL, 0, 0, 88, '', 0, 34, 1, 0, 2);
-INSERT INTO `yqm_store_product` VALUES (2, 0, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg,https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg,https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', 'X型展架', 'X型展架', 'X型展架', '', '3', 10.00, 0.00, 12.00, 0.00, '张', 0, 20, 3310, 1, 1, 1, 0, 0, '<p><br/></p><p><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\"/></p>', '2020-09-04 17:55:16', '2020-09-05 20:57:41', 0, 1, 0, 0.00, 11.00, 0, NULL, 0, 69, 25, '', 0, 34, 1, 0, 0);
-INSERT INTO `yqm_store_product` VALUES (3, 0, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', '彩色复印-量大有优惠', '彩色复印', '彩色复印', '', '3', 2.00, 0.00, 1.00, 0.00, '张', 0, 8, 9996, 1, 1, 1, 0, 0, '<p>1111</p>', '2020-09-07 13:14:50', '2020-09-13 22:18:46', 0, 1, 0, 0.00, 1.00, 0, NULL, 0, 0, 43, '', 0, 34, 0, 0, 0);
-INSERT INTO `yqm_store_product` VALUES (4, 0, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg', '户外写真背胶', '户外写真背胶', '户外写真背胶', '', '3', 2.00, 0.00, 1.00, 0.00, '米', 0, 24, 87, 1, 1, 1, 0, 0, '<p>户外写真背胶</p>', '2020-09-07 13:16:02', NULL, 0, 1, 0, 0.00, 1.00, 0, NULL, 0, 0, 32, '', 0, 34, 0, 0, 0);
-INSERT INTO `yqm_store_product` VALUES (5, 0, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', '广告版定制', '广告版定制', '广告版定制', '', '3', 2.00, 0.00, 11.00, 0.00, '米', 0, 16, 2, 1, 1, 1, 1, 1, '<p>广告版定制</p>', '2020-09-07 13:17:49', '2020-09-12 00:14:32', 0, 1, 0, 0.00, 1.00, 0, NULL, 0, 0, 26, '', 0, 34, 0, 0, 0);
-INSERT INTO `yqm_store_product` VALUES (6, 0, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', '印刷各种印刷', '印刷各种印刷', '印刷各种印刷', '', '3', 11.00, 0.00, 33.00, 0.00, '张', 1, 35, 9989, 1, 1, 1, 0, 0, '<p>印刷各种印刷</p>', '2020-09-07 13:18:45', '2020-12-20 20:58:32', 0, 1, 0, 1.00, 22.00, 0, NULL, 0, 1, 139, '', 0, 34, 0, 0, 0);
-INSERT INTO `yqm_store_product` VALUES (7, 0, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg', '专属测试商品', '', '专属测试商品', '', '3', 100.00, 0.00, 120.00, 0.00, '张', 0, 6, 7, 1, 1, 1, 1, 1, '<p><br/></p><p><img style=\"max-width: 100%;\" src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\"/></p>', '2020-09-12 16:11:05', '2022-07-14 20:25:32', 0, 0, 0, 10.00, 110.00, 0, NULL, 0, 9, 361, '', 0, 34, 0, 0, 0);
-
--- ----------------------------
 -- Table structure for yqm_store_product_attr
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_product_attr`;
@@ -2771,21 +2124,6 @@ CREATE TABLE `yqm_store_product_attr`  (
   INDEX `store_id`(`product_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品属性表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of yqm_store_product_attr
--- ----------------------------
-INSERT INTO `yqm_store_product_attr` VALUES (55, 4, '规格', '默认');
-INSERT INTO `yqm_store_product_attr` VALUES (57, 2, '纸张', 'A4,A3');
-INSERT INTO `yqm_store_product_attr` VALUES (58, 2, '颜色', '白色,红色');
-INSERT INTO `yqm_store_product_attr` VALUES (59, 0, '规格', '默认');
-INSERT INTO `yqm_store_product_attr` VALUES (69, 5, '规格', '默认');
-INSERT INTO `yqm_store_product_attr` VALUES (70, 3, '规格', '默认');
-INSERT INTO `yqm_store_product_attr` VALUES (71, 6, '规格', '默认');
-INSERT INTO `yqm_store_product_attr` VALUES (76, 8, '纸张', 'A4,A3,A5');
-INSERT INTO `yqm_store_product_attr` VALUES (77, 8, '颜色', '白色,红色');
-INSERT INTO `yqm_store_product_attr` VALUES (79, 7, '规格', '默认');
-INSERT INTO `yqm_store_product_attr` VALUES (81, 1, '纸张', 'A4,A3');
-INSERT INTO `yqm_store_product_attr` VALUES (82, 1, '颜色', '白色,红色');
 
 -- ----------------------------
 -- Table structure for yqm_store_product_attr_result
@@ -2799,16 +2137,6 @@ CREATE TABLE `yqm_store_product_attr_result`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `product_id`(`product_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品属性详情表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_store_product_attr_result
--- ----------------------------
-INSERT INTO `yqm_store_product_attr_result` VALUES (44, 4, '{\"attr\":[{\"attrHidden\":\"\",\"detail\":[\"默认\"],\"detailValue\":\"\",\"value\":\"规格\"}],\"value\":[{\"barCode\":\"\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":0.0,\"detail\":{\"规格\":\"默认\"},\"otPrice\":0.0,\"pic\":\"https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg\",\"pinkPrice\":22.0,\"pinkStock\":18,\"price\":0.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"stock\":93,\"value1\":\"规格\",\"volume\":0.0,\"weight\":0.0,\"integral\":0}]}', '2020-09-12 15:55:17');
-INSERT INTO `yqm_store_product_attr_result` VALUES (54, 5, '{\"attr\":[{\"attrHidden\":\"\",\"detail\":[\"默认\"],\"detailValue\":\"\",\"value\":\"规格\"}],\"value\":[{\"barCode\":\"1231321\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":1.0,\"detail\":{\"规格\":\"默认\"},\"otPrice\":11.0,\"pic\":\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\",\"pinkPrice\":29.0,\"pinkStock\":10,\"price\":2.0,\"seckillPrice\":11.99,\"seckillStock\":10,\"stock\":11,\"value1\":\"规格\",\"volume\":1.0,\"weight\":1.0,\"integral\":0}]}', '2020-09-13 10:15:24');
-INSERT INTO `yqm_store_product_attr_result` VALUES (55, 3, '{\"attr\":[{\"attrHidden\":\"\",\"detail\":[\"默认\"],\"detailValue\":\"\",\"value\":\"规格\"}],\"value\":[{\"barCode\":\"\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":1.0,\"detail\":{\"规格\":\"默认\"},\"otPrice\":1.0,\"pic\":\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\",\"pinkPrice\":119.99,\"pinkStock\":10,\"price\":2.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"stock\":9999,\"value1\":\"规格\",\"volume\":0.0,\"weight\":0.0,\"integral\":0}]}', '2020-09-13 22:18:46');
-INSERT INTO `yqm_store_product_attr_result` VALUES (59, 6, '{\"attr\":[{\"attrHidden\":\"\",\"detail\":[\"默认\"],\"detailValue\":\"\",\"value\":\"规格\"}],\"value\":[{\"barCode\":\"00002\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":22.0,\"detail\":{\"规格\":\"默认\"},\"otPrice\":33.0,\"pic\":\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\",\"pinkPrice\":19.9,\"pinkStock\":99,\"price\":11.0,\"seckillPrice\":22.98,\"seckillStock\":2000,\"stock\":9989,\"value1\":\"规格\",\"volume\":1.0,\"weight\":1.0,\"integral\":0}]}', '2020-10-13 17:09:28');
-INSERT INTO `yqm_store_product_attr_result` VALUES (62, 7, '{\"attr\":[{\"attrHidden\":\"\",\"detail\":[\"默认\"],\"detailValue\":\"\",\"value\":\"规格\"}],\"value\":[{\"barCode\":\"\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":110.0,\"detail\":{\"规格\":\"默认\"},\"integral\":0,\"otPrice\":120.0,\"pic\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"pinkPrice\":1.0,\"pinkStock\":10,\"price\":100.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"stock\":10,\"value1\":\"规格\",\"volume\":0.0,\"weight\":0.0}]}', '2022-07-14 20:25:32');
-INSERT INTO `yqm_store_product_attr_result` VALUES (64, 1, '{\"attr\":[{\"detail\":[\"A4\",\"A3\"],\"value\":\"纸张\"},{\"detail\":[\"白色\",\"红色\"],\"value\":\"颜色\"}],\"value\":[{\"barCode\":\"562256656\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":12.0,\"detail\":{\"纸张\":\"A4\",\"颜色\":\"白色\"},\"integral\":2,\"otPrice\":65.0,\"pic\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"pinkPrice\":0.0,\"pinkStock\":0,\"price\":122.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"sku\":\"\",\"stock\":55,\"value1\":\"A4\",\"value2\":\"白色\",\"volume\":1.0,\"weight\":1.0},{\"barCode\":\"666558\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":11.0,\"detail\":{\"纸张\":\"A4\",\"颜色\":\"红色\"},\"integral\":2,\"otPrice\":64.0,\"pic\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"pinkPrice\":0.0,\"pinkStock\":0,\"price\":121.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"sku\":\"\",\"stock\":66,\"value1\":\"A4\",\"value2\":\"红色\",\"volume\":1.0,\"weight\":1.0},{\"barCode\":\"66534\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":10.0,\"detail\":{\"纸张\":\"A3\",\"颜色\":\"白色\"},\"integral\":2,\"otPrice\":63.0,\"pic\":\"https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg\",\"pinkPrice\":0.0,\"pinkStock\":0,\"price\":120.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"sku\":\"\",\"stock\":77,\"value1\":\"A3\",\"value2\":\"白色\",\"volume\":1.0,\"weight\":2.0},{\"barCode\":\"445888+\",\"brokerage\":0.0,\"brokerageTwo\":0.0,\"cost\":9.0,\"detail\":{\"纸张\":\"A3\",\"颜色\":\"红色\"},\"integral\":2,\"otPrice\":62.0,\"pic\":\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\",\"pinkPrice\":0.0,\"pinkStock\":0,\"price\":119.0,\"seckillPrice\":0.0,\"seckillStock\":0,\"sku\":\"\",\"stock\":8,\"value1\":\"A3\",\"value2\":\"红色\",\"volume\":1.0,\"weight\":2.0}]}', '2022-10-12 19:55:33');
 
 -- ----------------------------
 -- Table structure for yqm_store_product_attr_value
@@ -2841,30 +2169,6 @@ CREATE TABLE `yqm_store_product_attr_value`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 133 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品属性值表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_product_attr_value
--- ----------------------------
-INSERT INTO `yqm_store_product_attr_value` VALUES (77, 4, '默认', 91, 2, 0.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', '6a1919d9178b48f3a75fe4640e51693e', 0.00, '', 0.00, 0.00, 0.00, 0.00, 0.00, 22.00, 17, 0.00, 0, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (79, 2, 'A4,白色', 987, 4, 10.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', '04e9d586cef8464aaee0a45439f12520', 11.00, '00001', 12.00, 0.00, 0.00, 0.00, 0.00, 11.09, 99, 1.00, 100, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (80, 2, 'A4,红色', 661, 0, 11.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', '3d1ffa92e6064c36b614d3046c268968', 11.00, '00002', 12.00, 0.00, 0.00, 0.00, 0.00, 22.88, 99, 2.00, 100, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (81, 2, 'A3,白色', 995, 0, 12.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', '344f3a0e9d644845ae483c8b9a84a112', 11.00, '00003', 12.00, 0.00, 0.00, 0.00, 0.00, 33.89, 99, 3.00, 100, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (82, 2, 'A3,红色', 665, 0, 13.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', '4a9ca8587855412ea7be9ba53f829052', 11.00, '00004', 12.00, 0.00, 0.00, 0.00, 0.00, 45.66, 100, 4.00, 100, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (83, 0, '默认', 10, 0, 100.00, 'https://consoleapi.xinxintuan.co/file/pic/20200911093912577832.png', 'bbdc071ff67c4892839eac9f62e7eb18', 110.00, '', 120.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0.00, 0, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (105, 5, '默认', 3, 8, 2.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', '040fb7ab2a8b4ff3b6c9d1c78ea3e889', 1.00, '1231321', 11.00, 1.00, 1.00, 0.00, 0.00, 29.00, 5, 11.99, 8, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (106, 3, '默认', 9996, 3, 2.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', '43cdbd1043474b4e97a1cffffa18071c', 1.00, '', 1.00, 0.00, 0.00, 0.00, 0.00, 119.99, 10, 0.00, 0, NULL);
-INSERT INTO `yqm_store_product_attr_value` VALUES (107, 6, '默认', 9989, 0, 11.00, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', '4dcb457a13924be7b246f72f03ea7931', 22.00, '00002', 33.00, 1.00, 1.00, 0.00, 0.00, 19.90, 99, 22.98, 2000, 0000000000);
-INSERT INTO `yqm_store_product_attr_value` VALUES (120, 8, 'A4,白色', 95, 0, 9.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', '9306b671348a41d2966392578a31e00b', 1.00, '', 12.00, 0.00, 0.00, 1.00, 1.00, 1.00, 9, 1.00, 10, 0000000100);
-INSERT INTO `yqm_store_product_attr_value` VALUES (121, 8, 'A4,红色', 99, 0, 8.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'e3fc8496d4a0484a9946d84b03a78eee', 1.00, '', 9.00, 0.00, 0.00, 1.00, 1.00, 2.00, 10, 1.00, 10, 0000000200);
-INSERT INTO `yqm_store_product_attr_value` VALUES (122, 8, 'A3,白色', 88, 0, 7.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'a05ff262758548edbef5fda9e6dc26de', 1.00, '', 9.00, 0.00, 0.00, 1.00, 1.00, 0.50, 10, 0.10, 10, 0000000300);
-INSERT INTO `yqm_store_product_attr_value` VALUES (123, 8, 'A3,红色', 88, 0, 6.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'dc866a081e2b4a72b2ee9468ad7ba171', 1.00, '', 9.00, 0.00, 0.00, 1.00, 1.00, 1.00, 9, 0.10, 9, 0000000400);
-INSERT INTO `yqm_store_product_attr_value` VALUES (124, 8, 'A5,白色', 65, 0, 5.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', '094a42db903648acb275c868af2bd6ba', 1.00, '', 9.00, 0.00, 0.00, 1.00, 1.00, 2.00, 9, 0.10, 9, 0000000500);
-INSERT INTO `yqm_store_product_attr_value` VALUES (125, 8, 'A5,红色', 66, 0, 4.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'c35190bdfb5248ba9a219481adef9b1b', 1.00, '', 9.00, 0.00, 0.00, 1.00, 1.00, 3.00, 9, 0.10, 9, 0000069090);
-INSERT INTO `yqm_store_product_attr_value` VALUES (127, 7, '默认', 7, 3, 100.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'ad9e9a677d04441d889209ed3ab555ef', 110.00, '', 120.00, 0.00, 0.00, 0.00, 0.00, 1.00, 10, 0.00, 0, 0000000000);
-INSERT INTO `yqm_store_product_attr_value` VALUES (129, 1, 'A4,白色', 54, 1, 122.00, 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 'b5c6e887b01749debec7fa5a3dc6f1fe', 12.00, '562256656', 65.00, 1.00, 1.00, 0.00, 0.00, 0.00, 0, 0.00, 0, 0000000002);
-INSERT INTO `yqm_store_product_attr_value` VALUES (130, 1, 'A4,红色', 66, 0, 121.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'a87b048e2c7f492093b728f287542863', 11.00, '666558', 64.00, 1.00, 1.00, 0.00, 0.00, 0.00, 0, 0.00, 0, 0000000002);
-INSERT INTO `yqm_store_product_attr_value` VALUES (131, 1, 'A3,白色', 77, 0, 120.00, 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 'aa08033572654406882bd363ffab462b', 10.00, '66534', 63.00, 2.00, 1.00, 0.00, 0.00, 0.00, 0, 0.00, 0, 0000000002);
-INSERT INTO `yqm_store_product_attr_value` VALUES (132, 1, 'A3,红色', 8, 0, 119.00, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', '734c8fc9527743b4a58608568ddd62c2', 9.00, '445888+', 62.00, 2.00, 1.00, 0.00, 0.00, 0.00, 0, 0.00, 0, 0000000002);
-
--- ----------------------------
 -- Table structure for yqm_store_product_relation
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_product_relation`;
@@ -2882,19 +2186,6 @@ CREATE TABLE `yqm_store_product_relation`  (
   INDEX `type`(`type`) USING BTREE,
   INDEX `category`(`category`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品点赞和收藏表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_store_product_relation
--- ----------------------------
-INSERT INTO `yqm_store_product_relation` VALUES (1, 565658, 7, 'foot', NULL, '2023-01-27 18:47:18', '2023-01-27 18:47:18', 1);
-INSERT INTO `yqm_store_product_relation` VALUES (2, 565658, 7, 'collect', NULL, '2022-08-02 22:48:27', NULL, 1);
-INSERT INTO `yqm_store_product_relation` VALUES (3, 565658, 7, 'collect', NULL, '2022-10-18 20:27:24', NULL, 1);
-INSERT INTO `yqm_store_product_relation` VALUES (4, 565658, 7, 'collect', NULL, '2022-10-18 20:31:23', NULL, 1);
-INSERT INTO `yqm_store_product_relation` VALUES (5, 565658, 7, 'collect', NULL, '2022-10-18 21:13:35', NULL, 1);
-INSERT INTO `yqm_store_product_relation` VALUES (6, 565658, 1, 'foot', NULL, '2023-01-27 18:51:14', '2023-01-27 18:51:14', 1);
-INSERT INTO `yqm_store_product_relation` VALUES (7, 565658, 7, 'collect', NULL, '2023-01-18 21:40:14', NULL, 1);
-INSERT INTO `yqm_store_product_relation` VALUES (8, 565658, 7, 'collect', NULL, '2023-01-18 21:41:17', NULL, 0);
-INSERT INTO `yqm_store_product_relation` VALUES (9, 565658, 7, 'foot', NULL, '2023-01-29 15:22:29', '2023-01-29 15:22:29', 0);
 
 -- ----------------------------
 -- Table structure for yqm_store_product_reply
@@ -2924,11 +2215,6 @@ CREATE TABLE `yqm_store_product_reply`  (
   INDEX `product_score`(`product_score`) USING BTREE,
   INDEX `service_score`(`service_score`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '评论表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_store_product_reply
--- ----------------------------
-INSERT INTO `yqm_store_product_reply` VALUES (3, 43, 67, 'c1907f2efeff48168c119ee28ddcac42', 8, 'product', 5, 5, '棒棒哒', '', '2020-09-12 17:45:11', NULL, NULL, NULL, 0, 0);
 
 -- ----------------------------
 -- Table structure for yqm_store_product_rule
@@ -2997,13 +2283,6 @@ CREATE TABLE `yqm_store_seckill`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品秒杀产品表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_seckill
--- ----------------------------
-INSERT INTO `yqm_store_seckill` VALUES (5, 6, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg,https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', '印刷各种印刷', '印刷各种印刷', 11.00, 22.00, 33.00, NULL, 1, 2000, 12, '张', 22.98, '<h1 style=\"text-align: center;\"><span style=\"font-family: 楷体, 楷体_GB2312, SimKai; font-size: 36px;\">印刷各种印刷</span></h1><p style=\"text-align: center;\"><span style=\"font-family: 楷体, 楷体_GB2312, SimKai; font-size: 36px;\"><br/></span></p><p style=\"text-align: center;\"><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg\"/></p>', '2020-09-12', '2020-09-30', '2020-09-12 16:11:31', NULL, 1, 0, 0, 0, 2, 1, 211, 0, 34);
-INSERT INTO `yqm_store_seckill` VALUES (6, 5, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', '广告版定制', '广告版定制', 2.00, 1.00, 11.00, NULL, 0, 8, 9, '米', 11.99, '<p style=\"text-align: center;\">广告版定制</p><p style=\"text-align: center;\"><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\"/></p>', '2020-09-12', '2020-09-30', '2020-09-12 16:13:22', '2020-09-13 10:15:24', 1, 0, 0, 0, 2, 1, 212, 0, 34);
-INSERT INTO `yqm_store_seckill` VALUES (7, 8, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', '多规格商品测试', '多规格商品测试', 4.00, 1.00, 9.00, NULL, 0, 57, 4, '张', 0.10, '<p><br/></p><p><img src=\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"/></p>', '2020-09-10', '2020-09-30', '2020-09-12 18:23:33', NULL, 1, 0, 0, 0, 1, 1, 215, 1, 34);
-
--- ----------------------------
 -- Table structure for yqm_store_visit
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_visit`;
@@ -3045,24 +2324,6 @@ CREATE TABLE `yqm_system_attachment`  (
   `is_del` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`att_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 127 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '附件管理表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_system_attachment
--- ----------------------------
-INSERT INTO `yqm_system_attachment` VALUES (113, '12_55_wechat_bargain_share_wap.jpg', '/home/yqm-shop/file/qrcode/12_55_wechat_bargain_share_wap.jpg', 'qrcode/12_55_wechat_bargain_share_wap.jpg', '3897220', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:38:52', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (114, '12_55_wechat_bargain_user_spread.jpg', '/home/yqm-shop/file/qrcode/12_55_wechat_bargain_user_spread.jpg', 'qrcode/12_55_wechat_bargain_user_spread.jpg', '43231', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:38:53', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (115, '4_59_uniappH5_product_detail_wap.jpg', '/home/yqm-shop/file/qrcode/4_59_uniappH5_product_detail_wap.jpg', 'qrcode/4_59_uniappH5_product_detail_wap.jpg', '3904929', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:43:20', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (116, '4_59_uniappH5_product_user_spread.jpg', '/home/yqm-shop/file/qrcode/4_59_uniappH5_product_user_spread.jpg', 'qrcode/4_59_uniappH5_product_user_spread.jpg', '113247', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:43:20', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (117, '4_75_uniappH5_product_detail_wap.jpg', '/home/yqm-shop/file/qrcode/4_75_uniappH5_product_detail_wap.jpg', 'qrcode/4_75_uniappH5_product_detail_wap.jpg', '4025717', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 17:25:11', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (118, '4_75_uniappH5_product_user_spread.jpg', '/home/yqm-shop/file/qrcode/4_75_uniappH5_product_user_spread.jpg', 'qrcode/4_75_uniappH5_product_user_spread.jpg', '113146', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 17:25:11', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (119, '915891458048_yqm-shop.jpg', '/home/yqm-shop/file/qrcode/915891458048_yqm-shop.jpg', 'qrcode/915891458048_yqm-shop.jpg', '4148444', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 22:21:17', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (120, '915891458048_yqm-shop.jpg', '/home/yqm-shop/file/qrcode/915891458048_yqm-shop.jpg', 'qrcode/915891458048_yqm-shop.jpg', '4148444', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 22:21:17', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (121, '7_565658_uniappH5_product_detail_wap.jpg', '/home/yqm-shop/file/qrcode/7_565658_uniappH5_product_detail_wap.jpg', 'qrcode/7_565658_uniappH5_product_detail_wap.jpg', '7434', 'image/jpeg', 0, 1, 1, 0, '', '2022-10-17 20:18:19', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (122, '7_565658_uniappH5_product_user_spread.jpg', '/home/yqm-shop/file/qrcode/7_565658_uniappH5_product_user_spread.jpg', 'qrcode/7_565658_uniappH5_product_user_spread.jpg', '96429', 'image/jpeg', 0, 1, 1, 0, '', '2022-10-17 20:18:20', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (123, '565658_uniappH5_user_wap.jpg', '/home/yqm-shop/file/qrcode/565658_uniappH5_user_wap.jpg', 'qrcode/565658_uniappH5_user_wap.jpg', '111304', 'image/jpeg', 0, 1, 1, 0, '', '2022-11-12 12:53:21', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (124, '565658_uniappH5_user_spread.jpg', '/home/yqm-shop/file/qrcode/565658_uniappH5_user_spread.jpg', 'qrcode/565658_uniappH5_user_spread.jpg', '54641', 'image/jpeg', 0, 1, 1, 0, '', '2022-11-12 12:53:22', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (125, '565658_taroH5_user_wap.jpg', '/home/yqm-shop/file/qrcode/565658_taroH5_user_wap.jpg', 'qrcode/565658_taroH5_user_wap.jpg', '173386', 'image/jpeg', 0, 1, 1, 0, '', '2022-11-12 14:08:33', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (126, '565658_taroH5_user_spread.jpg', '/home/yqm-shop/file/qrcode/565658_taroH5_user_spread.jpg', 'qrcode/565658_taroH5_user_spread.jpg', '54641', 'image/jpeg', 0, 1, 1, 0, '', '2022-11-12 14:08:34', NULL, 0);
 
 -- ----------------------------
 -- Table structure for yqm_system_city
@@ -7092,7 +6353,7 @@ INSERT INTO `yqm_system_config` VALUES (223, 'imageArr', '[\"\"]', 0, 0);
 INSERT INTO `yqm_system_config` VALUES (224, 'wechat_ma_encodingaeskey', '', 0, 0);
 INSERT INTO `yqm_system_config` VALUES (225, 'wxapi', 'http://你的H5api端域名/api/wxapp/serve', 0, 0);
 INSERT INTO `yqm_system_config` VALUES (226, 'wechat_ma_token', '', 0, 0);
-INSERT INTO `yqm_system_config` VALUES (222, 'admin_api_url', '/file/', 0, 0);
+INSERT INTO `yqm_system_config` VALUES (222, 'img_url', '/file/', 0, 0);
 
 -- ----------------------------
 -- Table structure for yqm_system_group_data
@@ -7185,12 +6446,6 @@ CREATE TABLE `yqm_system_store`  (
   INDEX `phone`(`phone`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '门店自提' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of yqm_system_store
--- ----------------------------
-INSERT INTO `yqm_system_store` VALUES (3, 'yqm-shop店铺', 'springboot商城', '1513617000', '湖北宜昌', '', 'https://image.dayouqiantu.cn/noMeal_tt.png', '33.54528', '113.9202', '2020-03-09 - 2020-04-30', '11:33:49 - 19:33:49', '2020-06-25 18:54:35', '2022-08-03 22:18:54', 0, 0, '2020-03-04 19:33:49', '2020-03-04 11:33:49', '2020-04-30 00:00:00', '2020-03-09 00:00:00');
-INSERT INTO `yqm_system_store` VALUES (4, '武汉门店', '武汉门店', '15136275656', '湖北武汉', '', 'https://image.dayouqiantu.cn/noMeal_tt.png', '32.11683', '114.05857', '2020-03-21 - 2020-03-31', '17:11:13 - 20:11:13', '2020-06-25 18:54:35', '2022-08-03 22:19:13', 1, 0, '2020-03-21 20:11:13', '2020-03-21 17:11:13', '2020-03-31 00:00:00', '2020-03-21 00:00:00');
-INSERT INTO `yqm_system_store` VALUES (5, '郑州门店', '郑州门店', '15136175246', '河南省郑州', '', 'https://image.dayouqiantu.cn/noMeal_tt.png', '34.72468', '113.6401', '2020-03-21 - 2020-03-31', '17:11:13 - 20:11:15', '2020-06-25 18:54:35', '2020-06-26 10:51:21', 1, 1, '2020-03-21 20:11:15', '2020-03-21 17:11:13', '2020-03-31 00:00:00', '2020-03-21 00:00:00');
 
 -- ----------------------------
 -- Table structure for yqm_system_store_staff
@@ -7213,12 +6468,6 @@ CREATE TABLE `yqm_system_store_staff`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '门店店员表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of yqm_system_store_staff
--- ----------------------------
-INSERT INTO `yqm_system_store_staff` VALUES (2, 12, '会敲代码的喵2', 'https://image.dayouqiantu.cn/5dc2c7f3a104c.png', 4, '信阳门店', 'tttt', '15136175423', 1, 1, '2020-06-25 18:54:35', NULL, 1);
-INSERT INTO `yqm_system_store_staff` VALUES (3, 11, '会敲代码的喵88', 'https://image.dayouqiantu.cn/5dc2c7f3a104c.png', 5, '郑州门店', 'tttt', '16136175234', 1, 1, '2020-06-25 18:54:35', NULL, 1);
-INSERT INTO `yqm_system_store_staff` VALUES (4, 19, '15136175528', 'https://image.dayouqiantu.cn/5dc2c7f3a104c.png', 5, '郑州门店', '111', '15136175246', 1, 1, '2020-06-25 18:54:35', NULL, 1);
 INSERT INTO `yqm_system_store_staff` VALUES (5, 565658, '遇见', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIVD3aSMz6bx6WhPyRDO84ByMUtBlic9fDTTDODs9M0IWPuhcGMWhLM7u9yfoarlJgG3y1bNPyJxNw/132', 4, '武汉门店', '444', '44444', 1, 1, NULL, '2022-08-29 20:54:07', 0);
 INSERT INTO `yqm_system_store_staff` VALUES (6, 565658, '遇见', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIVD3aSMz6bx6WhPyRDO84ByMUtBlic9fDTTDODs9M0IWPuhcGMWhLM7u9yfoarlJgG3y1bNPyJxNw/132', 4, '武汉门店', '5555', '555555', 1, 1, '2020-06-26 10:53:46', '2022-08-29 20:54:00', 0);
 
@@ -7349,9 +6598,7 @@ CREATE TABLE `yqm_user`  (
 -- ----------------------------
 -- Records of yqm_user
 -- ----------------------------
-INSERT INTO `yqm_user` VALUES (565656, '15871301059222', 'e10adc3949ba59abbe56e057f20f883e', 'weiximei', 28, '', '', 0, 0, NULL, NULL, NULL, '', NULL, '2022-07-19 21:50:24', '', 0.00, 0.00, 0.00, 0, 1, 0, 0, NULL, '', 0, 0, 0, '', 0, '', NULL, 0);
 INSERT INTO `yqm_user` VALUES (565658, '15871301059', NULL, '', 0, '', '', 0, 0, '遇见', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIVD3aSMz6bx6WhPyRDO84ByMUtBlic9fDTTDODs9M0IWPuhcGMWhLM7u9yfoarlJgG3y1bNPyJxNw/132', '15871301059', '192.168.0.105', '2022-07-18 21:56:46', '2023-02-04 20:55:00', '192.168.0.105', 0.00, 0.00, 10.00, 1, 1, 0, 0, NULL, 'routine', 0, 0, 1, '', 0, '', '{\"city\":\"\",\"country\":\"\",\"headimgurl\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIVD3aSMz6bx6WhPyRDO84ByMUtBlic9fDTTDODs9M0IWPuhcGMWhLM7u9yfoarlJgG3y1bNPyJxNw/132\",\"language\":\"zh_CN\",\"nickname\":\"遇见\",\"openid\":\"\",\"province\":\"\",\"routineOpenid\":\"oMoCk0hFNOzaA1uetH8y7vVA0ZZI\",\"sex\":0,\"subscribe\":null,\"subscribeTime\":null,\"unionId\":\"\"}', 0);
-INSERT INTO `yqm_user` VALUES (565659, '15042457251', '0999b62757e784c102473de4e4d18bae', '', 0, '', '', 0, 0, '15042457251', 'https://image.dayouqiantu.cn/5e79f6cfd33b6.png', '15042457251', '127.0.0.1', '2022-10-17 15:09:41', '2022-10-17 15:11:35', '127.0.0.1', 0.00, 0.00, 0.00, 0, 1, 0, 565658, NULL, 'h5', 0, 0, 0, '', 0, '', NULL, 0);
 
 -- ----------------------------
 -- Table structure for yqm_user_address
@@ -7383,9 +6630,7 @@ CREATE TABLE `yqm_user_address`  (
 -- ----------------------------
 -- Records of yqm_user_address
 -- ----------------------------
-INSERT INTO `yqm_user_address` VALUES (1, 565658, '张三', '15871301059', '辽宁省', '沈阳市', 115225, '市辖区', '测试地址', '', '0', '0', 1, 0, '2022-11-27 14:38:53', NULL);
-INSERT INTO `yqm_user_address` VALUES (2, 565658, '魏熙美', '15871301059', '北京市', '北京市', 2, '东城区', '朝阳区测试地址', '', '0', '0', 0, 0, '2023-01-29 19:45:01', NULL);
-INSERT INTO `yqm_user_address` VALUES (3, 565658, '魏熙美', '15871301059', '辽宁省', '沈阳市', 115225, '市辖区', '朝阳区测试地址', '', '0', '0', 0, 0, '2023-01-29 19:46:24', NULL);
+INSERT INTO `yqm_user_address` VALUES (1, 565658, '张三', '1888888888', '辽宁省', '沈阳市', 115225, '市辖区', '测试地址', '', '0', '0', 1, 0, '2022-11-27 14:38:53', NULL);
 
 -- ----------------------------
 -- Table structure for yqm_user_bill
@@ -7413,14 +6658,6 @@ CREATE TABLE `yqm_user_bill`  (
   INDEX `pm`(`pm`) USING BTREE,
   INDEX `type`(`category`, `type`, `link_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户账单表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_user_bill
--- ----------------------------
-INSERT INTO `yqm_user_bill` VALUES (1, 565658, '', 1, '签到奖励', 'integral', 'sign', 10.00, 0.00, '', '2022-08-02 22:56:52', NULL, 1, 0);
-INSERT INTO `yqm_user_bill` VALUES (2, 565658, '', 1, '充值', 'now_money', 'pay_product', 10.00, 0.00, '', '2022-08-02 22:56:52', NULL, 1, 0);
-INSERT INTO `yqm_user_bill` VALUES (3, 565658, '', 0, '消费', 'now_money', 'pay_product', 10.00, 0.00, '', '2022-08-02 22:56:52', NULL, 1, 0);
-INSERT INTO `yqm_user_bill` VALUES (4, 565658, '', 0, '消费', 'now_money', 'brokerage', 10.00, 0.00, '', '2022-08-02 22:56:52', NULL, 1, 0);
 
 -- ----------------------------
 -- Table structure for yqm_user_enter
@@ -7633,15 +6870,6 @@ CREATE TABLE `yqm_wechat_live`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '微信小程序直播表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_wechat_live
--- ----------------------------
-INSERT INTO `yqm_wechat_live` VALUES (20, '专业打印', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg', 107, 1599656400, 1599703200, '阳光正好', 'simpleton_boy', 'https://consoleapi.xinxintuan.co/file/pic/20200903171208889668.png', 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `yqm_wechat_live` VALUES (21, '广告板定制', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', 103, 1599730609, 1599730645, 'yqm-shop', 'simpleton_boy', 'https://consoleapi.xinxintuan.co/file/pic/20200903171208889668.png', 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `yqm_wechat_live` VALUES (22, '户外写真背胶', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg', 107, 1599832800, 1599904800, 'yqm-shop', 'simpleton_boy', 'https://consoleapi.xinxintuan.co/file/pic/20200903171208889668.png', 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL);
-INSERT INTO `yqm_wechat_live` VALUES (23, '彩色复印-量大有优惠', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', 102, 1599865200, 1599926400, 'yqm-shop', 'zimengzhiqiu', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg', 0, 0, 0, 0, 0, '9,8', NULL, NULL, NULL);
-INSERT INTO `yqm_wechat_live` VALUES (26, 'X型展架', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 102, 1599872400, 1599926400, 'yqm-shop', 'zimengzhiqiu', 'https://consoleapi.xinxintuan.co/file/pic/20200903171208889668.png', 0, 0, 0, 0, 0, '9,8,7', NULL, NULL, NULL);
-
--- ----------------------------
 -- Table structure for yqm_wechat_live_goods
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_wechat_live_goods`;
@@ -7659,13 +6887,6 @@ CREATE TABLE `yqm_wechat_live_goods`  (
   `audit_status` int(1) UNSIGNED ZEROFILL NULL DEFAULT NULL COMMENT '审核状态 0：未审核，1：审核中，2:审核通过，3审核失败',
   PRIMARY KEY (`goods_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '微信小程序直播商品表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of yqm_wechat_live_goods
--- ----------------------------
-INSERT INTO `yqm_wechat_live_goods` VALUES (7, 6, 'https://image.dayouqiantu.cn/news.png', 'pages/shop/GoodsCon/index.html?id=30', '3', '76', '11', '印刷各种印刷', '2', 447137937, 2);
-INSERT INTO `yqm_wechat_live_goods` VALUES (8, 5, 'https://image.dayouqiantu.cn/pink.png', 'pages/shop/GoodsCon/index.html?id=30', '3', '30', '11', '广告版定制', '2', 447137941, 2);
-INSERT INTO `yqm_wechat_live_goods` VALUES (9, 4, 'https://image.dayouqiantu.cn/news.png', 'pages/shop/GoodsCon/index.html?id=30', '3', '23', '1', '户外写真背胶', '2', 447137947, 2);
 
 -- ----------------------------
 -- Table structure for yqm_wechat_media
