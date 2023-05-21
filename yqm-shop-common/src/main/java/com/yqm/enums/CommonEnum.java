@@ -20,7 +20,10 @@ public enum CommonEnum {
 	DEL_STATUS_1(1,"已删除"),
 
 	SHOW_STATUS_0(0,"未显示"),
-	SHOW_STATUS_1(1,"显示");
+	SHOW_STATUS_1(1, "显示"),
+
+	IS_INTEGRAL_0(0, "不是积分"),
+	IS_INTEGRAL_1(1, "是积分");
 
 
 	private Integer value;
