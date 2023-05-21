@@ -241,9 +241,7 @@ public class YqmStoreProductServiceImpl extends BaseServiceImpl<StoreProductMapp
 		wrapper.eq(YqmStoreProduct::getIsDel, CommonEnum.DEL_STATUS_0.getValue());
 		//        wrapper.eq(YqmStoreProduct::getIsIntegral, CommonEnum.SHOW_STATUS_1.getValue());
 
-		// 如果是 传递是是 0，在不加上积分过滤条件
-		// 如果商品开启了积分兑换。商品既可以被积分兑换，也可以被购买
-		if (Objects.nonNull(productQueryParam.getIsIntegral()) && CommonEnum.IS_INTEGRAL_0.getValue() != productQueryParam.getIsIntegral()) {
+		if (Objects.nonNull(productQueryParam.getIsIntegral())) {
 			wrapper.eq(YqmStoreProduct::getIsIntegral, productQueryParam.getIsIntegral());
 		}
 		//多字段模糊查询分类搜索
