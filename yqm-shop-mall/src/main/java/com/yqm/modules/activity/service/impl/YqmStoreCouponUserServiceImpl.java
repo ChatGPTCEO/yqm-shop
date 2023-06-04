@@ -8,6 +8,7 @@
  */
 package com.yqm.modules.activity.service.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.NumberUtil;
 import com.yqm.api.YqmShopException;
@@ -127,7 +128,7 @@ public class YqmStoreCouponUserServiceImpl extends BaseServiceImpl<YqmStoreCoupo
                         CouponEnum.TYPE_2.getValue().equals(coupon.getType()) ||
                                 CouponEnum.TYPE_0.getValue().equals(coupon.getType())
                                 || (CouponEnum.TYPE_1.getValue().equals(coupon.getType())
-                                && isSame(Arrays.asList(coupon.getProductId().split(",")),productIds)))
+                                && CollectionUtil.containsAny(Arrays.asList(coupon.getProductId().split(",")), productIds)))
                 .collect(Collectors.toList());
 
     }
