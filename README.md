@@ -288,24 +288,12 @@ server
 - yqm-shop-mproot    mybatisPlus
 
 #### 系统预览
-<table>
-    <tr>
-        <td></td>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230257_5844f5f1_477893.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230051_971db503_477893.png"/></td>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230342_f379583e_477893.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230224_5f0dec5d_477893.png"/></td>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1107/194207_7b3b1f53_477893.png"/></td>
-    </tr>
-    <tr>   
-         <td><img src="https://images.gitee.com/uploads/images/2019/1121/230424_f01fca77_477893.png"/></td>
-         <td><img src="https://images.gitee.com/uploads/images/2019/1127/211402_4103f8e0_477893.png"/></td>
-    </tr>
-</table>
+
+![admin_1](docs/img/admin_1.png)
+
+![admin01](docs/img/admin01.png)
+
+![admin02](docs/img/admin02.png)
 
 
 ### 技术选型
