@@ -9,7 +9,7 @@ yqm-shop 基于当前流行技术组合的前后端分离商城系统： SpringB
 |  官网文档地址  |  http://www.yqmshop.cn |
 |---|---|
 | 管理后台演示地址：  |   http://shop.yqmshop.cn/single |
-| 关注公众号点击单商户体验小程序与H5  |  ![输入图片说明](https://images.gitee.com/uploads/images/2021/0121/154904_12c09826_477893.png) |
+| 关注公众号点击单商户体验小程序与H5  |  ![公众号](docs/img/wx_gzh.jpg) |
 
 ####  重要通知
 关于log4j2漏洞说明
@@ -62,10 +62,12 @@ yqm-shop-app 是C端的后台
 1. redis 已经启动
    > 因为有一些服务依赖它
 2. 下载代码
-
+```
+git clone https://gitee.com/w907/yqm-shop.git
+```
 3. 导入项目打开它
 
-   ![idea](../.vuepress/public/img/idea_01.png)
+   ![idea](docs/img/idea_01.png)
 
 4. 找到 `application-dev.yml` 文件，修改里面的 `数据库`、`redis` 信息
 5. 然后使用 `mvn clean install` ，或者使用开发工具的快捷操作方式
@@ -73,6 +75,9 @@ yqm-shop-app 是C端的后台
    > yqm-shop-admin 是 AppRun  
    yqm-shop-app 是 ApiRun
 
+7. 打包
+
+   ![打包](docs/img/idea_package.png)
 
 ## 后台前端工程（VUE端）
 > 请自行安装好 `nodejs`
@@ -82,7 +87,7 @@ yqm-shop-app 是C端的后台
 2. 推荐使用 `pnpm` 或者 `yarn`  
    项目根目录下 执行 `pnpm install` 或者 `yarn install`
 
-   ![vscodee](../.vuepress/public/img/vscode_01.png)
+   ![vscode](docs/img/vscode_01.png)
 
 3. 访问 `http://localhost:8013`
 
@@ -285,20 +290,11 @@ server
 #### 系统预览
 <table>
     <tr>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1107/194017_9207632f_477893.png"/></td>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230257_5844f5f1_477893.png"/></td>
+        <td>![输入图片说明](docs/img/admin_1.png)</td>
+        <td>![输入图片说明](docs/img/admin01.png)</td>
     </tr>
     <tr>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230051_971db503_477893.png"/></td>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230342_f379583e_477893.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1121/230224_5f0dec5d_477893.png"/></td>
-        <td><img src="https://images.gitee.com/uploads/images/2019/1107/194207_7b3b1f53_477893.png"/></td>
-    </tr>
-    <tr>   
-         <td><img src="https://images.gitee.com/uploads/images/2019/1121/230424_f01fca77_477893.png"/></td>
-         <td><img src="https://images.gitee.com/uploads/images/2019/1127/211402_4103f8e0_477893.png"/></td>
+        <td>![输入图片说明](docs/img/admin02.png)</td>
     </tr>
 </table>
 
