@@ -288,15 +288,12 @@ server
 - yqm-shop-mproot    mybatisPlus
 
 #### 系统预览
-<table>
-    <tr>
-        <td>![admin_1](docs/img/admin_1.png)</td>
-        <td>![admin01](docs/img/admin01.png)</td>
-    </tr>
-    <tr>
-        <td>![admin02](docs/img/admin02.png)</td>
-    </tr>
-</table>
+
+![admin_1](docs/img/admin_1.png)
+
+![admin01](docs/img/admin01.png)
+
+![admin02](docs/img/admin02.png)
 
 
 ### 技术选型
