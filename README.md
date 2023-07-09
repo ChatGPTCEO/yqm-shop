@@ -290,11 +290,11 @@ server
 #### 系统预览
 <table>
     <tr>
-        <td>![输入图片说明](docs/img/admin_1.png)</td>
-        <td>![输入图片说明](docs/img/admin01.png)</td>
+        <td>![admin_1](docs/img/admin_1.png)</td>
+        <td>![admin01](docs/img/admin01.png)</td>
     </tr>
     <tr>
-        <td>![输入图片说明](docs/img/admin02.png)</td>
+        <td>![admin02](docs/img/admin02.png)</td>
     </tr>
 </table>
 
