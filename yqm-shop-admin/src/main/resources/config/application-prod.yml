@@ -6,9 +6,9 @@ spring:
     druid:
       type: com.alibaba.druid.pool.DruidDataSource
       driverClassName: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3366/yqm-shopb2c?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
-      username: yqm-shopb2c
-      password: bkfGfAimifjPZtNE
+      url: jdbc:mysql://192.168.0.101:3306/yqm-shopb2c?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 123456
 
       # 初始连接数
       initialSize: 5
@@ -98,8 +98,8 @@ swagger:
 
 
 file:
-  path: /home/yqm-shop/file/
-  avatar: /home/yqm-shop/avatar/
+  path: /home/weiximei/yqm-shop/file/
+  avatar: /home/weiximei/yqm-shop/avatar/
   # 文件大小 /M
   maxSize: 100
   avatarMaxSize: 5
