@@ -23,6 +23,7 @@ import lombok.AllArgsConstructor;
 import com.yqm.logging.aop.log.Log;
 import com.yqm.modules.canvas.domain.StoreCanvas;
 import com.yqm.modules.canvas.service.StoreCanvasService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -66,6 +67,10 @@ public class StoreCanvasController {
         if(StrUtil.isBlank(type)){
             localUrl = redisUtils.getY(SystemConfigConstants.API_URL) + "/api";
         }
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
         String mode = redisUtils.getY(SystemConfigConstants.FILE_STORE_MODE);
         StringBuilder url = new StringBuilder();
         if (ShopCommonEnum.STORE_MODE_1.getValue().toString().equals(mode)) { //存在走本地
@@ -74,9 +79,9 @@ public class StoreCanvasController {
             }
             LocalStorageDto localStorageDTO = localStorageService.create(name, file);
             if ("".equals(url.toString())) {
-                url = url.append(localUrl + "/file/" + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
+                url = url.append(localUrl + imgUrl + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
             } else {
-                url = url.append(","+localUrl + "/file/" + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
+                url = url.append(","+localUrl + imgUrl + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
             }
         } else {//走七牛云
             QiniuContent qiniuContent = qiNiuService.upload(file, qiNiuService.find());

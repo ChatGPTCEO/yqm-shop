@@ -562,73 +562,6 @@ CREATE TABLE `local_storage`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '本地存储' ROW_FORMAT = COMPACT;
 
 -- ----------------------------
--- Records of local_storage
--- ----------------------------
-INSERT INTO `local_storage` VALUES (1, 'list_30-20200107120524671.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\图片\\list_30-20200107120524671.png', '图片', '28.57KB   ', 'admin', '2020-01-07 12:05:25');
-INSERT INTO `local_storage` VALUES (2, 'list_34-20200109071140374.png', 'list_34', 'png', 'E:\\yqm-shop\\file\\图片\\list_34-20200109071140374.png', '图片', '27.05KB   ', 'admin', '2020-01-09 19:11:40');
-INSERT INTO `local_storage` VALUES (3, 'list_22-20200109072256534.png', 'list_22', 'png', 'E:\\yqm-shop\\file\\pic\\list_22-20200109072256534.png', 'pic', '28.23KB   ', 'admin', '2020-01-09 19:22:57');
-INSERT INTO `local_storage` VALUES (4, 'list_32-20200109093407741.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200109093407741.png', 'pic', '27.65KB   ', 'admin', '2020-01-09 21:34:08');
-INSERT INTO `local_storage` VALUES (5, 'list_32-20200109094223500.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200109094223500.png', 'pic', '27.65KB   ', 'admin', '2020-01-09 21:42:24');
-INSERT INTO `local_storage` VALUES (6, 'list_32-20200109094413459.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200109094413459.png', 'pic', '27.65KB   ', 'admin', '2020-01-09 21:44:13');
-INSERT INTO `local_storage` VALUES (7, 'list_32-20200109094652138.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200109094652138.png', 'pic', '27.65KB   ', 'admin', '2020-01-09 21:46:52');
-INSERT INTO `local_storage` VALUES (8, 'list_34-20200109095146476.png', 'list_34', 'png', 'E:\\yqm-shop\\file\\pic\\list_34-20200109095146476.png', 'pic', '27.05KB   ', 'admin', '2020-01-09 21:51:47');
-INSERT INTO `local_storage` VALUES (9, 'list_32-20200109095700685.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200109095700685.png', 'pic', '27.65KB   ', 'admin', '2020-01-09 21:57:01');
-INSERT INTO `local_storage` VALUES (10, 'list_20-20200109095936988.png', 'list_20', 'png', 'E:\\yqm-shop\\file\\pic\\list_20-20200109095936988.png', 'pic', '22.92KB   ', 'admin', '2020-01-09 21:59:37');
-INSERT INTO `local_storage` VALUES (11, 'list_32-20200109100213309.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200109100213309.png', 'pic', '27.65KB   ', 'admin', '2020-01-09 22:02:13');
-INSERT INTO `local_storage` VALUES (12, 'list_30-20200109104513493.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\pic\\list_30-20200109104513493.png', 'pic', '28.57KB   ', 'admin', '2020-01-09 22:45:13');
-INSERT INTO `local_storage` VALUES (13, 'list_16-20200110120838173.png', 'list_16', 'png', 'E:\\yqm-shop\\file\\pic\\list_16-20200110120838173.png', 'pic', '28.93KB   ', 'admin', '2020-01-10 12:08:38');
-INSERT INTO `local_storage` VALUES (14, 'list_32-20200110035831202.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200110035831202.png', 'pic', '27.65KB   ', 'admin', '2020-01-10 15:58:31');
-INSERT INTO `local_storage` VALUES (15, 'list_32-2020011004054091.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-2020011004054091.png', 'pic', '27.65KB   ', 'admin', '2020-01-10 16:05:40');
-INSERT INTO `local_storage` VALUES (16, 'list_30-20200110053337209.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\pic\\list_30-20200110053337209.png', 'pic', '28.57KB   ', 'admin', '2020-01-10 17:33:37');
-INSERT INTO `local_storage` VALUES (17, 'list_32-20200110064436937.png', 'list_32', 'png', 'E:\\yqm-shop\\file\\pic\\list_32-20200110064436937.png', 'pic', '27.65KB   ', 'admin', '2020-01-10 18:44:37');
-INSERT INTO `local_storage` VALUES (18, 'list_22-20200110104217508.png', 'list_22', 'png', 'E:\\yqm-shop\\file\\pic\\list_22-20200110104217508.png', 'pic', '28.23KB   ', 'admin', '2020-01-10 22:42:18');
-INSERT INTO `local_storage` VALUES (19, 'list_18-20200111051038569.png', 'list_18', 'png', 'E:\\yqm-shop\\file\\pic\\list_18-20200111051038569.png', 'pic', '29.62KB   ', '15136175246', '2020-01-11 17:10:39');
-INSERT INTO `local_storage` VALUES (20, 'list_30-2020011105115469.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\pic\\list_30-2020011105115469.png', 'pic', '28.57KB   ', '15136175246', '2020-01-11 17:11:54');
-INSERT INTO `local_storage` VALUES (21, 'list_30-20200111051343335.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\pic\\list_30-20200111051343335.png', 'pic', '28.57KB   ', '15136175246', '2020-01-11 17:13:43');
-INSERT INTO `local_storage` VALUES (22, 'list_16-20200111051622984.png', 'list_16', 'png', 'E:\\yqm-shop\\file\\pic\\list_16-20200111051622984.png', 'pic', '28.93KB   ', '15136175246', '2020-01-11 17:16:23');
-INSERT INTO `local_storage` VALUES (23, 'list_24-20200111051630227.png', 'list_24', 'png', 'E:\\yqm-shop\\file\\pic\\list_24-20200111051630227.png', 'pic', '27.31KB   ', '15136175246', '2020-01-11 17:16:30');
-INSERT INTO `local_storage` VALUES (24, 'logo-20200131103905417.png', 'logo', 'png', 'E:\\yqm-shop\\file\\pic\\logo-20200131103905417.png', 'pic', '48.39KB   ', 'admin', '2020-01-31 10:39:05');
-INSERT INTO `local_storage` VALUES (25, 'avatar-20200131103928688.png', 'avatar', 'png', 'E:\\yqm-shop\\file\\pic\\avatar-20200131103928688.png', 'pic', '1.82KB   ', 'admin', '2020-01-31 10:39:29');
-INSERT INTO `local_storage` VALUES (26, 'list_13-2020013110394473.png', 'list_13', 'png', 'E:\\yqm-shop\\file\\pic\\list_13-2020013110394473.png', 'pic', '23.05KB   ', 'admin', '2020-01-31 10:39:44');
-INSERT INTO `local_storage` VALUES (27, 'list_18-2020013110394988.png', 'list_18', 'png', 'E:\\yqm-shop\\file\\pic\\list_18-2020013110394988.png', 'pic', '29.62KB   ', 'admin', '2020-01-31 10:39:49');
-INSERT INTO `local_storage` VALUES (28, 'list_22-20200131103952926.png', 'list_22', 'png', 'E:\\yqm-shop\\file\\pic\\list_22-20200131103952926.png', 'pic', '28.23KB   ', 'admin', '2020-01-31 10:39:53');
-INSERT INTO `local_storage` VALUES (29, 'list_26-20200131103956836.png', 'list_26', 'png', 'E:\\yqm-shop\\file\\pic\\list_26-20200131103956836.png', 'pic', '28.36KB   ', 'admin', '2020-01-31 10:39:57');
-INSERT INTO `local_storage` VALUES (30, 'list_28-20200131104001169.png', 'list_28', 'png', 'E:\\yqm-shop\\file\\pic\\list_28-20200131104001169.png', 'pic', '28.38KB   ', 'admin', '2020-01-31 10:40:01');
-INSERT INTO `local_storage` VALUES (31, 'list_16-20200207061544740.png', 'list_16', 'png', 'E:\\yqm-shop\\file\\pic\\list_16-20200207061544740.png', 'pic', '28.93KB   ', 'weiximei', '2020-02-07 18:15:45');
-INSERT INTO `local_storage` VALUES (32, 'list_30-2020020706162996.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\pic\\list_30-2020020706162996.png', 'pic', '28.57KB   ', 'weiximei', '2020-02-07 18:16:29');
-INSERT INTO `local_storage` VALUES (33, 'list_16-20200207061714702.png', 'list_16', 'png', 'E:\\yqm-shop\\file\\pic\\list_16-20200207061714702.png', 'pic', '28.93KB   ', 'weiximei', '2020-02-07 18:17:15');
-INSERT INTO `local_storage` VALUES (34, 'list_18-20200207061743361.png', 'list_18', 'png', 'E:\\yqm-shop\\file\\pic\\list_18-20200207061743361.png', 'pic', '29.62KB   ', 'weiximei', '2020-02-07 18:17:43');
-INSERT INTO `local_storage` VALUES (35, 'list_30-20200207062920744.png', 'list_30', 'png', 'E:\\yqm-shop\\file\\pic\\list_30-20200207062920744.png', 'pic', '28.57KB   ', 'weiximei', '2020-02-07 18:29:21');
-INSERT INTO `local_storage` VALUES (36, '05ea40b831858a8cf423aa709840507c-20200228083801500.png', '05ea40b831858a8cf423aa709840507c', 'png', 'E:\\yqm-shop\\file\\pic\\05ea40b831858a8cf423aa709840507c-20200228083801500.png', 'pic', '5.19KB   ', 'admin', '2020-02-28 20:38:02');
-INSERT INTO `local_storage` VALUES (37, '05ea40b831858a8cf423aa709840507c-20200311043711341.png', '05ea40b831858a8cf423aa709840507c', 'png', 'E:\\yqm-shop\\file\\pic\\05ea40b831858a8cf423aa709840507c-20200311043711341.png', 'pic', '5.19KB   ', 'admin', '2020-03-11 16:37:11');
-INSERT INTO `local_storage` VALUES (38, '秒杀-2020031104371672.png', '秒杀', 'png', 'E:\\yqm-shop\\file\\pic\\秒杀-2020031104371672.png', 'pic', '6.07KB   ', 'admin', '2020-03-11 16:37:16');
-INSERT INTO `local_storage` VALUES (39, '砍价-20200311043720679.png', '砍价', 'png', 'E:\\yqm-shop\\file\\pic\\砍价-20200311043720679.png', 'pic', '6.13KB   ', 'admin', '2020-03-11 16:37:21');
-INSERT INTO `local_storage` VALUES (40, '优惠券-20200311043724709.png', '优惠券', 'png', 'E:\\yqm-shop\\file\\pic\\优惠券-20200311043724709.png', 'pic', '5.45KB   ', 'admin', '2020-03-11 16:37:25');
-INSERT INTO `local_storage` VALUES (41, '资讯-20200311043727918.png', '资讯', 'png', 'E:\\yqm-shop\\file\\pic\\资讯-20200311043727918.png', 'pic', '5.19KB   ', 'admin', '2020-03-11 16:37:28');
-INSERT INTO `local_storage` VALUES (42, 'list_16-20200322071324803.png', 'list_16', 'png', 'E:\\yqm-shop\\file\\pic\\list_16-20200322071324803.png', 'pic', '28.93KB   ', 'admin', '2020-03-22 19:13:25');
-INSERT INTO `local_storage` VALUES (43, 'list_22-20200322071348844.png', 'list_22', 'png', 'E:\\yqm-shop\\file\\pic\\list_22-20200322071348844.png', 'pic', '28.23KB   ', 'admin', '2020-03-22 19:13:49');
-INSERT INTO `local_storage` VALUES (44, 'list_34-2020032207154023.png', 'list_34', 'png', 'E:\\yqm-shop\\file\\pic\\list_34-2020032207154023.png', 'pic', '27.05KB   ', 'admin', '2020-03-22 19:15:40');
-INSERT INTO `local_storage` VALUES (45, '钻石-20200328094531898.jpg', '钻石', 'jpg', 'E:\\yqm-shop\\file\\pic\\钻石-20200328094531898.jpg', 'pic', '32.42KB   ', 'admin', '2020-03-28 21:45:32');
-INSERT INTO `local_storage` VALUES (46, '20200527164526793230.png', 'list_13', 'png', 'D:\\yqm-shop\\file\\pic\\20200527164526793230.png', 'pic', '23.05KB   ', 'admin', '2020-05-27 16:45:27');
-INSERT INTO `local_storage` VALUES (47, '20200527164543489004.png', 'list_18', 'png', 'D:\\yqm-shop\\file\\pic\\20200527164543489004.png', 'pic', '29.62KB   ', 'admin', '2020-05-27 16:45:43');
-INSERT INTO `local_storage` VALUES (48, '20200623200105269693.png', 'list_13', 'png', 'D:\\yqm-shop\\file\\pic\\20200623200105269693.png', 'pic', '23.05KB   ', 'yqm-shop', '2020-06-23 20:01:05');
-INSERT INTO `local_storage` VALUES (49, '20200623200118648188.png', 'list_18', 'png', 'D:\\yqm-shop\\file\\pic\\20200623200118648188.png', 'pic', '29.62KB   ', 'yqm-shop', '2020-06-23 20:01:19');
-INSERT INTO `local_storage` VALUES (50, '20200626110808157592.png', 'list_34', 'png', 'D:\\yqm-shop\\file\\pic\\20200626110808157592.png', 'pic', '27.05KB   ', 'yqm-shop', '2020-06-26 11:08:08');
-INSERT INTO `local_storage` VALUES (51, '20200626172220229003.png', 'list_16', 'png', 'D:\\yqm-shop\\file\\pic\\20200626172220229003.png', 'pic', '28.93KB   ', 'yqm-shop', '2020-06-26 17:22:20');
-INSERT INTO `local_storage` VALUES (52, '20200626173520849370.png', 'list_18', 'png', 'D:\\yqm-shop\\file\\pic\\20200626173520849370.png', 'pic', '29.62KB   ', 'yqm-shop', '2020-06-26 17:35:21');
-INSERT INTO `local_storage` VALUES (53, '20200626173943611335.png', 'list_34', 'png', 'D:\\yqm-shop\\file\\pic\\20200626173943611335.png', 'pic', '27.05KB   ', 'yqm-shop', '2020-06-26 17:39:44');
-INSERT INTO `local_storage` VALUES (54, '20200903171003417769.png', 'avatar_default', 'png', '/home/yqm-shop/file/pic/20200903171003417769.png', 'pic', '54.06KB   ', 'yqm-shop', '2020-09-03 17:10:03');
-INSERT INTO `local_storage` VALUES (55, '20200903171208889668.png', 'avatar_default', 'png', '/home/yqm-shop/file/pic/20200903171208889668.png', 'pic', '54.06KB   ', 'yqm-shop', '2020-09-03 17:12:09');
-INSERT INTO `local_storage` VALUES (56, '20200903171351713145.jpg', '1', 'jpg', '/home/yqm-shop/file/pic/20200903171351713145.jpg', 'pic', '126.59KB   ', 'yqm-shop', '2020-09-03 17:13:52');
-INSERT INTO `local_storage` VALUES (57, '20200903171807568739.jpg', '4', 'jpg', '/home/yqm-shop/file/pic/20200903171807568739.jpg', 'pic', '68.57KB   ', 'yqm-shop', '2020-09-03 17:18:08');
-INSERT INTO `local_storage` VALUES (58, '20200903171807584910.jpg', '3', 'jpg', '/home/yqm-shop/file/pic/20200903171807584910.jpg', 'pic', '34.32KB   ', 'yqm-shop', '2020-09-03 17:18:08');
-INSERT INTO `local_storage` VALUES (59, '20200903171807625149.jpg', '5', 'jpg', '/home/yqm-shop/file/pic/20200903171807625149.jpg', 'pic', '81.55KB   ', 'yqm-shop', '2020-09-03 17:18:08');
-INSERT INTO `local_storage` VALUES (60, '20200903171807641535.jpg', '6', 'jpg', '/home/yqm-shop/file/pic/20200903171807641535.jpg', 'pic', '61.97KB   ', 'yqm-shop', '2020-09-03 17:18:08');
-INSERT INTO `local_storage` VALUES (61, '20200903171807647067.jpg', '7', 'jpg', '/home/yqm-shop/file/pic/20200903171807647067.jpg', 'pic', '76.04KB   ', 'yqm-shop', '2020-09-03 17:18:08');
-INSERT INTO `local_storage` VALUES (62, '20200911093912577832.png', 'avatar_default', 'png', '/home/yqm-shop/file/pic/20200911093912577832.png', 'pic', '54.06KB   ', 'admin', '2020-09-11 09:39:13');
-INSERT INTO `local_storage` VALUES (63, '20200915074139926178.jpg', '1600126884(1)', 'jpg', '/home/yqm-shop/file/pic/20200915074139926178.jpg', 'pic', '23.64KB   ', 'yqm-shop', '2020-09-15 07:41:40');
-
--- ----------------------------
 -- Table structure for log
 -- ----------------------------
 DROP TABLE IF EXISTS `log`;
@@ -651,54 +584,6 @@ CREATE TABLE `log`  (
   `is_del` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '系统日志' ROW_FORMAT = COMPACT;
-
--- ----------------------------
--- Records of log
--- ----------------------------
-INSERT INTO `log` VALUES (1, '2020-12-20 12:20:56', '用户登录', NULL, 'INFO', 'AuthController.login()', '{ authUser: {username=admin, password= ******} request: SecurityContextHolderAwareRequestWrapper[ FirewalledRequest[ org.apache.catalina.connector.RequestFacade@4ee2d4e7]] }', '192.168.31.223', 1725, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (2, '2020-12-20 12:21:07', '查询', NULL, 'INFO', 'SystemConfigController.getYqmSystemConfigs()', '{ criteria: YqmSystemConfigQueryCriteria() pageable: Page request [number: 0, size 50, sort: UNSORTED] }', '192.168.31.223', 45, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (3, '2020-12-20 12:21:14', '查询', NULL, 'INFO', 'SystemConfigController.getYqmSystemConfigs()', '{ criteria: YqmSystemConfigQueryCriteria() pageable: Page request [number: 0, size 50, sort: UNSORTED] }', '192.168.31.223', 4, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (4, '2020-12-20 12:21:16', '查询wxlive', NULL, 'INFO', 'YqmWechatLiveController.getYqmWechatLives()', '{ criteria: YqmWechatLiveQueryCriteria(liveStatus=null) pageable: Page request [number: 0, size 10, sort: room_id: DESC] }', '192.168.31.223', 45, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (5, '2020-12-20 12:21:19', '查询yqmWechatLiveGoods', NULL, 'INFO', 'YqmWechatLiveGoodsController.getYqmWechatLiveGoodss()', '{ criteria: YqmWechatLiveGoodsQueryCriteria(name=null) pageable: Page request [number: 0, size 10, sort: goods_id: DESC] }', '192.168.31.223', 8, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (6, '2020-12-20 12:21:22', '查询商品分类', NULL, 'INFO', 'StoreCategoryController.getYqmStoreCategorys()', '{ criteria: YqmStoreCategoryQueryCriteria(cateName=null) pageable: Page request [number: 0, size 10, sort: sort: DESC] }', '192.168.31.223', 19, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (7, '2020-12-20 12:21:23', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 47, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (8, '2020-12-20 12:21:23', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 13, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (9, '2020-12-20 12:25:02', '查询素材分组', NULL, 'INFO', 'MaterialGroupController.getYqmMaterialGroups()', '{ criteria: YqmMaterialGroupQueryCriteria() pageable: Page request [number: 1, size 100, sort: create_time: DESC] }', '192.168.31.223', 22, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (10, '2020-12-20 12:25:02', '查询素材管理', NULL, 'INFO', 'MaterialController.getYqmMaterials()', '{ criteria: YqmMaterialQueryCriteria(groupId=null) pageable: Page request [number: 0, size 12, sort: create_time: DESC] }', '192.168.31.223', 21, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (11, '2020-12-20 12:30:06', '查询拼团', NULL, 'INFO', 'StoreCombinationController.getYqmStoreCombinations()', '{ criteria: YqmStoreCombinationQueryCriteria(title=null, isDel=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 13, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (12, '2020-12-20 12:30:08', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 37, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (13, '2020-12-20 12:30:25', '查询拼团', NULL, 'INFO', 'StoreCombinationController.getYqmStoreCombinations()', '{ criteria: YqmStoreCombinationQueryCriteria(title=null, isDel=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 3, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (14, '2020-12-20 12:30:29', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 28, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (15, '2020-12-20 12:31:43', '列表', NULL, 'INFO', 'StoreSeckillController.getYqmStoreSeckills()', '{ criteria: YqmStoreSeckillQueryCriteria(title=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 23, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (16, '2020-12-20 12:31:46', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 20, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (17, '2020-12-20 12:31:46', '查询数据配置', NULL, 'INFO', 'SystemGroupDataController.getYqmSystemGroupDatas()', '{ criteria: YqmSystemGroupDataQueryCriteria(groupName=yqm-shop_seckill_time) pageable: Page request [number: 0, size 20, sort: UNSORTED] }', '192.168.31.223', 21, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (18, '2020-12-20 12:31:55', '查询砍价', NULL, 'INFO', 'StoreBargainController.getYqmStoreBargains()', '{ criteria: YqmStoreBargainQueryCriteria() pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 233, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (19, '2020-12-20 12:31:56', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 17, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (20, '2020-12-20 12:32:15', '查询拼团', NULL, 'INFO', 'StoreCombinationController.getYqmStoreCombinations()', '{ criteria: YqmStoreCombinationQueryCriteria(title=null, isDel=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 3, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (21, '2020-12-20 12:32:18', '查询yqmWechatLiveGoods', NULL, 'INFO', 'YqmWechatLiveGoodsController.getYqmWechatLiveGoodss()', '{ criteria: YqmWechatLiveGoodsQueryCriteria(name=null) pageable: Page request [number: 0, size 10, sort: goods_id: DESC] }', '192.168.31.223', 4, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (22, '2020-12-20 12:32:21', '查询商品分类', NULL, 'INFO', 'StoreCategoryController.getYqmStoreCategorys()', '{ criteria: YqmStoreCategoryQueryCriteria(cateName=null) pageable: Page request [number: 0, size 10, sort: sort: DESC] }', '192.168.31.223', 3, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (23, '2020-12-20 12:32:21', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 8, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (24, '2020-12-20 12:32:21', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 15, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (25, '2020-12-20 20:56:56', '用户登录', NULL, 'INFO', 'AuthController.login()', '{ authUser: {username=admin, password= ******} request: SecurityContextHolderAwareRequestWrapper[ FirewalledRequest[ org.apache.catalina.connector.RequestFacade@4aab466d]] }', '192.168.31.223', 980, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (26, '2020-12-20 20:57:18', '查询商品分类', NULL, 'INFO', 'StoreCategoryController.getYqmStoreCategorys()', '{ criteria: YqmStoreCategoryQueryCriteria(cateName=null) pageable: Page request [number: 0, size 10, sort: sort: DESC] }', '192.168.31.223', 16, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (27, '2020-12-20 20:57:18', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 79, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (28, '2020-12-20 20:57:18', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 11, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (29, '2020-12-20 20:57:22', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 17, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (30, '2020-12-20 20:57:22', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 41, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (31, '2020-12-20 20:58:32', '新增/修改商品', NULL, 'INFO', 'StoreProductController.create()', '{ storeProductDto: StoreProductDto(id=6, image=https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg, sliderImage=[https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg], storeName=印刷各种印刷, storeInfo=印刷各种印刷, keyword=印刷各种印刷, barCode=, cateId=3, price=11.0, otPrice=null, postage=0.0, unitName=张, sort=1, sales=35, stock=9965, isShow=1, isHot=1, isBenefit=1, isBest=0, isNew=0, description=<p>印刷各种印刷</p>, isPostage=0, giveIntegral=1.0, cost=22.0, isGood=0, isSub=0, ficti=1, tempId=34, specType=0, items=[], attrs=[ProductFormatDto@e1b7fc1]) }', '192.168.31.223', 71, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (32, '2020-12-20 20:58:33', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 20, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (33, '2020-12-20 20:58:34', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 9, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (34, '2020-12-20 20:59:11', '新增/修改商品', NULL, 'INFO', 'StoreProductController.create()', '{ storeProductDto: StoreProductDto(id=8, image=https://image.dayouqiantu.cn/5ca081af6183f.jpg, sliderImage=[https://image.dayouqiantu.cn/5ca081af6183f.jpg, https://image.dayouqiantu.cn/5ca081af6183f.jpg, https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg], storeName=多规格商品测试, storeInfo=多规格商品测试, keyword=多规格商品测试, barCode=, cateId=5, price=4.0, otPrice=null, postage=0.0, unitName=张, sort=0, sales=5, stock=501, isShow=1, isHot=1, isBenefit=1, isBest=1, isNew=1, description=<p><br/></p><p><img style=\"max-width: 100%;\" src=\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"/></p>, isPostage=0, giveIntegral=0.0, cost=1.0, isGood=0, isSub=1, ficti=0, tempId=34, specType=1, items=[FromatDetailDto@3a1b9d03, FromatDetailDto@5fb12695], attrs=[ProductFormatDto@1796c183, ProductFormatDto@3a45a7cd, ProductFormatDto@2d318da6, ProductFormatDto@55342aab, ProductFormatDto@2ee2163f, ProductFormatDto@5c1e7c4f]) }', '192.168.31.223', 33, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (35, '2020-12-20 20:59:13', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 10, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (36, '2020-12-20 20:59:13', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 22, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (37, '2020-12-20 21:16:55', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 14, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (38, '2020-12-20 21:16:55', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 21, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (39, '2020-12-20 21:17:50', '新增/修改商品', NULL, 'INFO', 'StoreProductController.create()', '{ storeProductDto: StoreProductDto(id=8, image=https://image.dayouqiantu.cn/5ca081af6183f.jpg, sliderImage=[https://image.dayouqiantu.cn/5ca081af6183f.jpg, https://image.dayouqiantu.cn/5ca081af6183f.jpg, https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg], storeName=多规格商品测试, storeInfo=多规格商品测试, keyword=多规格商品测试, barCode=, cateId=5, price=4.0, otPrice=null, postage=0.0, unitName=张, sort=0, sales=5, stock=501, isShow=1, isHot=1, isBenefit=1, isBest=1, isNew=1, description=<p><br/></p><p><img style=\"max-width: 100%;\" src=\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"/></p>, isPostage=0, giveIntegral=0.0, cost=1.0, isGood=0, isSub=1, isIntegral=1, ficti=0, tempId=34, specType=1, items=[FromatDetailDto@36bccf62, FromatDetailDto@7b1f6e6c], attrs=[ProductFormatDto@30145eea, ProductFormatDto@5527d9d7, ProductFormatDto@4a8b9843, ProductFormatDto@2d753c48, ProductFormatDto@6829cf6a, ProductFormatDto@1757112f]) }', '192.168.31.223', 139, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (40, '2020-12-20 21:17:52', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 56, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (41, '2020-12-20 21:17:52', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 91, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (42, '2020-12-20 21:18:17', '新增/修改商品', NULL, 'INFO', 'StoreProductController.create()', '{ storeProductDto: StoreProductDto(id=8, image=https://image.dayouqiantu.cn/5ca081af6183f.jpg, sliderImage=[https://image.dayouqiantu.cn/5ca081af6183f.jpg, https://image.dayouqiantu.cn/5ca081af6183f.jpg, https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg], storeName=多规格商品测试, storeInfo=多规格商品测试, keyword=多规格商品测试, barCode=, cateId=5, price=4.0, otPrice=null, postage=0.0, unitName=张, sort=0, sales=5, stock=501, isShow=1, isHot=1, isBenefit=1, isBest=1, isNew=1, description=<p><br/></p><p><img style=\"max-width: 100%;\" src=\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"/></p>, isPostage=0, giveIntegral=0.0, cost=1.0, isGood=0, isSub=1, isIntegral=1, ficti=0, tempId=34, specType=1, items=[FromatDetailDto@6166fb7a, FromatDetailDto@57f40cb6], attrs=[ProductFormatDto@314d446d, ProductFormatDto@329a3a74, ProductFormatDto@17886021, ProductFormatDto@69eefe37, ProductFormatDto@18f4fa22, ProductFormatDto@2dfea217]) }', '192.168.31.223', 26, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (43, '2020-12-20 21:18:18', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=0, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 12, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
-INSERT INTO `log` VALUES (44, '2020-12-20 21:18:18', '查询商品', NULL, 'INFO', 'StoreProductController.getYqmStoreProducts()', '{ criteria: YqmStoreProductQueryCriteria(storeName=null, isDel=0, isShow=1, cateId=null) pageable: Page request [number: 0, size 10, sort: id: DESC] }', '192.168.31.223', 37, 'admin', ' 局域网', NULL, 0, 1, NULL, 0);
 
 -- ----------------------------
 -- Table structure for menu
@@ -1020,37 +905,6 @@ CREATE TABLE `qiniu_content`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '七牛云文件存储' ROW_FORMAT = COMPACT;
 
 -- ----------------------------
--- Records of qiniu_content
--- ----------------------------
-INSERT INTO `qiniu_content` VALUES (1, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-07 12:05:41', 'https://pic.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (2, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 12:11:15', 'https://pic.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (3, 'yqm', 'list_30', '28.57KB   ', '公开', '2020-01-07 12:13:26', 'https://image.dayouqiantu.cn/list_30.png', 'png');
-INSERT INTO `qiniu_content` VALUES (4, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-07 12:32:15', 'https://image.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (5, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 12:53:11', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (6, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-07 13:05:55', 'https://image.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (7, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 13:08:32', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (8, 'yqm', 'list_22', '28.23KB   ', '公开', '2020-01-07 13:08:38', 'https://image.dayouqiantu.cn/list_22.png', 'png');
-INSERT INTO `qiniu_content` VALUES (9, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-07 13:08:49', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (10, 'yqm', 'list_34', '27.05KB   ', '公开', '2020-01-10 12:02:24', 'https://image.dayouqiantu.cn/list_34.png', 'png');
-INSERT INTO `qiniu_content` VALUES (11, 'yqm', 'list_32', '27.65KB   ', '公开', '2020-01-10 16:49:48', 'https://image.dayouqiantu.cn/list_32.png', 'png');
-INSERT INTO `qiniu_content` VALUES (12, 'yqm', 'list_20', '22.92KB   ', '公开', '2020-01-10 22:43:47', 'https://image.dayouqiantu.cn/list_20.png', 'png');
-INSERT INTO `qiniu_content` VALUES (13, 'yqm', 'list_24', '27.31KB   ', '公开', '2020-01-10 22:44:21', 'https://image.dayouqiantu.cn/list_24.png', 'png');
-INSERT INTO `qiniu_content` VALUES (14, 'yqm', 'list_28', '28.38KB   ', '公开', '2020-01-11 17:06:00', 'https://image.dayouqiantu.cn/list_28.png', 'png');
-INSERT INTO `qiniu_content` VALUES (15, 'yqm', 'goods', '2.82KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/goods.png', 'png');
-INSERT INTO `qiniu_content` VALUES (16, 'yqm', 'coupon', '2.92KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/coupon.png', 'png');
-INSERT INTO `qiniu_content` VALUES (17, 'yqm', 'buy', '2.59KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/buy.png', 'png');
-INSERT INTO `qiniu_content` VALUES (18, 'yqm', 'collect', '3.65KB   ', '公开', '2020-06-26 18:20:58', 'https://image.dayouqiantu.cn/collect.png', 'png');
-INSERT INTO `qiniu_content` VALUES (19, 'yqm', 'bargin', '3.39KB   ', '公开', '2020-06-26 18:24:51', 'https://image.dayouqiantu.cn/bargin.png', 'png');
-INSERT INTO `qiniu_content` VALUES (20, 'yqm', 'add', '3.17KB   ', '公开', '2020-06-26 18:24:51', 'https://image.dayouqiantu.cn/add.png', 'png');
-INSERT INTO `qiniu_content` VALUES (21, 'yqm', 'sign', '2.63KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/sign.png', 'png');
-INSERT INTO `qiniu_content` VALUES (22, 'yqm', 'sekill', '3.54KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/sekill.png', 'png');
-INSERT INTO `qiniu_content` VALUES (23, 'yqm', 'pink', '3.25KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/pink.png', 'png');
-INSERT INTO `qiniu_content` VALUES (24, 'yqm', 'news', '2.70KB   ', '公开', '2020-06-26 18:25:07', 'https://image.dayouqiantu.cn/news.png', 'png');
-INSERT INTO `qiniu_content` VALUES (25, 'yqm', '5ca04fa9c08ef', '314.06KB   ', '公开', '2020-06-26 18:25:23', 'https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', 'jpg');
-INSERT INTO `qiniu_content` VALUES (26, 'yqm', '5ca0786c5d2c1', '388.24KB   ', '公开', '2020-06-26 18:25:23', 'https://image.dayouqiantu.cn/5ca0786c5d2c1.jpg', 'jpg');
-INSERT INTO `qiniu_content` VALUES (27, 'yqm', '5ca081af6183f', '339.37KB   ', '公开', '2020-06-26 18:25:23', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'jpg');
-
--- ----------------------------
 -- Table structure for quartz_job
 -- ----------------------------
 DROP TABLE IF EXISTS `quartz_job`;
@@ -1096,27 +950,6 @@ CREATE TABLE `quartz_log`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '定时任务日志' ROW_FORMAT = COMPACT;
 
--- ----------------------------
--- Records of quartz_log
--- ----------------------------
-INSERT INTO `quartz_log` VALUES (1, 'visitsTask', '2020-01-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 160, NULL, 0);
-INSERT INTO `quartz_log` VALUES (2, 'visitsTask', '2020-03-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 42, NULL, 0);
-INSERT INTO `quartz_log` VALUES (3, 'visitsTask', '2020-04-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 60, NULL, 0);
-INSERT INTO `quartz_log` VALUES (4, 'visitsTask', '2020-09-01 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 36, NULL, 0);
-INSERT INTO `quartz_log` VALUES (5, 'visitsTask', '2020-09-02 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 19, NULL, 0);
-INSERT INTO `quartz_log` VALUES (6, 'visitsTask', '2020-09-03 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 39, NULL, 0);
-INSERT INTO `quartz_log` VALUES (7, 'visitsTask', '2020-09-04 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 30, NULL, 0);
-INSERT INTO `quartz_log` VALUES (8, 'visitsTask', '2020-09-05 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 23, NULL, 0);
-INSERT INTO `quartz_log` VALUES (9, 'visitsTask', '2020-09-06 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 70, NULL, 0);
-INSERT INTO `quartz_log` VALUES (10, 'visitsTask', '2020-09-07 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 18, NULL, 0);
-INSERT INTO `quartz_log` VALUES (11, 'visitsTask', '2020-09-08 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 14, NULL, 0);
-INSERT INTO `quartz_log` VALUES (12, 'visitsTask', '2020-09-09 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 31, NULL, 0);
-INSERT INTO `quartz_log` VALUES (13, 'visitsTask', '2020-09-10 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 40, NULL, 0);
-INSERT INTO `quartz_log` VALUES (14, 'visitsTask', '2020-09-11 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 20, NULL, 0);
-INSERT INTO `quartz_log` VALUES (15, 'visitsTask', '2020-09-12 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 39, NULL, 0);
-INSERT INTO `quartz_log` VALUES (16, 'visitsTask', '2020-09-13 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 15, NULL, 0);
-INSERT INTO `quartz_log` VALUES (17, 'visitsTask', '2020-09-14 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 15, NULL, 0);
-INSERT INTO `quartz_log` VALUES (18, 'visitsTask', '2020-09-15 00:00:00', '0 0 0 * * ?', NULL, b'1', '更新访客记录', 'run', NULL, 35, NULL, 0);
 
 -- ----------------------------
 -- Table structure for role
@@ -1412,10 +1245,6 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 1, 'yqm-shop@qq.com', 1, '$2a$10$fP.426qKaTmix50Oln8L.uav55gELhAd0Eg66Av4oG86u8km7D/Ky', 'admin', 2, '18888888888', 11, '2018-08-23 09:11:56', '2019-05-18 17:34:21', '管理员', '男', '2020-06-27 12:05:56', 0);
-INSERT INTO `user` VALUES (3, NULL, 'test@yqm-shopnet', 1, '$2a$10$HhxyGZy.ulf3RvAwaHUGb.k.2i9PBpv4YbLMJWp8pES7pPhTyRCF.', 'test', 2, '17777777777', 12, '2018-12-27 20:05:26', '2019-04-01 09:15:24', '测试', '男', NULL, 0);
-INSERT INTO `user` VALUES (4, NULL, 'test2@qq.com', 1, '$2a$10$IjehtV8MiXb8ni.Qz0wBteE7FjVn49cEcsSj2.ZBUqqHjnC3umSh.', 'test2', 2, '15136175247', 11, '2020-02-15 20:39:16', NULL, 'test2', '男', NULL, 0);
-INSERT INTO `user` VALUES (5, NULL, '444@qq.com', 0, '$2a$10$f/VH35NBOBszycV9KEA1HenQ0qVjazDm8LacQU9PO.A4UizFxLMuq', 'qqqqq', 11, '15136175249', 8, '2020-02-17 11:12:01', NULL, 'eeeeee', '男', NULL, 0);
-INSERT INTO `user` VALUES (6, NULL, '666@qq.com', 0, '$2a$10$3Vlo24eOmHHW7.3vAjqPSusfIINNo4JiujzxgqsaoWLx/d5de/jEm', '7777', 8, '15136175246', 8, '2020-05-18 19:43:30', NULL, '777', '男', NULL, 0);
 
 -- ----------------------------
 -- Table structure for user_avatar
@@ -1492,45 +1321,6 @@ CREATE TABLE `visits`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1266934639347150881 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '访客记录' ROW_FORMAT = COMPACT;
 
 -- ----------------------------
--- Records of visits
--- ----------------------------
-INSERT INTO `visits` VALUES (1265104717297319937, '2020-05-26 10:17:24', '2020-05-26', 1, 1, 'Tue');
-INSERT INTO `visits` VALUES (1265104717297319938, '2020-05-27 16:32:32', '2020-05-27', 1, 2, 'Wed');
-INSERT INTO `visits` VALUES (1265104717297319939, '2020-05-29 14:18:55', '2020-05-29', 1, 1, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150849, '2020-05-31 11:28:51', '2020-05-31', 1, 1, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150850, '2020-06-01 15:37:07', '2020-06-01', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150851, '2020-06-09 11:52:36', '2020-06-09', 1, 2, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150852, '2020-06-12 16:23:50', '2020-06-12', 1, 2, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150853, '2020-06-13 16:49:12', '2020-06-13', 1, 1, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150854, '2020-06-25 16:12:58', '2020-06-25', 1, 8, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150855, '2020-06-26 10:15:43', '2020-06-26', 2, 7, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150856, '2020-06-27 11:38:14', '2020-06-27', 1, 5, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150857, '2020-06-28 15:59:08', '2020-06-28', 1, 6, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150858, '2020-06-29 09:19:53', '2020-06-29', 1, 4, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150859, '2020-06-30 09:55:25', '2020-06-30', 1, 5, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150860, '2020-07-01 10:02:51', '2020-07-01', 1, 9, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150861, '2020-07-02 10:55:09', '2020-07-02', 1, 7, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150862, '2020-07-03 10:40:46', '2020-07-03', 1, 8, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150863, '2020-07-04 10:03:30', '2020-07-04', 1, 4, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150864, '2020-07-05 09:56:06', '2020-07-05', 1, 4, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150865, '2020-07-06 14:35:25', '2020-07-06', 1, 2, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150866, '2020-09-01 00:00:00', '2020-09-01', 4, 4, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150867, '2020-09-02 00:00:00', '2020-09-02', 1, 4, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150868, '2020-09-03 00:00:00', '2020-09-03', 1, 2, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150869, '2020-09-04 00:00:00', '2020-09-04', 1, 3, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150870, '2020-09-05 00:00:00', '2020-09-05', 5, 2, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150871, '2020-09-06 00:00:00', '2020-09-06', 4, 2, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150872, '2020-09-07 00:00:00', '2020-09-07', 5, 3, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150873, '2020-09-08 00:00:00', '2020-09-08', 7, 15, 'Tue');
-INSERT INTO `visits` VALUES (1266934639347150874, '2020-09-09 00:00:00', '2020-09-09', 5, 3, 'Wed');
-INSERT INTO `visits` VALUES (1266934639347150875, '2020-09-10 00:00:00', '2020-09-10', 2, 4, 'Thu');
-INSERT INTO `visits` VALUES (1266934639347150876, '2020-09-11 00:00:00', '2020-09-11', 12, 5, 'Fri');
-INSERT INTO `visits` VALUES (1266934639347150877, '2020-09-12 00:00:00', '2020-09-12', 3, 4, 'Sat');
-INSERT INTO `visits` VALUES (1266934639347150878, '2020-09-13 00:00:00', '2020-09-13', 10, 4, 'Sun');
-INSERT INTO `visits` VALUES (1266934639347150879, '2020-09-14 00:00:00', '2020-09-14', 1, 1, 'Mon');
-INSERT INTO `visits` VALUES (1266934639347150880, '2020-09-15 00:00:00', '2020-09-15', 1, 1, 'Tue');
-
--- ----------------------------
 -- Table structure for yqm_app_version
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_app_version`;
@@ -1586,8 +1376,6 @@ CREATE TABLE `yqm_article`  (
 -- Records of yqm_article
 -- ----------------------------
 INSERT INTO `yqm_article` VALUES (2, '', 'yqm-shop2版本上线了', 'yqm-shop', 'http://127.0.0.1:8000/file/pic/20200527164526793230.png', 'yqm-shop1.3版本上线了', '<h3 data-v-01881cfc=\"\" style=\"text-align: center;\"><p>yqm-shop1.3版本上线了</p></h3>', '', '', '8', NULL, '', NULL, '2019-08-22 12:26:00', '2020-06-25 19:12:53', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `yqm_article` VALUES (3, '', '44', '444', 'http://127.0.0.1:8000/file/pic/20200527164543489004.png', '4444', '<p>55555</p>', '', '', '', 0, '', NULL, '2020-06-25 19:12:35', NULL, 1, 0, 0, 0, 0, 0, 0);
-INSERT INTO `yqm_article` VALUES (4, '', 'yqm-shop3.0', 'yqm-shop', 'https://image.dayouqiantu.cn/news.png', 'yqm-shop3.0', '<p><br/></p><p><img src=\"https://image.dayouqiantu.cn/add.png\"/></p><p>yqm-shop3.0</p>', '', '', '3', 0, '', NULL, '2020-07-02 12:15:13', '2020-07-03 17:58:19', 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for yqm_express
@@ -2646,13 +2434,6 @@ CREATE TABLE `yqm_store_seckill`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '商品秒杀产品表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of yqm_store_seckill
--- ----------------------------
-INSERT INTO `yqm_store_seckill` VALUES (5, 6, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg,https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg', '印刷各种印刷', '印刷各种印刷', 11.00, 22.00, 33.00, NULL, 1, 2000, 12, '张', 22.98, '<h1 style=\"text-align: center;\"><span style=\"font-family: 楷体, 楷体_GB2312, SimKai; font-size: 36px;\">印刷各种印刷</span></h1><p style=\"text-align: center;\"><span style=\"font-family: 楷体, 楷体_GB2312, SimKai; font-size: 36px;\"><br/></span></p><p style=\"text-align: center;\"><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807584910.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg\"/></p>', '2020-09-12', '2020-09-30', '2020-09-12 16:11:31', NULL, 1, 0, 0, 0, 2, 1, 211, 0, 34);
-INSERT INTO `yqm_store_seckill` VALUES (6, 5, 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', 'https://consoleapi.xinxintuan.co/file/pic/20200903171807568739.jpg', '广告版定制', '广告版定制', 2.00, 1.00, 11.00, NULL, 0, 8, 9, '米', 11.99, '<p style=\"text-align: center;\">广告版定制</p><p style=\"text-align: center;\"><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807641535.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807625149.jpg\"/><img src=\"https://consoleapi.xinxintuan.co/file/pic/20200903171807647067.jpg\"/></p>', '2020-09-12', '2020-09-30', '2020-09-12 16:13:22', '2020-09-13 10:15:24', 1, 0, 0, 0, 2, 1, 212, 0, 34);
-INSERT INTO `yqm_store_seckill` VALUES (7, 8, 'https://image.dayouqiantu.cn/5ca081af6183f.jpg', 'https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca081af6183f.jpg,https://image.dayouqiantu.cn/5ca04fa9c08ef.jpg', '多规格商品测试', '多规格商品测试', 4.00, 1.00, 9.00, NULL, 0, 57, 4, '张', 0.10, '<p><br/></p><p><img src=\"https://image.dayouqiantu.cn/5ca081af6183f.jpg\"/></p>', '2020-09-10', '2020-09-30', '2020-09-12 18:23:33', NULL, 1, 0, 0, 0, 1, 1, 215, 1, 34);
-
--- ----------------------------
 -- Table structure for yqm_store_visit
 -- ----------------------------
 DROP TABLE IF EXISTS `yqm_store_visit`;
@@ -2695,17 +2476,6 @@ CREATE TABLE `yqm_system_attachment`  (
   PRIMARY KEY (`att_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 121 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '附件管理表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of yqm_system_attachment
--- ----------------------------
-INSERT INTO `yqm_system_attachment` VALUES (113, '12_55_wechat_bargain_share_wap.jpg', '/home/yqm-shop/file/qrcode/12_55_wechat_bargain_share_wap.jpg', 'qrcode/12_55_wechat_bargain_share_wap.jpg', '3897220', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:38:52', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (114, '12_55_wechat_bargain_user_spread.jpg', '/home/yqm-shop/file/qrcode/12_55_wechat_bargain_user_spread.jpg', 'qrcode/12_55_wechat_bargain_user_spread.jpg', '43231', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:38:53', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (115, '4_59_uniappH5_product_detail_wap.jpg', '/home/yqm-shop/file/qrcode/4_59_uniappH5_product_detail_wap.jpg', 'qrcode/4_59_uniappH5_product_detail_wap.jpg', '3904929', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:43:20', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (116, '4_59_uniappH5_product_user_spread.jpg', '/home/yqm-shop/file/qrcode/4_59_uniappH5_product_user_spread.jpg', 'qrcode/4_59_uniappH5_product_user_spread.jpg', '113247', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 13:43:20', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (117, '4_75_uniappH5_product_detail_wap.jpg', '/home/yqm-shop/file/qrcode/4_75_uniappH5_product_detail_wap.jpg', 'qrcode/4_75_uniappH5_product_detail_wap.jpg', '4025717', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 17:25:11', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (118, '4_75_uniappH5_product_user_spread.jpg', '/home/yqm-shop/file/qrcode/4_75_uniappH5_product_user_spread.jpg', 'qrcode/4_75_uniappH5_product_user_spread.jpg', '113146', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 17:25:11', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (119, '915891458048_yqm-shop.jpg', '/home/yqm-shop/file/qrcode/915891458048_yqm-shop.jpg', 'qrcode/915891458048_yqm-shop.jpg', '4148444', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 22:21:17', NULL, 0);
-INSERT INTO `yqm_system_attachment` VALUES (120, '915891458048_yqm-shop.jpg', '/home/yqm-shop/file/qrcode/915891458048_yqm-shop.jpg', 'qrcode/915891458048_yqm-shop.jpg', '4148444', 'image/jpeg', 0, 1, 1, 0, '', '2020-09-14 22:21:17', NULL, 0);
 
 -- ----------------------------
 -- Table structure for yqm_system_city

@@ -18,6 +18,7 @@ import com.yqm.utils.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,7 +63,13 @@ public class UploadController {
         if(StrUtil.isBlank(type)){
             localUrl = redisUtils.getY(SystemConfigConstants.API_URL) + "/api";
         }
+
+        String imgUrl = redisUtils.getY(ShopConstants.IMG_URL);
+        if (StringUtils.isNotBlank(imgUrl)) {
+            imgUrl = "/file/";
+        }
         String mode = redisUtils.getY(SystemConfigConstants.FILE_STORE_MODE);
+
         StringBuilder url = new StringBuilder();
         if (ShopCommonEnum.STORE_MODE_1.getValue().toString().equals(mode)) { //存在走本地
             if(StrUtil.isBlank(localUrl)){
@@ -71,9 +78,9 @@ public class UploadController {
             for (MultipartFile file : files) {
                 LocalStorageDto localStorageDTO = localStorageService.create(name, file);
                 if ("".equals(url.toString())) {
-                    url = url.append(localUrl + "/file/" + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
+                    url = url.append(localUrl + imgUrl + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
                 } else {
-                    url = url.append(","+localUrl + "/file/" + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
+                    url = url.append(","+localUrl + imgUrl + localStorageDTO.getType() + "/" + localStorageDTO.getRealName());
                 }
             }
         } else {//走七牛云

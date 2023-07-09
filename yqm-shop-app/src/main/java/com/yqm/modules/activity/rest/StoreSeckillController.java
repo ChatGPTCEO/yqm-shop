@@ -131,29 +131,22 @@ public class StoreSeckillController {
             seckillTimeDto.setId(i.getId());
             //活动结束时间
             int activityEndHour = time + continued;
-            if (activityEndHour > 24) {
+            if (currentHour >= time && currentHour < activityEndHour) {
+                seckillTimeDto.setState("抢购中");
+                seckillTimeDto.setTime(jsonObject.get("time").toString().length() > 1 ? jsonObject.get("time").toString() + ":00" : "0" + jsonObject.get("time").toString() + ":00");
+                seckillTimeDto.setStatus(1);
+                seckillTimeDto.setStop(today + activityEndHour * 3600);
+                seckillTimeIndex.set(yqmSystemGroupDataList.indexOf(i));
+            } else if (currentHour < time) {
                 seckillTimeDto.setState("即将开始");
                 seckillTimeDto.setTime(jsonObject.get("time").toString().length() > 1 ? jsonObject.get("time").toString() + ":00" : "0" + jsonObject.get("time").toString() + ":00");
                 seckillTimeDto.setStatus(2);
-                seckillTimeDto.setStop(today + activityEndHour * 3600);
+                seckillTimeDto.setStop(today + time * 3600);
             } else {
-                if (currentHour >= time && currentHour < activityEndHour) {
-                    seckillTimeDto.setState("抢购中");
-                    seckillTimeDto.setTime(jsonObject.get("time").toString().length() > 1 ? jsonObject.get("time").toString() + ":00" : "0" + jsonObject.get("time").toString() + ":00");
-                    seckillTimeDto.setStatus(1);
-                    seckillTimeDto.setStop(today + activityEndHour * 3600);
-                    seckillTimeIndex.set(yqmSystemGroupDataList.indexOf(i));
-                } else if (currentHour < time) {
-                    seckillTimeDto.setState("即将开始");
-                    seckillTimeDto.setTime(jsonObject.get("time").toString().length() > 1 ? jsonObject.get("time").toString() + ":00" : "0" + jsonObject.get("time").toString() + ":00");
-                    seckillTimeDto.setStatus(2);
-                    seckillTimeDto.setStop(today + time * 3600);
-                } else {
-                    seckillTimeDto.setState("已结束");
-                    seckillTimeDto.setTime(jsonObject.get("time").toString().length() > 1 ? jsonObject.get("time").toString() + ":00" : "0" + jsonObject.get("time").toString() + ":00");
-                    seckillTimeDto.setStatus(0);
-                    seckillTimeDto.setStop(today + activityEndHour * 3600);
-                }
+                seckillTimeDto.setState("已结束");
+                seckillTimeDto.setTime(jsonObject.get("time").toString().length() > 1 ? jsonObject.get("time").toString() + ":00" : "0" + jsonObject.get("time").toString() + ":00");
+                seckillTimeDto.setStatus(0);
+                seckillTimeDto.setStop(today + activityEndHour * 3600);
             }
             list.add(seckillTimeDto);
         });
