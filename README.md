@@ -260,8 +260,8 @@ server
 |---  |--- | --- |
 |   码云  |  https://gitee.com/w907/yqm-shop.git  | https://gitee.com/w907/yqm-shop.git  |
 |   github   |  https://github.com/weiximei/yqm-shop.git  |https://github.com/weiximei/yqm-shop.git   |
-|   码云  |  https://gitee.com/w907/yqm-shop.git  | https://gitee.com/w907/yqm-shop.git  |
-|   github   |  https://github.com/weiximei/yqm-shop.git  |https://github.com/weiximei/yqm-shop.git   |
+|   码云  |  https://gitee.com/w907/yqm-shop-admin.git  | https://gitee.com/w907/yqm-shop-admin.git  |
+|   github   |  https://github.com/weiximei/yqm-shop-admin.git  |https://github.com/weiximei/yqm-shop-admin.git   |
 
 
 
