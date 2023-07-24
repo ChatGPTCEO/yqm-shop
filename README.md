@@ -6,7 +6,7 @@ yqm-shop 基于当前流行技术组合的前后端分离商城系统： SpringB
 
 
 # 官网体验地址（里面有演示地址与文档）
-|  官网文档地址  |  http://www.yqmshop.cn |
+|  官网文档地址  |  https://www.yqmshop.cn |
 |---|---|
 | 管理后台演示地址：  |   http://shop.yqmshop.cn/single |
 | 关注公众号点击单商户体验小程序与H5  |  ![公众号](docs/img/wx_gzh.jpg) |
@@ -260,6 +260,8 @@ server
 |---  |--- | --- |
 |   码云  |  https://gitee.com/w907/yqm-shop.git  | https://gitee.com/w907/yqm-shop.git  |
 |   github   |  https://github.com/weiximei/yqm-shop.git  |https://github.com/weiximei/yqm-shop.git   |
+|   码云  |  https://gitee.com/w907/yqm-shop-admin.git  | https://gitee.com/w907/yqm-shop-admin.git  |
+|   github   |  https://github.com/weiximei/yqm-shop-admin.git  |https://github.com/weiximei/yqm-shop-admin.git   |
 
 
 
