@@ -9,7 +9,7 @@ yqm-shop 基于当前流行技术组合的前后端分离商城系统： SpringB
 |  官网文档地址  |  https://www.yqmshop.cn |
 |---|---|
 | 管理后台演示地址：  |   http://shop.yqmshop.cn/single |
-| 关注公众号点击单商户体验小程序与H5  |  ![公众号](docs/img/wx_gzh.jpg) |
+| 关注公众号点击单商户体验小程序与H5  |  ![公众号]([docs/img/wx_gzh.jpg](https://gitee.com/w907/yqm-shop/raw/master/docs/img/wx_gzh.jpg)) |
 
 ####  重要通知
 关于log4j2漏洞说明
@@ -67,7 +67,7 @@ git clone https://gitee.com/w907/yqm-shop.git
 ```
 3. 导入项目打开它
 
-   ![idea](docs/img/idea_01.png)
+   ![idea](https://gitee.com/w907/yqm-shop/raw/master/docs/img/idea_01.png)
 
 4. 找到 `application-dev.yml` 文件，修改里面的 `数据库`、`redis` 信息
 5. 然后使用 `mvn clean install` ，或者使用开发工具的快捷操作方式
@@ -77,7 +77,7 @@ git clone https://gitee.com/w907/yqm-shop.git
 
 7. 打包
 
-   ![打包](docs/img/idea_package.png)
+   ![打包](https://gitee.com/w907/yqm-shop/raw/master/docs/img/idea_package.png)
 
 ## 后台前端工程（VUE端）
 > 请自行安装好 `nodejs`
@@ -87,7 +87,7 @@ git clone https://gitee.com/w907/yqm-shop.git
 2. 推荐使用 `pnpm` 或者 `yarn`  
    项目根目录下 执行 `pnpm install` 或者 `yarn install`
 
-   ![vscode](docs/img/vscode_01.png)
+   ![vscode](https://gitee.com/w907/yqm-shop/raw/master/docs/img/vscode_01.png)
 
 3. 访问 `http://localhost:8013`
 
@@ -291,11 +291,11 @@ server
 
 #### 系统预览
 
-![admin_1](docs/img/admin_1.png)
+![admin_1](https://gitee.com/w907/yqm-shop/raw/master/docs/img/admin_1.png)
 
-![admin01](docs/img/admin01.png)
+![admin01](https://gitee.com/w907/yqm-shop/raw/master/docs/img/admin01.png)
 
-![admin02](docs/img/admin02.png)
+![admin02](https://gitee.com/w907/yqm-shop/raw/master/docs/img/admin02.png)
 
 
 ### 技术选型
