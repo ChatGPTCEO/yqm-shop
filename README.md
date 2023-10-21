@@ -9,7 +9,9 @@ yqm-shop 基于当前流行技术组合的前后端分离商城系统： SpringB
 |  官网文档地址  |  https://www.yqmshop.cn |
 |---|---|
 | 管理后台演示地址：  |   http://shop.yqmshop.cn/single |
-| 关注公众号点击单商户体验小程序与H5  |  ![公众号]([docs/img/wx_gzh.jpg](https://gitee.com/w907/yqm-shop/raw/master/docs/img/wx_gzh.jpg)) |
+| 关注公众号点击单商户体验小程序与H5  |  ![公众号](https://gitee.com/w907/yqm-shop/raw/master/docs/img/wx_gzh.jpg) |
+
+https://github.com/weiximei/yqm-shop/blob/master/docs/img/wx_gzh.jpg
 
 ####  重要通知
 关于log4j2漏洞说明
